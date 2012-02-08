@@ -51,7 +51,8 @@
 
 -(void) loadDataFromExerciseObject
 {
-    //if (self.exercise.exercise_id == nil) self.exercise.exercise_id = 0;
+    if (self.exercise.exercise_id == nil) self.exercise.exercise_id = 0;
+    NSLog(@"set new property to %d", [self.exercise.exercise_id intValue]);
     self.nameLabel.text = self.exercise.name;
     self.setsLabel.text = self.exercise.sets;
     self.repsLabel.text = self.exercise.reps;
