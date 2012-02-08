@@ -59,11 +59,13 @@
          {
              [self setupFetchedResultsController];
              [self loadData:self.buddyDatabase];
+             NSLog (@"created database");
          }];
     } else if (self.buddyDatabase.documentState == UIDocumentStateClosed) {
         [self.buddyDatabase openWithCompletionHandler:^(BOOL success) {
             [self setupFetchedResultsController];
             [self loadData:self.buddyDatabase];
+            NSLog (@"opened database");
         }];
     } else if (self.buddyDatabase.documentState == UIDocumentStateNormal) {
         [self setupFetchedResultsController];
@@ -78,7 +80,6 @@
         _buddyDatabase = buddyDatabase;
         [self useDocument];
     }
-    NSLog (@"created database");
 }
 
 
@@ -93,6 +94,12 @@
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"Default Database"];
         self.buddyDatabase = [[UIManagedDocument alloc]initWithFileURL:url];
+        
+        // Migrate Models
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                                 [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+        self.buddyDatabase.persistentStoreOptions = options;
     }
 }
 
