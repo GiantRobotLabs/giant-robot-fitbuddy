@@ -38,7 +38,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1476" y="747"/>
+            <point key="canvasLocation" x="1476" y="763"/>
         </scene>
         <scene sceneID="Cf3-9e-rew">
             <objects>
@@ -47,6 +47,7 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nrE-1l-6aV">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="gray" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Exercise Cell" id="7MO-oI-m9I">
@@ -83,7 +84,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="920" y="157"/>
+            <point key="canvasLocation" x="920" y="169"/>
         </scene>
         <scene sceneID="4Q6-Nn-SE3">
             <objects>
@@ -113,36 +114,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1947" y="157"/>
-        </scene>
-        <scene sceneID="dlW-yk-4Cg">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k7l-ER-yzI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="7Ym-Qg-cFL" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Rp-SG-Ihk">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WorkoutLogCell" id="Kek-KY-iPQ">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="7Ym-Qg-cFL" id="z6H-uP-3bN"/>
-                            <outlet property="delegate" destination="7Ym-Qg-cFL" id="CdQ-07-9po"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="XeL-iT-Efs"/>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="920" y="-450"/>
+            <point key="canvasLocation" x="1959" y="169"/>
         </scene>
         <scene sceneID="5">
             <objects>
@@ -341,7 +313,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1476" y="157"/>
+            <point key="canvasLocation" x="1476" y="169"/>
         </scene>
         <scene sceneID="bmM-L2-ja8">
             <objects>
@@ -375,7 +347,7 @@
                     <tabBarItem key="tabBarItem" systemItem="more" id="DH0-yb-hXB"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-170" y="771"/>
+            <point key="canvasLocation" x="-168" y="763"/>
         </scene>
         <scene sceneID="c0X-sQ-Zw7">
             <objects>
@@ -397,7 +369,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7Ym-Qg-cFL" kind="push" id="iO9-Na-r5l"/>
+                                    <segue destination="BbA-dx-XEL" kind="push" identifier="Start Workout Segue" id="hXO-fQ-XYY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select a workout..." lineBreakMode="tailTruncation" minimumFontSize="10" id="qER-zw-kCh">
@@ -431,10 +403,13 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ggl-wx-gZH">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="P6T-p0-EAi" kind="push" id="w0X-5z-YUO"/>
+                                <segue destination="P6T-p0-EAi" kind="push" identifier="Add New Workout Segue" id="w0X-5z-YUO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="workoutTable" destination="rlV-Jf-JAd" id="wTR-4Z-Wtm"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="374" y="-450"/>
@@ -453,12 +428,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SCB-P5-gTQ">
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SCB-P5-gTQ">
                                 <rect key="frame" x="20" y="89" width="280" height="258"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Workout Exercise Cell" id="xQJ-fv-ja0">
+                                    <tableViewCell opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Workout Exercise Cell" id="xQJ-fv-ja0">
                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -469,7 +444,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercises" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="ef0-5N-tYv">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select Exercises for Workout" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="ef0-5N-tYv">
                                 <rect key="frame" x="20" y="59" width="280" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -486,7 +461,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="920" y="-1118"/>
+            <point key="canvasLocation" x="920" y="-450"/>
         </scene>
         <scene sceneID="xYw-pW-9ze">
             <objects>
@@ -569,6 +544,9 @@
         </class>
         <class className="WorkoutViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="workoutTable" candidateClass="UITableView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -576,4 +554,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="hXO-fQ-XYY"/>
+    </inferredMetricsTieBreakers>
 </document>

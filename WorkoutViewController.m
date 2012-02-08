@@ -9,6 +9,7 @@
 #import "WorkoutViewController.h"
 
 @implementation WorkoutViewController
+@synthesize workoutTable;
 
 -(void) viewDidAppear:(BOOL)animated 
 {
@@ -19,4 +20,8 @@
     
 }
 
+- (void)viewDidUnload {
+    [self setWorkoutTable:nil];
+    [super viewDidUnload];
+}
 @end

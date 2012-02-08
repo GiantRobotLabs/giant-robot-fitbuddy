@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WorkoutViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *workoutTable;
 
 @end
