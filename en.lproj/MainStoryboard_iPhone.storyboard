@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4jX-6G-SqD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="JC5-4j-nfb">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -10,7 +10,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcY-Pz-yUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Add Exercise" title="Add Exercise" modalTransitionStyle="flipHorizontal" id="XAz-R9-ilW" customClass="AddExerciseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RC9-mb-3Ut">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="New Exercise" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="ESf-xa-TjF">
@@ -38,14 +38,14 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="346" y="-462"/>
+            <point key="canvasLocation" x="920" y="759"/>
         </scene>
         <scene sceneID="Cf3-9e-rew">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGT-xO-Kng" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="BbA-dx-XEL" customClass="ExerciseListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nrE-1l-6aV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -83,18 +83,18 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="346" y="169"/>
+            <point key="canvasLocation" x="364" y="169"/>
         </scene>
         <scene sceneID="4Q6-Nn-SE3">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ge-pn-Jf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" id="eWY-4m-xuz" customClass="NotesEditorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p4t-EY-bg2">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="SXq-GB-xKe">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,32 +113,32 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1432" y="169"/>
+            <point key="canvasLocation" x="1391" y="169"/>
         </scene>
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="GymBuddyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" lineBreakMode="tailTruncation" minimumFontSize="10" id="ALm-Vg-D2B">
-                                <rect key="frame" x="22" y="44" width="214" height="21"/>
+                                <rect key="frame" x="22" y="34" width="214" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="JnZ-0W-xgb">
-                                <rect key="frame" x="18" y="73" width="70" height="70"/>
+                                <rect key="frame" x="18" y="56" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MNa-Jh-6Bn">
-                                <rect key="frame" x="179" y="73" width="70" height="70"/>
+                                <rect key="frame" x="179" y="56" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="+" backgroundImage="gb-button.png">
@@ -153,7 +153,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="X8z-CS-zLT">
-                                <rect key="frame" x="101" y="73" width="70" height="70"/>
+                                <rect key="frame" x="101" y="56" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="-" backgroundImage="gb-button.png">
@@ -168,21 +168,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reps" lineBreakMode="tailTruncation" minimumFontSize="10" id="2cR-2T-bvm">
-                                <rect key="frame" x="22" y="151" width="214" height="25"/>
+                                <rect key="frame" x="22" y="133" width="214" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="K8A-3W-UFm">
-                                <rect key="frame" x="20" y="184" width="70" height="70"/>
+                                <rect key="frame" x="20" y="159" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GEE-2r-Wb5">
-                                <rect key="frame" x="101" y="185" width="70" height="70"/>
+                                <rect key="frame" x="101" y="160" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="-" backgroundImage="gb-button.png">
@@ -197,7 +197,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6wv-Z8-MmC">
-                                <rect key="frame" x="179" y="184" width="70" height="70"/>
+                                <rect key="frame" x="179" y="159" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="+" backgroundImage="gb-button.png">
@@ -212,21 +212,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sets" lineBreakMode="tailTruncation" minimumFontSize="10" id="R5H-Oc-zmh">
-                                <rect key="frame" x="20" y="262" width="221" height="25"/>
+                                <rect key="frame" x="20" y="236" width="221" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="4jg-5W-JPb">
-                                <rect key="frame" x="20" y="300" width="70" height="70"/>
+                                <rect key="frame" x="20" y="263" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tGK-Os-H2q">
-                                <rect key="frame" x="101" y="300" width="70" height="70"/>
+                                <rect key="frame" x="101" y="263" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="-" backgroundImage="gb-button.png">
@@ -241,7 +241,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bis-mf-sYx">
-                                <rect key="frame" x="179" y="300" width="70" height="70"/>
+                                <rect key="frame" x="179" y="263" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="+" backgroundImage="gb-button.png">
@@ -256,14 +256,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2.5" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="Yxc-mV-FrL">
-                                <rect key="frame" x="257" y="73" width="48" height="70"/>
+                                <rect key="frame" x="255" y="56" width="48" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+/-" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="Gz5-Lu-BFs">
-                                <rect key="frame" x="244" y="44" width="61" height="21"/>
+                                <rect key="frame" x="244" y="34" width="61" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -277,7 +277,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nfq-XO-h2Z">
-                                <rect key="frame" x="259" y="350" width="46" height="46"/>
+                                <rect key="frame" x="262" y="316" width="41" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" image="gb-undo.png">
@@ -318,6 +318,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31e-Wk-FpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="4jX-6G-SqD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Exercises" id="6JQ-FD-Pig"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fcm-UB-hLj"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -334,16 +335,30 @@
             </objects>
             <point key="canvasLocation" x="-168" y="169"/>
         </scene>
+        <scene sceneID="shr-UV-uDI">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sgT-xl-xJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Z9g-Uw-YA2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i1D-97-RFw">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="DH0-yb-hXB"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-170" y="771"/>
+        </scene>
         <scene sceneID="c0X-sQ-Zw7">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMR-TJ-IqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="uCq-Hg-c6I" sceneMemberID="viewController">
+                <viewController id="uCq-Hg-c6I" customClass="WorkoutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qdu-o8-pYM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9cD-Wp-M16">
-                                <rect key="frame" x="105" y="274" width="110" height="110"/>
+                                <rect key="frame" x="105" y="237" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Start" backgroundImage="gb-button.png">
@@ -354,24 +369,75 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <tabBar contentMode="scaleToFill" id="VG8-3J-Kfh">
-                                <rect key="frame" x="0.0" y="411" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Exercises" id="jQ8-5e-gB5"/>
-                                    <tabBarItem title="Workouts" id="542-Er-89k"/>
-                                    <tabBarItem title="Playlists" id="yyD-M6-Un8"/>
-                                    <tabBarItem title="Checkin" id="tP3-U6-NaB"/>
-                                </items>
-                            </tabBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select a workout..." lineBreakMode="tailTruncation" minimumFontSize="10" id="qER-zw-kCh">
+                                <rect key="frame" x="20" y="1" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rlV-Jf-JAd">
+                                <rect key="frame" x="20" y="38" width="280" height="176"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Workout Cell" id="kdc-D7-hIG">
+                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.44313728810000003" green="0.40000003579999999" blue="0.34509804840000002" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="R6B-Je-wc0"/>
+                    <navigationItem key="navigationItem" id="R6B-Je-wc0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ggl-wx-gZH"/>
+                    </navigationItem>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-168" y="-462"/>
+            <point key="canvasLocation" x="374" y="-450"/>
+        </scene>
+        <scene sceneID="xYw-pW-9ze">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQu-t3-0Wx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController id="JC5-4j-nfb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="5Uk-BA-shm">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="eDm-sq-zjM" kind="relationship" relationship="viewControllers" id="mNE-sl-YBB"/>
+                        <segue destination="4jX-6G-SqD" kind="relationship" relationship="viewControllers" id="riy-dJ-j9O"/>
+                        <segue destination="Z9g-Uw-YA2" kind="relationship" relationship="viewControllers" id="nY0-ef-hG0"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-788" y="-70"/>
+        </scene>
+        <scene sceneID="2js-Ng-JOH">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o3s-5g-ztf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="eDm-sq-zjM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Workout" id="kMg-oN-x6f"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="JRc-x1-gOc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uCq-Hg-c6I" kind="relationship" relationship="rootViewController" id="oY8-RB-a0f"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-152" y="-450"/>
         </scene>
     </scenes>
     <resources>
@@ -406,6 +472,9 @@
             <relationships>
                 <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
             </relationships>
+        </class>
+        <class className="WorkoutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
