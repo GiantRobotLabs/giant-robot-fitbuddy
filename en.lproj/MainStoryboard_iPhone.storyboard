@@ -397,7 +397,9 @@
                         <color key="backgroundColor" red="0.44313728810000003" green="0.40000003579999999" blue="0.34509804840000002" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="R6B-Je-wc0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ggl-wx-gZH"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ggl-wx-gZH">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
             </objects>
