@@ -14,6 +14,18 @@
 @synthesize exercise = _exercise;
 @synthesize fetchedResultsController = _fetchedResultsController;
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    [self.addExerciseField addTarget:self
+                              action:@selector(newExerciseTextFieldFinished:)
+                    forControlEvents:UIControlEventEditingDidEndOnExit];
+}
+
+- (void) newExerciseTextFieldFinished:(UITextField *)sender {
+    [sender resignFirstResponder];
+    NSLog(@"resign");
+}
+
 - (void) setExercise:(Exercise *)exercise
 {
     _exercise = exercise;
