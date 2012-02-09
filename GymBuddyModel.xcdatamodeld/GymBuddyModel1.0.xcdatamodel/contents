@@ -22,10 +22,10 @@
         <attribute name="workout_id" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="workout_name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <fetchRequest name="MasterList" entity="Exercise" predicateString="exercise_id == 0"/>
+    <fetchRequest name="MasterList" entity="Exercise" predicateString="deleted == 0"/>
     <elements>
-        <element name="Exercise" positionX="-272" positionY="228" width="128" height="150"/>
-        <element name="Workout" positionX="-540" positionY="549" width="128" height="120"/>
-        <element name="ExerciseLog" positionX="-333" positionY="543" width="153" height="105"/>
+        <element name="Exercise" positionX="-281" positionY="279" width="128" height="150"/>
+        <element name="ExerciseLog" positionX="-162" positionY="480" width="153" height="105"/>
+        <element name="Workout" positionX="-405" positionY="465" width="128" height="120"/>
     </elements>
 </model>
