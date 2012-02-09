@@ -21,7 +21,8 @@
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
                                                                         managedObjectContext:self.buddyDatabase.managedObjectContext 
                                                                            sectionNameKeyPath:nil 
-                                                                                    cacheName:nil];    
+                                                                                    cacheName:nil];  
+    NSLog(@"end setupFetchedResultsController");
 }
 
 - (void) loadData: (UIManagedDocument *) document
@@ -50,6 +51,8 @@
         NSLog(@"match");
         exercise = [matches lastObject];
     }
+    
+    NSLog(@"end loadData");
 }
 
 -(void) useDocument
@@ -71,6 +74,8 @@
         [self setupFetchedResultsController];
         [self loadData:self.buddyDatabase];
     }
+    
+    NSLog(@"end useDocument");
 }
 
 -(void)setBuddyDatabase:(UIManagedDocument *)buddyDatabase

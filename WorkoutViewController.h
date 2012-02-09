@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataViewController.h"
 
-@interface WorkoutViewController : UIViewController
+@interface WorkoutViewController : CoreDataViewController
+
+@property (strong, nonatomic) UIManagedDocument *buddyDatabase;
 @property (weak, nonatomic) IBOutlet UITableView *workoutTable;
 
 @end
