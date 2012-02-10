@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
 #import "CoreDataTableController.h"
 #import "Workout.h"
 #import "Exercise.h"
@@ -20,6 +19,6 @@
 @property (nonatomic, strong) Workout *workout;
 @property (nonatomic, strong) Exercise *exercise;
 
-@property (strong, nonatomic) UIManagedDocument *document;
+@property (nonatomic, strong) UIManagedDocument *document;
 
 @end

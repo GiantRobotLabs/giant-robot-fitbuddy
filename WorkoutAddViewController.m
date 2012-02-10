@@ -8,6 +8,7 @@
 
 #import "WorkoutAddViewController.h"
 #import "CoreDataHelper.h"
+#import "UICheckboxButton.h"
 
 @implementation WorkoutAddViewController
 @synthesize workoutNameTextField;
@@ -31,7 +32,26 @@
 
 -(void) loadData
 {
+    if (!self.document)    
+    {
+        [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
+            self.document = doc;
+        }]; 
+    }
+    else
+    {
+       [self setupFetchedResultsController];
+    }
+}
+
+-(void) setDocument:(UIManagedDocument *)document
+{
+    if (!self.document)
+    {
+        _document = document;
+    }
     
+    [self setupFetchedResultsController];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -44,19 +64,6 @@
     [self.workoutNameTextField addTarget:self
                        action:@selector(workoutNameTextFieldFinished:)
              forControlEvents:UIControlEventEditingDidEndOnExit];
-    
-    // Setup the database
-    if (!self.document)
-    {
-        [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
-            self.document = doc;
-            NSLog(@"Database block completed");
-        }];
-    } 
-    else
-    {
-        [self setupFetchedResultsController];
-    }
     
     // Visual stuff
     self.navigationItem.title = nil;
@@ -71,21 +78,14 @@
 
 - (void) workoutNameTextFieldFinished:(UITextField *)sender {
     [sender resignFirstResponder];
-    NSLog(@"resign");
 }
 
 - (void) newExerciseTextFieldFinished:(UITextField *)sender {
     [sender resignFirstResponder];
-    NSLog(@"resign");
 }
 
 - (IBAction)addWorkout:(UITextField *)sender {
     self.workout.workout_name = sender.text;
-}
-
-- (void) viewWillAppear:(BOOL)animated
-{
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -93,30 +93,15 @@
     if ([self.workoutNameTextField.text isEqualToString:@""]) 
     {
         [self.workout.managedObjectContext deleteObject:self.workout];
-        NSLog(@"Deleting object");
-    }    
-}
-
--(void)setDocument:(UIManagedDocument *) document
-{
-    if (_document != document)
-    {
-        _document = document;
-        [self setupFetchedResultsController];
-        
-    }
+    }     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Workout Exercise Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    [cell.textLabel setTextColor:([UIColor whiteColor])];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    // Prototype Components
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Workout Exercise Cell"];
+    UILabel *label = (UILabel *)[cell viewWithTag:101];
+    UICheckboxButton *checkbox = (UICheckboxButton *)[cell viewWithTag:100];
     
     // Visual stuff
     UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -126,15 +111,17 @@
     
     // Add the data to the cell
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = exercise.name;
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:(22.0)];
-    cell.textLabel.backgroundColor = [UIColor clearColor];
-    
-    [cell.textLabel sizeToFit];
-    [cell.contentView sizeToFit];
+    label.text = exercise.name;    
+    checkbox.exerciseObject = exercise;
+    checkbox.workoutObject = self.workout;
     
     return cell;
 }
 
+- (void)checkboxClicked:(UICheckboxButton *)sender 
+{
+    Exercise *value = (Exercise *)sender.exerciseObject;
+    NSLog(@"Clicky: %@", value.name);
+}
 
 @end
