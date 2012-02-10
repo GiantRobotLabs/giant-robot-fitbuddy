@@ -7,105 +7,52 @@
 //
 
 #import "ExerciseListTableViewController.h"
-#import "Exercise.h"   
+#import "Exercise.h"
+#import "CoreDataHelper.h"
 
 @implementation ExerciseListTableViewController
-@synthesize buddyDatabase = _buddyDatabase;
+
+@synthesize document = _document;
 @synthesize tableViewSwiper = _tableViewSwiper;
 
 -(void) setupFetchedResultsController
 {
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:self.buddyDatabase.managedObjectContext 
+                                                                        managedObjectContext:self.document.managedObjectContext 
                                                                            sectionNameKeyPath:nil 
-                                                                                    cacheName:nil];  
-    NSLog(@"end setupFetchedResultsController");
+                                                                                    cacheName:nil];
 }
 
-- (void) loadData: (UIManagedDocument *) document
+-(void)setDocument:(UIManagedDocument *) document
 {
-    Exercise *exercise = nil;
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
-    request.predicate = [NSPredicate predicateWithFormat:@"name = %@", @"Chest Press"];
-    NSSortDescriptor *sortDescriptior = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending: YES];
-    request.sortDescriptors = [NSArray arrayWithObject:sortDescriptior];
-    
-    NSError *error = nil;
-    NSArray *matches = [document.managedObjectContext executeFetchRequest:request error:&error];
-    
-    if (!matches || ([matches count] > 1))
+    if (_document != document)
     {
-        // ERROR Condition
-        NSLog(@"too many rows");
-    } 
-    else if ([matches count] == 0)
-    {
-        // Empty Table    
-    } 
-    else
-    {
-        NSLog(@"match");
-        exercise = [matches lastObject];
-    }
-    
-    NSLog(@"end loadData");
-}
-
--(void) useDocument
-{
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[self.buddyDatabase.fileURL path]]) {
-        [self.buddyDatabase saveToURL:self.buddyDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success)
-         {
-             [self setupFetchedResultsController];
-             [self loadData:self.buddyDatabase];
-             NSLog (@"created database");
-         }];
-    } else if (self.buddyDatabase.documentState == UIDocumentStateClosed) {
-        [self.buddyDatabase openWithCompletionHandler:^(BOOL success) {
-            [self setupFetchedResultsController];
-            [self loadData:self.buddyDatabase];
-            NSLog (@"opened database");
-        }];
-    } else if (self.buddyDatabase.documentState == UIDocumentStateNormal) {
+        _document = document;
         [self setupFetchedResultsController];
-        [self loadData:self.buddyDatabase];
-    }
-    
-    NSLog(@"end useDocument");
-}
-
--(void)setBuddyDatabase:(UIManagedDocument *)buddyDatabase
-{
-    if (_buddyDatabase != buddyDatabase)
-    {
-        _buddyDatabase = buddyDatabase;
-        [self useDocument];
     }
 }
-
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    // Visual stuff
     [self.navigationItem setTitle:nil];
     [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:@"gb-title.png"] forBarMetrics:UIBarMetricsDefault];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
     
-    if (!self.buddyDatabase) {
-        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"Default Database"];
-        self.buddyDatabase = [[UIManagedDocument alloc]initWithFileURL:url];
-        
-        // Migrate Models
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                                 [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-        self.buddyDatabase.persistentStoreOptions = options;
-    }
+    // Setup the database
+    if (!self.document)
+    {
+        [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
+            self.document = doc;
+            NSLog(@"Database block completed");
+        }];
+    }  
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,13 +66,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
-
+    // Visual stuff
     UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
     backView.backgroundColor = [UIColor clearColor];
     cell.backgroundView = backView;
     cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-cell.png"]];
     
+    // Add the data to the cell
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = exercise.name;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:(22.0)];
@@ -135,6 +82,7 @@
     [cell.contentView sizeToFit];
     
     return cell;
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -144,7 +92,7 @@
     NSLog(@"segue: %@", segue.identifier);
     if ([segue.identifier isEqualToString: (@"Add Exercise Segue")])
     {
-        exercise = [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:self.buddyDatabase.managedObjectContext];
+        exercise = [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:self.document.managedObjectContext];
     }
     else
     {
@@ -208,7 +156,7 @@
         //Update the cell or model 
         cell.editing = YES;
         Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [self.buddyDatabase.managedObjectContext deleteObject:exercise];
+        [self.document.managedObjectContext deleteObject:exercise];
     }
         
 }

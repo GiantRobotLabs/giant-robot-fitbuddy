@@ -2,7 +2,7 @@
 //  Workout.m
 //  GymBuddy
 //
-//  Created by John Neyer on 2/7/12.
+//  Created by John Neyer on 2/9/12.
 //  Copyright (c) 2012 jneyer.com. All rights reserved.
 //
 
@@ -11,10 +11,10 @@
 
 @implementation Workout
 
-@dynamic workout_name;
-@dynamic workout_id;
-@dynamic exercise_id;
 @dynamic deleted;
+@dynamic exercise_id;
 @dynamic sequence;
+@dynamic workout_id;
+@dynamic workout_name;
 
 @end

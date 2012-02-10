@@ -2,7 +2,7 @@
 //  Workout.h
 //  GymBuddy
 //
-//  Created by John Neyer on 2/7/12.
+//  Created by John Neyer on 2/9/12.
 //  Copyright (c) 2012 jneyer.com. All rights reserved.
 //
 
@@ -12,10 +12,10 @@
 
 @interface Workout : NSManagedObject
 
-@property (nonatomic, retain) NSString * workout_name;
-@property (nonatomic, retain) NSNumber * workout_id;
-@property (nonatomic, retain) NSNumber * exercise_id;
 @property (nonatomic, retain) NSNumber * deleted;
+@property (nonatomic, retain) NSNumber * exercise_id;
 @property (nonatomic, retain) NSNumber * sequence;
+@property (nonatomic, retain) NSNumber * workout_id;
+@property (nonatomic, retain) NSString * workout_name;
 
 @end

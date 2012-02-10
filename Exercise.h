@@ -2,7 +2,7 @@
 //  Exercise.h
 //  GymBuddy
 //
-//  Created by John Neyer on 2/8/12.
+//  Created by John Neyer on 2/9/12.
 //  Copyright (c) 2012 jneyer.com. All rights reserved.
 //
 

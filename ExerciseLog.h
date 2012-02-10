@@ -2,7 +2,7 @@
 //  ExerciseLog.h
 //  GymBuddy
 //
-//  Created by John Neyer on 2/7/12.
+//  Created by John Neyer on 2/9/12.
 //  Copyright (c) 2012 jneyer.com. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 @interface ExerciseLog : NSManagedObject
 
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSNumber * exercise_id;
 @property (nonatomic, retain) NSNumber * log_id;
 @property (nonatomic, retain) NSNumber * workout_id;
-@property (nonatomic, retain) NSNumber * exercise_id;
 
 @end

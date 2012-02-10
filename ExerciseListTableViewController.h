@@ -11,7 +11,7 @@
 
 @interface ExerciseListTableViewController : CoreDataTableViewController
 
-@property (strong, nonatomic) UIManagedDocument *buddyDatabase;
+@property (strong, nonatomic) UIManagedDocument *document;
 @property (weak, nonatomic) UISwipeGestureRecognizer *tableViewSwiper;
 
 @end
