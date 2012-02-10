@@ -50,36 +50,22 @@
     {
         [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
             self.document = doc;
-            NSLog(@"Database block completed");
         }];
     }  
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Exercise Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    [cell.textLabel setTextColor:([UIColor whiteColor])];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+{    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Exercise Cell"];
+    UILabel *label = (UILabel *)[cell viewWithTag:101];
     
     // Visual stuff
-    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
-    backView.backgroundColor = [UIColor clearColor];
-    cell.backgroundView = backView;
+    cell.backgroundView.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-cell.png"]];
     
     // Add the data to the cell
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = exercise.name;
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:(22.0)];
-    cell.textLabel.backgroundColor = [UIColor clearColor];
-    
-    [cell.textLabel sizeToFit];
-    [cell.contentView sizeToFit];
+    label.text = exercise.name;
     
     return cell;
 
@@ -159,6 +145,30 @@
         [self.document.managedObjectContext deleteObject:exercise];
     }
         
+}
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) 
+    {
+        //Check if index path is valid
+        if(indexPath)
+        {
+            //Get the cell out of the table view
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            
+            //Update the cell or model 
+            cell.editing = YES;
+            Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            [self.document.managedObjectContext deleteObject:exercise];
+        }
+    }    
 }
 
 @end
