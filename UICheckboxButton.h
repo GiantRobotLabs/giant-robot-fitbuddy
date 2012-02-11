@@ -7,14 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Exercise.h"
-#import "Workout.h"
 
 @interface UICheckboxButton : UIButton
 
 @property (nonatomic) BOOL checked;
-@property (nonatomic, weak) Exercise *exerciseObject;
-@property (nonatomic, weak) Workout *workoutObject;
 
 -(void) setImageForValue: (BOOL) checked;
 

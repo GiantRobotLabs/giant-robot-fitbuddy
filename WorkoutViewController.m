@@ -11,9 +11,10 @@
 #import "Workout.h"
 
 @implementation WorkoutViewController 
-@synthesize workoutTableView = _workoutTable;
 
+@synthesize editButton = _editButton;
 @synthesize document = _document;
+@synthesize edit = _edit;
 
 -(void) setupFetchedResultsController
 {
@@ -24,21 +25,7 @@
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
                                                                         managedObjectContext:self.document.managedObjectContext 
                                                                           sectionNameKeyPath:nil 
-                                                                                   cacheName:nil]; 
-}
-
--(void) loadData
-{
-    if (!self.document)    
-    {
-        [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
-            self.document = doc;
-        }]; 
-    }
-    else
-    {
-        [self setupFetchedResultsController];
-    }
+                                                                                   cacheName:nil];
 }
 
 -(void) setDocument:(UIManagedDocument *)document
@@ -54,18 +41,26 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     // Setup and initialize
-    self.tableView = self.workoutTableView;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     
     // Visual stuff
     self.navigationItem.title = nil;
     [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:@"gb-title.png"] forBarMetrics:UIBarMetricsDefault];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
-    self.workoutTableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.editButton.tintColor = [UIColor clearColor];
+    self.editButton.enabled = NO;
     
-    // Initialize view
-    [self loadData];
+    // Initialize view    
+    if (!self.document)    
+    {
+        [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
+            self.document = doc;
+        }]; 
+    }
+    else
+    {
+        [self setupFetchedResultsController];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,6 +72,7 @@
     // Visual stuff
     cell.backgroundView.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-cell.png"]];
+    cell.selectedBackgroundView.backgroundColor = [UIColor darkGrayColor];
     
     // Add the data to the cell
     Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -98,36 +94,48 @@
         if(indexPath)
         {
             //Get the cell out of the table view
-            UITableViewCell *cell = [self.workoutTableView cellForRowAtIndexPath:indexPath];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
             
             //Update the cell or model 
             cell.editing = YES;
             Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
             [self.document.managedObjectContext deleteObject:workout];
         }
-        [self performFetch];
-        [self.workoutTableView reloadData];
+        //[self performFetch];
+        [self.tableView reloadData];
     }    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath *indexPath = [self.workoutTableView indexPathForCell:sender];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     Workout *workout = nil;
+    
     if ([segue.identifier isEqualToString: (@"Add Workout Segue")])
     {
-        workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout" inManagedObjectContext:self.document.managedObjectContext];
+        workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout" 
+                                                inManagedObjectContext:self.document.managedObjectContext];
     }
     else
     {
         workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        NSLog(@"before segue: %@", workout.workout_name);
     }
     
-    if ([segue.destinationViewController respondsToSelector:@selector(setWorkout:)]) {
+    if ([segue.destinationViewController respondsToSelector:@selector(setWorkout:)]) 
+    {
         [segue.destinationViewController performSelector:@selector(setWorkout:) withObject:workout];
     }
-    [self loadData];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.editButton.enabled = YES;
+    self.editButton.tintColor = [UIColor blackColor];
+}
 
+- (void)viewDidUnload {
+    [self setEditButton:nil];
+    [super viewDidUnload];
+}
 @end

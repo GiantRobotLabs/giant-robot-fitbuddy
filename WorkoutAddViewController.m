@@ -8,15 +8,16 @@
 
 #import "WorkoutAddViewController.h"
 #import "CoreDataHelper.h"
-#import "UICheckboxButton.h"
 
 @implementation WorkoutAddViewController
 @synthesize workoutNameTextField;
-@synthesize workoutTableView;
 
 @synthesize workout = _workout;
 @synthesize exercise = _exercise;
+@synthesize workoutSet = _workoutSet;
+
 @synthesize document = _document;
+
 
 -(void) setupFetchedResultsController
 {
@@ -25,41 +26,26 @@
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:self.document.managedObjectContext 
+                                                                        managedObjectContext:self.workout.managedObjectContext 
                                                                           sectionNameKeyPath:nil 
-                                                                                   cacheName:nil]; 
+                                                                                   cacheName:nil];
+    
+    NSLog(@"setupFRC: %d", [self.fetchedResultsController fetchedObjects].count);
 }
 
--(void) loadData
+-(void)setDocument:(UIManagedDocument *) document
 {
-    if (!self.document)    
-    {
-        [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
-            self.document = doc;
-        }]; 
-    }
-    else
-    {
-       [self setupFetchedResultsController];
-    }
-}
-
--(void) setDocument:(UIManagedDocument *)document
-{
-    if (!self.document)
+    if (_document != document)
     {
         _document = document;
+        [self setupFetchedResultsController];
     }
-    
-    [self setupFetchedResultsController];
+    NSLog(@"really standing in it");
 }
 
--(void) viewDidAppear:(BOOL)animated
+-(void) viewWillAppear:(BOOL)animated
 {
     // Setup and initialize
-    self.tableView = self.workoutTableView;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     
     [self.workoutNameTextField addTarget:self
                        action:@selector(workoutNameTextFieldFinished:)
@@ -69,12 +55,35 @@
     self.navigationItem.title = nil;
     [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:@"gb-title.png"] forBarMetrics:UIBarMetricsDefault];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
-    self.workoutTableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     // Initialize the view
-    [self loadData];
+    self.workoutSet = [self.workout mutableOrderedSetValueForKey:@"exercises"];
+    self.workoutNameTextField.text = self.workout.workout_name;
+    
+    // Setup the database
+    NSLog(@"you are here");
+    if (!self.document)
+    {
+        NSLog(@"you're standing in it");
+        [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
+            self.document = doc;
+            NSLog(@"in the thick of it");
+        }];
+        NSLog(@"passed it");
+    }  
+    
+    [self setupFetchedResultsController];
+
+    // Listen for checkboxes
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(checkboxClicked:) 
+                                                 name:@"CheckboxToggled"
+                                               object:nil];
+    
 
 }
+
 
 - (void) workoutNameTextFieldFinished:(UITextField *)sender {
     [sender resignFirstResponder];
@@ -90,10 +99,13 @@
 
 - (void) viewWillDisappear:(BOOL)animated
 {
-    if ([self.workoutNameTextField.text isEqualToString:@""]) 
+    // Set the name for empty workout objects
+    
+    if (!self.workoutNameTextField.hasText) 
     {
-        [self.workout.managedObjectContext deleteObject:self.workout];
-    }     
+        self.workout.workout_name = @"Empty Workout";
+        NSLog(@"set workout name %@", self.workout.workout_name);
+    } 
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,17 +123,64 @@
     
     // Add the data to the cell
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    label.text = exercise.name;    
-    checkbox.exerciseObject = exercise;
-    checkbox.workoutObject = self.workout;
+    label.text = exercise.name;
+    checkbox.checked = [self.workoutSet containsObject:exercise];
     
     return cell;
 }
 
-- (void)checkboxClicked:(UICheckboxButton *)sender 
+-(IBAction) checkboxClicked:(NSNotification *) sender
 {
-    Exercise *value = (Exercise *)sender.exerciseObject;
-    NSLog(@"Clicky: %@", value.name);
+    // Retrieve the Exercise object from the checkbox reference
+    UIView *contentView = [(UICheckboxButton *)sender.object superview];
+    UITableViewCell *cell = (UITableViewCell *)[contentView superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    NSLog(@"Exercise: %@ added to Workout: %@", exercise.name,  self.workout.workout_name);
+    
+
+    //NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
+    //request.predicate = [NSPredicate predicateWithFormat:@"name == %@", exercise.name];
+    
+    //NSError *error = nil;
+    //NSArray *result = [self.workout.managedObjectContext executeFetchRequest:request error:&error];    
+
+    //if (result.count == 1)
+    //{
+        if (((UICheckboxButton *)sender.object).checked)
+        {
+            //[self.workout addExercisesObject:(Exercise *)[result objectAtIndex:0]];
+            [self.workout addExercisesObject:exercise];
+            [self.workoutSet addObject:exercise];
+        }
+        else
+        {
+            [self.workout mutableOrderedSetValueForKey:@"exercises"];
+            
+            //[self.workout removeExercisesObject:(Exercise *)[result objectAtIndex:0]];
+            [self.workout removeExercisesObject:exercise];
+            [self.workoutSet removeObject:exercise];
+        }
+    //}
+    //else
+    //{
+    //    NSLog(@"result.count: %d",result.count);
+    //}
+    
+    NSLog(@"Exercise: %@ added to Workout: %@ count: %d", exercise.name,  
+          self.workout.workout_name, self.workout.exercises.count);
+    
+    // Push changes
+    [self.document.managedObjectContext save:nil];
+}
+
+- (void) dealloc
+{
+    // If you don't remove yourself as an observer, the Notification Center
+    // will continue to try and send notification objects to the deallocated
+    // object.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UICheckboxButton.h"
 #import "CoreDataTableController.h"
 #import "Workout.h"
 #import "Exercise.h"
@@ -14,11 +15,13 @@
 @interface WorkoutAddViewController : CoreDataTableController
 
 @property (weak, nonatomic) IBOutlet UITextField *workoutNameTextField;
-@property (weak, nonatomic) IBOutlet UITableView *workoutTableView;
 
 @property (nonatomic, strong) Workout *workout;
 @property (nonatomic, strong) Exercise *exercise;
+@property (nonatomic, strong) NSMutableOrderedSet *workoutSet;
 
 @property (nonatomic, strong) UIManagedDocument *document;
+
+-(IBAction) checkboxClicked:(id) sender;
 
 @end

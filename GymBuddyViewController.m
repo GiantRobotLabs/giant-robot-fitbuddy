@@ -22,21 +22,20 @@
 -(void) setupFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
-
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:self.exercise.managedObjectContext
-                                                                          sectionNameKeyPath:nil 
-                                                                                   cacheName:nil];
+        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+        request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
+        
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
+                                                                            managedObjectContext:self.exercise.managedObjectContext
+                                                                              sectionNameKeyPath:nil 
+                                                                                    cacheName:nil];
 }
 
-- (void) setExercise:(Exercise *)exercise
+- (void)setExercise:(Exercise *)exercise
 {
     _exercise = exercise;
     [self setupFetchedResultsController];
 }
-
 
 -(void) viewWillAppear:(BOOL)animated
 {
@@ -94,6 +93,18 @@
 - (IBAction)undoAllDataChangesSinceLastSave 
 {
     [self loadDataFromExerciseObject];
+}
+
+- (void) doneAction: (id) sender
+{ 
+    [self.nameLabel resignFirstResponder];
+}
+
+
+- (IBAction)endEditModeForExerciseName:(UITextField *)sender 
+{
+    self.exercise.name = sender.text;
+    [sender resignFirstResponder];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

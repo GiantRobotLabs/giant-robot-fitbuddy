@@ -11,8 +11,9 @@
 
 @interface WorkoutViewController : CoreDataTableController
 
-@property (weak, nonatomic) IBOutlet UITableView *workoutTableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @property (strong, nonatomic) UIManagedDocument *document;
+@property BOOL edit;
 
 @end

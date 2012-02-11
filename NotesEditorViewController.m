@@ -25,7 +25,6 @@
                                                                         managedObjectContext:self.exercise.managedObjectContext
                                                                           sectionNameKeyPath:nil 
                                                                                    cacheName:nil];
-    NSLog(@"set up Notes FRC");
 }
 
 - (void) setExercise:(Exercise *)exercise

@@ -77,14 +77,17 @@
                             <outlet property="delegate" destination="BbA-dx-XEL" id="r00-Xn-y6t"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="GymBuddy" id="KCd-1a-9W4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qP2-O3-Xvg" userLabel="addExerciseButton">
+                    <navigationItem key="navigationItem" id="KCd-1a-9W4">
+                        <barButtonItem key="rightBarButtonItem" tag="100" systemItem="add" id="qP2-O3-Xvg" userLabel="addExerciseButton">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="XAz-R9-ilW" kind="push" identifier="Add Exercise Segue" id="pa1-oE-lGR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="qP2-O3-Xvg" id="ffa-T9-vPi"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="920" y="155"/>
@@ -128,14 +131,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="ALm-Vg-D2B">
-                                <rect key="frame" x="18" y="42" width="68" height="18"/>
+                                <rect key="frame" x="18" y="42" width="72" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="JnZ-0W-xgb">
-                                <rect key="frame" x="18" y="68" width="70" height="70"/>
+                                <rect key="frame" x="20" y="68" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -172,14 +175,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reps" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="2cR-2T-bvm">
-                                <rect key="frame" x="20" y="145" width="66" height="18"/>
+                                <rect key="frame" x="20" y="145" width="70" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="K8A-3W-UFm">
-                                <rect key="frame" x="20" y="171" width="70" height="70"/>
+                                <rect key="frame" x="19" y="172" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -216,14 +219,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sets" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="R5H-Oc-zmh">
-                                <rect key="frame" x="23" y="249" width="67" height="18"/>
+                                <rect key="frame" x="20" y="250" width="70" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="4jg-5W-JPb">
-                                <rect key="frame" x="20" y="275" width="70" height="70"/>
+                                <rect key="frame" x="19" y="275" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -273,13 +276,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise Name" lineBreakMode="tailTruncation" minimumFontSize="10" id="U8q-a8-EI5">
-                                <rect key="frame" x="18" y="2" width="285" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nfq-XO-h2Z">
                                 <rect key="frame" x="262" y="316" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -295,6 +291,16 @@
                                     <action selector="undoAllDataChangesSinceLastSave" destination="2" eventType="touchUpInside" id="SCL-xK-h5C"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Exercise Name" adjustsFontSizeToFit="NO" minimumFontSize="17" id="A55-gH-VsL">
+                                <rect key="frame" x="20" y="0.0" width="280" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="endEditModeForExerciseName:" destination="2" eventType="editingDidEnd" id="p8x-Sr-NiR"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.44313728809356689" green="0.40000003576278687" blue="0.34509804844856262" alpha="1" colorSpace="deviceRGB"/>
                     </view>
@@ -308,7 +314,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="nameLabel" destination="U8q-a8-EI5" id="Vm5-Uf-RGd"/>
+                        <outlet property="nameLabel" destination="A55-gH-VsL" id="cxh-wq-9hT"/>
                         <outlet property="repsLabel" destination="K8A-3W-UFm" id="vKI-FH-c0f"/>
                         <outlet property="setsLabel" destination="4jg-5W-JPb" id="zsf-yQ-wof"/>
                         <outlet property="weightIncrementLabel" destination="Yxc-mV-FrL" id="eWi-7h-gSK"/>
@@ -322,7 +328,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31e-Wk-FpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="4jX-6G-SqD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Exercises" id="6JQ-FD-Pig"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Exercises" image="exercises.png" id="6JQ-FD-Pig"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fcm-UB-hLj"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
@@ -347,7 +353,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="DH0-yb-hXB"/>
+                    <tabBarItem key="tabBarItem" tag="2" systemItem="more" id="DH0-yb-hXB"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-152" y="763"/>
@@ -382,12 +388,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rlV-Jf-JAd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rlV-Jf-JAd">
                                 <rect key="frame" x="20" y="38" width="280" height="176"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Workout Cell" id="kdc-D7-hIG">
+                                    <tableViewCell multipleTouchEnabled="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Workout Cell" id="kdc-D7-hIG">
                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -409,13 +415,20 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="delegate" destination="Qdu-o8-pYM" id="2My-bS-1kJ"/>
+                                    <outlet property="dataSource" destination="uCq-Hg-c6I" id="zVP-dh-3r7"/>
+                                    <outlet property="delegate" destination="uCq-Hg-c6I" id="ldM-dH-6qh"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.44313728810000003" green="0.40000003579999999" blue="0.34509804840000002" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="R6B-Je-wc0">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="4qa-fa-LEr">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="uCq-Hg-c6I" id="zON-RN-bXm"/>
+                                <segue destination="P6T-p0-EAi" kind="push" identifier="Show Workout Segue" id="Wiw-9e-QxI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ggl-wx-gZH">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -424,7 +437,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="workoutTable" destination="rlV-Jf-JAd" id="wTR-4Z-Wtm"/>
+                        <outlet property="editButton" destination="4qa-fa-LEr" id="4tz-BG-cm5"/>
+                        <outlet property="tableView" destination="rlV-Jf-JAd" id="YP8-OA-bzB"/>
                     </connections>
                 </viewController>
             </objects>
@@ -447,12 +461,12 @@
                                     <action selector="addWorkout:" destination="P6T-p0-EAi" eventType="editingDidEnd" id="iZg-b8-nxJ"/>
                                 </connections>
                             </textField>
-                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SCB-P5-gTQ">
+                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SCB-P5-gTQ">
                                 <rect key="frame" x="20" y="89" width="280" height="258"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Workout Exercise Cell" id="xQJ-fv-ja0">
+                                    <tableViewCell clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Workout Exercise Cell" id="xQJ-fv-ja0">
                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -470,6 +484,9 @@
                                                     <state key="highlighted">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="checkboxClicked:" destination="P6T-p0-EAi" eventType="touchUpInside" id="Hvr-5z-nMi"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="3gi-7H-9gd">
                                                     <rect key="frame" x="20" y="11" width="202" height="21"/>
@@ -484,7 +501,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="delegate" destination="WbD-lJ-3Qg" id="oO6-Bj-IgE"/>
+                                    <outlet property="dataSource" destination="P6T-p0-EAi" id="MRk-Od-CP8"/>
+                                    <outlet property="delegate" destination="P6T-p0-EAi" id="i9a-JM-9NT"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select Exercises for Workout" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="ef0-5N-tYv">
@@ -499,8 +517,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="bR3-4u-Qhd"/>
                     <connections>
+                        <outlet property="tableView" destination="SCB-P5-gTQ" id="pBs-R3-7lH"/>
                         <outlet property="workoutNameTextField" destination="C2t-Jv-4Ac" id="6xe-FS-Q21"/>
-                        <outlet property="workoutTableView" destination="SCB-P5-gTQ" id="em1-iy-4Kd"/>
                     </connections>
                 </viewController>
             </objects>
@@ -529,7 +547,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3s-5g-ztf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="eDm-sq-zjM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Workout" id="kMg-oN-x6f"/>
+                    <tabBarItem key="tabBarItem" title="Workout" image="workout.png" id="kMg-oN-x6f"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="JRc-x1-gOc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -546,10 +564,67 @@
         </scene>
     </scenes>
     <resources>
+        <image name="exercises.png" width="30" height="30"/>
         <image name="gb-button.png" width="292" height="292"/>
         <image name="gb-undo.png" width="70" height="70"/>
         <image name="sm-unchecked.png" width="30" height="30"/>
+        <image name="workout.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AddExerciseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddExerciseViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addExerciseField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CoreDataTableController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="ExerciseListTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseListTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="GymBuddyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GymBuddyViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="repsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="setsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weightIncrementLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weightLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NotesEditorViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotesEditorViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="UICheckboxButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICheckboxButton.h"/>
+        </class>
+        <class className="WorkoutAddViewController" superclassName="CoreDataTableController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutAddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkboxClicked:"/>
+                <relationship kind="outlet" name="workoutNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="WorkoutViewController" superclassName="CoreDataTableController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -557,5 +632,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="hXO-fQ-XYY"/>
+        <segue reference="Wiw-9e-QxI"/>
     </inferredMetricsTieBreakers>
 </document>

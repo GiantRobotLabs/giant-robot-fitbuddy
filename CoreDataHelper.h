@@ -10,12 +10,9 @@
 #import <CoreData/CoreData.h>
 
 typedef void (^completion_block_t)(UIManagedDocument *database);
-typedef void (^completion_block_f)(NSFetchedResultsController *fetchedResultsController);
 
 @interface CoreDataHelper : NSObject
 
 + (void)openDatabase:(NSString *) name usingBlock:(completion_block_t)completionBlock;
-+ (void)setupExerciseFetchedResultsController:(UIManagedDocument *) doc usingBlock: (completion_block_f)completionBlock;
-+ (void)getWorkoutFetchedResultsController:(UIManagedDocument *) doc usingBlock: (completion_block_f)completionBlock;
 
 @end

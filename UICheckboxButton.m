@@ -7,24 +7,21 @@
 //
 
 #import "UICheckboxButton.h"
-#import "Exercise.h"
-#import "Workout.h"
 
 @implementation UICheckboxButton
 
 @synthesize checked = _checked;
-@synthesize exerciseObject = _exerciseObject;
-@synthesize workoutObject = _workoutObject;
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     self.checked = !self.checked;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CheckboxToggled" object:self];
 }
 
 -(void) setChecked:(BOOL)checked
 {
     [self setImageForValue:checked];
-    _checked = checked;    
+    _checked = checked;
 }
 
 -(void) setImageForValue: (BOOL) checked

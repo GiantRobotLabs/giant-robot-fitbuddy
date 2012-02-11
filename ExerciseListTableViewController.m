@@ -13,17 +13,34 @@
 @implementation ExerciseListTableViewController
 
 @synthesize document = _document;
+@synthesize workout = _workout;
+@synthesize addButton = _addButton;
 
 -(void) setupFetchedResultsController
 {
+    if (self.workout) 
+    {
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-    
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:self.document.managedObjectContext 
-                                                                           sectionNameKeyPath:nil 
-                                                                                    cacheName:nil];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
+        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+        request.predicate = [NSPredicate predicateWithFormat:@"name IN %@", [self.workout.exercises mutableArrayValueForKey:@"name"]];
+        NSLog(@"%@", [self.workout.exercises mutableArrayValueForKey:@"name"]);
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
+                                                                            managedObjectContext:self.document.managedObjectContext
+                                                                              sectionNameKeyPath:nil 
+                                                                                       cacheName:nil];
+        NSLog(@"filtered?");
+    }
+    else
+    {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
+        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+        
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
+                                                                            managedObjectContext:self.document.managedObjectContext 
+                                                                              sectionNameKeyPath:nil 
+                                                                                       cacheName:nil];
+    }
 }
 
 -(void)setDocument:(UIManagedDocument *) document
@@ -35,12 +52,18 @@
     }
 }
 
+-(void)setWorkout:(Workout *)workout
+{
+    _workout = workout;
+    
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    // Visual stuff
-    [self.navigationItem setTitle:nil];    
+    // Visual stuff    
     self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
     self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
     [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:@"gb-title.png"] forBarMetrics:UIBarMetricsDefault];
@@ -52,6 +75,11 @@
             self.document = doc;
         }];
     }  
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+     NSLog(@"Tab Title %@", self.title);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

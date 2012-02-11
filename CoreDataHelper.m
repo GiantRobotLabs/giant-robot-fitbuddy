@@ -15,6 +15,8 @@ static NSMutableDictionary *managedDocumentDictionary;
 
 + (void)openDatabase:(NSString *)name usingBlock:(completion_block_t)completionBlock
 {
+    NSLog(@"in open database");
+    
     // Try to retrieve the relevant UIManagedDocument from managedDocumentDictionary
     UIManagedDocument *document = [managedDocumentDictionary objectForKey:name];
     
@@ -50,29 +52,6 @@ static NSMutableDictionary *managedDocumentDictionary;
     {
         [document saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) { }];
     }
-}
-
-
-+(void) setupExerciseFetchedResultsController: (UIManagedDocument *) document usingBlock:(completion_block_f)completionBlock
-{
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-    
-    completionBlock ([[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:document.managedObjectContext 
-                                                                          sectionNameKeyPath:nil 
-                                                                                   cacheName:nil]);  
-}
-
-+(void) getWorkoutFetchedResultsController: (UIManagedDocument *) document usingBlock:(completion_block_f)completionBlock
-{
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Workout"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-    
-    completionBlock ([[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                               managedObjectContext:document.managedObjectContext 
-                                                 sectionNameKeyPath:nil 
-                                                          cacheName:nil]);  
 }
 
 @end

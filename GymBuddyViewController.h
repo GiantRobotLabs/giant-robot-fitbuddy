@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Exercise.h"
+#import "Workout.h"
 #import "CoreDataTableViewController.h"
 
 @interface GymBuddyViewController : UIViewController
@@ -15,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *repsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *setsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weightIncrementLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UITextField *nameLabel;
 
 @property (nonatomic, strong) Exercise *exercise;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

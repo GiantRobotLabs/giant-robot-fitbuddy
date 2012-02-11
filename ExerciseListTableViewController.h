@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
+#import "Workout.h"
 
 @interface ExerciseListTableViewController : CoreDataTableViewController
 
 @property (strong, nonatomic) UIManagedDocument *document;
+
+@property (nonatomic, strong) Workout *workout;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 @end

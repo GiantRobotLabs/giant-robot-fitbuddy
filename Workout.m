@@ -16,4 +16,16 @@
 @dynamic workout_name;
 @dynamic exercises;
 
+- (void)addExercisesObject:(Exercise *)value {
+    NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.exercises];
+    [tempSet addObject:value];
+    self.exercises = tempSet;
+}
+
+- (void)removeExercisesObject:(Exercise *)value {
+    NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.exercises];
+    [tempSet removeObject:value];
+    self.exercises = tempSet;
+}
+
 @end
