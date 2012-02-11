@@ -63,7 +63,7 @@
     }
 }
 
-#pragma mark - UITableViewDataSource
+// UITableViewDataSource Support
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -88,6 +88,11 @@
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     return [self.fetchedResultsController sectionIndexTitles];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -169,6 +174,8 @@
         [self performSelector:@selector(endSuspensionOfUpdatesDueToContextChanges) withObject:0 afterDelay:0];
     }
 }
+
+
 
 @end
 

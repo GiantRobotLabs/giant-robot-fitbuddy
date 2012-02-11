@@ -7,19 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
 #import "CoreDataTableController.h"
 
-@interface WorkoutViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate>
+@interface WorkoutViewController : CoreDataTableController
+
+@property (weak, nonatomic) IBOutlet UITableView *workoutTableView;
 
 @property (strong, nonatomic) UIManagedDocument *document;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-
-@property (weak, nonatomic) IBOutlet UITableView *workoutTable;
-
-- (void)performFetch;
-
-@property (nonatomic) BOOL suspendAutomaticTrackingOfChangesInManagedObjectContext;
-@property BOOL debug;
 
 @end

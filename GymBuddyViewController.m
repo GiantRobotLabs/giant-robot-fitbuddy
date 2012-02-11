@@ -29,7 +29,6 @@
                                                                         managedObjectContext:self.exercise.managedObjectContext
                                                                           sectionNameKeyPath:nil 
                                                                                    cacheName:nil];
-    NSLog(@"set up fetchedresultscontroller");
 }
 
 - (void) setExercise:(Exercise *)exercise
@@ -99,7 +98,6 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"segue: %@", segue.identifier);
     if ([segue.destinationViewController respondsToSelector:@selector(setExercise:)]) {
         [segue.destinationViewController performSelector:@selector(setExercise:) withObject:self.exercise];
     }
