@@ -7,12 +7,14 @@
 //
 
 #import "WorkoutViewController.h"
+#import "WorkoutModeViewController.h"
 #import "CoreDataHelper.h"
 #import "Workout.h"
 
 @implementation WorkoutViewController 
 
 @synthesize editButton = _editButton;
+@synthesize startButton = _startButton;
 @synthesize document = _document;
 @synthesize edit = _edit;
 
@@ -47,8 +49,9 @@
     [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:@"gb-title.png"] forBarMetrics:UIBarMetricsDefault];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
     self.tableView.backgroundColor = [UIColor clearColor];
-    self.editButton.tintColor = [UIColor clearColor];
-    self.editButton.enabled = NO;
+    [self.startButton setBackgroundImage:[UIImage imageNamed:@"gb-button-dark.png"] forState:UIControlStateDisabled];
+    [self.startButton setBackgroundImage:[UIImage imageNamed:@"gb-button.png"] forState:UIControlStateNormal];
+    [self enableButtons:NO];
     
     // Initialize view    
     if (!self.document)    
@@ -72,7 +75,7 @@
     // Visual stuff
     cell.backgroundView.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-cell.png"]];
-    cell.selectedBackgroundView.backgroundColor = [UIColor darkGrayColor];
+    cell.editingAccessoryView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-cell.png"]];
     
     // Add the data to the cell
     Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -102,7 +105,10 @@
             [self.document.managedObjectContext deleteObject:workout];
         }
         //[self performFetch];
+        [self.document.managedObjectContext save:nil];
         [self.tableView reloadData];
+        
+        [self enableButtons:NO];
     }    
 }
 
@@ -115,6 +121,11 @@
     {
         workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout" 
                                                 inManagedObjectContext:self.document.managedObjectContext];
+    }
+    else if ([segue.identifier isEqualToString:@"Start Workout Segue"])
+    {
+        workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        ((WorkoutModeViewController *)[segue.destinationViewController topViewController]).workout = workout;
     }
     else
     {
@@ -130,12 +141,37 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.editButton.enabled = YES;
-    self.editButton.tintColor = [UIColor blackColor];
+    [self enableButtons:YES];
+    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor blackColor];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self enableButtons:NO];
+    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor clearColor];
+}
+
+-(void) enableButtons: (BOOL) enable
+{
+    self.editButton.enabled = enable;
+    self.startButton.enabled = enable;
+    
+    if (enable)
+    {
+        self.startButton.titleLabel.text = @"Start";
+        self.editButton.tintColor = [UIColor blackColor];
+    }
+    else
+    {
+        self.startButton.titleLabel.text = @"";
+        self.editButton.tintColor = [UIColor clearColor];
+
+    }
 }
 
 - (void)viewDidUnload {
     [self setEditButton:nil];
+    [self setStartButton:nil];
     [super viewDidUnload];
 }
 @end

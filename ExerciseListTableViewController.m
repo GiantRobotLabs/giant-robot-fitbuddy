@@ -139,8 +139,20 @@
             Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
             [self.document.managedObjectContext deleteObject:exercise];
         }
+        
+        [self.document.managedObjectContext save:nil];
     }    
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor blackColor];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor clearColor];
+}
+
 
 -(void) viewWillDisappear:(BOOL)animated 
 {

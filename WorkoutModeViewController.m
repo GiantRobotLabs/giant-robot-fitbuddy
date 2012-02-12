@@ -1,34 +1,45 @@
 //
-//  GymBuddyViewController.m
+//  WorkoutModeViewController.m
 //  GymBuddy
 //
-//  Created by John Neyer on 1/30/12.
-//  Copyright (c) 2012 Accenture National Security Services. All rights reserved.
+//  Created by John Neyer on 2/11/12.
+//  Copyright (c) 2012 jneyer.com. All rights reserved.
 //
 
-#import "GymBuddyViewController.h"
+#import "WorkoutModeViewController.h"
 
-@implementation GymBuddyViewController
+@implementation WorkoutModeViewController
+
 @synthesize weightLabel = _weightLabel;
 @synthesize repsLabel = _repsLabel;
 @synthesize setsLabel = _setsLabel;
 @synthesize weightIncrementLabel = _weightIncrementLabel;
-@synthesize nameLabel = _nameLabel;
+@synthesize nameValue = _nameValue;
+@synthesize pageControl = _pageControl;
 
+@synthesize workout = _workout;
 @synthesize exercise = _exercise;
-
+@synthesize exercises = _exercises;
 @synthesize fetchedResultsController = _fetchedResultsController;
 
 -(void) setupFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
-        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
-        request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
-        
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                            managedObjectContext:self.exercise.managedObjectContext
-                                                                              sectionNameKeyPath:nil 
-                                                                                    cacheName:nil];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+    request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
+                                                                        managedObjectContext:self.exercise.managedObjectContext
+                                                                          sectionNameKeyPath:nil 
+                                                                                   cacheName:nil];
+}
+
+-(void) setWorkout:(Workout *)workout
+{
+    _workout = workout;
+    self.exercises = workout.exercises;
+    self.exercise = (Exercise *)[self.workout.exercises objectAtIndex:0];
+    NSLog(@"setWorkout: %@", self.exercise);
 }
 
 - (void)setExercise:(Exercise *)exercise
@@ -37,24 +48,44 @@
     [self setupFetchedResultsController];
 }
 
+-(void) loadDataFromExerciseObject
+{
+    self.navigationItem.title = self.exercise.name;
+    self.nameValue.text = self.exercise.name;
+    self.setsLabel.text =self.exercise.sets;
+    self.repsLabel.text = self.exercise.reps;
+    self.weightLabel.text = self.exercise.weight;
+}
+
+- (IBAction)handleSwipeAction:(UISwipeGestureRecognizer *)sender 
+{
+    NSUInteger index = [self.exercises indexOfObject:self.exercise];
+    if (index == self.exercises.count - 1) index = 0;
+    else index += 1;
+           
+    self.exercise = [self.exercises objectAtIndex:index];
+    [self performSegueWithIdentifier: @"Segue To Me" sender: self];
+
+}
+
+
 -(void) viewWillAppear:(BOOL)animated
 {
     // Initialize
-    [self.nameLabel addTarget:self action:@selector(finishedEditingNameLabel:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self loadDataFromExerciseObject];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
     self.weightLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-textfield.png"]];
     self.setsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-textfield.png"]];
     self.repsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-textfield.png"]];
-}
-
--(void) loadDataFromExerciseObject
-{
-    self.nameLabel.text = self.exercise.name;
-    self.setsLabel.text =self.exercise.sets;
-    self.repsLabel.text = self.exercise.reps;
-    self.weightLabel.text = self.exercise.weight;
+    self.pageControl.numberOfPages = self.exercises.count;
+    self.pageControl.currentPage = [self.exercises indexOfObject:self.exercise];
+    
+    
+    UISwipeGestureRecognizer *recognizer;
+    recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeAction:)];
+    [recognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [[self view] addGestureRecognizer:recognizer];
 }
 
 - (IBAction)weightIncrement:(UIButton *)sender {
@@ -97,13 +128,12 @@
     [self loadDataFromExerciseObject];
 }
 
-- (void) finishedEditingNameLabel: (id) sender
-{ 
-    [self.nameLabel resignFirstResponder];
-}
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.destinationViewController respondsToSelector:@selector(setWorkout:)]) {
+        [segue.destinationViewController performSelector:@selector(setWorkout:) withObject:self.workout];
+    }
     if ([segue.destinationViewController respondsToSelector:@selector(setExercise:)]) {
         [segue.destinationViewController performSelector:@selector(setExercise:) withObject:self.exercise];
     }
@@ -111,10 +141,13 @@
 
 -(void) viewWillDisappear:(BOOL)animated
 {
-    self.exercise.name = self.nameLabel.text;
     self.exercise.weight = self.weightLabel.text;
     self.exercise.reps = self.repsLabel.text;
     self.exercise.sets = self.setsLabel.text;
 }
 
+- (void)viewDidUnload {
+    [self setPageControl:nil];
+    [super viewDidUnload];
+}
 @end

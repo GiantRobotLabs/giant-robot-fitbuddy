@@ -59,6 +59,13 @@
     
     // Initialize the view
     self.workoutSet = [self.workout mutableOrderedSetValueForKey:@"exercises"];
+    
+    if ([self.workout.workout_name compare:@""])
+    {
+        self.workoutNameTextField.borderStyle = UITextBorderStyleNone;
+        self.workoutNameTextField.textColor = [UIColor whiteColor];
+    }
+    
     self.workoutNameTextField.text = self.workout.workout_name;
     
     // Setup the database
@@ -101,7 +108,7 @@
 {
     // Set the name for empty workout objects
     
-    if (!self.workoutNameTextField.hasText) 
+    if (!self.workout.workout_name)
     {
         self.workout.workout_name = @"Empty Workout";
         NSLog(@"set workout name %@", self.workout.workout_name);
@@ -139,34 +146,23 @@
     
     NSLog(@"Exercise: %@ added to Workout: %@", exercise.name,  self.workout.workout_name);
     
-
-    //NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
-    //request.predicate = [NSPredicate predicateWithFormat:@"name == %@", exercise.name];
     
-    //NSError *error = nil;
-    //NSArray *result = [self.workout.managedObjectContext executeFetchRequest:request error:&error];    
-
-    //if (result.count == 1)
-    //{
-        if (((UICheckboxButton *)sender.object).checked)
-        {
-            //[self.workout addExercisesObject:(Exercise *)[result objectAtIndex:0]];
-            [self.workout addExercisesObject:exercise];
-            [self.workoutSet addObject:exercise];
-        }
-        else
-        {
-            [self.workout mutableOrderedSetValueForKey:@"exercises"];
-            
-            //[self.workout removeExercisesObject:(Exercise *)[result objectAtIndex:0]];
-            [self.workout removeExercisesObject:exercise];
-            [self.workoutSet removeObject:exercise];
-        }
-    //}
-    //else
-    //{
-    //    NSLog(@"result.count: %d",result.count);
-    //}
+    if (((UICheckboxButton *)sender.object).checked)
+    {
+        //[self.workout addExercisesObject:(Exercise *)[result objectAtIndex:0]];
+        //[exercise addWorkoutsObject:self.workout];
+        [self.workout addExercisesObject:exercise];
+        [self.workoutSet addObject:exercise];
+    }
+    else
+    {
+        [self.workout mutableOrderedSetValueForKey:@"exercises"];
+        
+        //[self.workout removeExercisesObject:(Exercise *)[result objectAtIndex:0]];
+        //[exercise removeWorkoutsObject:self.workout];
+        [self.workout removeExercisesObject:exercise];
+        [self.workoutSet removeObject:exercise];
+    }
     
     NSLog(@"Exercise: %@ added to Workout: %@ count: %d", exercise.name,  
           self.workout.workout_name, self.workout.exercises.count);
