@@ -24,7 +24,7 @@
 
 -(void) setupFetchedResultsController
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
     request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
     
@@ -39,7 +39,7 @@
     _workout = workout;
     self.exercises = workout.exercises;
     self.exercise = (Exercise *)[self.workout.exercises objectAtIndex:0];
-    NSLog(@"setWorkout: %@", self.exercise);
+    if (DEBUG) NSLog(@"WorkoutModeController: setWorkout, Exercise = %@", self.exercise);
 }
 
 - (void)setExercise:(Exercise *)exercise
@@ -64,7 +64,7 @@
     else index += 1;
            
     self.exercise = [self.exercises objectAtIndex:index];
-    [self performSegueWithIdentifier: @"Segue To Me" sender: self];
+    [self performSegueWithIdentifier: WORKOUT_MODE_SEGUE sender: self];
 
 }
 
@@ -74,10 +74,10 @@
     // Initialize
     [self loadDataFromExerciseObject];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
-    self.weightLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-textfield.png"]];
-    self.setsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-textfield.png"]];
-    self.repsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-textfield.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
+    self.weightLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
+    self.setsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
+    self.repsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.pageControl.numberOfPages = self.exercises.count;
     self.pageControl.currentPage = [self.exercises indexOfObject:self.exercise];
     

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Exercise.h"
 
+#import "GymBuddyMacros.h"
+
 @interface AddExerciseViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *addExerciseField;
 

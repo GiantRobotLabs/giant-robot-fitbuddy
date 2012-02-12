@@ -23,13 +23,11 @@
 
 - (void) newExerciseTextFieldFinished:(UITextField *)sender {
     [sender resignFirstResponder];
-    NSLog(@"resign");
 }
 
 - (void) setExercise:(Exercise *)exercise
 {
     _exercise = exercise;
-    
 }
 
 - (IBAction)addExercise:(UITextField *)sender
@@ -39,15 +37,15 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
     if ([self.addExerciseField.text isEqualToString:@""]) 
     {
+        if (DEBUG) NSLog(@"Deleting Exercise object %@", self.exercise);
         [self.exercise.managedObjectContext deleteObject:self.exercise];
-        NSLog(@"Deleting object");
     }    
 }
 

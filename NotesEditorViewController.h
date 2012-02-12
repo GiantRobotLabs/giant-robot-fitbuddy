@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Exercise.h"
 
+#import "GymBuddyMacros.h"
+
 @interface NotesEditorViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 

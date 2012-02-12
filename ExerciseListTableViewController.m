@@ -21,7 +21,7 @@
     if (self.workout) 
     {
     
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
         request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
         request.predicate = [NSPredicate predicateWithFormat:@"name IN %@", [self.workout.exercises mutableArrayValueForKey:@"name"]];
         NSLog(@"%@", [self.workout.exercises mutableArrayValueForKey:@"name"]);
@@ -29,11 +29,10 @@
                                                                             managedObjectContext:self.document.managedObjectContext
                                                                               sectionNameKeyPath:nil 
                                                                                        cacheName:nil];
-        NSLog(@"filtered?");
     }
     else
     {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
         request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
@@ -65,21 +64,16 @@
     
     // Visual stuff    
     self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
-    self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:@"gb-title.png"] forBarMetrics:UIBarMetricsDefault];
+    self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
+    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
     
     // Setup the database
     if (!self.document)
     {
-        [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
+        [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
             self.document = doc;
         }];
     }  
-}
-
--(void) viewDidAppear:(BOOL)animated
-{
-     NSLog(@"Tab Title %@", self.title);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,7 +82,7 @@
     UILabel *label = (UILabel *)[cell viewWithTag:101];
     
     // Visual stuff
-    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-cell.png"]];
+    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
 
     // Add the data to the cell
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -102,10 +96,12 @@
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     Exercise *exercise = nil;
-    NSLog(@"segue: %@", segue.identifier);
-    if ([segue.identifier isEqualToString: (@"Add Exercise Segue")])
+    
+    if (DEBUG) NSLog(@"Segue: %@", segue.identifier);
+    
+    if ([segue.identifier isEqualToString: (ADD_EXERCISE_SEGUE)])
     {
-        exercise = [NSEntityDescription insertNewObjectForEntityForName:@"Exercise" inManagedObjectContext:self.document.managedObjectContext];
+        exercise = [NSEntityDescription insertNewObjectForEntityForName:EXERCISE_TABLE inManagedObjectContext:self.document.managedObjectContext];
     }
     else
     {

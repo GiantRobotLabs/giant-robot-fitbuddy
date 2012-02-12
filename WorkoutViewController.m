@@ -21,7 +21,7 @@
 -(void) setupFetchedResultsController
 {
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Workout"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WORKOUT_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"workout_name" ascending:YES]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
@@ -46,17 +46,17 @@
     
     // Visual stuff
     self.navigationItem.title = nil;
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:@"gb-title.png"] forBarMetrics:UIBarMetricsDefault];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
+    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
     self.tableView.backgroundColor = [UIColor clearColor];
-    [self.startButton setBackgroundImage:[UIImage imageNamed:@"gb-button-dark.png"] forState:UIControlStateDisabled];
-    [self.startButton setBackgroundImage:[UIImage imageNamed:@"gb-button.png"] forState:UIControlStateNormal];
+    [self.startButton setBackgroundImage:[UIImage imageNamed:BUTTON_IMAGE_DARK] forState:UIControlStateDisabled];
+    [self.startButton setBackgroundImage:[UIImage imageNamed:BUTTON_IMAGE] forState:UIControlStateNormal];
     [self enableButtons:NO];
     
     // Initialize view    
     if (!self.document)    
     {
-        [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
+        [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
             self.document = doc;
         }]; 
     }
@@ -74,8 +74,8 @@
     
     // Visual stuff
     cell.backgroundView.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-cell.png"]];
-    cell.editingAccessoryView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-cell.png"]];
+    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
+    cell.editingAccessoryView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
     
     // Add the data to the cell
     Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -117,12 +117,12 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     Workout *workout = nil;
     
-    if ([segue.identifier isEqualToString: (@"Add Workout Segue")])
+    if ([segue.identifier isEqualToString: (ADD_WORKOUT_SEGUE)])
     {
-        workout = [NSEntityDescription insertNewObjectForEntityForName:@"Workout" 
+        workout = [NSEntityDescription insertNewObjectForEntityForName:WORKOUT_TABLE
                                                 inManagedObjectContext:self.document.managedObjectContext];
     }
-    else if ([segue.identifier isEqualToString:@"Start Workout Segue"])
+    else if ([segue.identifier isEqualToString:START_WORKOUT_SEGUE])
     {
         workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
         ((WorkoutModeViewController *)[segue.destinationViewController topViewController]).workout = workout;
@@ -130,7 +130,7 @@
     else
     {
         workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        NSLog(@"before segue: %@", workout.workout_name);
+        if (DEBUG) NSLog(@"Before Segue for Workout:%@", workout.workout_name);
     }
     
     if ([segue.destinationViewController respondsToSelector:@selector(setWorkout:)]) 

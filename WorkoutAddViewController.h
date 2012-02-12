@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UICheckboxButton.h"
 #import "CoreDataTableController.h"
 #import "Workout.h"
 #import "Exercise.h"
+
+#import "GymBuddyMacros.h"
 
 @interface WorkoutAddViewController : CoreDataTableController
 

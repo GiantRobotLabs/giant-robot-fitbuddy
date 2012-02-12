@@ -28,11 +28,11 @@
 {
     if (checked)
     {
-        [self setImage: [UIImage imageNamed:@"sm-checked.png"] forState:UIControlStateNormal];
+        [self setImage: [UIImage imageNamed:CHECK_IMAGE] forState:UIControlStateNormal];
     }
     else
     {
-        [self setImage: [UIImage imageNamed:@"sm-unchecked.png"] forState:UIControlStateNormal];
+        [self setImage: [UIImage imageNamed:UNCHECKED_IMAGE] forState:UIControlStateNormal];
     }
 }
 

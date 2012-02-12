@@ -21,7 +21,7 @@
 
 -(void) setupFetchedResultsController
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
         request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
         request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
         
@@ -43,10 +43,10 @@
     [self.nameLabel addTarget:self action:@selector(finishedEditingNameLabel:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self loadDataFromExerciseObject];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
-    self.weightLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-textfield.png"]];
-    self.setsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-textfield.png"]];
-    self.repsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-textfield.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
+    self.weightLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
+    self.setsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
+    self.repsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
 }
 
 -(void) loadDataFromExerciseObject

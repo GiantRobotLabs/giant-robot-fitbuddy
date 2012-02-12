@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GymBuddyMacros.h"
+
 @interface UICheckboxButton : UIButton
 
 @property (nonatomic) BOOL checked;

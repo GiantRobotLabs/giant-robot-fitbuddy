@@ -8,8 +8,10 @@
 
 #import "WorkoutAddViewController.h"
 #import "CoreDataHelper.h"
+#import "UICheckboxButton.h"
 
 @implementation WorkoutAddViewController
+
 @synthesize workoutNameTextField;
 
 @synthesize workout = _workout;
@@ -18,11 +20,10 @@
 
 @synthesize document = _document;
 
-
 -(void) setupFetchedResultsController
 {
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
@@ -30,7 +31,6 @@
                                                                           sectionNameKeyPath:nil 
                                                                                    cacheName:nil];
     
-    NSLog(@"setupFRC: %d", [self.fetchedResultsController fetchedObjects].count);
 }
 
 -(void)setDocument:(UIManagedDocument *) document
@@ -40,21 +40,19 @@
         _document = document;
         [self setupFetchedResultsController];
     }
-    NSLog(@"really standing in it");
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
     // Setup and initialize
-    
     [self.workoutNameTextField addTarget:self
                        action:@selector(workoutNameTextFieldFinished:)
              forControlEvents:UIControlEventEditingDidEndOnExit];
     
     // Visual stuff
     self.navigationItem.title = nil;
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:@"gb-title.png"] forBarMetrics:UIBarMetricsDefault];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background.png"]];
+    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
     self.tableView.backgroundColor = [UIColor clearColor];
     
     // Initialize the view
@@ -69,15 +67,11 @@
     self.workoutNameTextField.text = self.workout.workout_name;
     
     // Setup the database
-    NSLog(@"you are here");
     if (!self.document)
     {
-        NSLog(@"you're standing in it");
-        [CoreDataHelper openDatabase:@"GymBuddy" usingBlock:^(UIManagedDocument *doc) {
+        [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
             self.document = doc;
-            NSLog(@"in the thick of it");
         }];
-        NSLog(@"passed it");
     }  
     
     [self setupFetchedResultsController];
@@ -87,8 +81,6 @@
                                              selector:@selector(checkboxClicked:) 
                                                  name:@"CheckboxToggled"
                                                object:nil];
-    
-
 }
 
 
@@ -107,11 +99,9 @@
 - (void) viewWillDisappear:(BOOL)animated
 {
     // Set the name for empty workout objects
-    
     if (!self.workout.workout_name)
     {
         self.workout.workout_name = @"Empty Workout";
-        NSLog(@"set workout name %@", self.workout.workout_name);
     } 
 }
 
@@ -126,7 +116,7 @@
     UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
     backView.backgroundColor = [UIColor clearColor];
     cell.backgroundView = backView;
-    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-cell.png"]];
+    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
     
     // Add the data to the cell
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -144,14 +134,13 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    NSLog(@"Exercise: %@ added to Workout: %@", exercise.name,  self.workout.workout_name);
-    
+    if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@", exercise.name,  self.workout.workout_name);
     
     if (((UICheckboxButton *)sender.object).checked)
     {
         //[self.workout addExercisesObject:(Exercise *)[result objectAtIndex:0]];
         //[exercise addWorkoutsObject:self.workout];
-        [self.workout addExercisesObject:exercise];
+        //[self.workout addExercisesObject:exercise];
         [self.workoutSet addObject:exercise];
     }
     else
@@ -160,11 +149,11 @@
         
         //[self.workout removeExercisesObject:(Exercise *)[result objectAtIndex:0]];
         //[exercise removeWorkoutsObject:self.workout];
-        [self.workout removeExercisesObject:exercise];
+        //[self.workout removeExercisesObject:exercise];
         [self.workoutSet removeObject:exercise];
     }
     
-    NSLog(@"Exercise: %@ added to Workout: %@ count: %d", exercise.name,  
+    if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name,  
           self.workout.workout_name, self.workout.exercises.count);
     
     // Push changes

@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableController.h"
 
+#import "GymBuddyMacros.h"
+
 @interface WorkoutViewController : CoreDataTableController
 
+// Outlets
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
@@ -18,4 +21,5 @@
 @property BOOL edit;
 
 -(void) enableButtons: (BOOL) enable;
+
 @end

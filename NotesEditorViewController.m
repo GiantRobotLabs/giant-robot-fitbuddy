@@ -17,7 +17,7 @@
 
 -(void) setupFetchedResultsController
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exercise"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
     request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
     
@@ -49,8 +49,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     self.notesTextView.text = self.exercise.notes;
-    NSLog(@"loaded data for %@", self.exercise.name);
-    
+    if (DEBUG) NSLog(@"Loaded notes data for %@", self.exercise.name);
 }
 
 -(void) viewWillDisappear:(BOOL)animated

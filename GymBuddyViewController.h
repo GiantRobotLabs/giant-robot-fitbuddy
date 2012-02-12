@@ -11,13 +11,18 @@
 #import "Workout.h"
 #import "CoreDataTableViewController.h"
 
+#import "GymBuddyMacros.h"
+
 @interface GymBuddyViewController : UIViewController
+
+// Outlets
 @property (weak, nonatomic) IBOutlet UILabel *weightLabel;
 @property (weak, nonatomic) IBOutlet UILabel *repsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *setsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weightIncrementLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nameLabel;
 
+// Database
 @property (nonatomic, strong) Exercise *exercise;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 

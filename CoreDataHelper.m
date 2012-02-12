@@ -15,7 +15,7 @@ static NSMutableDictionary *managedDocumentDictionary;
 
 + (void)openDatabase:(NSString *)name usingBlock:(completion_block_t)completionBlock
 {
-    NSLog(@"in open database");
+    if (DEBUG) NSLog(@"Entering open database block");
     
     // Try to retrieve the relevant UIManagedDocument from managedDocumentDictionary
     UIManagedDocument *document = [managedDocumentDictionary objectForKey:name];
