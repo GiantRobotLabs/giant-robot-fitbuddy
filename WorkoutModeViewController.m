@@ -41,9 +41,7 @@
     [CoreDataHelper callSave:[CoreDataHelper getActiveManagedObjectContext]];
     self.workout = workout;
     self.exercise = [self.exercises objectAtIndex:0];
-    
-    self.logbookEntries = [[NSMutableOrderedSet alloc]init];
-    //[self initializeLogbookEntry];
+    self.logbookEntries = [[NSMutableOrderedSet alloc]initWithCapacity:self.exercises.count];
     
     if (DEBUG) NSLog(@"WorkoutModeController: Initial setup, Exercise = %@", self.exercise.name);
 }
@@ -52,13 +50,11 @@
 {
     _logbookEntry = logbookEntry;
     
-    //Set the toggles
+    //Try to set the toggles if we're transitioning from ourself
     if (self.logbookEntry.completed != nil)
     {
-        if ([self.logbookEntry.completed boolValue]) 
-            [self logitButtonPressed: self.logitButton];
-        else
-            [self skipitButtonPressed: self.skipitButton];
+        // This also performs a save of the logbook
+        [self setExerciseLogToggleVale: [self.logbookEntry.completed boolValue]];
     }
 }
 
@@ -106,13 +102,15 @@
     self.logbookEntry.reps = self.exercise.reps;
     self.logbookEntry.sets = self.exercise.sets;
     self.logbookEntry.weight = self.exercise.weight;
-    self.logbookEntry.workout = self.workout;
     
-    NSMutableOrderedSet *tempSet = [self.workout mutableOrderedSetValueForKey:@"logbookEntries"];
-    [tempSet addObjectsFromArray:[self.logbookEntries array]];
+    if (self.logbookEntry.completed != nil)
+    {
+        NSMutableOrderedSet *tempSet = [self.workout mutableOrderedSetValueForKey:@"logbookEntries"];
+        [tempSet addObject:self.logbookEntry];
+        self.logbookEntry.workout = self.workout;
+    }
     
     [self saveExerciseState];
-    //[CoreDataHelper callSave:self.workout.managedObjectContext];
 }
 
 - (IBAction)handleSwipeAction:(UISwipeGestureRecognizer *)sender 
@@ -128,7 +126,6 @@
     else index = index + increment;
 
     // Perform the segue
-    self.exercise = nil;
     self.exercise = [self.workout.exercises objectAtIndex:index];
     [self performSegueWithIdentifier: WORKOUT_MODE_SEGUE sender: self];
 }
@@ -163,6 +160,9 @@
     [recognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
     [[self view] addGestureRecognizer:recognizer];
     
+    [[CoreDataHelper getActiveManagedObjectContext] refreshObject:self.workout mergeChanges:YES];
+    [[CoreDataHelper getActiveManagedObjectContext] refreshObject:self.logbookEntry mergeChanges:YES];
+
     if (DEBUG) NSLog(@"View will appear");
 }
 
@@ -206,21 +206,29 @@
     [self loadDataFromExerciseObject];
 }
 
+- (void) setExerciseLogToggleVale: (BOOL) logged
+{
+    if (logged) {
+        self.skipitButton.tintColor = [UIColor blackColor];
+        self.logitButton.tintColor = GYMBUDDY_GREEN;
+    }
+    else if (!logged)
+    {
+        self.logitButton.tintColor = [UIColor blackColor];
+        self.skipitButton.tintColor = GYMBUDDY_RED;   
+    }
+}
+
 - (IBAction)logitButtonPressed:(UIBarButtonItem *)sender 
 {
-    self.skipitButton.tintColor = [UIColor blackColor];
-    self.logitButton.tintColor = GYMBUDDY_GREEN;
-
+    [self setExerciseLogToggleVale:YES];
     [self saveLogbookEntry];
     self.logbookEntry.completed = [NSNumber numberWithBool:YES];
 }
 
 - (IBAction)skipitButtonPressed:(UIBarButtonItem *)sender 
 {
-    
-    self.logitButton.tintColor = [UIColor blackColor];
-    self.skipitButton.tintColor = GYMBUDDY_RED;
-
+    [self setExerciseLogToggleVale:NO];
     [self saveLogbookEntry];
     self.logbookEntry.completed = [NSNumber numberWithBool:NO];
 }
@@ -245,11 +253,10 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     // Don't keep an empty logbook
-    if (self.logbookEntry.date == nil)
+    if (self.logbookEntry.completed == nil)
     {
         [[CoreDataHelper getActiveManagedObjectContext] deleteObject:self.logbookEntry];
     }
-
 }
 
 - (void)viewDidUnload {

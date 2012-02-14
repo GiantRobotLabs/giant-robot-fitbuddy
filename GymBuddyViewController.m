@@ -41,7 +41,6 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     // Initialize
-    //[CoreDataHelper callSave:self.exercise.managedObjectContext];
     [self.nameLabel addTarget:self action:@selector(finishedEditingNameLabel:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self loadDataFromExerciseObject];
     

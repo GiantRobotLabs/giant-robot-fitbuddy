@@ -27,16 +27,17 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 // Database
-@property (nonatomic, weak) Workout *workout;
+@property (nonatomic, strong) Workout *workout;
 @property (nonatomic, strong) Exercise *exercise;
 @property (nonatomic, strong) NSOrderedSet *exercises;
-@property (nonatomic, weak) LogbookEntry *logbookEntry;
+@property (nonatomic, strong) LogbookEntry *logbookEntry;
 @property (nonatomic, strong) NSMutableOrderedSet *logbookEntries;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 -(void) initialSetupWithWorkout:(Workout *)workout;
 - (IBAction)skipitButtonPressed:(UIBarButtonItem *)sender;
 - (IBAction)logitButtonPressed:(UIBarButtonItem *)sender;
 - (void) initializeLogbookEntry;
+- (void) setExerciseLogToggleVale: (BOOL) logged;
 
 @end
