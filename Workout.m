@@ -2,12 +2,13 @@
 //  Workout.m
 //  GymBuddy
 //
-//  Created by John Neyer on 2/10/12.
+//  Created by John Neyer on 2/13/12.
 //  Copyright (c) 2012 jneyer.com. All rights reserved.
 //
 
 #import "Workout.h"
 #import "Exercise.h"
+#import "LogbookEntry.h"
 
 
 @implementation Workout
@@ -15,17 +16,6 @@
 @dynamic deleted;
 @dynamic workout_name;
 @dynamic exercises;
-
-- (void)addExercisesObject:(Exercise *)value {
-    NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.exercises];
-    [tempSet addObject:value];
-    self.exercises = tempSet;
-}
-
-- (void)removeExercisesObject:(Exercise *)value {
-    NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.exercises];
-    [tempSet removeObject:value];
-    self.exercises = tempSet;
-}
+@dynamic logbookEntries;
 
 @end

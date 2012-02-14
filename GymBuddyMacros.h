@@ -16,7 +16,7 @@
 #define DATABASE            @"GymBuddy"
 #define EXERCISE_TABLE      @"Exercise"
 #define WORKOUT_TABLE       @"Workout"
-#define LOGBOOK_TABLE       @"Logbook"
+#define LOGBOOK_TABLE       @"LogbookEntry"
 
 // IMAGES
 #define CELL_IMAGE          @"gb-cell.png"
@@ -29,6 +29,8 @@
 #define BACKGROUND_IMAGE_LONG @"gb-background-long.png"
 #define CHECK_IMAGE         @"sm-checked.png"
 #define UNCHECKED_IMAGE     @"sm-unchecked.png"
+#define SUCCESS_IMAGE       @"success.png"
+#define UNWORKOUT_IMAGE     @"unworkout.png"
 
 // SEGUES
 #define ADD_EXERCISE_SEGUE  @"Add Exercise Segue"
@@ -36,4 +38,7 @@
 #define START_WORKOUT_SEGUE @"Start Workout Segue"
 #define WORKOUT_MODE_SEGUE  @"Segue To Me"
 
+// COLORS
+#define GYMBUDDY_RED        [UIColor colorWithRed:158.0/255.0 green:37.0/255.0 blue:33.0/255.0 alpha:1]
+#define GYMBUDDY_GREEN      [UIColor colorWithRed:33.0/255.0 green:158.0/255.0 blue:74.0/255.0 alpha:1]
 #endif

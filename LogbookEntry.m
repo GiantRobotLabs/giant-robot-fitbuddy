@@ -1,24 +1,25 @@
 //
-//  Exercise.m
+//  LogbookEntry.m
 //  GymBuddy
 //
 //  Created by John Neyer on 2/13/12.
 //  Copyright (c) 2012 jneyer.com. All rights reserved.
 //
 
-#import "Exercise.h"
+#import "LogbookEntry.h"
 #import "Workout.h"
 
 
-@implementation Exercise
+@implementation LogbookEntry
 
-@dynamic deleted;
-@dynamic name;
+@dynamic completed;
+@dynamic date;
+@dynamic exercise_name;
 @dynamic notes;
 @dynamic reps;
-@dynamic sequence;
 @dynamic sets;
 @dynamic weight;
-@dynamic workouts;
+@dynamic workout_name;
+@dynamic workout;
 
 @end

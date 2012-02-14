@@ -14,5 +14,8 @@ typedef void (^completion_block_t)(UIManagedDocument *database);
 @interface CoreDataHelper : NSObject
 
 + (void)openDatabase:(NSString *) name usingBlock:(completion_block_t)completionBlock;
++ (void)callSave: (NSManagedObjectContext *) obj;
++ (void)refetchDataFromFetchedResultsController: (NSFetchedResultsController *) frc;
++ (NSManagedObjectContext *) getActiveManagedObjectContext;
 
 @end

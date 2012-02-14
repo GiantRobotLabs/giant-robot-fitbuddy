@@ -25,7 +25,7 @@
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"workout_name" ascending:YES]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:self.document.managedObjectContext 
+                                                                        managedObjectContext:[CoreDataHelper getActiveManagedObjectContext] 
                                                                           sectionNameKeyPath:nil 
                                                                                    cacheName:nil];
 }
@@ -43,6 +43,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     // Setup and initialize
+    //[CoreDataHelper callSave:self.document.managedObjectContext];
     
     // Visual stuff
     self.navigationItem.title = nil;
@@ -62,8 +63,10 @@
     }
     else
     {
-        [self setupFetchedResultsController];
+       // [self setupFetchedResultsController];
     }
+    
+    if (DEBUG) NSLog(@"View will appear");
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,6 +74,7 @@
     // Get the Prototypes
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Workout Cell"];
     UILabel *label = (UILabel *)[cell viewWithTag:101];
+    UILabel *dateLabel = (UILabel *)[cell viewWithTag:200];
     
     // Visual stuff
     cell.backgroundView.backgroundColor = [UIColor clearColor];
@@ -80,6 +84,15 @@
     // Add the data to the cell
     Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
     label.text = workout.workout_name;
+    
+    if (workout.logbookEntries.count == 0) dateLabel.text = @"never";
+    else
+    {
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"dd MMM yyyy HH:mm"];
+        dateLabel.text = [format stringFromDate:
+                          ((LogbookEntry *)[workout.logbookEntries lastObject]).date];
+    }
     
     return cell;
 }
@@ -102,12 +115,10 @@
             //Update the cell or model 
             cell.editing = YES;
             Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [self.document.managedObjectContext deleteObject:workout];
+            [[CoreDataHelper getActiveManagedObjectContext] deleteObject:workout];
         }
-        //[self performFetch];
-        [self.document.managedObjectContext save:nil];
-        [self.tableView reloadData];
         
+        //[CoreDataHelper callSave:self.document.managedObjectContext];
         [self enableButtons:NO];
     }    
 }
@@ -120,12 +131,12 @@
     if ([segue.identifier isEqualToString: (ADD_WORKOUT_SEGUE)])
     {
         workout = [NSEntityDescription insertNewObjectForEntityForName:WORKOUT_TABLE
-                                                inManagedObjectContext:self.document.managedObjectContext];
+                                                inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
     }
     else if ([segue.identifier isEqualToString:START_WORKOUT_SEGUE])
     {
         workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        ((WorkoutModeViewController *)[segue.destinationViewController topViewController]).workout = workout;
+        [((WorkoutModeViewController *)[segue.destinationViewController topViewController]) initialSetupWithWorkout: workout];
     }
     else
     {
@@ -165,7 +176,24 @@
     {
         self.startButton.titleLabel.text = @"";
         self.editButton.tintColor = [UIColor clearColor];
+    }
+}
 
+- (IBAction)startButtonPressed:(UIButton *)sender 
+{
+    if (((Workout *)[self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]]).exercises.count == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"There are no exercises assigned to this workout."
+                              message: @"You'll need to select and edit this workout to add some exercises to track. Then come back to workout mode."
+                              delegate: nil
+                              cancelButtonTitle:@"Got it!"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:START_WORKOUT_SEGUE sender:sender];
     }
 }
 

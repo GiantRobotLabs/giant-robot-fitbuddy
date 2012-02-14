@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GymBuddyViewController.h"
+#import "LogbookEntry.h"
 
 #import "GymBuddyMacros.h"
 
@@ -20,11 +21,22 @@
 @property (weak, nonatomic) IBOutlet UILabel *weightIncrementLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameValue;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *skipitButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *logitButton;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 // Database
 @property (nonatomic, weak) Workout *workout;
 @property (nonatomic, strong) Exercise *exercise;
-@property (nonatomic, weak) NSOrderedSet *exercises;
+@property (nonatomic, strong) NSOrderedSet *exercises;
+@property (nonatomic, weak) LogbookEntry *logbookEntry;
+@property (nonatomic, strong) NSMutableOrderedSet *logbookEntries;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
+-(void) initialSetupWithWorkout:(Workout *)workout;
+- (IBAction)skipitButtonPressed:(UIBarButtonItem *)sender;
+- (IBAction)logitButtonPressed:(UIBarButtonItem *)sender;
+- (void) initializeLogbookEntry;
 
 @end

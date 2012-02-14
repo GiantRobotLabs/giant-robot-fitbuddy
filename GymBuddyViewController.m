@@ -7,6 +7,7 @@
 //
 
 #import "GymBuddyViewController.h"
+#import "CoreDataHelper.h"
 
 @implementation GymBuddyViewController
 @synthesize weightLabel = _weightLabel;
@@ -26,7 +27,7 @@
         request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                            managedObjectContext:self.exercise.managedObjectContext
+                                                                            managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
                                                                               sectionNameKeyPath:nil 
                                                                                     cacheName:nil];
 }
@@ -40,6 +41,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     // Initialize
+    //[CoreDataHelper callSave:self.exercise.managedObjectContext];
     [self.nameLabel addTarget:self action:@selector(finishedEditingNameLabel:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self loadDataFromExerciseObject];
     

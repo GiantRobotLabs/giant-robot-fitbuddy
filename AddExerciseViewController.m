@@ -7,6 +7,7 @@
 //
 
 #import "AddExerciseViewController.h"
+#import "CoreDataHelper.h"
 
 @implementation AddExerciseViewController
 
@@ -45,7 +46,7 @@
     if ([self.addExerciseField.text isEqualToString:@""]) 
     {
         if (DEBUG) NSLog(@"Deleting Exercise object %@", self.exercise);
-        [self.exercise.managedObjectContext deleteObject:self.exercise];
+        [[CoreDataHelper getActiveManagedObjectContext] deleteObject:self.exercise];
     }    
 }
 

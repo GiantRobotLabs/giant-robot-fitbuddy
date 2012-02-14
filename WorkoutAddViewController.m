@@ -27,7 +27,7 @@
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:self.workout.managedObjectContext 
+                                                                        managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
                                                                           sectionNameKeyPath:nil 
                                                                                    cacheName:nil];
     
@@ -45,9 +45,6 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     // Setup and initialize
-    [self.workoutNameTextField addTarget:self
-                       action:@selector(workoutNameTextFieldFinished:)
-             forControlEvents:UIControlEventEditingDidEndOnExit];
     
     // Visual stuff
     self.navigationItem.title = nil;
@@ -74,13 +71,18 @@
         }];
     }  
     
-    [self setupFetchedResultsController];
+    // Dismiss Keyboard
+    [self.workoutNameTextField addTarget:self
+                                  action:@selector(workoutNameTextFieldFinished:)
+                        forControlEvents:UIControlEventEditingDidEndOnExit];
 
     // Listen for checkboxes
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(checkboxClicked:) 
                                                  name:@"CheckboxToggled"
                                                object:nil];
+    
+    if (DEBUG) NSLog(@"View will appear");
 }
 
 
@@ -157,7 +159,7 @@
           self.workout.workout_name, self.workout.exercises.count);
     
     // Push changes
-    [self.document.managedObjectContext save:nil];
+    //[CoreDataHelper callSave:self.document.managedObjectContext];
 }
 
 - (void) dealloc

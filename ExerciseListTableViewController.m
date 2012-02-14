@@ -26,7 +26,7 @@
         request.predicate = [NSPredicate predicateWithFormat:@"name IN %@", [self.workout.exercises mutableArrayValueForKey:@"name"]];
         NSLog(@"%@", [self.workout.exercises mutableArrayValueForKey:@"name"]);
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                            managedObjectContext:self.document.managedObjectContext
+                                                                            managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
                                                                               sectionNameKeyPath:nil 
                                                                                        cacheName:nil];
     }
@@ -36,7 +36,7 @@
         request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                            managedObjectContext:self.document.managedObjectContext 
+                                                                            managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
                                                                               sectionNameKeyPath:nil 
                                                                                        cacheName:nil];
     }
@@ -101,7 +101,7 @@
     
     if ([segue.identifier isEqualToString: (ADD_EXERCISE_SEGUE)])
     {
-        exercise = [NSEntityDescription insertNewObjectForEntityForName:EXERCISE_TABLE inManagedObjectContext:self.document.managedObjectContext];
+        exercise = [NSEntityDescription insertNewObjectForEntityForName:EXERCISE_TABLE inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
     }
     else
     {
@@ -133,10 +133,10 @@
             //Update the cell or model 
             cell.editing = YES;
             Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [self.document.managedObjectContext deleteObject:exercise];
+            [[CoreDataHelper getActiveManagedObjectContext] deleteObject:exercise];
         }
         
-        [self.document.managedObjectContext save:nil];
+        //[CoreDataHelper callSave:self.document.managedObjectContext];
     }    
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -149,10 +149,9 @@
     [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor clearColor];
 }
 
-
--(void) viewWillDisappear:(BOOL)animated 
+-(void) viewWillDisappear:(BOOL)animated
 {
-    [self.document savePresentedItemChangesWithCompletionHandler:nil];
+    //[CoreDataHelper callSave:self.document.managedObjectContext];
+    
 }
-
 @end

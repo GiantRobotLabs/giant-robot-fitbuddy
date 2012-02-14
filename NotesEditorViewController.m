@@ -15,25 +15,6 @@
 @synthesize exercise = _exercise;
 @synthesize fetchedResultsController = _fetchedResultsController;
 
--(void) setupFetchedResultsController
-{
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
-    request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
-    
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:self.exercise.managedObjectContext
-                                                                          sectionNameKeyPath:nil 
-                                                                                   cacheName:nil];
-}
-
-- (void) setExercise:(Exercise *)exercise
-{
-    _exercise = exercise;
-    
-    [self setupFetchedResultsController];
-}
-
 - (void)viewDidLoad 
 {
     [super viewDidLoad];

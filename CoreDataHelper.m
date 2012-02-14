@@ -8,14 +8,18 @@
 
 #import "CoreDataHelper.h"
 #import <CoreData/CoreData.h>
+#import "GymBuddyMacros.h"
 
-static NSMutableDictionary *managedDocumentDictionary;
+static NSMutableDictionary *managedDocumentDictionary = nil;
 
 @implementation CoreDataHelper
 
 + (void)openDatabase:(NSString *)name usingBlock:(completion_block_t)completionBlock
 {
     if (DEBUG) NSLog(@"Entering open database block");
+    
+    if (managedDocumentDictionary == nil)
+        managedDocumentDictionary = [[NSMutableDictionary alloc]init];
     
     // Try to retrieve the relevant UIManagedDocument from managedDocumentDictionary
     UIManagedDocument *document = [managedDocumentDictionary objectForKey:name];
@@ -27,6 +31,7 @@ static NSMutableDictionary *managedDocumentDictionary;
     // If UIManagedObject was not retrieved, create it
     if (!document) {
         
+        if (DEBUG) NSLog(@"Database [%@] not found. Fetching a new database managed object", name);
         // Create UIManagedDocument with this URL
         document = [[UIManagedDocument alloc] initWithFileURL:url];
 
@@ -51,6 +56,48 @@ static NSMutableDictionary *managedDocumentDictionary;
     else 
     {
         [document saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) { }];
+    }
+}
+
++ (NSManagedObjectContext *) getActiveManagedObjectContext
+{
+    UIManagedDocument *document = [managedDocumentDictionary objectForKey:DATABASE];
+    
+    if (document)
+        return document.managedObjectContext;
+    else
+        return nil;
+}
+
++ (void) callSave: (NSManagedObjectContext *) obj
+{
+    NSError *err = nil;
+    
+    [obj save:&err];
+    
+    if (!err)
+    {
+         if (DEBUG) NSLog(@"Save successful");
+    }
+    else
+    {
+        if (DEBUG) NSLog(@"Save failed: %@", err);
+    }
+}
+
++ (void) refetchDataFromFetchedResultsController:(NSFetchedResultsController *)frc
+{
+    NSError *err = nil;
+    
+    [frc performFetch:&err];
+    
+    if (!err)
+    {
+        if (DEBUG) NSLog(@"Fetch successful");
+    }
+    else
+    {
+        if (DEBUG) NSLog(@"Fetch failed: %@", err);
     }
 }
 
