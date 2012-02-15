@@ -13,10 +13,17 @@
 
 @implementation WorkoutViewController 
 
+#pragma mark -
+#pragma mark UI Components
 @synthesize editButton = _editButton;
 @synthesize startButton = _startButton;
-@synthesize document = _document;
 @synthesize edit = _edit;
+
+#pragma mark CoreData
+@synthesize document = _document;
+
+#pragma mark -
+#pragma mark Initialization
 
 -(void) setupFetchedResultsController
 {
@@ -50,8 +57,8 @@
     [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
     self.tableView.backgroundColor = [UIColor clearColor];
-    [self.startButton setBackgroundImage:[UIImage imageNamed:BUTTON_IMAGE_DARK] forState:UIControlStateDisabled];
-    [self.startButton setBackgroundImage:[UIImage imageNamed:BUTTON_IMAGE] forState:UIControlStateNormal];
+    [self.startButton setBackgroundImage:[UIImage imageNamed:BUTTON_IMAGE_DARK_LG] forState:UIControlStateDisabled];
+    [self.startButton setBackgroundImage:[UIImage imageNamed:BUTTON_IMAGE_LG] forState:UIControlStateNormal];
     [self enableButtons:NO];
     
     // Initialize view    
@@ -68,6 +75,9 @@
     
     if (DEBUG) NSLog(@"View will appear");
 }
+
+#pragma mark -
+#pragma mark TableView Implementations
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
@@ -123,33 +133,6 @@
     }    
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    Workout *workout = nil;
-    
-    if ([segue.identifier isEqualToString: (ADD_WORKOUT_SEGUE)])
-    {
-        workout = [NSEntityDescription insertNewObjectForEntityForName:WORKOUT_TABLE
-                                                inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
-    }
-    else if ([segue.identifier isEqualToString:START_WORKOUT_SEGUE])
-    {
-        workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [((WorkoutModeViewController *)[segue.destinationViewController topViewController]) initialSetupWithWorkout: workout];
-    }
-    else
-    {
-        workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        if (DEBUG) NSLog(@"Before Segue for Workout:%@", workout.workout_name);
-    }
-    
-    if ([segue.destinationViewController respondsToSelector:@selector(setWorkout:)]) 
-    {
-        [segue.destinationViewController performSelector:@selector(setWorkout:) withObject:workout];
-    }
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self enableButtons:YES];
@@ -161,6 +144,9 @@
     [self enableButtons:NO];
     [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor clearColor];
 }
+
+#pragma mark -
+#pragma mark UI Actions
 
 -(void) enableButtons: (BOOL) enable
 {
@@ -196,6 +182,37 @@
         [self performSegueWithIdentifier:START_WORKOUT_SEGUE sender:sender];
     }
 }
+
+#pragma mark -
+#pragma mark Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Workout *workout = nil;
+    
+    if ([segue.identifier isEqualToString: (ADD_WORKOUT_SEGUE)])
+    {
+        workout = [NSEntityDescription insertNewObjectForEntityForName:WORKOUT_TABLE
+                                                inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
+    }
+    else if ([segue.identifier isEqualToString:START_WORKOUT_SEGUE])
+    {
+        workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [((WorkoutModeViewController *)[segue.destinationViewController topViewController]) initialSetupOfFormWithWorkout: workout];
+    }
+    else
+    {
+        workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        if (DEBUG) NSLog(@"Before Segue for Workout:%@", workout.workout_name);
+    }
+    
+    if ([segue.destinationViewController respondsToSelector:@selector(setWorkout:)]) 
+    {
+        [segue.destinationViewController performSelector:@selector(setWorkout:) withObject:workout];
+    }
+}
+
 
 - (void)viewDidUnload {
     [self setEditButton:nil];

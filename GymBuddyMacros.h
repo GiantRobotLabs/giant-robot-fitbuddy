@@ -31,14 +31,19 @@
 #define UNCHECKED_IMAGE     @"sm-unchecked.png"
 #define SUCCESS_IMAGE       @"success.png"
 #define UNWORKOUT_IMAGE     @"unworkout.png"
+#define BUTTON_IMAGE_DARK_LG @"gb-button-dark-big.png"
+#define BUTTON_IMAGE_LG     @"gb-button-big.png"
 
 // SEGUES
 #define ADD_EXERCISE_SEGUE  @"Add Exercise Segue"
 #define ADD_WORKOUT_SEGUE   @"Add Workout Segue"
 #define START_WORKOUT_SEGUE @"Start Workout Segue"
 #define WORKOUT_MODE_SEGUE  @"Segue To Me"
+#define GO_HOME_SEGUE       @"Go Home Segue"
+#define NOTES_SEGUE         @"Segue To Notes"
 
 // COLORS
 #define GYMBUDDY_RED        [UIColor colorWithRed:158.0/255.0 green:37.0/255.0 blue:33.0/255.0 alpha:1]
 #define GYMBUDDY_GREEN      [UIColor colorWithRed:33.0/255.0 green:158.0/255.0 blue:74.0/255.0 alpha:1]
+#define GYMBUDDY_YELLOW     [UIColor colorWithRed:241.0/255.0 green:191.0/255.0 blue:40.0/255.0 alpha:1]
 #endif

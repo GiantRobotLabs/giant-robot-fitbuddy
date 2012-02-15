@@ -19,12 +19,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *repsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *setsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weightIncrementLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nameValue;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *skipitButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logitButton;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *homeButton;
 
 // Database
 @property (nonatomic, strong) Workout *workout;
@@ -32,12 +32,14 @@
 @property (nonatomic, strong) NSOrderedSet *exercises;
 @property (nonatomic, strong) LogbookEntry *logbookEntry;
 @property (nonatomic, strong) NSMutableOrderedSet *logbookEntries;
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSMutableOrderedSet *skippedEntries;
 
--(void) initialSetupWithWorkout:(Workout *)workout;
-- (IBAction)skipitButtonPressed:(UIBarButtonItem *)sender;
-- (IBAction)logitButtonPressed:(UIBarButtonItem *)sender;
+- (void) initialSetupOfFormWithWorkout:(Workout *)workout;
+- (IBAction)skipitButtonPressedWithSave:(UIBarButtonItem *)sender;
+- (IBAction)logitButtonPressedWithSave:(UIBarButtonItem *)sender;
 - (void) initializeLogbookEntry;
 - (void) setExerciseLogToggleVale: (BOOL) logged;
+- (IBAction)undoAllDataChangesSinceLastSave;
+- (void) setProgressBarProgress;
 
 @end
