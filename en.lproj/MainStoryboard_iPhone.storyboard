@@ -425,7 +425,7 @@
                     <view key="view" contentMode="scaleToFill" id="i1D-97-RFw">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" systemItem="more" id="DH0-yb-hXB"/>
                 </viewController>
@@ -546,7 +546,7 @@
                                 <rect key="frame" x="-1" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem image="unworkout.png" id="Ku4-8i-p9w">
+                                    <barButtonItem image="x.png" style="plain" id="Ku4-8i-p9w">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="skipitButtonPressedWithSave:" destination="NLH-Oz-cgy" id="3FV-Dm-QU7"/>
@@ -554,14 +554,14 @@
                                     </barButtonItem>
                                     <barButtonItem title="Item" style="plain" id="I8i-85-Or1">
                                         <progressView key="customView" opaque="NO" userInteractionEnabled="NO" tag="99" contentMode="scaleToFill" progressViewStyle="bar" id="bLU-1F-JuZ">
-                                            <rect key="frame" x="66" y="17" width="185" height="11"/>
+                                            <rect key="frame" x="52" y="17" width="216" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <gestureRecognizers/>
                                             <color key="progressTintColor" red="0.44313728810000003" green="0.40000003579999999" blue="0.34509804840000002" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="trackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </progressView>
                                     </barButtonItem>
-                                    <barButtonItem image="workout.png" id="w5a-vU-dqY">
+                                    <barButtonItem image="check-transparent.png" style="plain" id="w5a-vU-dqY">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="logitButtonPressedWithSave:" destination="NLH-Oz-cgy" id="KYI-FO-XLa"/>
@@ -570,21 +570,21 @@
                                 </items>
                             </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Mid-5D-Euy">
-                                <rect key="frame" x="17" y="20" width="72" height="18"/>
+                                <rect key="frame" x="17" y="16" width="72" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Psh-pl-UI3">
-                                <rect key="frame" x="19" y="42" width="70" height="70"/>
+                                <rect key="frame" x="19" y="38" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="edc-uO-Ukc">
-                                <rect key="frame" x="178" y="42" width="70" height="70"/>
+                                <rect key="frame" x="178" y="38" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="+" backgroundImage="gb-button.png">
@@ -600,7 +600,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gep-mN-sPQ">
-                                <rect key="frame" x="100" y="42" width="70" height="70"/>
+                                <rect key="frame" x="100" y="38" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="-" backgroundImage="gb-button.png">
@@ -616,21 +616,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reps" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Kps-yF-UDB">
-                                <rect key="frame" x="19" y="123" width="70" height="18"/>
+                                <rect key="frame" x="19" y="119" width="70" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="fts-c8-DNh">
-                                <rect key="frame" x="18" y="146" width="70" height="70"/>
+                                <rect key="frame" x="18" y="142" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RBX-kL-sTQ">
-                                <rect key="frame" x="100" y="146" width="70" height="70"/>
+                                <rect key="frame" x="100" y="142" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="-" backgroundImage="gb-button.png">
@@ -646,7 +646,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4mH-lM-B2T">
-                                <rect key="frame" x="178" y="145" width="70" height="70"/>
+                                <rect key="frame" x="178" y="141" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="+" backgroundImage="gb-button.png">
@@ -662,21 +662,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sets" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="61H-mg-2Mk">
-                                <rect key="frame" x="19" y="228" width="70" height="20"/>
+                                <rect key="frame" x="19" y="224" width="70" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="2nj-Kg-p2w">
-                                <rect key="frame" x="18" y="249" width="70" height="70"/>
+                                <rect key="frame" x="18" y="245" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WxD-6C-nfP">
-                                <rect key="frame" x="100" y="249" width="70" height="70"/>
+                                <rect key="frame" x="100" y="245" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="-" backgroundImage="gb-button.png">
@@ -692,7 +692,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iit-qr-hbr">
-                                <rect key="frame" x="178" y="249" width="70" height="70"/>
+                                <rect key="frame" x="178" y="245" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="+" backgroundImage="gb-button.png">
@@ -708,14 +708,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2.5" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="IaD-dT-ytz">
-                                <rect key="frame" x="254" y="42" width="48" height="70"/>
+                                <rect key="frame" x="254" y="38" width="48" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+/-" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="sRL-5T-bhH">
-                                <rect key="frame" x="261" y="22" width="43" height="21"/>
+                                <rect key="frame" x="261" y="18" width="43" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -764,7 +764,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="KIn-eb-ZK2">
-                        <barButtonItem key="leftBarButtonItem" image="success.png" id="aNp-T8-YZv">
+                        <barButtonItem key="leftBarButtonItem" image="workout.png" id="aNp-T8-YZv">
                             <connections>
                                 <segue destination="JC5-4j-nfb" kind="modal" identifier="Go Home Segue" modalTransitionStyle="crossDissolve" id="Rgb-Z8-9xc"/>
                             </connections>
@@ -950,15 +950,98 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check-transparent.png" width="30" height="30"/>
         <image name="exercises.png" width="30" height="30"/>
         <image name="gb-button.png" width="292" height="292"/>
         <image name="gb-undo.png" width="70" height="70"/>
         <image name="logbook.png" width="30" height="30"/>
         <image name="sm-unchecked.png" width="30" height="30"/>
-        <image name="success.png" width="30" height="30"/>
-        <image name="unworkout.png" width="30" height="30"/>
         <image name="workout.png" width="30" height="30"/>
+        <image name="x.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AddExerciseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddExerciseViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addExerciseField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CoreDataTableController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="ExerciseListTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseListTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="GymBuddyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GymBuddyViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="repsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="setsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weightIncrementLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weightLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LogbookViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogbookViewController.h"/>
+        </class>
+        <class className="NotesEditorViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotesEditorViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ScratchpadViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScratchpadViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scratchPad" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="UICheckboxButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICheckboxButton.h"/>
+        </class>
+        <class className="WorkoutAddViewController" superclassName="CoreDataTableController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutAddViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkboxClicked:"/>
+                <relationship kind="outlet" name="workoutNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="WorkoutModeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutModeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logitButtonPressedWithSave:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="skipitButtonPressedWithSave:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="undoAllDataChangesSinceLastSave"/>
+                <relationship kind="outlet" name="homeButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="logitButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="progressBar" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="repsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="setsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="skipitButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="weightIncrementLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weightLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="WorkoutViewController" superclassName="CoreDataTableController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -89,6 +89,19 @@
                      self.workout.workout_name, self.exercise.name);
 }
 
+-(void)setToolbarBack:(NSString*)bgFilename toolbar:(UIToolbar*)toolbar {   
+    // Add Custom Toolbar
+    UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:bgFilename]];
+    iv.frame = CGRectMake(0, 0, toolbar.frame.size.width, toolbar.frame.size.height);
+    iv.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    // Add the tab bar controller's view to the window and display.
+    if([[[UIDevice currentDevice] systemVersion] intValue] >= 5)
+        [toolbar insertSubview:iv atIndex:1]; // iOS5 atIndex:1
+    else
+        [toolbar insertSubview:iv atIndex:0]; // iOS4 atIndex:0
+    toolbar.backgroundColor = [UIColor clearColor];
+}
+
 -(void) viewWillAppear:(BOOL)animated
 {
     // Initialize form
@@ -97,12 +110,15 @@
     [self setProgressBarProgress];
     
     // Visual Stuff
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"gb-background-ui.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE_UI]];
+    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:GB_RED_IMAGE] forBarMetrics:UIBarMetricsDefault];
     self.weightLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.setsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.repsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.pageControl.numberOfPages = self.exercises.count;
     self.pageControl.currentPage = [self.exercises indexOfObject:self.exercise];
+    
+    [self setToolbarBack:GB_BLACK_IMAGE toolbar:self.toolBar];
     
     //Try to set the toggles if we're transitioning from ourself
     if (self.logbookEntry.completed != nil)
@@ -118,7 +134,6 @@
 
     if (DEBUG) NSLog(@"View will appear");
 }
-
 
 #pragma mark -
 #pragma mark save

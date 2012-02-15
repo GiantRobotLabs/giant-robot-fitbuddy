@@ -33,6 +33,9 @@
 #define UNWORKOUT_IMAGE     @"unworkout.png"
 #define BUTTON_IMAGE_DARK_LG @"gb-button-dark-big.png"
 #define BUTTON_IMAGE_LG     @"gb-button-big.png"
+#define GB_RED_IMAGE        @"red.png"
+#define GB_BLACK_IMAGE      @"black.png"
+#define BACKGROUND_IMAGE_UI @"gb-background-ui2.png"
 
 // SEGUES
 #define ADD_EXERCISE_SEGUE  @"Add Exercise Segue"
