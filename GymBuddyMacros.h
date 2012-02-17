@@ -19,13 +19,16 @@
 #define LOGBOOK_TABLE       @"LogbookEntry"
 
 // IMAGES
+#define BACKGROUND_IMAGE    @"gb-background.png"
+#define TITLEBAR_IMAGE      @"gb-titlebar.png"
+#define GB_BACKGROUND_CHROME @"gb-background-chrome.png"
+#define GB_TITLEBAR_CHROME  @"gb-titlebar-chrome.png"
+#define GB_BG_CHROME_BOTTOM @"background-chrome-bottom.png"
 #define CELL_IMAGE          @"gb-cell.png"
-#define TITLEBAR_IMAGE      @"gb-title.png"
 #define BUTTON_IMAGE        @"gb-button.png"
 #define BUTTON_IMAGE_DARK   @"gb-button-dark.png"
 #define TEXTFIELD_IMAGE     @"gb-textfield.png"
 #define UNDO_IMAGE          @"gb-undo.png"
-#define BACKGROUND_IMAGE    @"gb-background.png"
 #define BACKGROUND_IMAGE_LONG @"gb-background-long.png"
 #define CHECK_IMAGE         @"sm-checked.png"
 #define UNCHECKED_IMAGE     @"sm-unchecked.png"
@@ -37,11 +40,13 @@
 #define GB_BLACK_IMAGE      @"black.png"
 #define BACKGROUND_IMAGE_UI @"gb-background-ui2.png"
 
+
 // SEGUES
 #define ADD_EXERCISE_SEGUE  @"Add Exercise Segue"
 #define ADD_WORKOUT_SEGUE   @"Add Workout Segue"
 #define START_WORKOUT_SEGUE @"Start Workout Segue"
 #define WORKOUT_MODE_SEGUE  @"Segue To Me"
+#define WORKOUT_REVERSE_SEGUE  @"Go Back To Me Segue"
 #define GO_HOME_SEGUE       @"Go Home Segue"
 #define NOTES_SEGUE         @"Segue To Notes"
 
