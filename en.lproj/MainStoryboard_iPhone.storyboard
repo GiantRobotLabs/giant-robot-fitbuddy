@@ -33,14 +33,14 @@
                                             <rect key="frame" x="20" y="20" width="59" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="&lt;name>" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="wMh-FJ-Gu0">
-                                            <rect key="frame" x="73" y="20" width="59" height="21"/>
+                                            <rect key="frame" x="73" y="20" width="227" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="12"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -486,14 +486,14 @@
                                                     <rect key="frame" x="20" y="18" width="79" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="200" contentMode="left" text="&lt;date>" lineBreakMode="tailTruncation" minimumFontSize="10" id="1kP-Xv-Y92">
-                                                    <rect key="frame" x="97" y="18" width="159" height="21"/>
+                                                    <rect key="frame" x="97" y="18" width="163" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="12"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -538,7 +538,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rve-hH-mPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="NLH-Oz-cgy" customClass="WorkoutModeViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fgQ-bY-kyR">
+                    <view key="view" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fgQ-bY-kyR">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
@@ -570,21 +570,21 @@
                                 </items>
                             </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Mid-5D-Euy">
-                                <rect key="frame" x="17" y="16" width="72" height="18"/>
+                                <rect key="frame" x="17" y="23" width="72" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Psh-pl-UI3">
-                                <rect key="frame" x="19" y="38" width="70" height="70"/>
+                                <rect key="frame" x="19" y="45" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="edc-uO-Ukc">
-                                <rect key="frame" x="178" y="38" width="70" height="70"/>
+                                <rect key="frame" x="178" y="45" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="+" backgroundImage="gb-button.png">
@@ -600,7 +600,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gep-mN-sPQ">
-                                <rect key="frame" x="100" y="38" width="70" height="70"/>
+                                <rect key="frame" x="100" y="45" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="-" backgroundImage="gb-button.png">
@@ -616,21 +616,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reps" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Kps-yF-UDB">
-                                <rect key="frame" x="19" y="119" width="70" height="18"/>
+                                <rect key="frame" x="19" y="126" width="70" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="fts-c8-DNh">
-                                <rect key="frame" x="18" y="142" width="70" height="70"/>
+                                <rect key="frame" x="18" y="149" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RBX-kL-sTQ">
-                                <rect key="frame" x="100" y="142" width="70" height="70"/>
+                                <rect key="frame" x="100" y="149" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="-" backgroundImage="gb-button.png">
@@ -646,7 +646,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4mH-lM-B2T">
-                                <rect key="frame" x="178" y="141" width="70" height="70"/>
+                                <rect key="frame" x="178" y="148" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="+" backgroundImage="gb-button.png">
@@ -662,21 +662,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sets" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="61H-mg-2Mk">
-                                <rect key="frame" x="19" y="224" width="70" height="20"/>
+                                <rect key="frame" x="19" y="231" width="70" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="2nj-Kg-p2w">
-                                <rect key="frame" x="18" y="245" width="70" height="70"/>
+                                <rect key="frame" x="18" y="252" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WxD-6C-nfP">
-                                <rect key="frame" x="100" y="245" width="70" height="70"/>
+                                <rect key="frame" x="100" y="252" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="-" backgroundImage="gb-button.png">
@@ -692,7 +692,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iit-qr-hbr">
-                                <rect key="frame" x="178" y="245" width="70" height="70"/>
+                                <rect key="frame" x="178" y="252" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <state key="normal" title="+" backgroundImage="gb-button.png">
@@ -708,21 +708,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2.5" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="IaD-dT-ytz">
-                                <rect key="frame" x="254" y="38" width="48" height="70"/>
+                                <rect key="frame" x="254" y="45" width="48" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+/-" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="sRL-5T-bhH">
-                                <rect key="frame" x="261" y="18" width="43" height="21"/>
+                                <rect key="frame" x="261" y="25" width="43" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ROD-K9-r4J">
-                                <rect key="frame" x="261" y="300" width="40" height="40"/>
+                                <rect key="frame" x="261" y="291" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" image="gb-undo.png">
@@ -741,7 +741,7 @@
                                 <rect key="frame" x="140" y="344" width="38" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="NLH-Oz-cgy" kind="push" identifier="Segue To Me" id="y3c-nw-xsx"/>
+                                    <segue destination="NLH-Oz-cgy" kind="push" identifier="Segue To Me" id="vCa-uu-OS1"/>
                                 </connections>
                             </pageControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Skip It!" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="vgf-M9-5pc">
@@ -758,18 +758,35 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;workout>" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="2oV-Pj-2nt">
+                                <rect key="frame" x="-1" y="-6" width="321" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" id="WNB-h5-iCd">
+                                <rect key="frame" x="141" y="336" width="38" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="NLH-Oz-cgy" kind="custom" identifier="Go Back To Me Segue" customClass="SugueCustomViewController" id="YhY-Gi-NOa"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="0.44313728810000003" green="0.40000003579999999" blue="0.34509804840000002" alpha="1" colorSpace="deviceRGB"/>
                         <gestureRecognizers/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="KIn-eb-ZK2">
-                        <barButtonItem key="leftBarButtonItem" image="workout.png" id="aNp-T8-YZv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="aNp-T8-YZv">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <segue destination="JC5-4j-nfb" kind="modal" identifier="Go Home Segue" modalTransitionStyle="crossDissolve" id="Rgb-Z8-9xc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Notes" id="Ob9-SH-Ahb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Ob9-SH-Ahb">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="eWY-4m-xuz" kind="push" identifier="Segue To Notes" id="nM4-32-KO1"/>
                             </connections>
@@ -786,6 +803,7 @@
                         <outlet property="toolBar" destination="k0V-h6-oWr" id="Vsz-HT-TL1"/>
                         <outlet property="weightIncrementLabel" destination="IaD-dT-ytz" id="4au-Lm-6IM"/>
                         <outlet property="weightLabel" destination="Psh-pl-UI3" id="F45-8X-CHO"/>
+                        <outlet property="workoutLabel" destination="2oV-Pj-2nt" id="AvE-Ge-N1q"/>
                     </connections>
                 </viewController>
             </objects>
@@ -835,7 +853,7 @@
                                                         <action selector="checkboxClicked:" destination="P6T-p0-EAi" eventType="touchUpInside" id="Hvr-5z-nMi"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="3gi-7H-9gd">
+                                                <label opaque="NO" clipsSubviews="YES" tag="101" contentMode="left" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="3gi-7H-9gd">
                                                     <rect key="frame" x="20" y="11" width="202" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -1032,6 +1050,7 @@
                 <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="weightIncrementLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="weightLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="workoutLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="WorkoutViewController" superclassName="CoreDataTableController">
