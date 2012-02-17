@@ -170,8 +170,8 @@
     if (((Workout *)[self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]]).exercises.count == 0)
     {
         UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"There are no exercises assigned to this workout."
-                              message: @"You'll need to select and edit this workout to add some exercises to track. Then come back to workout mode."
+                              initWithTitle: @"There are no exercises for this workout."
+                              message: @"Edit this workout to add some exercises to log. Then come back and start workout mode."
                               delegate: nil
                               cancelButtonTitle:@"Got it!"
                               otherButtonTitles:nil];
