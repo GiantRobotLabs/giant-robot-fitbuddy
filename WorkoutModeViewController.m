@@ -23,6 +23,7 @@
 @synthesize progressBar = _progressBar;
 @synthesize toolBar = _toolBar;
 @synthesize homeButton = _homeButton;
+@synthesize workoutLabel = _workoutLabel;
 
 #pragma mark coredata support
 @synthesize workout = _workout;
@@ -108,17 +109,19 @@
     [self loadFormDataFromExerciseObject];
     [self initializeLogbookEntry];
     [self setProgressBarProgress];
-    
+    self.workoutLabel.text = self.workout.workout_name;
+
     // Visual Stuff
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE_UI]];
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:GB_RED_IMAGE] forBarMetrics:UIBarMetricsDefault];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:GB_BACKGROUND_CHROME]];
+    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:GB_TITLEBAR_CHROME] forBarMetrics:UIBarMetricsDefault];
     self.weightLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.setsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.repsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.pageControl.numberOfPages = self.exercises.count;
     self.pageControl.currentPage = [self.exercises indexOfObject:self.exercise];
     
-    [self setToolbarBack:GB_BLACK_IMAGE toolbar:self.toolBar];
+    [self setToolbarBack:GB_BG_CHROME_BOTTOM toolbar:self.toolBar];
+    //[self.homeButton setBackgroundImage:[UIImage imageNamed:@"gymbuddy-20.png"] forState: UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     //Try to set the toggles if we're transitioning from ourself
     if (self.logbookEntry.completed != nil)
@@ -131,7 +134,12 @@
     recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeAction:)];
     [recognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
     [[self view] addGestureRecognizer:recognizer];
-
+     
+    // Set the back swiper
+    recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleReverseSwipeAction:)];
+    [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [[self view] addGestureRecognizer:recognizer];
+    
     if (DEBUG) NSLog(@"View will appear");
 }
 
@@ -184,6 +192,23 @@
     // Perform the segue
     self.exercise = [self.workout.exercises objectAtIndex:index];
     [self performSegueWithIdentifier: WORKOUT_MODE_SEGUE sender: self];
+}
+
+- (IBAction)handleReverseSwipeAction:(UISwipeGestureRecognizer *)sender 
+{
+    // Save changes to exercise info before moving
+    [self saveExerciseState];
+    
+    int increment = -1;
+    
+    // Set the index for the next exercise view
+    NSUInteger index = [self.exercises indexOfObject:self.exercise];
+    if (index == 0) index = self.exercises.count - 1;
+    else index = index + increment;
+    
+    // Perform the segue
+    self.exercise = [self.workout.exercises objectAtIndex:index];
+    [self performSegueWithIdentifier: WORKOUT_REVERSE_SEGUE sender: self];
 }
 
 #pragma mark Exercise control buttons
@@ -279,7 +304,7 @@
     float prog = count.count*1.0 / self.exercises.count*1.0;
     self.progressBar.progress = prog;
     
-    if (prog == 1.0) self.homeButton.tintColor = butColor;
+    //if (prog == 1.0) self.homeButton.tintColor = butColor;
 }
 
 - (IBAction)logitButtonPressedWithSave:(UIBarButtonItem *)sender 
@@ -370,6 +395,7 @@
     [self setProgressBar:nil];
     [self setToolBar:nil];
     [self setHomeButton:nil];
+    [self setWorkoutLabel:nil];
     [super viewDidUnload];
 }
 @end
