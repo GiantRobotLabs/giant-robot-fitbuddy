@@ -8,13 +8,19 @@
 
 #import "GymBuddyViewController.h"
 #import "CoreDataHelper.h"
+#import "CardioExercise.h"
+#import "ResistanceExercise.h"
+
 
 @implementation GymBuddyViewController
-@synthesize weightLabel = _weightLabel;
-@synthesize repsLabel = _repsLabel;
-@synthesize setsLabel = _setsLabel;
-@synthesize weightIncrementLabel = _weightIncrementLabel;
+@synthesize slotOneValue = _weightLabel;
+@synthesize slotTwoValue = _repsLabel;
+@synthesize slotThreeValue = _setsLabel;
+@synthesize slotOneIncrementValue = _weightIncrementLabel;
 @synthesize nameLabel = _nameLabel;
+@synthesize slotOneTitle = _slotOneTitle;
+@synthesize slotTwoTitle = _slotTwoTitle;
+@synthesize slotThreeTitle = _slotThreeTitle;
 
 @synthesize exercise = _exercise;
 
@@ -45,52 +51,99 @@
     [self loadDataFromExerciseObject];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    self.weightLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
-    self.setsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
-    self.repsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
+    self.slotOneValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
+    self.slotThreeValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
+    self.slotTwoValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
 }
 
 -(void) loadDataFromExerciseObject
 {
     self.nameLabel.text = self.exercise.name;
-    self.setsLabel.text =self.exercise.sets;
-    self.repsLabel.text = self.exercise.reps;
-    self.weightLabel.text = self.exercise.weight;
+    
+    NSEntityDescription *desc = self.exercise.entity;
+    
+    NSLog (@"%@", desc.name);
+    
+    if ([desc.name isEqualToString: @"CardioExercise"])
+    {
+        // Relabel
+        self.slotOneTitle.text = @"Pace";
+        self.slotTwoTitle.text = @"Duration";
+        self.slotThreeTitle.text = @"Distance";
+        
+        // Values
+        self.slotThreeValue.text = ((CardioExercise *)self.exercise).pace;
+        self.slotOneIncrementValue.text = @"0.5";
+        self.slotTwoValue.text = ((CardioExercise *)self.exercise).duration;
+        self.slotOneValue.text = ((CardioExercise *)self.exercise).distance;
+    }
+    else
+    {
+        // Labels
+        self.slotOneTitle.text = @"Weight";
+        self.slotTwoTitle.text = @"Reps";
+        self.slotThreeTitle.text = @"Sets";
+        
+        //Values
+        self.slotOneValue.text = ((ResistanceExercise *)self.exercise).weight;
+        self.slotTwoValue.text = ((ResistanceExercise *)self.exercise).reps;
+        self.slotThreeValue.text = ((ResistanceExercise *)self.exercise).sets;
+    }
+    
 }
 
-- (IBAction)weightIncrement:(UIButton *)sender {
-    double increment = [self.weightIncrementLabel.text doubleValue];
-    double weight = [self.weightLabel.text doubleValue];
+-(void) setExerciseFromForm
+{
+    self.exercise.name = self.nameLabel.text;
+    
+    NSEntityDescription *desc = self.exercise.entity;
+    if ([desc.name isEqualToString: @"CardioExercise"])
+    {
+        ((CardioExercise *)self.exercise).pace = self.slotThreeValue.text;
+        ((CardioExercise *)self.exercise).duration = self.slotTwoValue.text;
+        ((CardioExercise *)self.exercise).distance = self.slotOneValue.text; 
+    }
+    else
+    {
+        ((ResistanceExercise *)self.exercise).weight = self.slotOneValue.text;
+        ((ResistanceExercise *)self.exercise).reps = self.slotTwoValue.text;
+        ((ResistanceExercise *)self.exercise).sets = self.slotThreeValue.text;
+    }
+}
+
+- (IBAction)slotOneIncrement:(UIButton *)sender {
+    double increment = [self.slotOneIncrementValue.text doubleValue];
+    double val = [self.slotOneValue.text doubleValue];
     
     if ([@"+" isEqualToString:sender.currentTitle]) {
-        weight += increment;
+        val += increment;
     }
     if ([@"-" isEqualToString:sender.currentTitle]) {
-        if (weight >= increment) weight -= increment;
+        if (val >= increment) val -= increment;
     }
-    self.weightLabel.text = [NSString stringWithFormat:@"%g", weight];
+    self.slotOneValue.text = [NSString stringWithFormat:@"%g", val];
 }
 
-- (IBAction)repsIncrement:(UIButton *)sender {
-    double reps = [self.repsLabel.text doubleValue];
+- (IBAction)slotTwoIncrement:(UIButton *)sender {
+    double val = [self.slotTwoValue.text doubleValue];
     if ([@"+" isEqualToString:sender.currentTitle]) {
-        reps += 1;
+        val += 1;
     }
     if ([@"-" isEqualToString:sender.currentTitle]) {
-        if (reps >= 1) reps -= 1;
+        if (val >= 1) val -= 1;
     }
-    self.repsLabel.text = [NSString stringWithFormat:@"%g", reps];
+    self.slotTwoValue.text = [NSString stringWithFormat:@"%g", val];
 }
 
-- (IBAction)setsIncrement:(UIButton *)sender {
-    double sets = [self.setsLabel.text doubleValue];
+- (IBAction)slotThreeIncrement:(UIButton *)sender {
+    double val = [self.slotThreeValue.text doubleValue];
     if ([@"+" isEqualToString:sender.currentTitle]) {
-        sets += 1;
+        val += 1;
     }
     if ([@"-" isEqualToString:sender.currentTitle]) {
-        if (sets >= 1) sets -= 1;
+        if (val >= 1) val -= 1;
     }
-    self.setsLabel.text = [NSString stringWithFormat:@"%g", sets];
+    self.slotThreeValue.text = [NSString stringWithFormat:@"%g", val];
 }
 
 - (IBAction)undoAllDataChangesSinceLastSave 
@@ -112,10 +165,13 @@
 
 -(void) viewWillDisappear:(BOOL)animated
 {
-    self.exercise.name = self.nameLabel.text;
-    self.exercise.weight = self.weightLabel.text;
-    self.exercise.reps = self.repsLabel.text;
-    self.exercise.sets = self.setsLabel.text;
+    [self setExerciseFromForm];
 }
 
+- (void)viewDidUnload {
+    [self setSlotOneTitle:nil];
+    [self setSlotTwoTitle:nil];
+    [self setSlotThreeTitle:nil];
+    [super viewDidUnload];
+}
 @end
