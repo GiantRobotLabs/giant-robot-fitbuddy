@@ -112,18 +112,28 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Workout Exercise Cell"];
     UILabel *label = (UILabel *)[cell viewWithTag:101];
     UICheckboxButton *checkbox = (UICheckboxButton *)[cell viewWithTag:100];
+    UIImageView *icon = (UIImageView *)[cell viewWithTag:102];
     
     // Visual stuff
-    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
-    backView.backgroundColor = [UIColor clearColor];
-    cell.backgroundView = backView;
-    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
+    cell.backgroundView = bgView;
     
     // Add the data to the cell
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
     label.text = exercise.name;
     checkbox.checked = [self.workoutSet containsObject:exercise];
     
+    NSEntityDescription *desc = exercise.entity;
+    if ([desc.name isEqualToString: @"CardioExercise"])
+    {
+        icon.image = [UIImage imageNamed:GB_CARDIO_IMAGE]; 
+    }
+    else
+    {
+        icon.image = [UIImage imageNamed:GB_RESISTANCE_IMAGE];
+    }
+
     return cell;
 }
 

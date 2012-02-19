@@ -18,4 +18,6 @@ typedef void (^completion_block_t)(UIManagedDocument *database);
 + (void)refetchDataFromFetchedResultsController: (NSFetchedResultsController *) frc;
 + (NSManagedObjectContext *) getActiveManagedObjectContext;
 
+- (BOOL)importFromURL:(NSURL *)importURL;
+
 @end

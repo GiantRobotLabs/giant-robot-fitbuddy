@@ -82,9 +82,9 @@
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:200];
     
     // Visual stuff
-    cell.backgroundView.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
-    cell.editingAccessoryView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
+    cell.backgroundView = bgView;
     
     // Add the data to the cell
     Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -94,7 +94,7 @@
     else
     {
         NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        [format setDateFormat:@"dd MMM yyyy HH:mm"];
+        [format setDateFormat:@"dd MMM yyyy"];
         dateLabel.text = [format stringFromDate:
                           ((LogbookEntry *)[workout.logbookEntries lastObject]).date];
     }

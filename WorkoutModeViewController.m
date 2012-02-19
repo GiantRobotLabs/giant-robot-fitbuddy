@@ -106,8 +106,23 @@
     self.workoutLabel.text = self.workout.workout_name;
 
     // Visual Stuff
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:GB_BACKGROUND_CHROME]];
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:GB_TITLEBAR_CHROME] forBarMetrics:UIBarMetricsDefault];
+    UIImage *backgroundImage;
+    UIImage *titlebarImage;
+    
+    NSEntityDescription *desc = self.exercise.entity;
+    if ([desc.name isEqualToString: @"CardioExercise"])
+    {
+        backgroundImage = [UIImage imageNamed:GB_CHROME_CAR_BG];
+        titlebarImage = [UIImage imageNamed:GB_CHROME_CAR_TB];
+    }
+    else
+    {
+        backgroundImage = [UIImage imageNamed:GB_CHROME_WO_BG];
+        titlebarImage = [UIImage imageNamed:GB_CHROME_WO_TB];
+    }
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    [[self.navigationController navigationBar] setBackgroundImage:titlebarImage forBarMetrics:UIBarMetricsDefault];
     self.slotOneValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.slotTwoValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.slotThreeValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
@@ -142,6 +157,7 @@
 -(void) saveLogbookEntry: (BOOL) completed
 {
     [self initializeLogbookEntry];
+    [self setExerciseFromForm];
     self.logbookEntry.date = [[NSDate alloc] init];
     self.logbookEntry.workout_name = self.workout.workout_name;
     self.logbookEntry.exercise_name = self.exercise.name;

@@ -18,13 +18,14 @@
 
 -(void) setupFetchedResultsController
 {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:LOGBOOK_TABLE];
-        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES selector:@selector(compare:)]];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:LOGBOOK_TABLE];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES selector:@selector(compare:)]];
+    request.predicate = [NSPredicate predicateWithFormat:@"completed = %@", [NSNumber numberWithBool:YES]];
 
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                            managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
-                                                                              sectionNameKeyPath:nil 
-                                                                                       cacheName:nil];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
+                                                                        managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
+                                                                          sectionNameKeyPath:@"date_t" 
+                                                                                   cacheName:nil];
 }
 
 -(void)setDocument:(UIManagedDocument *) document
@@ -44,6 +45,7 @@
     self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
     self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
     [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
+    self.searchDisplayController.searchBar.tintColor = [UIColor clearColor];
     
     // Setup the database
     if (!self.document)
@@ -57,18 +59,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Logbook Cell"];
-    UILabel *dateLabel = (UILabel *)[cell viewWithTag:100];
+    UILabel *exerciseLabel = (UILabel *)[cell viewWithTag:100];
     UILabel *workoutLabel = (UILabel *) [cell viewWithTag:101];
+    UIImageView *exerciseIcon = (UIImageView *) [cell viewWithTag:102];
+    UILabel *qstatValue = (UILabel *) [cell viewWithTag:103];
+    UILabel *qstatLabel = (UILabel *) [cell viewWithTag:104];
     
     // Visual stuff
-    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
+    cell.backgroundView = bgView;
     
     // Add the data to the cell
     LogbookEntry *logbookEntry = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"dd MMM yyyy HH:mm"];
-    dateLabel.text = [format stringFromDate: logbookEntry.date];
+    
+    exerciseLabel.text = logbookEntry.exercise_name;
     workoutLabel.text = logbookEntry.workout_name;
+    
+    if (logbookEntry.pace || logbookEntry.distance || logbookEntry.duration)
+    {
+        exerciseIcon.image = [UIImage imageNamed:GB_CARDIO_IMAGE];
+        qstatLabel.text = @"Pace";
+        qstatValue.text = logbookEntry.pace;
+    }
+    else
+    {
+        exerciseIcon.image = [UIImage imageNamed:GB_RESISTANCE_IMAGE];
+        qstatLabel.text = @"Weight";
+        qstatValue.text = logbookEntry.weight;
+    }
     
     return cell;
     
@@ -120,10 +139,41 @@
     }    
 }
 
-
-
--(void) viewWillDisappear:(BOOL)animated 
+-(NSString *) convertRawToShortDateString: (NSString *) rawDateStr
 {
+    // Convert rawDateStr string to NSDate...
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZ"];
+    NSDate *date = [formatter dateFromString:rawDateStr];
+    
+    // Convert NSDate to format we want...
+    [formatter setDateFormat:@"dd MMMM yyyy"];
+    NSString *formattedDateStr = [formatter stringFromDate:date];
+    return formattedDateStr;  
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    if (sectionTitle == nil) {
+        return nil;
+    }
+    
+    // Create label with section title
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = CGRectMake(0, 0, 320, 25);
+    label.backgroundColor = GYMBUDDY_DK_BROWN;
+    label.textColor = [UIColor whiteColor];
+    label.shadowColor = [UIColor clearColor];
+    label.shadowOffset = CGSizeMake(0.0, 1.0);
+    label.font = [UIFont boldSystemFontOfSize:16];
+    label.text = [self convertRawToShortDateString:sectionTitle];
+    
+    // Create header view and add label as a subview
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 25)];
+    [view addSubview:label];
+    
+    return view;
 }
 
 @end

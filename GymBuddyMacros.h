@@ -41,7 +41,13 @@
 #define GB_RED_IMAGE        @"red.png"
 #define GB_BLACK_IMAGE      @"black.png"
 #define BACKGROUND_IMAGE_UI @"gb-background-ui2.png"
-
+#define GB_CHECK_WHITE      @"check-white.png"
+#define GB_CARDIO_IMAGE     @"run.png"
+#define GB_RESISTANCE_IMAGE @"workout-transparent.png"
+#define GB_CHROME_WO_TB     @"tb-chrome-workout.png"
+#define GB_CHROME_WO_BG     @"bg-chrome-workout.png"
+#define GB_CHROME_CAR_TB    @"tb-chrome-cardio.png"
+#define GB_CHROME_CAR_BG    @"bg-chrome-cardio.png"
 
 // SEGUES
 #define ADD_EXERCISE_SEGUE  @"Add Exercise Segue"
@@ -56,5 +62,7 @@
 #define GYMBUDDY_RED        [UIColor colorWithRed:158.0/255.0 green:37.0/255.0 blue:33.0/255.0 alpha:1]
 #define GYMBUDDY_GREEN      [UIColor colorWithRed:33.0/255.0 green:158.0/255.0 blue:74.0/255.0 alpha:1]
 #define GYMBUDDY_YELLOW     [UIColor colorWithRed:241.0/255.0 green:191.0/255.0 blue:40.0/255.0 alpha:1]
-#define GYMBUDDY_BROWN     [UIColor colorWithRed:194.0/255.0 green:181.0/255.0 blue:155.0/255.0 alpha:1]
+#define GYMBUDDY_BROWN      [UIColor colorWithRed:194.0/255.0 green:181.0/255.0 blue:155.0/255.0 alpha:1]
+#define GYMBUDDY_DK_BROWN   [UIColor colorWithRed:114.0/255.0 green:102.0/255.0 blue:89.0/255.0 alpha:1]
+
 #endif

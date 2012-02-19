@@ -9,6 +9,7 @@
 #import "CoreDataHelper.h"
 #import <CoreData/CoreData.h>
 #import "GymBuddyMacros.h"
+#import "NSData+CocoaDevUsersAdditions.h"
 
 static NSMutableDictionary *managedDocumentDictionary = nil;
 
@@ -99,6 +100,35 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     {
         if (DEBUG) NSLog(@"Fetch failed: %@", err);
     }
+}
+
+- (BOOL)importData:(NSData *)zippedData {
+    
+    // Read data into a dir Wrapper
+    NSData *unzippedData = [zippedData gzipInflate];                
+    NSFileWrapper *dirWrapper = [[NSFileWrapper alloc] initWithSerializedRepresentation:unzippedData];
+    if (dirWrapper == nil) {
+        NSLog(@"Error creating dir wrapper from unzipped data");
+        return FALSE;
+    }
+    
+    // Calculate desired name
+    NSURL *dirUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    dirUrl = [dirUrl URLByAppendingPathComponent:DATABASE];                
+    NSError *error;
+    BOOL success = [dirWrapper writeToURL:dirUrl options:NSFileWrapperWritingAtomic originalContentsURL:nil error:&error];
+    if (!success) {
+        NSLog(@"Error importing file: %@", error.localizedDescription);
+        return FALSE;
+    }
+    
+    // Success!
+    return TRUE;    
+}
+
+- (BOOL)importFromURL:(NSURL *)importURL {
+    NSData *zippedData = [NSData dataWithContentsOfURL:importURL];
+    return [self importData:zippedData];    
 }
 
 @end

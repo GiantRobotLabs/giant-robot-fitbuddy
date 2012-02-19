@@ -57,13 +57,26 @@
 {    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Exercise Cell"];
     UILabel *label = (UILabel *)[cell viewWithTag:101];
+    UIImageView *icon = (UIImageView *)[cell viewWithTag:102];
     
     // Visual stuff
-    cell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
+    cell.backgroundView = bgView;
 
     // Add the data to the cell
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
     label.text = exercise.name;
+    
+    NSEntityDescription *desc = exercise.entity;
+    if ([desc.name isEqualToString: @"CardioExercise"])
+    {
+        icon.image = [UIImage imageNamed:GB_CARDIO_IMAGE]; 
+    }
+    else
+    {
+        icon.image = [UIImage imageNamed:GB_RESISTANCE_IMAGE];
+    }
     
     return cell;
 

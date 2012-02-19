@@ -44,8 +44,11 @@
         self.slotThreeTitle.text = @"Distance";
         
         // Values
+        NSString *inc = [[NSUserDefaults standardUserDefaults] stringForKey:@"Cardio Increment"];
+        if (inc == nil) inc = @"0.5";
+        
         self.slotOneValue.text = ((CardioExercise *)self.exercise).pace;
-        self.slotOneIncrementValue.text = @"0.5";
+        self.slotOneIncrementValue.text = inc;
         self.slotTwoValue.text = ((CardioExercise *)self.exercise).duration;
         self.slotThreeValue.text = ((CardioExercise *)self.exercise).distance;
     }
@@ -57,7 +60,11 @@
         self.slotThreeTitle.text = @"Sets";
         
         //Values
+        NSString *inc = [[NSUserDefaults standardUserDefaults] stringForKey:@"Resistance Increment"];
+        if (inc == nil) inc = @"2.5";
+        
         self.slotOneValue.text = ((ResistanceExercise *)self.exercise).weight;
+        self.slotOneIncrementValue.text = inc;
         self.slotTwoValue.text = ((ResistanceExercise *)self.exercise).reps;
         self.slotThreeValue.text = ((ResistanceExercise *)self.exercise).sets;
     }
