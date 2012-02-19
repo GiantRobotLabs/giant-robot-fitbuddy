@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
-#import "Workout.h"
 #import "LogbookEntry.h"
 
 #import "GymBuddyMacros.h"

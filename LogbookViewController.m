@@ -9,6 +9,7 @@
 #import "LogbookViewController.h"
 #import "LogbookEntry.h"
 #import "CoreDataHelper.h"
+#import "Workout.h"
 
 @implementation LogbookViewController
 
@@ -38,7 +39,6 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //[self.document.managedObjectContext save:nil];
     
     // Visual stuff    
     self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
@@ -117,8 +117,6 @@
             LogbookEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
             [[CoreDataHelper getActiveManagedObjectContext] deleteObject:entry];
         }
-        
-        //[self.document.managedObjectContext save:nil];
     }    
 }
 
@@ -126,7 +124,6 @@
 
 -(void) viewWillDisappear:(BOOL)animated 
 {
-    //[self.document.managedObjectContext save:nil];
 }
 
 @end

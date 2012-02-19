@@ -17,6 +17,8 @@
 #define EXERCISE_TABLE      @"Exercise"
 #define WORKOUT_TABLE       @"Workout"
 #define LOGBOOK_TABLE       @"LogbookEntry"
+#define CARDIO_EXERCISE_TABLE @"CardioExercise"
+#define RESISTANCE_EXERCISE_TABLE @"ResistanceExercise"
 
 // IMAGES
 #define BACKGROUND_IMAGE    @"gb-background.png"
@@ -54,4 +56,5 @@
 #define GYMBUDDY_RED        [UIColor colorWithRed:158.0/255.0 green:37.0/255.0 blue:33.0/255.0 alpha:1]
 #define GYMBUDDY_GREEN      [UIColor colorWithRed:33.0/255.0 green:158.0/255.0 blue:74.0/255.0 alpha:1]
 #define GYMBUDDY_YELLOW     [UIColor colorWithRed:241.0/255.0 green:191.0/255.0 blue:40.0/255.0 alpha:1]
+#define GYMBUDDY_BROWN     [UIColor colorWithRed:194.0/255.0 green:181.0/255.0 blue:155.0/255.0 alpha:1]
 #endif

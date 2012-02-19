@@ -13,33 +13,17 @@
 @implementation ExerciseListTableViewController
 
 @synthesize document = _document;
-@synthesize workout = _workout;
 @synthesize addButton = _addButton;
 
 -(void) setupFetchedResultsController
 {
-    if (self.workout) 
-    {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
-        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
-        request.predicate = [NSPredicate predicateWithFormat:@"name IN %@", [self.workout.exercises mutableArrayValueForKey:@"name"]];
-        NSLog(@"%@", [self.workout.exercises mutableArrayValueForKey:@"name"]);
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                            managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
-                                                                              sectionNameKeyPath:nil 
-                                                                                       cacheName:nil];
-    }
-    else
-    {
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
-        request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-        
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                            managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
-                                                                              sectionNameKeyPath:nil 
-                                                                                       cacheName:nil];
-    }
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
+                                                                        managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
+                                                                          sectionNameKeyPath:nil 
+                                                                                   cacheName:nil];
 }
 
 -(void)setDocument:(UIManagedDocument *) document
@@ -49,13 +33,6 @@
         _document = document;
         [self setupFetchedResultsController];
     }
-}
-
--(void)setWorkout:(Workout *)workout
-{
-    _workout = workout;
-    
-    self.navigationItem.rightBarButtonItem = nil;
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -101,7 +78,7 @@
     
     if ([segue.identifier isEqualToString: (ADD_EXERCISE_SEGUE)])
     {
-        exercise = [NSEntityDescription insertNewObjectForEntityForName:EXERCISE_TABLE inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
+        // Do nothing
     }
     else
     {
@@ -135,8 +112,6 @@
             Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
             [[CoreDataHelper getActiveManagedObjectContext] deleteObject:exercise];
         }
-        
-        //[CoreDataHelper callSave:self.document.managedObjectContext];
     }    
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -151,7 +126,5 @@
 
 -(void) viewWillDisappear:(BOOL)animated
 {
-    //[CoreDataHelper callSave:self.document.managedObjectContext];
-    
 }
 @end

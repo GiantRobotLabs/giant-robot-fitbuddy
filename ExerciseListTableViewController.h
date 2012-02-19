@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
-#import "Workout.h"
 
 #import "GymBuddyMacros.h"
 
 @interface ExerciseListTableViewController : CoreDataTableViewController
 
 @property (strong, nonatomic) UIManagedDocument *document;
-@property (nonatomic, strong) Workout *workout;
 
 // Outlets
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;

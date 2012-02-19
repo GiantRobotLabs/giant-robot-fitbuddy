@@ -7,18 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GymBuddyViewController.h"
+#import "ExerciseControlController.h"
 #import "LogbookEntry.h"
+#import "Workout.h"
 
 #import "GymBuddyMacros.h"
 
-@interface WorkoutModeViewController : UIViewController
+@interface WorkoutModeViewController : ExerciseControlController
 
 // Outlets
-@property (weak, nonatomic) IBOutlet UILabel *weightLabel;
-@property (weak, nonatomic) IBOutlet UILabel *repsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *setsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *weightIncrementLabel;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *skipitButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logitButton;
@@ -29,18 +26,19 @@
 
 // Database
 @property (nonatomic, strong) Workout *workout;
-@property (nonatomic, strong) Exercise *exercise;
 @property (nonatomic, strong) NSOrderedSet *exercises;
 @property (nonatomic, strong) LogbookEntry *logbookEntry;
 @property (nonatomic, strong) NSMutableOrderedSet *logbookEntries;
 @property (nonatomic, strong) NSMutableOrderedSet *skippedEntries;
 
-- (void) initialSetupOfFormWithWorkout:(Workout *)workout;
+// Buttons
 - (IBAction)skipitButtonPressedWithSave:(UIBarButtonItem *)sender;
 - (IBAction)logitButtonPressedWithSave:(UIBarButtonItem *)sender;
+
+// Initializers
+- (void) initialSetupOfFormWithWorkout:(Workout *)workout;
 - (void) initializeLogbookEntry;
 - (void) setExerciseLogToggleVale: (BOOL) logged;
-- (IBAction)undoAllDataChangesSinceLastSave;
 - (void) setProgressBarProgress;
 
 @end

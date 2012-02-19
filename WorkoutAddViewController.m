@@ -30,7 +30,6 @@
                                                                         managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
                                                                           sectionNameKeyPath:nil 
                                                                                    cacheName:nil];
-    
 }
 
 -(void)setDocument:(UIManagedDocument *) document
@@ -55,7 +54,7 @@
     // Initialize the view
     self.workoutSet = [self.workout mutableOrderedSetValueForKey:@"exercises"];
     
-    if ([self.workout.workout_name compare:@""])
+    if ([self.workout.workout_name isEqualToString:@""])
     {
         self.workoutNameTextField.borderStyle = UITextBorderStyleNone;
         self.workoutNameTextField.textColor = [UIColor whiteColor];
@@ -140,26 +139,17 @@
     
     if (((UICheckboxButton *)sender.object).checked)
     {
-        //[self.workout addExercisesObject:(Exercise *)[result objectAtIndex:0]];
-        //[exercise addWorkoutsObject:self.workout];
-        //[self.workout addExercisesObject:exercise];
         [self.workoutSet addObject:exercise];
     }
     else
     {
         [self.workout mutableOrderedSetValueForKey:@"exercises"];
-        
-        //[self.workout removeExercisesObject:(Exercise *)[result objectAtIndex:0]];
-        //[exercise removeWorkoutsObject:self.workout];
-        //[self.workout removeExercisesObject:exercise];
         [self.workoutSet removeObject:exercise];
     }
     
     if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name,  
           self.workout.workout_name, self.workout.exercises.count);
     
-    // Push changes
-    //[CoreDataHelper callSave:self.document.managedObjectContext];
 }
 
 - (void) dealloc

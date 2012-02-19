@@ -56,9 +56,41 @@
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>GymBuddy Backup</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.jneyer.gymbuddy.gbz</string>
+			</array>
+		</dict>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeDescription</key>
+			<string>GymBuddy Backup</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.jneyer.gymbuddy.gbz</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.mime-type</key>
+				<string>application/gymbuddy</string>
+				<key>public.filename-extension</key>
+				<string>gbz</string>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

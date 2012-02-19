@@ -2,7 +2,7 @@
 //  Workout.m
 //  GymBuddy
 //
-//  Created by John Neyer on 2/13/12.
+//  Created by John Neyer on 2/18/12.
 //  Copyright (c) 2012 jneyer.com. All rights reserved.
 //
 

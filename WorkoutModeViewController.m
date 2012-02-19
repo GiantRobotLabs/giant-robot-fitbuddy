@@ -7,16 +7,13 @@
 //
 
 #import "WorkoutModeViewController.h"
-#import "LogbookEntry.h"
 #import "CoreDataHelper.h"
+#import "CardioExercise.h"
+#import "ResistanceExercise.h"
 
 @implementation WorkoutModeViewController
 
 #pragma mark ui components
-@synthesize weightLabel = _weightLabel;
-@synthesize repsLabel = _repsLabel;
-@synthesize setsLabel = _setsLabel;
-@synthesize weightIncrementLabel = _weightIncrementLabel;
 @synthesize pageControl = _pageControl;
 @synthesize skipitButton = _skipitButton;
 @synthesize logitButton = _logitButton;
@@ -27,7 +24,6 @@
 
 #pragma mark coredata support
 @synthesize workout = _workout;
-@synthesize exercise = _exercise;
 @synthesize exercises = _exercises;
 @synthesize logbookEntry = _logbookEntry;
 @synthesize skippedEntries = _skippedEntries;
@@ -72,9 +68,7 @@
 -(void) loadFormDataFromExerciseObject
 {
     self.navigationItem.title = self.exercise.name;
-    self.setsLabel.text =self.exercise.sets;
-    self.repsLabel.text = self.exercise.reps;
-    self.weightLabel.text = self.exercise.weight;
+    [super loadFormDataFromExerciseObject];
 }
 
 -(void) initialSetupOfFormWithWorkout:(Workout *)workout
@@ -114,14 +108,13 @@
     // Visual Stuff
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:GB_BACKGROUND_CHROME]];
     [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:GB_TITLEBAR_CHROME] forBarMetrics:UIBarMetricsDefault];
-    self.weightLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
-    self.setsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
-    self.repsLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
+    self.slotOneValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
+    self.slotTwoValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
+    self.slotThreeValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.pageControl.numberOfPages = self.exercises.count;
     self.pageControl.currentPage = [self.exercises indexOfObject:self.exercise];
     
     [self setToolbarBack:GB_BG_CHROME_BOTTOM toolbar:self.toolBar];
-    //[self.homeButton setBackgroundImage:[UIImage imageNamed:@"gymbuddy-20.png"] forState: UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     //Try to set the toggles if we're transitioning from ourself
     if (self.logbookEntry.completed != nil)
@@ -146,13 +139,6 @@
 #pragma mark -
 #pragma mark save
 
--(void) saveExerciseState
-{
-    self.exercise.weight = self.weightLabel.text;
-    self.exercise.reps = self.repsLabel.text;
-    self.exercise.sets = self.setsLabel.text;   
-}
-
 -(void) saveLogbookEntry: (BOOL) completed
 {
     [self initializeLogbookEntry];
@@ -160,9 +146,21 @@
     self.logbookEntry.workout_name = self.workout.workout_name;
     self.logbookEntry.exercise_name = self.exercise.name;
     self.logbookEntry.notes = self.exercise.notes;
-    self.logbookEntry.reps = self.exercise.reps;
-    self.logbookEntry.sets = self.exercise.sets;
-    self.logbookEntry.weight = self.exercise.weight;
+    
+    NSEntityDescription *desc = self.exercise.entity;
+    if ([desc.name isEqualToString: @"CardioExercise"])
+    {
+        self.logbookEntry.pace = ((CardioExercise *)self.exercise).pace;
+        self.logbookEntry.distance = ((CardioExercise *)self.exercise).distance;
+        self.logbookEntry.duration = ((CardioExercise *)self.exercise).duration;
+    }
+    else
+    {
+        self.logbookEntry.reps = ((ResistanceExercise *)self.exercise).reps;
+        self.logbookEntry.sets = ((ResistanceExercise *)self.exercise).sets;
+        self.logbookEntry.weight = ((ResistanceExercise *)self.exercise).weight;
+    }
+    
     self.logbookEntry.completed = [NSNumber numberWithBool: completed];
     
     if (DEBUG) NSLog(@"workout=%@ logbook=%@", self.workout.managedObjectContext.description, self.logbookEntry.managedObjectContext.description);
@@ -170,7 +168,7 @@
     NSMutableOrderedSet *tempSet = [self.workout mutableOrderedSetValueForKey:@"logbookEntries"];
     [tempSet addObject:self.logbookEntry];
     
-    [self saveExerciseState];
+    [self setExerciseFromForm];
 }
 
 #pragma mark -
@@ -180,7 +178,7 @@
 - (IBAction)handleSwipeAction:(UISwipeGestureRecognizer *)sender 
 {
     // Save changes to exercise info before moving
-    [self saveExerciseState];
+    [self setExerciseFromForm];
     
     int increment = 1;
     
@@ -197,7 +195,7 @@
 - (IBAction)handleReverseSwipeAction:(UISwipeGestureRecognizer *)sender 
 {
     // Save changes to exercise info before moving
-    [self saveExerciseState];
+    [self setExerciseFromForm];
     
     int increment = -1;
     
@@ -209,48 +207,6 @@
     // Perform the segue
     self.exercise = [self.workout.exercises objectAtIndex:index];
     [self performSegueWithIdentifier: WORKOUT_REVERSE_SEGUE sender: self];
-}
-
-#pragma mark Exercise control buttons
-- (IBAction)weightIncrement:(UIButton *)sender {
-    double increment = [self.weightIncrementLabel.text doubleValue];
-    double weight = [self.weightLabel.text doubleValue];
-    
-    if ([@"+" isEqualToString:sender.currentTitle]) {
-        weight += increment;
-    }
-    if ([@"-" isEqualToString:sender.currentTitle]) {
-        if (weight >= increment) weight -= increment;
-    }
-    self.weightLabel.text = [NSString stringWithFormat:@"%g", weight];
-}
-
-- (IBAction)repsIncrement:(UIButton *)sender {
-    double reps = [self.repsLabel.text doubleValue];
-    if ([@"+" isEqualToString:sender.currentTitle]) {
-        reps += 1;
-    }
-    if ([@"-" isEqualToString:sender.currentTitle]) {
-        if (reps >= 1) reps -= 1;
-    }
-    self.repsLabel.text = [NSString stringWithFormat:@"%g", reps];
-}
-
-- (IBAction)setsIncrement:(UIButton *)sender {
-    double sets = [self.setsLabel.text doubleValue];
-    if ([@"+" isEqualToString:sender.currentTitle]) {
-        sets += 1;
-    }
-    if ([@"-" isEqualToString:sender.currentTitle]) {
-        if (sets >= 1) sets -= 1;
-    }
-    self.setsLabel.text = [NSString stringWithFormat:@"%g", sets];
-}
-
-#pragma mark Undo button action
-- (IBAction)undoAllDataChangesSinceLastSave 
-{
-    [self loadFormDataFromExerciseObject];
 }
 
 #pragma mark exercise log toggles
@@ -303,8 +259,6 @@
     
     float prog = count.count*1.0 / self.exercises.count*1.0;
     self.progressBar.progress = prog;
-    
-    //if (prog == 1.0) self.homeButton.tintColor = butColor;
 }
 
 - (IBAction)logitButtonPressedWithSave:(UIBarButtonItem *)sender 
@@ -330,7 +284,7 @@
 
 - (IBAction)saveFormBeforeNotes:(id)sender 
 {
-    [self saveExerciseState];
+    [self setExerciseFromForm];
 }
 
 - (void) homeButtonCleanup 
@@ -385,7 +339,7 @@
     
     if ([segue.identifier isEqualToString: NOTES_SEGUE])
     {
-        [self saveExerciseState];
+        [self setExerciseFromForm];
     }
 }
 

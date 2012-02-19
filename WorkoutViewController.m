@@ -50,7 +50,6 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     // Setup and initialize
-    //[CoreDataHelper callSave:self.document.managedObjectContext];
     
     // Visual stuff
     self.navigationItem.title = nil;
@@ -67,10 +66,6 @@
         [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
             self.document = doc;
         }]; 
-    }
-    else
-    {
-       // [self setupFetchedResultsController];
     }
     
     if (DEBUG) NSLog(@"View will appear");
@@ -128,7 +123,6 @@
             [[CoreDataHelper getActiveManagedObjectContext] deleteObject:workout];
         }
         
-        //[CoreDataHelper callSave:self.document.managedObjectContext];
         [self enableButtons:NO];
     }    
 }
