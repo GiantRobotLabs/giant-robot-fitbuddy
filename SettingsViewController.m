@@ -27,7 +27,6 @@
         }
         else if ([cellLabel.text hasSuffix:@"Increment"])
         {
-            NSLog(@"%@", cellLabel.text);
             cellDetail.text = @"0.5";
         }
     }    

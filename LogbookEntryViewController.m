@@ -92,9 +92,7 @@
     {
         theEntry = (LogbookEntry *)[array lastObject];
         
-        NSLog(@"date1: %@ vs date2: %@", entryDate, theEntry.date);
         self.colTwoDate.text = [self tinyDateFormat:theEntry.date :@"MM/dd/yy"];
-        
         
         if (theEntry.pace || theEntry.distance || theEntry.duration)
         {

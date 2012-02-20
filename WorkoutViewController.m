@@ -67,8 +67,6 @@
             self.document = doc;
         }]; 
     }
-    
-    if (DEBUG) NSLog(@"View will appear");
 }
 
 #pragma mark -

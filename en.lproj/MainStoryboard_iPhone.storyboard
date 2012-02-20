@@ -97,7 +97,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcY-Pz-yUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Add Exercise" title="Add Exercise" modalTransitionStyle="flipHorizontal" id="XAz-R9-ilW" customClass="ExerciseAddViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RC9-mb-3Ut">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="300" contentMode="left" text="New Exercise" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="ESf-xa-TjF">
@@ -518,36 +518,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Export" id="OZE-2m-ADu">
-                                <cells>
-                                    <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Open Logbook" textLabel="GNB-ir-Bf9" detailTextLabel="81b-VB-JLA" style="IBUITableViewCellStyleValue1" id="EkR-CS-vfc">
-                                        <rect key="frame" x="0.0" y="182" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" text="Export Logbook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GNB-ir-Bf9">
-                                                    <rect key="frame" x="10" y="12" width="123" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="200" contentMode="center" text="..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="81b-VB-JLA">
-                                                    <rect key="frame" x="275" y="11" width="15" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="9NM-uB-JjL" id="hgh-CN-WdB"/>
@@ -683,7 +653,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXw-wH-43K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ONI-Db-KjY" customClass="LogbookEntryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="21K-aE-jvx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;Date>" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="qMx-SR-Qt1">
@@ -1185,7 +1155,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="aNp-T8-YZv">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
-                                <segue destination="JC5-4j-nfb" kind="modal" identifier="Go Home Segue" modalTransitionStyle="crossDissolve" id="Rgb-Z8-9xc"/>
+                                <action selector="goHomeButtonPressed:" destination="NLH-Oz-cgy" id="CIO-iW-G42"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Ob9-SH-Ahb">
@@ -1210,10 +1180,124 @@
                         <outlet property="slotTwoValue" destination="fts-c8-DNh" id="0gv-fD-veX"/>
                         <outlet property="toolBar" destination="k0V-h6-oWr" id="Vsz-HT-TL1"/>
                         <outlet property="workoutLabel" destination="2oV-Pj-2nt" id="AvE-Ge-N1q"/>
+                        <segue destination="8ft-9q-Lax" kind="modal" identifier="Go Home Segue" modalTransitionStyle="coverVertical" id="drw-4Z-vGq"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="920" y="-1151"/>
+        </scene>
+        <scene sceneID="cdH-5X-NNc">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pyk-xr-g7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="8ft-9q-Lax" customClass="WorkoutSummaryViewController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" id="GyL-Uw-ybD">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CtT-pe-R9s">
+                                <rect key="frame" x="105" y="281" width="110" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Return" backgroundImage="gb-button.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="uCq-Hg-c6I" eventType="touchUpInside" id="7Dx-VD-bWH"/>
+                                    <segue destination="JC5-4j-nfb" kind="modal" modalTransitionStyle="crossDissolve" id="gBe-sq-2AF"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" id="Rso-3C-JFP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="P6u-Px-ErQ"/>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="ZsZ-pl-8zq">
+                                <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items/>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Workout Finished" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="au1-nP-u2z">
+                                <rect key="frame" x="20" y="56" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Completed: " lineBreakMode="tailTruncation" minimumFontSize="10" id="hQh-G5-dbC">
+                                <rect key="frame" x="87" y="94" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;%>" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="LOR-yy-Tz9">
+                                <rect key="frame" x="189" y="94" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Resistance Moved: " textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="blQ-Ky-di2">
+                                <rect key="frame" x="27" y="175" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Distance Traveled:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="q1N-Y7-KCb">
+                                <rect key="frame" x="27" y="204" width="171" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;value>" lineBreakMode="tailTruncation" minimumFontSize="12" id="ENI-lT-ie0">
+                                <rect key="frame" x="214" y="175" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;value>" lineBreakMode="tailTruncation" minimumFontSize="12" id="hwC-t5-2jR">
+                                <rect key="frame" x="214" y="204" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number of Exercises:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="Mz2-q7-SFt">
+                                <rect key="frame" x="27" y="146" width="171" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;value>" lineBreakMode="tailTruncation" minimumFontSize="12" id="PTB-a1-qLs">
+                                <rect key="frame" x="214" y="146" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="completedValue" destination="LOR-yy-Tz9" id="u83-rQ-9ca"/>
+                        <outlet property="navigationBar" destination="Rso-3C-JFP" id="2FZ-LS-Nrh"/>
+                        <outlet property="numExercisesValue" destination="PTB-a1-qLs" id="MYY-NU-Ysl"/>
+                        <outlet property="totalDistanceValue" destination="hwC-t5-2jR" id="kvI-wD-uxV"/>
+                        <outlet property="totalResistanceValue" destination="ENI-lT-ie0" id="wzb-Sj-eev"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1456" y="-1151"/>
         </scene>
         <scene sceneID="qr1-e5-DOi">
             <objects>
@@ -1415,118 +1499,6 @@
         <image name="workout.png" width="30" height="30"/>
         <image name="x.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="CoreDataTableController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="ExerciseAddViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseAddViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addExerciseField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="exerciseTypeToggle" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="ExerciseControlController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseControlController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="slotOneIncrementValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotOneTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotOneValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotThreeTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotThreeValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotTwoTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotTwoValue" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ExerciseEditViewController" superclassName="ExerciseControlController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseEditViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ExerciseListTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseListTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="LogbookEntryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogbookEntryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="colOneDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="colTwoDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="entryDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="entryName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotOneColOne" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotOneColTwo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotOneLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotThreeColOne" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotThreeColTwo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotThreeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotTwoColOne" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotTwoColTwo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotTwoLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LogbookViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogbookViewController.h"/>
-        </class>
-        <class className="NotesEditorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotesEditorViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="ScratchpadViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScratchpadViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="scratchPad" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="SettingsIncrementViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsIncrementViewController.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-        </class>
-        <class className="UICheckboxButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICheckboxButton.h"/>
-        </class>
-        <class className="WorkoutAddViewController" superclassName="CoreDataTableController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutAddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="checkboxClicked:"/>
-                <relationship kind="outlet" name="workoutNameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="WorkoutModeViewController" superclassName="ExerciseControlController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutModeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logitButtonPressedWithSave:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="skipitButtonPressedWithSave:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="homeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="logitButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="progressBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="skipitButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="workoutLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="WorkoutViewController" superclassName="CoreDataTableController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

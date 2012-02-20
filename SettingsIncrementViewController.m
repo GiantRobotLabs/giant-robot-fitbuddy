@@ -29,9 +29,6 @@
     {
         UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
         
-        
-        
-        NSLog(@"%@,%@", value, cellLabel.text);
         if ([value isEqualToString:cellLabel.text])
         {
             UIImageView *checkmark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:GB_CHECK_WHITE]];

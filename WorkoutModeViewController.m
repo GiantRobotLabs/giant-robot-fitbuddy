@@ -332,6 +332,33 @@
 #pragma mark -
 #pragma mark Segue
 
+- (IBAction)goHomeButtonPressed:(UIBarButtonItem *)sender 
+{
+    if (self.progressBar.progress < 1 || self.skippedEntries.count > 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Finish Workout?"
+                              message: @"Some exercies haven't been completed. Finish to exit and save to the log or Cancel to return to workout.\n\nSwipe to go to the next exercise."
+                              delegate: self
+                              cancelButtonTitle:@"Cancel"
+                              otherButtonTitles:@"Finish", nil];
+        [alert show];
+    }
+    else
+    {
+        [self performSegueWithIdentifier: GO_HOME_SEGUE sender: self];
+    }
+}
+
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    // User clicked the finish button
+    if (buttonIndex == 1)
+    {
+        [self performSegueWithIdentifier: GO_HOME_SEGUE sender: self];
+    }
+}
+
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Pass the torch
@@ -346,6 +373,10 @@
     }
     if ([segue.destinationViewController respondsToSelector:@selector(setSkippedEntries:)]) {
         [segue.destinationViewController performSelector:@selector(setSkippedEntries:) withObject: self.skippedEntries];
+    }
+    if ([segue.destinationViewController respondsToSelector:@selector(setFinalProgress:)]) {
+        [segue.destinationViewController performSelector:@selector(setFinalProgress:) 
+                                              withObject: [NSNumber numberWithFloat: self.progressBar.progress]];
     }
     
     if ([segue.identifier isEqualToString: (GO_HOME_SEGUE)])
