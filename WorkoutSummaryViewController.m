@@ -46,7 +46,8 @@
             }
             else if (entry.pace != nil)
             {
-                distance += [entry.pace floatValue] * [entry.duration floatValue];
+                // dist = pace/hr * min/60.0
+                distance += [entry.pace floatValue] * [entry.duration floatValue] / 60.0;
             }
         }
     }

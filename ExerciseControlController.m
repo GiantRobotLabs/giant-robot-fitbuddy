@@ -39,8 +39,8 @@
     if ([desc.name isEqualToString: @"CardioExercise"])
     {
         // Relabel
-        self.slotOneTitle.text = @"Pace";
-        self.slotTwoTitle.text = @"Duration";
+        self.slotOneTitle.text = @"Pace/hr";
+        self.slotTwoTitle.text = @"Minutes";
         self.slotThreeTitle.text = @"Distance";
         
         // Values
