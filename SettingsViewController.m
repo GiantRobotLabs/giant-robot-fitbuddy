@@ -25,7 +25,11 @@
         {
             cellDetail.text = [self.defaults stringForKey:cellLabel.text] ;
         }
-        else if ([cellLabel.text hasSuffix:@"Increment"])
+        else if ([cellLabel.text hasSuffix:@"Resistance Increment"])
+        {
+            cellDetail.text = @"2.5";
+        }
+        else if ([cellLabel.text hasSuffix:@"Cardio Increment"])
         {
             cellDetail.text = @"0.5";
         }

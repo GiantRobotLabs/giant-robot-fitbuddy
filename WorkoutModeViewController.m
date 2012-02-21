@@ -326,6 +326,8 @@
         {
             [[CoreDataHelper getActiveManagedObjectContext] deleteObject:lbe];
         }
+        
+        [self.logbookEntries removeObjectsAtIndexes:count];
     }
 }
 
@@ -338,7 +340,7 @@
     {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: @"Finish Workout?"
-                              message: @"Some exercies haven't been completed. Finish to exit and save to the log or Cancel to return to workout.\n\nSwipe to go to the next exercise."
+                              message: @"Some exercies haven't been completed. Finish to exit and save to the log or Cancel to return to workout.\n\n(swipe to go to the next exercise)"
                               delegate: self
                               cancelButtonTitle:@"Cancel"
                               otherButtonTitles:@"Finish", nil];
