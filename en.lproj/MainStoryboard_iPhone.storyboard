@@ -1222,76 +1222,86 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items/>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Workout Finished" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="au1-nP-u2z">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Workout Finished" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="au1-nP-u2z">
                                 <rect key="frame" x="20" y="56" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Completed: " lineBreakMode="tailTruncation" minimumFontSize="10" id="hQh-G5-dbC">
-                                <rect key="frame" x="85" y="94" width="94" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Completed:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="hQh-G5-dbC">
+                                <rect key="frame" x="70" y="94" width="94" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100%" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="LOR-yy-Tz9">
-                                <rect key="frame" x="187" y="94" width="49" height="21"/>
+                                <rect key="frame" x="172" y="94" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Resistance Moved: " textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="blQ-Ky-di2">
-                                <rect key="frame" x="27" y="175" width="179" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Strength Workout:" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="blQ-Ky-di2">
+                                <rect key="frame" x="27" y="178" width="137" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Distance Traveled:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="q1N-Y7-KCb">
-                                <rect key="frame" x="27" y="204" width="171" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cardio Workout:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="q1N-Y7-KCb">
+                                <rect key="frame" x="39" y="221" width="125" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;value>" lineBreakMode="tailTruncation" minimumFontSize="12" id="ENI-lT-ie0">
-                                <rect key="frame" x="214" y="175" width="79" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" minimumFontSize="12" id="ENI-lT-ie0">
+                                <rect key="frame" x="225" y="178" width="65" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;value>" lineBreakMode="tailTruncation" minimumFontSize="12" id="hwC-t5-2jR">
-                                <rect key="frame" x="214" y="204" width="79" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" minimumFontSize="12" id="hwC-t5-2jR">
+                                <rect key="frame" x="225" y="221" width="65" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number of Exercises:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="Mz2-q7-SFt">
-                                <rect key="frame" x="27" y="146" width="171" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercises:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="Mz2-q7-SFt">
+                                <rect key="frame" x="71" y="123" width="93" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;value>" lineBreakMode="tailTruncation" minimumFontSize="12" id="PTB-a1-qLs">
-                                <rect key="frame" x="214" y="146" width="79" height="21"/>
+                                <rect key="frame" x="172" y="123" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="gb-nostatus.png" id="mfW-wq-7B3">
+                                <rect key="frame" x="172" y="171" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="gb-nostatus.png" id="3pW-WF-gQ6">
+                                <rect key="frame" x="172" y="214" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.44313728810000003" green="0.40000003579999999" blue="0.34509804840000002" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <connections>
+                        <outlet property="cardioLight" destination="3pW-WF-gQ6" id="yrY-po-zac"/>
                         <outlet property="completedValue" destination="LOR-yy-Tz9" id="u83-rQ-9ca"/>
                         <outlet property="navigationBar" destination="Rso-3C-JFP" id="2FZ-LS-Nrh"/>
                         <outlet property="numExercisesValue" destination="PTB-a1-qLs" id="MYY-NU-Ysl"/>
+                        <outlet property="strengthLight" destination="mfW-wq-7B3" id="XRU-qe-0Y8"/>
                         <outlet property="totalDistanceValue" destination="hwC-t5-2jR" id="kvI-wD-uxV"/>
                         <outlet property="totalResistanceValue" destination="ENI-lT-ie0" id="wzb-Sj-eev"/>
                     </connections>
@@ -1397,19 +1407,18 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <tabBar key="tabBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="5Uk-BA-shm">
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
-                        <segue destination="eDm-sq-zjM" kind="relationship" relationship="viewControllers" id="xVv-28-n0F"/>
+                        <segue destination="eDm-sq-zjM" kind="relationship" relationship="viewControllers" id="kAv-z2-Zua"/>
                         <segue destination="4jX-6G-SqD" kind="relationship" relationship="viewControllers" id="riy-dJ-j9O"/>
                         <segue destination="tiw-9n-rH5" kind="relationship" relationship="viewControllers" id="6tg-fX-YRW"/>
                         <segue destination="AdV-BT-wdz" kind="relationship" relationship="viewControllers" id="hez-MT-3Ch"/>
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="-1866" y="69"/>
+            <point key="canvasLocation" x="-2090" y="45"/>
         </scene>
         <scene sceneID="2js-Ng-JOH">
             <objects>
@@ -1491,6 +1500,7 @@
         <image name="check-transparent.png" width="30" height="30"/>
         <image name="exercises.png" width="30" height="30"/>
         <image name="gb-button.png" width="292" height="292"/>
+        <image name="gb-nostatus.png" width="53" height="53"/>
         <image name="gb-undo.png" width="70" height="70"/>
         <image name="logbook.png" width="30" height="30"/>
         <image name="run.png" width="30" height="30"/>
@@ -1606,9 +1616,11 @@
         <class className="WorkoutSummaryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutSummaryViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="cardioLight" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="completedValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="numExercisesValue" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="strengthLight" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="totalDistanceValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="totalResistanceValue" candidateClass="UILabel"/>
             </relationships>
