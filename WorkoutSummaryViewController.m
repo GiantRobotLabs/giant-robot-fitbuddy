@@ -126,7 +126,7 @@ NSFetchedResultsController *frc;
     else if (strength > 0)
     {
         self.totalResistanceValue.text = [NSString stringWithFormat:@"%1.0f%%", (1) * 100.0];
-        self.strengthLight.image = [self getTrafficLight:(1)];
+        self.strengthLight.image = [self getTrafficLight:(0)];
     }
     
     if (distanceOld != 0)
@@ -137,7 +137,7 @@ NSFetchedResultsController *frc;
     else if (distance > 0)
     {
         self.totalDistanceValue.text = [NSString stringWithFormat:@"%1.0f%%", (1) * 100.0];
-        self.cardioLight.image = [self getTrafficLight:(1)];   
+        self.cardioLight.image = [self getTrafficLight:(0)];   
     }
     
     NSLog(@"strength %f - strengthold %f", strength, strengthOld);
