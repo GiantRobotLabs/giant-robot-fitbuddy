@@ -26,6 +26,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>icon.png</string>
+		<string>icon-5757.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -35,6 +36,7 @@
 			<array>
 				<string>Screen Shot 2012-02-03 at 11.46.57 PM.png</string>
 				<string>icon.png</string>
+				<string>icon-5757.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
