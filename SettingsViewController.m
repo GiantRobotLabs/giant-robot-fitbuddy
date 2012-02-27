@@ -96,8 +96,6 @@
         UILabel *label = (UILabel *)[((UITableViewCell *)sender) viewWithTag:100];
         [segue.destinationViewController performSelector:@selector(setDefaultsKey:) withObject:(label.text)];
     }
-        
-    
 }
 
 @end

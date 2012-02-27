@@ -10,6 +10,7 @@
 #import "WorkoutModeViewController.h"
 #import "CoreDataHelper.h"
 #import "Workout.h"
+#import "GymBuddyMacros.h"
 
 @implementation WorkoutViewController 
 
@@ -50,7 +51,14 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     // Setup and initialize
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *value = [defaults stringForKey:@"firstrun"];
     
+    if (value == nil)
+        [self performSegueWithIdentifier:@"Startup Demo" sender:self];
+    
+    [defaults setObject:@"0" forKey:@"firstrun"];
+
     // Visual stuff
     self.navigationItem.title = nil;
     [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
@@ -197,7 +205,7 @@
     else
     {
         workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        if (DEBUG) NSLog(@"Before Segue for Workout:%@", workout.workout_name);
+        //if (DEBUG) NSLog(@"Before Segue for Workout:%@", workout.workout_name);
     }
     
     if ([segue.destinationViewController respondsToSelector:@selector(setWorkout:)]) 

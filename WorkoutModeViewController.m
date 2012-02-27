@@ -55,7 +55,7 @@
             tempEntry = [NSEntityDescription insertNewObjectForEntityForName:LOGBOOK_TABLE
                                                       inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
             [self.logbookEntries addObject:tempEntry]; 
-            if (DEBUG) NSLog(@"Added a new logbook entry for Workout%@ Exercise %@, index %d", self.workout.workout_name, self.exercise.name, idx);
+            //if (DEBUG) NSLog(@"Added a new logbook entry for Workout%@ Exercise %@, index %d", self.workout.workout_name, self.exercise.name, idx);
         }
         
         self.logbookEntry = tempEntry;
@@ -80,8 +80,8 @@
     self.exercise = [self.exercises objectAtIndex:0];
     self.logbookEntries = [[NSMutableOrderedSet alloc]init];
     
-    if (DEBUG) NSLog(@"Entering initialSetupOfFormWithWorkout: Workout %@, Exercise %@", 
-                     self.workout.workout_name, self.exercise.name);
+    //if (DEBUG) NSLog(@"Entering initialSetupOfFormWithWorkout: Workout %@, Exercise %@", 
+    //                 self.workout.workout_name, self.exercise.name);
 }
 
 -(void)setToolbarBack:(NSString*)bgFilename toolbar:(UIToolbar*)toolbar {   
@@ -148,7 +148,7 @@
     [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [[self view] addGestureRecognizer:recognizer];
     
-    if (DEBUG) NSLog(@"View will appear");
+    //if (DEBUG) NSLog(@"View will appear");
 }
 
 #pragma mark -
@@ -179,7 +179,7 @@
     
     self.logbookEntry.completed = [NSNumber numberWithBool: completed];
     
-    if (DEBUG) NSLog(@"workout=%@ logbook=%@", self.workout.managedObjectContext.description, self.logbookEntry.managedObjectContext.description);
+    //if (DEBUG) NSLog(@"workout=%@ logbook=%@", self.workout.managedObjectContext.description, self.logbookEntry.managedObjectContext.description);
     self.logbookEntry.workout = self.workout;
     NSMutableOrderedSet *tempSet = [self.workout mutableOrderedSetValueForKey:@"logbookEntries"];
     [tempSet addObject:self.logbookEntry];
@@ -318,7 +318,7 @@
 
     if (count.count > 0)
     {
-        if (DEBUG) NSLog(@"Deleting %d unset logbookEntries", count.count);
+       // if (DEBUG) NSLog(@"Deleting %d unset logbookEntries", count.count);
         
         NSArray *array = [self.logbookEntries objectsAtIndexes:count];
         

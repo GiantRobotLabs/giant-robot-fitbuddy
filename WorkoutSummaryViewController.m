@@ -139,6 +139,8 @@ NSFetchedResultsController *frc;
         self.totalDistanceValue.text = [NSString stringWithFormat:@"%1.0f%%", (1) * 100.0];
         self.cardioLight.image = [self getTrafficLight:(1)];   
     }
+    
+    NSLog(@"strength %f - strengthold %f", strength, strengthOld);
 }
 
 -(void) setForm

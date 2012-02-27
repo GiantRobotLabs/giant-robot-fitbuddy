@@ -76,7 +76,7 @@
     
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:LOGBOOK_TABLE];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
     request.predicate = [NSPredicate predicateWithFormat:@"(exercise_name = %@) AND (date < %@) AND (completed = %@)", 
                          exerciseName, entryDate, [NSNumber numberWithBool:YES]];
     

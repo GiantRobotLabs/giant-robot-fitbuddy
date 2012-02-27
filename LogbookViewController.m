@@ -95,7 +95,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if (DEBUG) NSLog(@"Segue: %@", segue.identifier);
+    //if (DEBUG) NSLog(@"Segue: %@", segue.identifier);
     
     LogbookEntry *entry = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
     if ([segue.destinationViewController respondsToSelector:@selector(setLogbookEntry:)]) {

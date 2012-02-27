@@ -87,7 +87,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     Exercise *exercise = nil;
     
-    if (DEBUG) NSLog(@"Segue: %@", segue.identifier);
+    //if (DEBUG) NSLog(@"Segue: %@", segue.identifier);
     
     if ([segue.identifier isEqualToString: (ADD_EXERCISE_SEGUE)])
     {

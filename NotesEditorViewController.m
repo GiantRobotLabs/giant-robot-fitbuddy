@@ -30,7 +30,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     self.notesTextView.text = self.exercise.notes;
-    if (DEBUG) NSLog(@"Loaded notes data for %@", self.exercise.name);
+    //if (DEBUG) NSLog(@"Loaded notes data for %@", self.exercise.name);
 }
 
 -(void) viewWillDisappear:(BOOL)animated

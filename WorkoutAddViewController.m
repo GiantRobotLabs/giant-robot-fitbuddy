@@ -9,6 +9,7 @@
 #import "WorkoutAddViewController.h"
 #import "CoreDataHelper.h"
 #import "UICheckboxButton.h"
+#import "GymBuddyMacros.h"
 
 @implementation WorkoutAddViewController
 
@@ -81,7 +82,7 @@
                                                  name:@"CheckboxToggled"
                                                object:nil];
     
-    if (DEBUG) NSLog(@"View will appear");
+    //if (DEBUG) NSLog(@"View will appear");
 }
 
 
@@ -145,7 +146,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@", exercise.name,  self.workout.workout_name);
+    //if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@", exercise.name,  self.workout.workout_name);
     
     if (((UICheckboxButton *)sender.object).checked)
     {
@@ -157,8 +158,8 @@
         [self.workoutSet removeObject:exercise];
     }
     
-    if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name,  
-          self.workout.workout_name, self.workout.exercises.count);
+    //if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name,  
+    //      self.workout.workout_name, self.workout.exercises.count);
     
 }
 
