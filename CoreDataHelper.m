@@ -17,7 +17,7 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
 
 + (void)openDatabase:(NSString *)name usingBlock:(completion_block_t)completionBlock
 {
-    if (DEBUG) NSLog(@"Entering open database block");
+    //if (DEBUG) NSLog(@"Entering open database block");
     
     if (managedDocumentDictionary == nil)
         managedDocumentDictionary = [[NSMutableDictionary alloc]init];
@@ -32,7 +32,7 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     // If UIManagedObject was not retrieved, create it
     if (!document) {
         
-        if (DEBUG) NSLog(@"Database [%@] not found. Fetching a new database managed object", name);
+        //if (DEBUG) NSLog(@"Database [%@] not found. Fetching a new database managed object", name);
         // Create UIManagedDocument with this URL
         document = [[UIManagedDocument alloc] initWithFileURL:url];
 
@@ -78,11 +78,11 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     
     if (!err)
     {
-         if (DEBUG) NSLog(@"Save successful");
+         //if (DEBUG) NSLog(@"Save successful");
     }
     else
     {
-        if (DEBUG) NSLog(@"Save failed: %@", err);
+        //if (DEBUG) NSLog(@"Save failed: %@", err);
     }
 }
 
@@ -94,11 +94,11 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     
     if (!err)
     {
-        if (DEBUG) NSLog(@"Fetch successful");
+        //if (DEBUG) NSLog(@"Fetch successful");
     }
     else
     {
-        if (DEBUG) NSLog(@"Fetch failed: %@", err);
+        //if (DEBUG) NSLog(@"Fetch failed: %@", err);
     }
 }
 
