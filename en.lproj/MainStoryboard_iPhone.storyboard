@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="JC5-4j-nfb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="JC5-4j-nfb">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
+        <!--Logbook View Controller-->
         <scene sceneID="RDz-tJ-zlQ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="im6-dC-A3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,28 +24,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Exercise Name" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="hFI-LL-slw">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Exercise Name" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="hFI-LL-slw">
                                             <rect key="frame" x="20" y="5" width="169" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="&lt;name>" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="wMh-FJ-Gu0">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="&lt;name>" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="wMh-FJ-Gu0">
                                             <rect key="frame" x="20" y="20" width="169" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="104" contentMode="left" text="Stat Label" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="tsh-DF-Yqe">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="104" contentMode="left" text="Stat Label" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="tsh-DF-Yqe">
                                             <rect key="frame" x="221" y="20" width="65" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" text="Value" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="mDl-et-Uxh">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="103" contentMode="left" text="Value" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="mDl-et-Uxh">
                                             <rect key="frame" x="221" y="2" width="65" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
@@ -72,6 +74,7 @@
             </objects>
             <point key="canvasLocation" x="-104" y="782"/>
         </scene>
+        <!--Exercise Add View Controller - Add Exercise-->
         <scene sceneID="sf6-7J-VgO">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcY-Pz-yUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -93,11 +96,13 @@
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bezeled" selectedSegmentIndex="0" id="t4S-V0-285">
-                                <rect key="frame" x="20" y="50" width="280" height="44"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="t4S-V0-285">
+                                <rect key="frame" x="20" y="57" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="" image="workout-transparent.png"/>
+                                    <segment title="" image="workout-transparent.png">
+                                        <size key="contentOffset" width="0.0" height="10"/>
+                                    </segment>
                                     <segment title="" image="run.png"/>
                                 </segments>
                             </segmentedControl>
@@ -111,8 +116,9 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1946" y="-157"/>
+            <point key="canvasLocation" x="1917" y="-156"/>
         </scene>
+        <!--Exercise List Table View Controller-->
         <scene sceneID="Cf3-9e-rew">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGT-xO-Kng" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -130,7 +136,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="Sh8-93-2fJ">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Sh8-93-2fJ">
                                             <rect key="frame" x="20" y="11" width="239" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -170,6 +176,7 @@
             </objects>
             <point key="canvasLocation" x="-144" y="69"/>
         </scene>
+        <!--Notes Editor View Controller-->
         <scene sceneID="4Q6-Nn-SE3">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ge-pn-Jf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -200,6 +207,7 @@
             </objects>
             <point key="canvasLocation" x="1874" y="-949"/>
         </scene>
+        <!--Exercise Edit View Controller-->
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -402,6 +410,7 @@
             </objects>
             <point key="canvasLocation" x="1068" y="319"/>
         </scene>
+        <!--Navigation Controller - Exercises-->
         <scene sceneID="bmM-L2-ja8">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31e-Wk-FpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -423,15 +432,16 @@
             </objects>
             <point key="canvasLocation" x="-1054" y="-5"/>
         </scene>
+        <!--Settings View Controller - Settings-->
         <scene sceneID="HGi-tU-tVi">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SH6-t0-MPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="9NM-uB-JjL" customClass="SettingsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sUH-P1-RJS">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="static" style="grouped" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sUH-P1-RJS">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.44313728810000003" green="0.40000003579999999" blue="0.34509804840000002" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="separatorColor" red="0.76078431369999999" green="0.70980392160000005" blue="0.60784313729999995" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection headerTitle="Exercise Settings" id="sQY-0m-CvN">
                                 <cells>
@@ -459,16 +469,16 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.60392156862745094" green="0.52156862745098043" blue="0.47843137254901957" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="cZR-9I-va7" kind="push" id="R1Q-5o-t9x"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Resistance Increment" textLabel="gzD-0k-DcI" detailTextLabel="fav-5U-8rx" imageView="re1-CU-UuM" style="IBUITableViewCellStyleValue1" id="3X8-2n-AFM">
-                                        <rect key="frame" x="0.0" y="91" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="91" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clearsContextBeforeDrawing="NO" tag="100" contentMode="center" text="Resistance Increment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gzD-0k-DcI">
@@ -492,7 +502,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.60392156860000001" green="0.52156862749999999" blue="0.47843137250000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="cZR-9I-va7" kind="push" id="ewh-Ek-2jn"/>
                                         </connections>
@@ -502,7 +512,7 @@
                             <tableViewSection headerTitle="Help" id="jj0-Jp-nsL">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="UeM-54-JAX" detailTextLabel="hrP-VT-2dg" style="IBUITableViewCellStyleValue1" id="kHJ-2d-RW2">
-                                        <rect key="frame" x="0.0" y="182" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="181" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -525,9 +535,42 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.60392156860000001" green="0.52156862749999999" blue="0.47843137250000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="Hf8-Oh-UsS" kind="modal" identifier="Go To Demo Segue" modalTransitionStyle="coverVertical" id="aI2-oq-yoD"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Backup and Sync" id="5Jc-8x-AO3">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="9AD-oY-PaX" detailTextLabel="H0l-s7-Wsg" style="IBUITableViewCellStyleValue1" id="nB9-sl-qVe">
+                                        <rect key="frame" x="0.0" y="272" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" text="Use iCloud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9AD-oY-PaX">
+                                                    <rect key="frame" x="10" y="11" width="89" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="200" contentMode="center" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H0l-s7-Wsg">
+                                                    <rect key="frame" x="226" y="11" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.60392156860000001" green="0.52156862749999999" blue="0.47843137250000001" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="x4L-h3-vgy" kind="push" id="d8x-Ml-Ba0"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -543,14 +586,16 @@
             </objects>
             <point key="canvasLocation" x="-139" y="1626"/>
         </scene>
+        <!--Settings Increment View Controller-->
         <scene sceneID="7yG-Gq-G9B">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdV-q1-hTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="cZR-9I-va7" customClass="SettingsIncrementViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="g7y-fh-b5T">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="g7y-fh-b5T">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.44313728810000003" green="0.40000003579999999" blue="0.34509804840000002" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="S30-q9-uTj">
                                 <cells>
@@ -571,13 +616,13 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.60392156860000001" green="0.52156862749999999" blue="0.47843137250000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="dD0-St-l5K" style="IBUITableViewCellStyleDefault" id="5Gu-5S-srl">
                                         <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" text="1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dD0-St-l5K">
@@ -590,13 +635,13 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.60392156860000001" green="0.52156862749999999" blue="0.47843137250000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="zfI-LA-ccO" style="IBUITableViewCellStyleDefault" id="qpQ-lU-dk7">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" text="2.0" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zfI-LA-ccO">
@@ -609,13 +654,13 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.60392156860000001" green="0.52156862749999999" blue="0.47843137250000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Xhs-Af-DWd" style="IBUITableViewCellStyleDefault" id="nct-kQ-K7V">
                                         <rect key="frame" x="0.0" y="143" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" text="2.5" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xhs-Af-DWd">
@@ -628,13 +673,13 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.60392156860000001" green="0.52156862749999999" blue="0.47843137250000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="TcW-u2-QNg" style="IBUITableViewCellStyleDefault" id="AGY-aZ-KTF">
-                                        <rect key="frame" x="0.0" y="187" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="187" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" text="5.0" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TcW-u2-QNg">
@@ -647,7 +692,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.60392156860000001" green="0.52156862749999999" blue="0.47843137250000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -662,6 +707,79 @@
             </objects>
             <point key="canvasLocation" x="616" y="1626"/>
         </scene>
+        <!--Settings Increment View Controller-->
+        <scene sceneID="kM9-uV-D4k">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wVS-4P-YdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="x4L-h3-vgy" customClass="SettingsIncrementViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vBI-Qc-RbN">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.44313728810000003" green="0.40000003579999999" blue="0.34509804840000002" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FitBuddy can back up workout data to iCloud so it can be recovered if you ever need to reinstall the application." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="CRN-MF-Oz7">
+                            <rect key="frame" x="0.0" y="109" width="320" height="61"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <rect key="contentStretch" x="0.0" y="0.0" width="0.89999999999999991" height="1"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <sections>
+                            <tableViewSection id="wAK-9f-Ftp">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xjb-x2-Qqy" style="IBUITableViewCellStyleDefault" id="xhG-xD-MTu">
+                                        <rect key="frame" x="0.0" y="10" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" text="Yes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xjb-x2-Qqy">
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.60392156860000001" green="0.52156862749999999" blue="0.47843137250000001" alpha="0.5" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="m81-at-BkJ" style="IBUITableViewCellStyleDefault" id="QFm-3b-d7y">
+                                        <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" text="No" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="m81-at-BkJ">
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.60392156860000001" green="0.52156862749999999" blue="0.47843137250000001" alpha="0.5" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="x4L-h3-vgy" id="q2Y-Jq-mWl"/>
+                            <outlet property="delegate" destination="x4L-h3-vgy" id="AuW-6p-5U7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="DjE-IM-HjZ"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="616" y="2210"/>
+        </scene>
+        <!--Logbook Entry View Controller-->
         <scene sceneID="8tL-II-a56">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXw-wH-43K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -670,28 +788,28 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;Date>" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="qMx-SR-Qt1">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;Date>" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="qMx-SR-Qt1">
                                 <rect key="frame" x="98" y="20" width="202" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;Exercise>" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="Tax-Gq-qnm">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;Exercise>" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Tax-Gq-qnm">
                                 <rect key="frame" x="98" y="49" width="202" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date: " lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="L7M-57-n6m">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date: " lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="L7M-57-n6m">
                                 <rect key="frame" x="20" y="20" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise:" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="obh-Dw-N4w">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Exercise:" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="obh-Dw-N4w">
                                 <rect key="frame" x="20" y="49" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
@@ -819,6 +937,7 @@
             </objects>
             <point key="canvasLocation" x="540" y="750"/>
         </scene>
+        <!--Workout View Controller-->
         <scene sceneID="c0X-sQ-Zw7">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMR-TJ-IqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -861,7 +980,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Workout Name" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="7Gh-5j-G4W">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="Workout Name" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="7Gh-5j-G4W">
                                                     <rect key="frame" x="20" y="2" width="240" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -869,7 +988,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last workout: " lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="dF6-za-34S">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last workout: " lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="dF6-za-34S">
                                                     <rect key="frame" x="20" y="18" width="79" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
@@ -923,6 +1042,7 @@
             </objects>
             <point key="canvasLocation" x="-144" y="-580"/>
         </scene>
+        <!--Workout Mode View Controller-->
         <scene sceneID="QMA-ks-JDx">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rve-hH-mPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1133,7 +1253,7 @@
                                     <segue destination="NLH-Oz-cgy" kind="push" identifier="Segue To Me" id="vCa-uu-OS1"/>
                                 </connections>
                             </pageControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Skip It!" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="vgf-M9-5pc">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Skip It!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vgf-M9-5pc">
                                 <rect key="frame" x="2" y="351" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1147,7 +1267,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;workout>" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="2oV-Pj-2nt">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;workout>" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="2oV-Pj-2nt">
                                 <rect key="frame" x="-1" y="-6" width="321" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
@@ -1202,6 +1322,7 @@
             </objects>
             <point key="canvasLocation" x="1240" y="-1671"/>
         </scene>
+        <!--Workout Summary View Controller-->
         <scene sceneID="cdH-5X-NNc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pyk-xr-g7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1238,7 +1359,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items/>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Workout Finished" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="au1-nP-u2z">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Workout Finished" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="au1-nP-u2z">
                                 <rect key="frame" x="20" y="56" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
@@ -1252,14 +1373,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100%" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="LOR-yy-Tz9">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100%" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="LOR-yy-Tz9">
                                 <rect key="frame" x="172" y="94" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Strength Workout:" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="blQ-Ky-di2">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Strength Workout:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="blQ-Ky-di2">
                                 <rect key="frame" x="27" y="178" width="137" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
@@ -1325,6 +1446,7 @@
             </objects>
             <point key="canvasLocation" x="-1064" y="-1695"/>
         </scene>
+        <!--Workout Add View Controller-->
         <scene sceneID="qr1-e5-DOi">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNq-Pv-48F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1369,7 +1491,7 @@
                                                         <action selector="checkboxClicked:" destination="P6T-p0-EAi" eventType="touchUpInside" id="Hvr-5z-nMi"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" tag="101" contentMode="left" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="3gi-7H-9gd">
+                                                <label opaque="NO" clipsSubviews="YES" tag="101" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="3gi-7H-9gd">
                                                     <rect key="frame" x="10" y="11" width="190" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -1390,7 +1512,7 @@
                                     <outlet property="delegate" destination="P6T-p0-EAi" id="i9a-JM-9NT"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select Exercises for Workout" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="ef0-5N-tYv">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select Exercises for Workout" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="ef0-5N-tYv">
                                 <rect key="frame" x="20" y="64" width="280" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
@@ -1416,6 +1538,7 @@
             </objects>
             <point key="canvasLocation" x="976" y="-498"/>
         </scene>
+        <!--Tab Bar Controller-->
         <scene sceneID="xYw-pW-9ze">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQu-t3-0Wx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1437,6 +1560,7 @@
             </objects>
             <point key="canvasLocation" x="-2038" y="-83"/>
         </scene>
+        <!--Navigation Controller - Workout-->
         <scene sceneID="2js-Ng-JOH">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3s-5g-ztf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1458,6 +1582,7 @@
             </objects>
             <point key="canvasLocation" x="-1054" y="-624"/>
         </scene>
+        <!--Demo View-->
         <scene sceneID="pW1-Qv-rG3">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYz-h6-gc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1466,14 +1591,14 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="eLT-XP-Zvm">
-                                <rect key="frame" x="141" y="404" width="38" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pageControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="uFb-km-lXZ">
-                                <rect key="frame" x="0.0" y="5" width="320" height="403"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="eLT-XP-Zvm">
+                                <rect key="frame" x="141" y="375" width="38" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Getting Started" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Fmw-eF-Gy8">
                                 <rect key="frame" x="20" y="5" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1481,8 +1606,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="swipe to continue..." textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" minimumFontSize="10" id="TPC-iR-W4G">
-                                <rect key="frame" x="20" y="370" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="swipe to continue..." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="TPC-iR-W4G">
+                                <rect key="frame" x="20" y="419" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1506,6 +1631,7 @@
             </objects>
             <point key="canvasLocation" x="-1002" y="1886"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="hG7-cF-mOf">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Log-dJ-FgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1525,6 +1651,7 @@
             </objects>
             <point key="canvasLocation" x="420" y="-1255"/>
         </scene>
+        <!--Navigation Controller - Logbook-->
         <scene sceneID="nBi-v6-D0V">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tq0-kx-K3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1544,6 +1671,7 @@
             </objects>
             <point key="canvasLocation" x="-1032" y="650"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="03p-l1-Pyh">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H4U-S7-feQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1710,10 +1838,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ewh-Ek-2jn"/>
         <segue reference="w0X-5z-YUO"/>
-        <segue reference="fK1-do-FMx"/>
         <segue reference="fuH-wC-hes"/>
+        <segue reference="aI2-oq-yoD"/>
+        <segue reference="R1Q-5o-t9x"/>
         <segue reference="DEe-V7-2UK"/>
         <segue reference="pa1-oE-lGR"/>
         <segue reference="oRL-rC-m9O"/>
