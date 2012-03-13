@@ -21,5 +21,6 @@
 @property BOOL edit;
 
 -(void) enableButtons: (BOOL) enable;
+-(void) initializeDefaults;
 
 @end

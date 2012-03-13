@@ -48,12 +48,12 @@
     self.searchDisplayController.searchBar.tintColor = [UIColor clearColor];
     
     // Setup the database
-    if (!self.document)
-    {
+    //if (!self.document)
+    //{
         [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
             self.document = doc;
         }];
-    }  
+    //}  
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -64,12 +64,12 @@
     self.workoutNameTextField.text = self.workout.workout_name;
     
     // Setup the database
-    if (!self.document)
-    {
+//    if (!self.document)
+//    {
         [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
             self.document = doc;
         }];
-    }  
+//    }  
     
     // Dismiss Keyboard
     [self.workoutNameTextField addTarget:self
@@ -84,7 +84,6 @@
     
     //if (DEBUG) NSLog(@"View will appear");
 }
-
 
 - (void) workoutNameTextFieldFinished:(UITextField *)sender {
     [sender resignFirstResponder];

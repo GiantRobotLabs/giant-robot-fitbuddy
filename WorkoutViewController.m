@@ -38,6 +38,23 @@
                                                                                    cacheName:nil];
 }
 
+-(void) initializeDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![defaults stringForKey:@"Cardio Increment"])
+        [defaults setValue:@"0.5" forKey:@"Cardio Increment"];
+        
+    if (![defaults stringForKey:@"Resistance Increment"]) 
+        [defaults setValue:@"2.5" forKey:@"Resistance Increment"];
+        
+    if (![defaults stringForKey:@"Use iCloud"]) 
+        [defaults setValue:@"No" forKey:@"Use iCloud"];
+    
+    if (![defaults stringForKey:@"firstrun"])
+        [defaults setObject:@"0" forKey:@"firstrun"];
+}
+
 -(void) setDocument:(UIManagedDocument *)document
 {
     if (!self.document)
@@ -55,9 +72,11 @@
     NSString *value = [defaults stringForKey:@"firstrun"];
     
     if (value == nil)
+    {
         [self performSegueWithIdentifier:@"Startup Demo" sender:self];
+    }
     
-    [defaults setObject:@"0" forKey:@"firstrun"];
+    [self initializeDefaults];
 
     // Visual stuff
     self.navigationItem.title = nil;
@@ -69,12 +88,12 @@
     [self enableButtons:NO];
     
     // Initialize view    
-    if (!self.document)    
-    {
+    //if (!self.document)    
+    //{
         [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
             self.document = doc;
         }]; 
-    }
+    //}
     
 }
 
