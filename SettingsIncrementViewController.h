@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsIncrementViewController : UITableViewController
+@interface SettingsIncrementViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @property  (nonatomic, strong) NSString *defaultsKey;

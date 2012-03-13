@@ -33,6 +33,10 @@
         {
             cellDetail.text = @"0.5";
         }
+        else if ([cellLabel.text hasSuffix:@"Use iCloud"])
+        {
+            cellDetail.text = @"No";
+        }
     }    
 }
 
@@ -49,7 +53,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    cell.backgroundColor = [UIColor clearColor];
+
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -88,11 +92,8 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UITableViewCell *cell = sender;
-    [self.tableView deselectRowAtIndexPath: [self.tableView indexPathForSelectedRow] animated:YES];
-    cell.backgroundColor = [UIColor clearColor];
-    
-    if ([segue.destinationViewController respondsToSelector:@selector(setDefaultsKey:)]) {
+    if ([segue.destinationViewController respondsToSelector:@selector(setDefaultsKey:)]) 
+    {
         UILabel *label = (UILabel *)[((UITableViewCell *)sender) viewWithTag:100];
         [segue.destinationViewController performSelector:@selector(setDefaultsKey:) withObject:(label.text)];
     }
