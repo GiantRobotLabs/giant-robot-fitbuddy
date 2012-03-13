@@ -10,7 +10,7 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>GymBuddy Backup</string>
+			<string>FitBuddy Backup</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
@@ -25,8 +25,8 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>icon.png</string>
-		<string>icon-5757.png</string>
+		<string>icon-big.png</string>
+		<string>icon-small.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -34,16 +34,15 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>Screen Shot 2012-02-03 at 11.46.57 PM.png</string>
-				<string>icon.png</string>
-				<string>icon-5757.png</string>
+				<string>icon-big.png</string>
+				<string>icon-small.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.jneyer.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.giantrobotapps.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
