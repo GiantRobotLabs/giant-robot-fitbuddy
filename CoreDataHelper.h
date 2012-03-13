@@ -19,5 +19,9 @@ typedef void (^completion_block_t)(UIManagedDocument *database);
 + (NSManagedObjectContext *) getActiveManagedObjectContext;
 
 - (BOOL)importFromURL:(NSURL *)importURL;
++ (BOOL)checkiCloudExists;
++ (void)resetDatabaseConnection;
++ (BOOL) copyiCloudtoLocal;
++ (BOOL) copyLocaltoiCloud;
 
 @end

@@ -7,10 +7,12 @@
 //
 
 #import "GymBuddyAppDelegate.h"
+#import "CoreDataHelper.h"
 
 @implementation GymBuddyAppDelegate
 
 @synthesize window = _window;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

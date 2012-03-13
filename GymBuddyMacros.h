@@ -69,5 +69,5 @@
 #define GYMBUDDY_YELLOW     [UIColor colorWithRed:241.0/255.0 green:191.0/255.0 blue:40.0/255.0 alpha:1]
 #define GYMBUDDY_BROWN      [UIColor colorWithRed:194.0/255.0 green:181.0/255.0 blue:155.0/255.0 alpha:1]
 #define GYMBUDDY_DK_BROWN   [UIColor colorWithRed:114.0/255.0 green:102.0/255.0 blue:89.0/255.0 alpha:1]
-
+#define GYMBUDDY_CELL_BG    [UIColor colorWithRed:154.0/255.0 green:133.0/255.0 blue:122.0/255.0 alpha:.50]
 #endif

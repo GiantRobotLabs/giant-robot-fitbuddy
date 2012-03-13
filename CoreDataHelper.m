@@ -17,7 +17,7 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
 
 + (void)openDatabase:(NSString *)name usingBlock:(completion_block_t)completionBlock
 {
-    //if (DEBUG) NSLog(@"Entering open database block");
+    if (DEBUG) NSLog(@"Entering open database block");
     
     if (managedDocumentDictionary == nil)
         managedDocumentDictionary = [[NSMutableDictionary alloc]init];
@@ -26,21 +26,46 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     UIManagedDocument *document = [managedDocumentDictionary objectForKey:name];
     
     // Get URL for the database -> "<Documents Directory>/<database name>" 
-    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    url = [url URLByAppendingPathComponent:name];
+    // Set options with migration
+    NSURL *fileUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSDictionary *fileOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
+                             nil];
+    
+    NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+    NSDictionary *iCloudOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
+                             name, NSPersistentStoreUbiquitousContentNameKey,
+                             [iCloudUrl URLByAppendingPathComponent:@"CoreData"], NSPersistentStoreUbiquitousContentURLKey,
+                             nil];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSURL *url = nil;
+    NSDictionary *options = nil;
+    
+    NSString *value = [defaults valueForKey:@"Use iCloud"];
+    if (value && [value isEqualToString:@"Yes"])
+    {
+        if (DEBUG) NSLog(@"opening icloud store");
+        url = [iCloudUrl URLByAppendingPathComponent:name];
+        options = iCloudOptions;
+    }
+    else
+    {
+        if (DEBUG) NSLog(@"opening file store");
+        url = [fileUrl URLByAppendingPathComponent:name];
+        options = fileOptions;
+    }
     
     // If UIManagedObject was not retrieved, create it
     if (!document) {
         
-        //if (DEBUG) NSLog(@"Database [%@] not found. Fetching a new database managed object", name);
         // Create UIManagedDocument with this URL
         document = [[UIManagedDocument alloc] initWithFileURL:url];
-
-        // Migrate Models
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                                 [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-       document.persistentStoreOptions = options;
+        document.persistentStoreOptions = options;
 
         // Add to managedDocumentDictionary
         [managedDocumentDictionary setObject:document forKey:name];
@@ -49,6 +74,7 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     // If document exists on disk...
     if ([[NSFileManager defaultManager] fileExistsAtPath:[url path]]) 
     {
+        NSLog(@"File URL %@", url);
         [document openWithCompletionHandler:^(BOOL success) 
          {
              completionBlock(document);
@@ -129,6 +155,70 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
 - (BOOL)importFromURL:(NSURL *)importURL {
     NSData *zippedData = [NSData dataWithContentsOfURL:importURL];
     return [self importData:zippedData];    
+}
+
++ (BOOL)checkiCloudExists
+{
+    NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath: [iCloudUrl URLByAppendingPathComponent:DATABASE].path])
+        return YES;
+    else
+        return NO;
+}
+
++ (void) resetDatabaseConnection
+{
+    NSError *err;
+    [[self getActiveManagedObjectContext] save:&err];
+    
+    if (!err)
+    {
+        if (DEBUG) NSLog(@"Save successful");
+    }
+    else
+    {
+        if (DEBUG) NSLog(@"Save failed: %@", err);
+    }
+    
+    managedDocumentDictionary = [[NSMutableDictionary alloc]init];
+}
+
++ (BOOL) copyLocaltoiCloud
+{
+    BOOL rtn = NO;
+    
+    NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+    NSURL *fileUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    
+    NSError *err;
+    [[NSFileManager defaultManager] removeItemAtURL:[iCloudUrl URLByAppendingPathComponent:DATABASE] error:&err];
+    [[NSFileManager defaultManager] copyItemAtURL:[fileUrl URLByAppendingPathComponent:DATABASE] toURL:[iCloudUrl URLByAppendingPathComponent:DATABASE] error:&err];
+    
+    NSLog(@"Tried to copy db: %@", err);
+    
+    if (err == nil)
+        rtn = YES;
+    return rtn;
+}
+
+
++ (BOOL) copyiCloudtoLocal
+{
+    BOOL rtn = NO;
+    
+    NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+    NSURL *fileUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    
+    NSError *err;
+    [[NSFileManager defaultManager] removeItemAtURL:[fileUrl URLByAppendingPathComponent:DATABASE] error:&err];
+    [[NSFileManager defaultManager] copyItemAtURL:[iCloudUrl URLByAppendingPathComponent:DATABASE] toURL:[fileUrl URLByAppendingPathComponent:DATABASE] error:&err];
+    
+    NSLog(@"Tried to copy db: %@", err);
+    
+    if (err == nil)
+        rtn = YES;
+    return rtn;
 }
 
 @end
