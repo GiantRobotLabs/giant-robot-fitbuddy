@@ -25,6 +25,9 @@
 @synthesize exercise = _exercise;
 @synthesize fetchedResultsController = _fetchedResultsController;
 
+BOOL isCardio = NO;
+BOOL calcDistance = NO;
+
 -(void) setupFetchedResultsController
 {
     // Override me please
@@ -38,6 +41,8 @@
     
     if ([desc.name isEqualToString: @"CardioExercise"])
     {
+        isCardio = YES;
+        
         // Relabel
         self.slotOneTitle.text = @"Pace/hr";
         self.slotTwoTitle.text = @"Minutes";
@@ -50,7 +55,10 @@
         self.slotOneValue.text = ((CardioExercise *)self.exercise).pace;
         self.slotOneIncrementValue.text = inc;
         self.slotTwoValue.text = ((CardioExercise *)self.exercise).duration;
-        self.slotThreeValue.text = ((CardioExercise *)self.exercise).distance;
+        
+        //self.slotThreeValue.text = ((CardioExercise *)self.exercise).distance;
+        [self calculateSlotThree];
+        
     }
     else
     {
@@ -88,6 +96,23 @@
     }
 }
 
+-(void) calculateSlotThree
+{
+    if (isCardio && self.slotTwoValue.text.doubleValue > 0)
+        self.slotThreeValue.text = [NSString stringWithFormat:@"%.1f", (self.slotOneValue.text.doubleValue * 
+                                                                    (self.slotTwoValue.text.doubleValue / 60.0))];
+    NSLog(@"%@ * %@/60", self.slotThreeValue.text, self.slotTwoValue.text);
+}
+
+-(void) calculateSlotOne
+{
+    if (isCardio && self.slotTwoValue.text.doubleValue > 0)
+        self.slotOneValue.text = [NSString stringWithFormat:@"%.1f", (self.slotThreeValue.text.doubleValue / 
+                                                                        (self.slotTwoValue.text.doubleValue / 60.0))];
+    
+    NSLog(@"%@ * %@/60", self.slotOneValue.text, self.slotTwoValue.text);
+}
+
 - (IBAction)slotOneIncrement:(UIButton *)sender {
     double increment = [self.slotOneIncrementValue.text doubleValue];
     double val = [self.slotOneValue.text doubleValue];
@@ -99,6 +124,10 @@
         if (val >= increment) val -= increment;
     }
     self.slotOneValue.text = [NSString stringWithFormat:@"%g", val];
+
+    [self calculateSlotThree];
+    
+    calcDistance = YES;
 }
 
 - (IBAction)slotTwoIncrement:(UIButton *)sender {
@@ -110,17 +139,27 @@
         if (val >= 1) val -= 1;
     }
     self.slotTwoValue.text = [NSString stringWithFormat:@"%g", val];
+    
+    if (calcDistance)
+        [self calculateSlotThree];
+    else
+        [self calculateSlotOne];
 }
 
 - (IBAction)slotThreeIncrement:(UIButton *)sender {
+    double increment = [self.slotOneIncrementValue.text doubleValue];
     double val = [self.slotThreeValue.text doubleValue];
     if ([@"+" isEqualToString:sender.currentTitle]) {
-        val += 1;
+        val += increment;
     }
     if ([@"-" isEqualToString:sender.currentTitle]) {
-        if (val >= 1) val -= 1;
+        if (val >= 1) val -= increment;
     }
     self.slotThreeValue.text = [NSString stringWithFormat:@"%g", val];
+    
+    [self calculateSlotOne];
+    
+    calcDistance = NO;
 }
 
 - (IBAction)undoAllDataChangesSinceLastSave 

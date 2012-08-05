@@ -67,6 +67,10 @@
             [CoreDataHelper resetDatabaseConnection];
             [self handleiCloudToggle:label.text];
         }
+        else
+        {
+            [self exit];
+        }
     }
     else 
     {

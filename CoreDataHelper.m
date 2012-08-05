@@ -17,7 +17,7 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
 
 + (void)openDatabase:(NSString *)name usingBlock:(completion_block_t)completionBlock
 {
-    if (DEBUG) NSLog(@"Entering open database block");
+    //if (DEBUG) NSLog(@"Entering open database block");
     
     if (managedDocumentDictionary == nil)
         managedDocumentDictionary = [[NSMutableDictionary alloc]init];
@@ -49,13 +49,13 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     NSString *value = [defaults valueForKey:@"Use iCloud"];
     if (value && [value isEqualToString:@"Yes"])
     {
-        if (DEBUG) NSLog(@"opening icloud store");
+        //if (DEBUG) NSLog(@"opening icloud store");
         url = [iCloudUrl URLByAppendingPathComponent:name];
         options = iCloudOptions;
     }
     else
     {
-        if (DEBUG) NSLog(@"opening file store");
+        //if (DEBUG) NSLog(@"opening file store");
         url = [fileUrl URLByAppendingPathComponent:name];
         options = fileOptions;
     }
@@ -174,11 +174,11 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     
     if (!err)
     {
-        if (DEBUG) NSLog(@"Save successful");
+        //if (DEBUG) NSLog(@"Save successful");
     }
     else
     {
-        if (DEBUG) NSLog(@"Save failed: %@", err);
+        //if (DEBUG) NSLog(@"Save failed: %@", err);
     }
     
     managedDocumentDictionary = [[NSMutableDictionary alloc]init];

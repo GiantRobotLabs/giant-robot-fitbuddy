@@ -193,6 +193,11 @@
 #pragma mark swiper
 - (IBAction)handleSwipeAction:(UISwipeGestureRecognizer *)sender 
 {
+    [self gotoNext];
+}
+
+- (void) gotoNext
+{
     // Save changes to exercise info before moving
     [self setExerciseFromForm];
     
@@ -222,7 +227,34 @@
     
     // Perform the segue
     self.exercise = [self.workout.exercises objectAtIndex:index];
-    [self performSegueWithIdentifier: WORKOUT_REVERSE_SEGUE sender: self];
+    //[self performSegueWithIdentifier: WORKOUT_REVERSE_SEGUE sender: self];
+    
+    UIViewController *lastView = [self presentingViewController];
+    
+    if ([lastView respondsToSelector:@selector(setWorkout:)]) {
+        NSLog(@"setWorkout");
+        [lastView performSelector:@selector(setWorkout:) withObject:self.workout];
+    }
+    if ([lastView respondsToSelector:@selector(setExercise:)]) {
+        NSLog(@"setExercise");
+        [lastView performSelector:@selector(setExercise:) withObject:self.exercise];
+    }
+    if ([lastView respondsToSelector:@selector(setLogbookEntries:)]) {
+        NSLog(@"setLogEntries");
+        [lastView performSelector:@selector(setLogbookEntries:) withObject: self.logbookEntries];
+    }
+    if ([lastView respondsToSelector:@selector(setSkippedEntries:)]) {
+        NSLog(@"setSkipEntries");
+        [lastView performSelector:@selector(setSkippedEntries:) withObject: self.skippedEntries];
+    }
+    if ([lastView respondsToSelector:@selector(setFinalProgress:)]) {
+        NSLog(@"setFinalProgress");
+        [lastView performSelector:@selector(setFinalProgress:) 
+                                              withObject: [NSNumber numberWithFloat: self.progressBar.progress]];
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 #pragma mark exercise log toggles
@@ -275,6 +307,8 @@
     
     float prog = count.count*1.0 / self.exercises.count*1.0;
     self.progressBar.progress = prog;
+    
+    
 }
 
 - (IBAction)logitButtonPressedWithSave:(UIBarButtonItem *)sender 
@@ -286,6 +320,7 @@
     [self setExerciseLogToggleVale:YES];
     [self saveLogbookEntry: YES];
     [self setProgressBarProgress];
+    [self gotoNext];
 }
 
 - (IBAction)skipitButtonPressedWithSave:(UIBarButtonItem *)sender 
@@ -296,6 +331,7 @@
     [self setExerciseLogToggleVale:NO];
     [self saveLogbookEntry: NO];
     [self setProgressBarProgress];
+    [self gotoNext];
 }
 
 - (IBAction)saveFormBeforeNotes:(id)sender 

@@ -24,7 +24,6 @@
 @property (nonatomic, strong) Exercise *exercise;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
-
 -(void) loadFormDataFromExerciseObject;
 -(void) setExerciseFromForm;
 
