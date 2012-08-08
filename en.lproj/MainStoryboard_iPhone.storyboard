@@ -182,11 +182,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ge-pn-Jf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" id="eWY-4m-xuz" customClass="NotesEditorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p4t-EY-bg2">
-                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="SXq-GB-xKe">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1065,7 +1065,7 @@
         <scene sceneID="QMA-ks-JDx">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rve-hH-mPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="NLH-Oz-cgy" customClass="WorkoutModeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkoutModeViewController" id="NLH-Oz-cgy" customClass="WorkoutModeViewController" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fgQ-bY-kyR">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1268,9 +1268,6 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" id="rF6-vL-f3h">
                                 <rect key="frame" x="140" y="344" width="38" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="NLH-Oz-cgy" kind="push" identifier="Segue To Me" id="vCa-uu-OS1"/>
-                                </connections>
                             </pageControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Skip It!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vgf-M9-5pc">
                                 <rect key="frame" x="2" y="351" width="54" height="21"/>
@@ -1725,143 +1722,17 @@
         <image name="workout.png" width="30" height="30"/>
         <image name="x.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="CoreDataTableController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="DemoView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DemoView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="demoPageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="imagePanel" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="swiper" candidateClass="UISwipeGestureRecognizer"/>
-            </relationships>
-        </class>
-        <class className="ExerciseAddViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseAddViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addExerciseField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="exerciseTypeToggle" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="ExerciseControlController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseControlController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="slotOneIncrementValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotOneTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotOneValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotThreeTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotThreeValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotTwoTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotTwoValue" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ExerciseEditViewController" superclassName="ExerciseControlController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseEditViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ExerciseListTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseListTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="LogbookEntryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogbookEntryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="colOneDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="colTwoDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="entryDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="entryName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotOneColOne" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotOneColTwo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotOneLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotThreeColOne" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotThreeColTwo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotThreeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotTwoColOne" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotTwoColTwo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slotTwoLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LogbookViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogbookViewController.h"/>
-        </class>
-        <class className="NotesEditorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotesEditorViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="notesTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="SettingsIncrementViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsIncrementViewController.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-        </class>
-        <class className="UICheckboxButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICheckboxButton.h"/>
-        </class>
-        <class className="WorkoutAddViewController" superclassName="CoreDataTableController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutAddViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="checkboxClicked:"/>
-                <relationship kind="outlet" name="workoutNameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="WorkoutModeViewController" superclassName="ExerciseControlController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutModeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logitButtonPressedWithSave:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="skipitButtonPressedWithSave:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="homeButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="logitButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="progressBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="skipitButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="workoutLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="WorkoutSummaryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutSummaryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cardioLight" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="completedValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="numExercisesValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="strengthLight" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="totalDistanceValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalResistanceValue" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="WorkoutViewController" superclassName="CoreDataTableController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WorkoutViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aI2-oq-yoD"/>
         <segue reference="R1Q-5o-t9x"/>
-        <segue reference="oRL-rC-m9O"/>
+        <segue reference="aI2-oq-yoD"/>
         <segue reference="w0X-5z-YUO"/>
         <segue reference="fuH-wC-hes"/>
+        <segue reference="nM4-32-KO1"/>
         <segue reference="gBe-sq-2AF"/>
         <segue reference="Rrz-Ef-ahc"/>
     </inferredMetricsTieBreakers>

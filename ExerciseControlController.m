@@ -25,12 +25,15 @@
 @synthesize exercise = _exercise;
 @synthesize fetchedResultsController = _fetchedResultsController;
 
-BOOL isCardio = NO;
 BOOL calcDistance = NO;
 
 -(void) setupFetchedResultsController
 {
     // Override me please
+}
+
+-(BOOL) isCardio {
+    return ([self.exercise.entity.name isEqualToString: @"CardioExercise"]);
 }
 
 -(void) loadFormDataFromExerciseObject
@@ -39,10 +42,8 @@ BOOL calcDistance = NO;
     
     NSLog (@"%@", desc.name);
     
-    if ([desc.name isEqualToString: @"CardioExercise"])
+    if ([self isCardio])
     {
-        isCardio = YES;
-        
         // Relabel
         self.slotOneTitle.text = @"Pace/hr";
         self.slotTwoTitle.text = @"Minutes";
@@ -82,7 +83,7 @@ BOOL calcDistance = NO;
 -(void) setExerciseFromForm
 {
     NSEntityDescription *desc = self.exercise.entity;
-    if ([desc.name isEqualToString: @"CardioExercise"])
+    if ([desc.name isEqualToString: @"CardioExercise"] == YES)
     {
         ((CardioExercise *)self.exercise).pace = self.slotOneValue.text;
         ((CardioExercise *)self.exercise).duration = self.slotTwoValue.text;
@@ -98,7 +99,7 @@ BOOL calcDistance = NO;
 
 -(void) calculateSlotThree
 {
-    if (isCardio && self.slotTwoValue.text.doubleValue > 0)
+    if ([self isCardio] && self.slotTwoValue.text.doubleValue > 0)
         self.slotThreeValue.text = [NSString stringWithFormat:@"%.1f", (self.slotOneValue.text.doubleValue * 
                                                                     (self.slotTwoValue.text.doubleValue / 60.0))];
     NSLog(@"%@ * %@/60", self.slotThreeValue.text, self.slotTwoValue.text);
@@ -106,7 +107,7 @@ BOOL calcDistance = NO;
 
 -(void) calculateSlotOne
 {
-    if (isCardio && self.slotTwoValue.text.doubleValue > 0)
+    if ([self isCardio] && self.slotTwoValue.text.doubleValue > 0)
         self.slotOneValue.text = [NSString stringWithFormat:@"%.1f", (self.slotThreeValue.text.doubleValue / 
                                                                         (self.slotTwoValue.text.doubleValue / 60.0))];
     
@@ -121,7 +122,8 @@ BOOL calcDistance = NO;
         val += increment;
     }
     if ([@"-" isEqualToString:sender.currentTitle]) {
-        if (val >= increment) val -= increment;
+        val -= increment;
+        if (val < 0) val = 0;
     }
     self.slotOneValue.text = [NSString stringWithFormat:@"%g", val];
 
@@ -136,7 +138,8 @@ BOOL calcDistance = NO;
         val += 1;
     }
     if ([@"-" isEqualToString:sender.currentTitle]) {
-        if (val >= 1) val -= 1;
+        val -= 1;
+        if (val < 0) val = 0;
     }
     self.slotTwoValue.text = [NSString stringWithFormat:@"%g", val];
     
@@ -147,13 +150,19 @@ BOOL calcDistance = NO;
 }
 
 - (IBAction)slotThreeIncrement:(UIButton *)sender {
-    double increment = [self.slotOneIncrementValue.text doubleValue];
+    
+    double increment = 1;
+    
+    if ([self isCardio])
+        increment = [self.slotOneIncrementValue.text doubleValue];
+    
     double val = [self.slotThreeValue.text doubleValue];
     if ([@"+" isEqualToString:sender.currentTitle]) {
         val += increment;
     }
     if ([@"-" isEqualToString:sender.currentTitle]) {
-        if (val >= 1) val -= increment;
+        val -= increment;
+        if (val < 0) val = 0;
     }
     self.slotThreeValue.text = [NSString stringWithFormat:@"%g", val];
     

@@ -11,7 +11,8 @@
 #import "CardioExercise.h"
 #import "ResistanceExercise.h"
 
-@implementation WorkoutModeViewController
+@implementation WorkoutModeViewController {
+}
 
 #pragma mark ui components
 @synthesize pageControl = _pageControl;
@@ -33,7 +34,6 @@
 
 #pragma mark -
 #pragma mark initializers
-
 -(void) setWorkout:(Workout *)workout
 {
     _workout = workout;
@@ -77,8 +77,11 @@
     // Need to collect the workout object, the exercise object for the form and initialize logboook entries
     // After this is completed we should drop to the viewWillAppear. 
     self.workout = workout;
+    self.exercises = workout.exercises;
     self.exercise = [self.exercises objectAtIndex:0];
     self.logbookEntries = [[NSMutableOrderedSet alloc]init];
+    self.skippedEntries = [[NSMutableOrderedSet alloc]init];
+    [self createViewsPlusOne];
     
     //if (DEBUG) NSLog(@"Entering initialSetupOfFormWithWorkout: Workout %@, Exercise %@", 
     //                 self.workout.workout_name, self.exercise.name);
@@ -154,8 +157,7 @@
 #pragma mark -
 #pragma mark save
 
--(void) saveLogbookEntry: (BOOL) completed
-{
+-(void) saveLogbookEntry: (BOOL) completed {
     [self initializeLogbookEntry];
     [self setExerciseFromForm];
     self.logbookEntry.date = [[NSDate alloc] init];
@@ -191,70 +193,35 @@
 #pragma mark UI Control
 
 #pragma mark swiper
-- (IBAction)handleSwipeAction:(UISwipeGestureRecognizer *)sender 
-{
+- (void)handleSwipeAction:(UISwipeGestureRecognizer *)sender {
     [self gotoNext];
 }
 
-- (void) gotoNext
-{
+- (void) gotoNext {
     // Save changes to exercise info before moving
     [self setExerciseFromForm];
     
-    int increment = 1;
-    
     // Set the index for the next exercise view
     NSUInteger index = [self.exercises indexOfObject:self.exercise];
-    if (index == self.exercises.count - 1) index = 0;
-    else index = index + increment;
+    NSUInteger nextIndex = index + 1;
+    if (nextIndex >= self.exercises.count) nextIndex = 0;
     
-    // Perform the segue
-    self.exercise = [self.workout.exercises objectAtIndex:index];
-    [self performSegueWithIdentifier: WORKOUT_MODE_SEGUE sender: self];
+    [[self navigationController] pushViewController: 
+     [self getNextController:[NSNumber numberWithUnsignedInteger:nextIndex]] animated:YES];    
 }
 
-- (IBAction)handleReverseSwipeAction:(UISwipeGestureRecognizer *)sender 
+- (void)handleReverseSwipeAction:(UISwipeGestureRecognizer *)sender 
 {
     // Save changes to exercise info before moving
     [self setExerciseFromForm];
-    
-    int increment = -1;
-    
-    // Set the index for the next exercise view
-    NSUInteger index = [self.exercises indexOfObject:self.exercise];
-    if (index == 0) index = self.exercises.count - 1;
-    else index = index + increment;
-    
-    // Perform the segue
-    self.exercise = [self.workout.exercises objectAtIndex:index];
-    //[self performSegueWithIdentifier: WORKOUT_REVERSE_SEGUE sender: self];
-    
-    UIViewController *lastView = [self presentingViewController];
-    
-    if ([lastView respondsToSelector:@selector(setWorkout:)]) {
-        NSLog(@"setWorkout");
-        [lastView performSelector:@selector(setWorkout:) withObject:self.workout];
-    }
-    if ([lastView respondsToSelector:@selector(setExercise:)]) {
-        NSLog(@"setExercise");
-        [lastView performSelector:@selector(setExercise:) withObject:self.exercise];
-    }
-    if ([lastView respondsToSelector:@selector(setLogbookEntries:)]) {
-        NSLog(@"setLogEntries");
-        [lastView performSelector:@selector(setLogbookEntries:) withObject: self.logbookEntries];
-    }
-    if ([lastView respondsToSelector:@selector(setSkippedEntries:)]) {
-        NSLog(@"setSkipEntries");
-        [lastView performSelector:@selector(setSkippedEntries:) withObject: self.skippedEntries];
-    }
-    if ([lastView respondsToSelector:@selector(setFinalProgress:)]) {
-        NSLog(@"setFinalProgress");
-        [lastView performSelector:@selector(setFinalProgress:) 
-                                              withObject: [NSNumber numberWithFloat: self.progressBar.progress]];
-    }
-    
     [self.navigationController popViewControllerAnimated:YES];
-    
+    if (self.navigationController.viewControllers.count == 1) {
+        [self createViews];
+    }
+}
+
+-(void)moveScreen: (void(^)())block {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark exercise log toggles
@@ -313,7 +280,6 @@
 
 - (IBAction)logitButtonPressedWithSave:(UIBarButtonItem *)sender 
 {
-    if (self.skippedEntries == nil) self.skippedEntries = [[NSMutableOrderedSet alloc]init];
     [self.skippedEntries removeObject:self.logbookEntry];
     
     // Toggles will update during the save. Give immediate feedback if it's the first time
@@ -334,7 +300,7 @@
     [self gotoNext];
 }
 
-- (IBAction)saveFormBeforeNotes:(id)sender 
+- (void)saveFormBeforeNotes:(id)sender 
 {
     [self setExerciseFromForm];
 }
@@ -369,7 +335,6 @@
 
 #pragma mark -
 #pragma mark Segue
-
 - (IBAction)goHomeButtonPressed:(UIBarButtonItem *)sender 
 {
     if (self.progressBar.progress < 1 || self.skippedEntries.count > 0)
@@ -391,41 +356,67 @@
 - (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     // User clicked the finish button
-    if (buttonIndex == 1)
-    {
+    if (buttonIndex == 1) {
         [self performSegueWithIdentifier: GO_HOME_SEGUE sender: self];
     }
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Pass the torch
-    if ([segue.destinationViewController respondsToSelector:@selector(setWorkout:)]) {
-        [segue.destinationViewController performSelector:@selector(setWorkout:) withObject:self.workout];
-    }
-    if ([segue.destinationViewController respondsToSelector:@selector(setExercise:)]) {
-        [segue.destinationViewController performSelector:@selector(setExercise:) withObject:self.exercise];
-    }
-    if ([segue.destinationViewController respondsToSelector:@selector(setLogbookEntries:)]) {
-        [segue.destinationViewController performSelector:@selector(setLogbookEntries:) withObject: self.logbookEntries];
-    }
-    if ([segue.destinationViewController respondsToSelector:@selector(setSkippedEntries:)]) {
-        [segue.destinationViewController performSelector:@selector(setSkippedEntries:) withObject: self.skippedEntries];
-    }
     if ([segue.destinationViewController respondsToSelector:@selector(setFinalProgress:)]) {
         [segue.destinationViewController performSelector:@selector(setFinalProgress:) 
                                               withObject: [NSNumber numberWithFloat: self.progressBar.progress]];
     }
     
-    if ([segue.identifier isEqualToString: (GO_HOME_SEGUE)])
-    {
+    if ([segue.identifier isEqualToString: (GO_HOME_SEGUE)]) {
         [self homeButtonCleanup];
     }
     
-    if ([segue.identifier isEqualToString: NOTES_SEGUE])
-    {
+    if ([segue.identifier isEqualToString: NOTES_SEGUE]) {
         [self setExerciseFromForm];
     }
+}
+
+BOOL (^isInputEven)(int) = ^(int input) 
+{
+    if (input % 2 == 0) 
+        return YES;
+    else 
+        return NO;
+};
+
+-(void)createViewsPlusOne {
+    NSMutableArray *views = [[NSMutableArray alloc]initWithCapacity:self.exercises.count];
+    
+    for (int i = 0; i < self.exercises.count;i++) {
+        [views addObject:[self getNextController:[NSNumber numberWithInt:i]]];
+    }
+    [views addObject:[self getNextController:0]];
+    [self.navigationController setViewControllers:views animated:NO];
+}
+
+-(void)createViews {
+    NSMutableArray *views = [[NSMutableArray alloc]initWithCapacity:self.exercises.count];
+    
+    for (int i = 0; i < self.exercises.count;i++) {
+        [views addObject:[self getNextController:[NSNumber numberWithInt:i]]];
+    }
+    [views addObject:[self getNextController:0]];
+    [self.navigationController setViewControllers:views animated:NO];
+}
+
+
+-(WorkoutModeViewController *)getNextController:(NSNumber *)idx {
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    WorkoutModeViewController *nextView = [sb instantiateViewControllerWithIdentifier:@"WorkoutModeViewController"];
+
+    [nextView setWorkout: self.workout];
+    [nextView setExercise: [self.exercises objectAtIndex:idx.unsignedIntegerValue]];
+    [nextView setLogbookEntries:self.logbookEntries];
+    [nextView setSkippedEntries:self.skippedEntries];
+    
+    return nextView;
 }
 
 - (void)viewDidUnload {
