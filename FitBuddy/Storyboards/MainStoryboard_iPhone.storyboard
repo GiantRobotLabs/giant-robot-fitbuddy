@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="JC5-4j-nfb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="JC5-4j-nfb">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Logbook View Controller-->
         <scene sceneID="RDz-tJ-zlQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="im6-dC-A3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="K85-kY-dnV" customClass="LogbookViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jB5-I3-6d6">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -71,13 +69,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Iol-hE-mAz"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="im6-dC-A3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-104" y="782"/>
         </scene>
         <!--Exercise Add View Controller - Add Exercise-->
         <scene sceneID="sf6-7J-VgO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bcY-Pz-yUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Add Exercise" title="Add Exercise" modalTransitionStyle="flipHorizontal" id="XAz-R9-ilW" customClass="ExerciseAddViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RC9-mb-3Ut">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -115,13 +113,13 @@
                         <outlet property="exerciseTypeToggle" destination="t4S-V0-285" id="Nh6-N9-fXi"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bcY-Pz-yUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1917" y="-156"/>
         </scene>
         <!--Exercise List Table View Controller-->
         <scene sceneID="Cf3-9e-rew">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BGT-xO-Kng" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="BbA-dx-XEL" customClass="ExerciseListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nrE-1l-6aV">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
@@ -173,13 +171,13 @@
                         <outlet property="addButton" destination="qP2-O3-Xvg" id="ffa-T9-vPi"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BGT-xO-Kng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-144" y="69"/>
         </scene>
         <!--Notes Editor View Controller-->
         <scene sceneID="4Q6-Nn-SE3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ge-pn-Jf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="" id="eWY-4m-xuz" customClass="NotesEditorViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p4t-EY-bg2">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -204,13 +202,13 @@
                         <outlet property="notesTextView" destination="SXq-GB-xKe" id="9Nd-ll-nBA"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ge-pn-Jf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1874" y="-949"/>
         </scene>
         <!--Exercise Edit View Controller-->
         <scene sceneID="5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="ExerciseEditViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
@@ -407,13 +405,13 @@
                         <outlet property="slotTwoValue" destination="K8A-3W-UFm" id="Eel-u9-dND"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1068" y="319"/>
         </scene>
         <!--Navigation Controller - Exercises-->
         <scene sceneID="bmM-L2-ja8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="31e-Wk-FpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="4jX-6G-SqD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Exercises" image="exercises.png" id="6JQ-FD-Pig"/>
                     <toolbarItems/>
@@ -429,13 +427,13 @@
                         <segue destination="BbA-dx-XEL" kind="relationship" relationship="rootViewController" id="kGe-nk-KwE"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="31e-Wk-FpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1054" y="-5"/>
         </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="HGi-tU-tVi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SH6-t0-MPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="9NM-uB-JjL" customClass="SettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="static" style="grouped" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sUH-P1-RJS">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -583,13 +581,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="NyM-Pg-hvd"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SH6-t0-MPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-139" y="1626"/>
         </scene>
         <!--Settings Increment View Controller-->
         <scene sceneID="7yG-Gq-G9B">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PdV-q1-hTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="cZR-9I-va7" customClass="SettingsIncrementViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="g7y-fh-b5T">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -723,13 +721,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="D8t-mo-ixr"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PdV-q1-hTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="616" y="1626"/>
         </scene>
         <!--Settings Increment View Controller-->
         <scene sceneID="kM9-uV-D4k">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wVS-4P-YdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="x4L-h3-vgy" customClass="SettingsIncrementViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vBI-Qc-RbN">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -795,13 +793,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="DjE-IM-HjZ"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wVS-4P-YdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="616" y="2210"/>
         </scene>
         <!--Logbook Entry View Controller-->
         <scene sceneID="8tL-II-a56">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JXw-wH-43K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ONI-Db-KjY" customClass="LogbookEntryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="21K-aE-jvx">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -953,13 +951,13 @@
                         <outlet property="slotTwoLabel" destination="qHy-Sq-3zq" id="df1-pc-q1U"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JXw-wH-43K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="540" y="750"/>
         </scene>
         <!--Workout View Controller-->
         <scene sceneID="c0X-sQ-Zw7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wMR-TJ-IqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="uCq-Hg-c6I" customClass="WorkoutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qdu-o8-pYM">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -1058,13 +1056,13 @@
                         <segue destination="Hf8-Oh-UsS" kind="modal" identifier="Startup Demo" id="fK1-do-FMx"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wMR-TJ-IqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-144" y="-580"/>
         </scene>
         <!--Workout Mode View Controller-->
         <scene sceneID="QMA-ks-JDx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rve-hH-mPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="WorkoutModeViewController" id="NLH-Oz-cgy" customClass="WorkoutModeViewController" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fgQ-bY-kyR">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -1335,13 +1333,13 @@
                         <segue destination="8ft-9q-Lax" kind="modal" identifier="Go Home Segue" modalTransitionStyle="coverVertical" id="drw-4Z-vGq"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rve-hH-mPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1240" y="-1671"/>
         </scene>
         <!--Workout Summary View Controller-->
         <scene sceneID="cdH-5X-NNc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pyk-xr-g7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="8ft-9q-Lax" customClass="WorkoutSummaryViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" id="GyL-Uw-ybD">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -1459,13 +1457,13 @@
                         <outlet property="totalResistanceValue" destination="ENI-lT-ie0" id="wzb-Sj-eev"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pyk-xr-g7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1064" y="-1695"/>
         </scene>
         <!--Workout Add View Controller-->
         <scene sceneID="qr1-e5-DOi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eNq-Pv-48F" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="P6T-p0-EAi" customClass="WorkoutAddViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WbD-lJ-3Qg">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -1551,13 +1549,13 @@
                         <outlet property="workoutNameTextField" destination="C2t-Jv-4Ac" id="6xe-FS-Q21"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNq-Pv-48F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="976" y="-498"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xYw-pW-9ze">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UQu-t3-0Wx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="JC5-4j-nfb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
@@ -1573,13 +1571,13 @@
                         <segue destination="AdV-BT-wdz" kind="relationship" relationship="viewControllers" id="jBy-6v-GsL"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQu-t3-0Wx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2038" y="-83"/>
         </scene>
         <!--Navigation Controller - Workout-->
         <scene sceneID="2js-Ng-JOH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o3s-5g-ztf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="eDm-sq-zjM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Workout" image="workout.png" id="kMg-oN-x6f"/>
                     <toolbarItems/>
@@ -1595,13 +1593,13 @@
                         <segue destination="uCq-Hg-c6I" kind="relationship" relationship="rootViewController" id="oY8-RB-a0f"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o3s-5g-ztf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1054" y="-624"/>
         </scene>
         <!--Demo View-->
         <scene sceneID="pW1-Qv-rG3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EYz-h6-gc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Hf8-Oh-UsS" customClass="DemoView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5hW-Ny-w2Q">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -1639,6 +1637,7 @@
                         <segue destination="JC5-4j-nfb" kind="modal" identifier="Return Segue" modalTransitionStyle="crossDissolve" id="DEe-V7-2UK"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYz-h6-gc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="rUb-ya-XKD">
                     <connections>
                         <outlet property="delegate" destination="eLT-XP-Zvm" id="Bh2-7N-byd"/>
@@ -1650,7 +1649,6 @@
         <!--Navigation Controller-->
         <scene sceneID="hG7-cF-mOf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Log-dJ-FgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="qeY-k8-k81" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="5S2-wa-ktM"/>
@@ -1664,13 +1662,13 @@
                         <segue destination="NLH-Oz-cgy" kind="relationship" relationship="rootViewController" id="fuH-wC-hes"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Log-dJ-FgV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="420" y="-1255"/>
         </scene>
         <!--Navigation Controller - Logbook-->
         <scene sceneID="nBi-v6-D0V">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tq0-kx-K3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="tiw-9n-rH5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Logbook" image="logbook.png" id="kNY-BB-w8g"/>
                     <toolbarItems/>
@@ -1684,13 +1682,13 @@
                         <segue destination="K85-kY-dnV" kind="relationship" relationship="rootViewController" id="DrS-7e-HTM"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tq0-kx-K3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1032" y="650"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="03p-l1-Pyh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H4U-S7-feQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="AdV-BT-wdz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="yEH-rh-SE3"/>
                     <toolbarItems/>
@@ -1705,6 +1703,7 @@
                         <segue destination="9NM-uB-JjL" kind="relationship" relationship="rootViewController" id="B3P-4X-y7X"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H4U-S7-feQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1016" y="1286"/>
         </scene>

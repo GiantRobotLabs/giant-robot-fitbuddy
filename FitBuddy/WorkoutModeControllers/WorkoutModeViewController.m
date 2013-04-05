@@ -366,6 +366,7 @@
     if ([segue.destinationViewController respondsToSelector:@selector(setFinalProgress:)]) {
         [segue.destinationViewController performSelector:@selector(setFinalProgress:) 
                                               withObject: [NSNumber numberWithFloat: self.progressBar.progress]];
+        [segue.destinationViewController performSelector:@selector(setLogbookEntries:) withObject:self.logbookEntries];
     }
     
     if ([segue.identifier isEqualToString: (GO_HOME_SEGUE)]) {
