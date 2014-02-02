@@ -14,7 +14,7 @@
 		D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */; };
 		D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */; };
 		D6C0AE841894EDC5004F599E /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AE831894EDC5004F599E /* SwitchCell.m */; };
-		D6C0AE8618975566004F599E /* WorkoutControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControl.xib */; };
+		D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */; };
 		D6C0AE89189D7C36004F599E /* UIView+Autolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AE88189D7C36004F599E /* UIView+Autolayout.m */; };
 		D6C0AEAD189ECC1F004F599E /* UbiquityStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AEAA189ECC1F004F599E /* UbiquityStoreManager.m */; };
 		D6C0AEAE189ECC1F004F599E /* NSError+UbiquityStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AEAB189ECC1F004F599E /* NSError+UbiquityStoreManager.m */; };
@@ -83,7 +83,7 @@
 		D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-Autolayout.storyboard"; sourceTree = SOURCE_ROOT; };
 		D6C0AE821894EDC5004F599E /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchCell.h; path = FitBuddy/MainViewControllers/SwitchCell.h; sourceTree = SOURCE_ROOT; };
 		D6C0AE831894EDC5004F599E /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchCell.m; path = FitBuddy/MainViewControllers/SwitchCell.m; sourceTree = SOURCE_ROOT; };
-		D6C0AE8518975566004F599E /* WorkoutControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutControl.xib; sourceTree = SOURCE_ROOT; };
+		D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutControlerComponent.xib; sourceTree = SOURCE_ROOT; };
 		D6C0AE87189D7C36004F599E /* UIView+Autolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Autolayout.h"; path = "FitBuddy/Components/UIView+Autolayout.h"; sourceTree = SOURCE_ROOT; };
 		D6C0AE88189D7C36004F599E /* UIView+Autolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Autolayout.m"; path = "FitBuddy/Components/UIView+Autolayout.m"; sourceTree = SOURCE_ROOT; };
 		D6C0AE8A189E9D62004F599E /* UbiquityStoreManagerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UbiquityStoreManagerExample.xcodeproj; path = ../UbiquityStoreManager/UbiquityStoreManagerExample.xcodeproj; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 			children = (
 				D6C2CA45170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard */,
 				D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */,
-				D6C0AE8518975566004F599E /* WorkoutControl.xib */,
+				D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */,
 				D60B4CC414D7A888001ECCE3 /* Supporting Files */,
 			);
 			name = Storyboards;
@@ -456,7 +456,7 @@
 				D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */,
 				D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */,
 				D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */,
-				D6C0AE8618975566004F599E /* WorkoutControl.xib in Resources */,
+				D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
