@@ -17,8 +17,8 @@
 @property (nonatomic, weak) IBOutlet UIProgressView *progressBar;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *finishButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *notesButton;
-@property (nonatomic, weak) IBOutlet UIBarButtonItem *skipitButton;
-@property (nonatomic, weak) IBOutlet UIBarButtonItem *logitButton;
+@property (nonatomic, weak) IBOutlet UIButton *skipitButton;
+@property (nonatomic, weak) IBOutlet UIButton *logitButton;
 @property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, weak) IBOutlet UILabel *workoutLabel;
 

@@ -8,15 +8,35 @@
 
 #import "GymBuddyAppDelegate.h"
 #import "CoreDataHelper.h"
+#import "GymBuddyMacros.h"
 
 @implementation GymBuddyAppDelegate
 
 @synthesize window = _window;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize ubiquityStoreManager = _ubiquityStoreManager;
+
++ (GymBuddyAppDelegate *)sharedAppDelegate {
+    
+    return (GymBuddyAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
++ (NSManagedObjectContext *) sharedContext {
+    return [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self initStore];
+    
     // Override point for customization after application launch.
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:TRUE];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titlebar"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]];
+    
     return YES;
 }
 							
@@ -57,6 +77,37 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+#pragma mark UbiquityStoreManager
+- (void) initStore
+{
+    // STEP 1 - Initialize the store
+    NSLog( @"Starting UbiquityStoreManagerExample on device: %@\n\n", [UIDevice currentDevice].name );
+    
+    [CoreDataHelper copyiCloudtoLocal];
+    
+    NSURL *dirUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    dirUrl = [dirUrl URLByAppendingPathComponent:UBIQUITYDB];
+    
+    
+    //STEP 1 - Initialize the UbiquityStoreManager
+    _ubiquityStoreManager = [[UbiquityStoreManager alloc] initStoreNamed:UBIQUITYDB withManagedObjectModel:nil localStoreURL:nil containerIdentifier:nil storeConfiguration:nil storeOptions:nil delegate:self];
+    
+    [_ubiquityStoreManager migrateLocalToCloud];
+   
+}
+
+- (void)ubiquityStoreManager:(UbiquityStoreManager *)manager willLoadStoreIsCloud:(BOOL)isCloudStore {
+    
+    self.managedObjectContext = nil;
+}
+
+- (void)ubiquityStoreManager:(UbiquityStoreManager *)manager didLoadStoreForCoordinator:(NSPersistentStoreCoordinator *)coordinator isCloud:(BOOL)isCloudStore {
+    
+    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    [self.managedObjectContext setPersistentStoreCoordinator:coordinator];
+    [self.managedObjectContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
 }
 
 @end

@@ -10,16 +10,24 @@
 #import "LogbookEntry.h"
 #import "CoreDataHelper.h"
 #import "Workout.h"
+#import "UIView+Autolayout.h"
 
 @implementation LogbookViewController
 
 @synthesize logbookEntry = _logbookEntry;
 @synthesize document = _document;
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+    
+}
+
 -(void) setupFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:LOGBOOK_TABLE];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES selector:@selector(compare:)]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO selector:@selector(compare:)]];
     request.predicate = [NSPredicate predicateWithFormat:@"completed = %@", [NSNumber numberWithBool:YES]];
 
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
@@ -41,12 +49,6 @@
 {
     [super viewWillAppear:animated];
     
-    // Visual stuff    
-    self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
-    self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
-    self.searchDisplayController.searchBar.tintColor = [UIColor clearColor];
-    
     // Setup the database
     //if (!self.document)
     //{
@@ -54,6 +56,14 @@
             self.document = doc;
         }];
     //}  
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 60.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,11 +75,6 @@
     UILabel *qstatValue = (UILabel *) [cell viewWithTag:103];
     UILabel *qstatLabel = (UILabel *) [cell viewWithTag:104];
     
-    // Visual stuff
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
-    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
-    cell.backgroundView = bgView;
-    
     // Add the data to the cell
     LogbookEntry *logbookEntry = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
@@ -78,13 +83,13 @@
     
     if (logbookEntry.pace || logbookEntry.distance || logbookEntry.duration)
     {
-        exerciseIcon.image = [UIImage imageNamed:GB_CARDIO_IMAGE];
+        exerciseIcon.image = [UIImage imageNamed:kCARDIO];
         qstatLabel.text = @"Pace";
         qstatValue.text = logbookEntry.pace;
     }
     else
     {
-        exerciseIcon.image = [UIImage imageNamed:GB_RESISTANCE_IMAGE];
+        exerciseIcon.image = [UIImage imageNamed:kRESISTANCE];
         qstatLabel.text = @"Weight";
         qstatValue.text = logbookEntry.weight;
     }
@@ -101,7 +106,7 @@
     if ([segue.destinationViewController respondsToSelector:@selector(setLogbookEntry:)]) {
         [segue.destinationViewController performSelector:@selector(setLogbookEntry:) withObject:entry];
     }
-    [self.tableView cellForRowAtIndexPath:[self.tableView indexPathForSelectedRow]].backgroundColor = [UIColor clearColor];
+
 }
 
 
@@ -114,13 +119,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView reloadData];
-    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor blackColor];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor clearColor];
+  
 }
+
+
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) 
@@ -159,21 +165,31 @@
         return nil;
     }
     
+    UIView *labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 60.0)];
+    [labelView setBackgroundColor: kGRAY];
+    [labelView setAutoresizesSubviews:TRUE];
+    
     // Create label with section title
-    UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake(0, 0, 320, 25);
-    label.backgroundColor = GYMBUDDY_DK_BROWN;
-    label.textColor = [UIColor whiteColor];
-    label.shadowColor = [UIColor clearColor];
-    label.shadowOffset = CGSizeMake(0.0, 1.0);
-    label.font = [UIFont boldSystemFontOfSize:16];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 60.0)];
+    label.font = [UIFont systemFontOfSize:18.0];
     label.text = [self convertRawToShortDateString:sectionTitle];
+    [label setTextColor: [UIColor whiteColor]];
+
+    [labelView addSubview:label];
     
-    // Create header view and add label as a subview
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 25)];
-    [view addSubview:label];
+ //   NSLayoutConstraint *c = [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:labelView attribute:NSLayoutAttributeRight multiplier:1.0 constant:20];
     
-    return view;
+ //   [tableView addConstraint:c];
+    
+    return labelView;
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return nil;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return 0;
 }
 
 @end

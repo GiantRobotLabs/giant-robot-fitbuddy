@@ -17,8 +17,8 @@
 
 // Outlets
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *skipitButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *logitButton;
+@property (weak, nonatomic) IBOutlet UIButton *skipitButton;
+@property (weak, nonatomic) IBOutlet UIButton *logitButton;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *homeButton;
@@ -32,8 +32,8 @@
 @property (nonatomic, strong) NSMutableOrderedSet *skippedEntries;
 
 // Buttons
-- (IBAction)skipitButtonPressedWithSave:(UIBarButtonItem *)sender;
-- (IBAction)logitButtonPressedWithSave:(UIBarButtonItem *)sender;
+- (IBAction)skipitButtonPressedWithSave:(UIButton *)sender;
+- (IBAction)logitButtonPressedWithSave:(UIButton *)sender;
 
 // Initializers
 - (void) initialSetupOfFormWithWorkout:(Workout *)workout;

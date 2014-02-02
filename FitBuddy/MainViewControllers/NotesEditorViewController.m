@@ -19,7 +19,8 @@
 {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
-    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor blackColor]];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+
 }
 
 - (void) doneAction: (id) sender
@@ -30,12 +31,14 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     self.notesTextView.text = self.exercise.notes;
-    //if (DEBUG) NSLog(@"Loaded notes data for %@", self.exercise.name);
+    NSLog(@"Loaded notes data for %@", self.exercise.name);
 }
 
 -(void) viewWillDisappear:(BOOL)animated
 {
-   self.exercise.notes = self.notesTextView.text; 
+    self.exercise.notes = self.notesTextView.text;
+    NSError *error;
+    [self.exercise.managedObjectContext save:&error];
 }
 
 @end

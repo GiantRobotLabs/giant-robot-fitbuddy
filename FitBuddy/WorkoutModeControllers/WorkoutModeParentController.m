@@ -91,31 +91,10 @@ NSMutableOrderedSet *logbookEntries;
         
         self.firstPage = NO;
     }
-    CGRect nbframe = self.navigationController.navigationBar.frame;
-    nbframe.size.width = 320;
-    nbframe.size.height = 63;
-    [self.navigationController.navigationBar setFrame:nbframe];
-    
-    CGRect tbframe = self.toolbar.frame;
-    tbframe.size.width = 320;
-    tbframe.size.height = 80;
-    tbframe.origin.y = 336;
-    [self.toolbar setFrame:tbframe];
-    self.toolbar.backgroundColor = [UIColor clearColor];
-    
-    [self setToolbarBack:GB_BG_CHROME_BOTTOM toolbar:self.toolbar];
 }
 
 -(void)setToolbarBack:(NSString*)bgFilename toolbar:(UIToolbar*)toolbar {   
-    // Add Custom Toolbar
-    UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:bgFilename]];
-    iv.frame = CGRectMake(0, 0, 320,80);
-    iv.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    // Add the tab bar controller's view to the window and display.
-    if([[[UIDevice currentDevice] systemVersion] intValue] >= 5)
-        [toolbar insertSubview:iv atIndex:1]; // iOS5 atIndex:1
-    else
-        [toolbar insertSubview:iv atIndex:0]; // iOS4 atIndex:0
+    
 }
 
 -(void) initialSetupOfFormWithWorkout:(Workout *)workout

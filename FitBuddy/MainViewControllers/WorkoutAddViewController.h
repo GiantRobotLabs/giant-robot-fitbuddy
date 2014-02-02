@@ -15,7 +15,7 @@
 
 @interface WorkoutAddViewController : CoreDataTableController
 
-@property (weak, nonatomic) IBOutlet UITextField *workoutNameTextField;
+@property (nonatomic, weak) IBOutlet UITextField *workoutNameTextField;
 
 @property (nonatomic, strong) Workout *workout;
 @property (nonatomic, strong) Exercise *exercise;

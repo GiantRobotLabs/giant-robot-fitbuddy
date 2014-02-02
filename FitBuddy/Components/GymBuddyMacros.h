@@ -14,15 +14,29 @@
 
 // DATABASE
 #define DATABASE            @"GymBuddy"
+#define UBIQUITYDB          @"GymBuddyUbiqity"
 #define EXERCISE_TABLE      @"Exercise"
 #define WORKOUT_TABLE       @"Workout"
 #define LOGBOOK_TABLE       @"LogbookEntry"
 #define CARDIO_EXERCISE_TABLE @"CardioExercise"
 #define RESISTANCE_EXERCISE_TABLE @"ResistanceExercise"
 
+// NEW_ASSETS
+#define kTITLEBAR            @"titlebar"
+#define kFITBUDDY            @"fitbuddy"
+#define kSTART               @"start-button"
+#define kSTARTDISABLED       @"start-disabled"
+#define kCARDIO              @"toggle-run"
+#define kRESISTANCE          @"toggle-workout"
+#define kCARDIOW             @"workout-run"
+#define kRESISTANCEW         @"workout-resistance"
+
+#define kRED        [UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]
+#define kGRAY       [UIColor colorWithRed:173.0/255.0 green:175.0/255.0 blue:178.0/255.0 alpha:1]
+
 // IMAGES
 #define BACKGROUND_IMAGE    @"gb-background.png"
-#define TITLEBAR_IMAGE      @"gb-titlebar.png"
+#define TITLEBAR_IMAGE      @"titlebar"
 #define GB_BACKGROUND_CHROME @"gb-background-chrome.png"
 #define GB_TITLEBAR_CHROME  @"gb-titlebar-chrome.png"
 #define GB_BG_CHROME_BOTTOM @"background-chrome-bottom.png"
@@ -34,14 +48,12 @@
 #define BACKGROUND_IMAGE_LONG @"gb-background-long.png"
 #define CHECK_IMAGE         @"sm-checked.png"
 #define UNCHECKED_IMAGE     @"sm-unchecked.png"
-#define SUCCESS_IMAGE       @"success.png"
 #define UNWORKOUT_IMAGE     @"unworkout.png"
 #define BUTTON_IMAGE_DARK_LG @"gb-button-dark-big.png"
 #define BUTTON_IMAGE_LG     @"gb-button-big.png"
 #define GB_RED_IMAGE        @"red.png"
 #define GB_BLACK_IMAGE      @"black.png"
 #define BACKGROUND_IMAGE_UI @"gb-background-ui2.png"
-//#define GB_CHECK_WHITE      @"check-white.png"
 #define GB_CHECK_WHITE      @"check-transparent.png"
 #define GB_CARDIO_IMAGE     @"run.png"
 #define GB_RESISTANCE_IMAGE @"workout-transparent.png"
@@ -52,6 +64,7 @@
 #define GB_GREENSTAT_PLUS   @"gb-green-plus.png"
 #define GB_GREENSTAT        @"gb-green.png"
 #define GB_REDSTAT          @"gb-orange.png"
+#define kCHECKTRANSPARENT    @"check-transparent"
 
 // SEGUES
 #define ADD_EXERCISE_SEGUE  @"Add Exercise Segue"
@@ -63,8 +76,7 @@
 #define NOTES_SEGUE         @"Segue To Notes"
 
 // COLORS
-//#define GYMBUDDY_RED        [UIColor colorWithRed:158.0/255.0 green:37.0/255.0 blue:33.0/255.0 alpha:1]
-#define GYMBUDDY_RED        [UIColor colorWithRed:246.0/255.0 green:147.0/255.0 blue:33.0/255.0 alpha:1]
+#define GYMBUDDY_RED        [UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]
 //#define GYMBUDDY_GREEN      [UIColor colorWithRed:33.0/255.0 green:158.0/255.0 blue:74.0/255.0 alpha:1]
 #define GYMBUDDY_GREEN      [UIColor colorWithRed:140.0/255.0 green:197.0/255.0 blue:65.0/255.0 alpha:1]
 #define GYMBUDDY_YELLOW     [UIColor colorWithRed:241.0/255.0 green:191.0/255.0 blue:40.0/255.0 alpha:1]

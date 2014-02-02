@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "UbiquityStoreManager.h"
 
 typedef void (^completion_block_t)(UIManagedDocument *database);
 

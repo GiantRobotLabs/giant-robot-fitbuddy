@@ -11,6 +11,7 @@
 #import "CoreDataHelper.h"
 #import "Workout.h"
 #import "GymBuddyMacros.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation WorkoutViewController 
 
@@ -28,14 +29,17 @@
 
 -(void) setupFetchedResultsController
 {
+    NSManagedObjectContext *context = [CoreDataHelper getActiveManagedObjectContext];
+    [self setupFetchedResultsControllerWithContext:context];
     
+}
+
+-(void) setupFetchedResultsControllerWithContext: (NSManagedObjectContext *) context
+{
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WORKOUT_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"workout_name" ascending:YES]];
     
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:[CoreDataHelper getActiveManagedObjectContext] 
-                                                                          sectionNameKeyPath:nil 
-                                                                                   cacheName:nil];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
 }
 
 -(void) initializeDefaults
@@ -65,53 +69,65 @@
     [self setupFetchedResultsController];
 }
 
+-(void) viewDidLoad
+{
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+    
+    // STEP 3 - Handle USMStoreDidChangeNotification to update the UI.
+    
+   // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetFetchedResults:)
+   //                                              name:USMStoreWillChangeNotification
+   //                                            object:[GymBuddyAppDelegate sharedAppDelegate].ubiquityStoreManager];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFetchedResults:)
+    //                                             name:USMStoreDidChangeNotification
+    //                                           object:[GymBuddyAppDelegate sharedAppDelegate].ubiquityStoreManager];
+}
+
 -(void) viewWillAppear:(BOOL)animated
 {
     // Setup and initialize
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *value = [defaults stringForKey:@"firstrun"];
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //NSString *value = [defaults stringForKey:@"firstrun"];
     
-    if (value == nil)
-    {
-        [self performSegueWithIdentifier:@"Startup Demo" sender:self];
-    }
+    //if (value == nil)
+    //{
+    //    [self performSegueWithIdentifier:@"Startup Demo" sender:self];
+    //}
     
     [self initializeDefaults];
 
     // Visual stuff
-    self.navigationItem.title = nil;
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    self.tableView.backgroundColor = [UIColor clearColor];
-    [self.startButton setBackgroundImage:[UIImage imageNamed:BUTTON_IMAGE_DARK_LG] forState:UIControlStateDisabled];
-    [self.startButton setBackgroundImage:[UIImage imageNamed:BUTTON_IMAGE_LG] forState:UIControlStateNormal];
+    
+    [self.startButton setBackgroundImage:[UIImage imageNamed:kSTARTDISABLED] forState:UIControlStateDisabled];
+    [self.startButton setBackgroundImage:[UIImage imageNamed:kSTART] forState:UIControlStateNormal];
     [self enableButtons:NO];
     
     // Initialize view    
-    //if (!self.document)    
-    //{
+    if (!self.document)
+    {
         [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
             self.document = doc;
         }]; 
-    //}
+    }
     
 }
 
 #pragma mark -
 #pragma mark TableView Implementations
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{    
+{
+    if (DEBUG) NSLog(@"Building cell");
+    
     // Get the Prototypes
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Workout Cell"];
     UILabel *label = (UILabel *)[cell viewWithTag:101];
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:200];
-    
-    // Visual stuff
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
-    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
-    cell.backgroundView = bgView;
-    
+
     // Add the data to the cell
     Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
     label.text = workout.workout_name;
@@ -155,14 +171,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     [self enableButtons:YES];
-    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor blackColor];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self enableButtons:NO];
-    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark -
@@ -176,7 +192,7 @@
     if (enable)
     {
         self.startButton.titleLabel.text = @"Start";
-        self.editButton.tintColor = [UIColor blackColor];
+        self.editButton.tintColor = [UIColor whiteColor];
     }
     else
     {
@@ -211,13 +227,16 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     Workout *workout = nil;
     
+    if (DEBUG) NSLog(@"In prepare for segue");
     if ([segue.identifier isEqualToString: (ADD_WORKOUT_SEGUE)])
     {
+        NSLog(@"In add workout segue");
         workout = [NSEntityDescription insertNewObjectForEntityForName:WORKOUT_TABLE
                                                 inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
     }
     else if ([segue.identifier isEqualToString:START_WORKOUT_SEGUE])
     {
+        NSLog(@"In start workout segue");
         workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [((WorkoutModeViewController *)[segue.destinationViewController topViewController]) initialSetupOfFormWithWorkout: workout];
     }

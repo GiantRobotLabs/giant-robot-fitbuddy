@@ -15,16 +15,17 @@
 
 @synthesize nameLabel = _nameLabel;
 
+NSManagedObjectContext *context;
+
 -(void) setupFetchedResultsController
 {
+    context = [CoreDataHelper getActiveManagedObjectContext];
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
         request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
         request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
         
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                            managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
-                                                                              sectionNameKeyPath:nil 
-                                                                                    cacheName:nil];
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
 }
 
 - (void) loadFormDataFromExerciseObject
@@ -37,6 +38,11 @@
 {
     self.exercise.name = self.nameLabel.text;
     [super setExerciseFromForm];
+    
+    NSError *error;
+    [context save:&error];
+    NSLog(@"Updating exercise %@", self.exercise.name);
+    
 }
 
 
@@ -46,16 +52,18 @@
     [self setupFetchedResultsController];
 }
 
+-(void) viewDidLoad
+{
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+}
+
+
 -(void) viewWillAppear:(BOOL)animated
 {
     // Initialize
     [self.nameLabel addTarget:self action:@selector(finishedEditingNameLabel:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self loadFormDataFromExerciseObject];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    self.slotOneValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
-    self.slotThreeValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
-    self.slotTwoValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
 }
 
 - (void) finishedEditingNameLabel: (id) sender

@@ -10,6 +10,7 @@
 #import "CoreDataHelper.h"
 #import "UICheckboxButton.h"
 #import "GymBuddyMacros.h"
+#import "SwitchCell.h"
 
 @implementation WorkoutAddViewController
 
@@ -21,16 +22,16 @@
 
 @synthesize document = _document;
 
+NSManagedObjectContext *context;
+
 -(void) setupFetchedResultsController
 {
+    context = [CoreDataHelper getActiveManagedObjectContext];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
-                                                                          sectionNameKeyPath:nil 
-                                                                                   cacheName:nil];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
 }
 
 -(void)setDocument:(UIManagedDocument *) document
@@ -42,16 +43,21 @@
     }
 }
 
+-(void) viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+}
+
 -(void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     // Setup and initialize
     
     // Visual stuff
     self.navigationItem.title = nil;
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    self.tableView.backgroundColor = [UIColor clearColor];
-    
+        
     // Initialize the view
     self.workoutSet = [self.workout mutableOrderedSetValueForKey:@"exercises"];
     
@@ -95,6 +101,10 @@
 
 - (IBAction)addWorkout:(UITextField *)sender {
     self.workout.workout_name = sender.text;
+    
+    NSError *error;
+    [context save:&error];
+    NSLog(@"Workout saved %@", sender.text);
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -103,7 +113,15 @@
     if (!self.workout.workout_name)
     {
         self.workout.workout_name = @"Empty Workout";
-    } 
+    }
+    
+    NSError *error;
+    [context save:&error];
+    NSLog(@"Workout %@ created", self.workout.workout_name);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,27 +129,24 @@
     // Prototype Components
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Workout Exercise Cell"];
     UILabel *label = (UILabel *)[cell viewWithTag:101];
-    UICheckboxButton *checkbox = (UICheckboxButton *)[cell viewWithTag:100];
+    //UICheckboxButton *checkbox = (UICheckboxButton *)[cell viewWithTag:100];
     UIImageView *icon = (UIImageView *)[cell viewWithTag:102];
-    
-    // Visual stuff
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
-    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
-    cell.backgroundView = bgView;
+    UISwitch *checkbox = (UISwitch *)[cell viewWithTag:103];
     
     // Add the data to the cell
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
     label.text = exercise.name;
-    checkbox.checked = [self.workoutSet containsObject:exercise];
+    [checkbox setOn:[self.workoutSet containsObject:exercise]];
+    //checkbox.checked = [self.workoutSet containsObject:exercise];
     
     NSEntityDescription *desc = exercise.entity;
     if ([desc.name isEqualToString: @"CardioExercise"])
     {
-        icon.image = [UIImage imageNamed:GB_CARDIO_IMAGE]; 
+        icon.image = [UIImage imageNamed:kCARDIO];
     }
     else
     {
-        icon.image = [UIImage imageNamed:GB_RESISTANCE_IMAGE];
+        icon.image = [UIImage imageNamed:kRESISTANCE];
     }
 
     return cell;
@@ -140,14 +155,13 @@
 -(IBAction) checkboxClicked:(NSNotification *) sender
 {
     // Retrieve the Exercise object from the checkbox reference
-    UIView *contentView = [(UICheckboxButton *)sender.object superview];
-    UITableViewCell *cell = (UITableViewCell *)[contentView superview];
+    SwitchCell *cell = (SwitchCell *) sender.object;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    //if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@", exercise.name,  self.workout.workout_name);
+    NSLog(@"Exercise: %@ added to Workout: %@", exercise.name,  self.workout.workout_name);
     
-    if (((UICheckboxButton *)sender.object).checked)
+    if ([cell.checkbox isOn])
     {
         [self.workoutSet addObject:exercise];
     }
@@ -157,8 +171,7 @@
         [self.workoutSet removeObject:exercise];
     }
     
-    //if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name,  
-    //      self.workout.workout_name, self.workout.exercises.count);
+    NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name, self.workout.workout_name, self.workout.exercises.count);
     
 }
 

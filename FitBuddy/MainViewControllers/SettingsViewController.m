@@ -40,63 +40,74 @@
     }    
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
+}
+
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    // Visual stuff    
-    self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
-    self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    
     self.defaults = [NSUserDefaults standardUserDefaults];
     [self loadTableFromDefaults];
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-   
-    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
-    if (sectionTitle == nil) {
-        return nil;
-    }
-    
-    // Create label with section title
-    UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake(5, 0, 315, 25);
-    label.backgroundColor = [UIColor clearColor];
-    label.textColor = [UIColor whiteColor];
-    label.shadowColor = [UIColor clearColor];
-    label.shadowOffset = CGSizeMake(0.0, 1.0);
-    label.font = [UIFont boldSystemFontOfSize:16];
-    label.text = sectionTitle;
-    
-    // Create header view and add label as a subview
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 25)];
-    [view addSubview:label];
-    
-    return view;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //[self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor blackColor];
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //[self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor clearColor];
+-(void) viewDidLoad {
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.destinationViewController respondsToSelector:@selector(setDefaultsKey:)]) 
+    SEL setDefaultsKeySelector = sel_registerName("setDefaultsKey:");
+    SEL setPickerValuesSelector = sel_registerName("setPickerValues:");
+    
+    NSInvocation *setDefaultsKey = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setDefaultsKeySelector]];
+    setDefaultsKey.target = segue.destinationViewController;
+    setDefaultsKey.selector = setDefaultsKeySelector;
+    
+    if ([segue.destinationViewController respondsToSelector:setDefaultsKeySelector])
     {
+        
         UILabel *label = (UILabel *)[((UITableViewCell *)sender) viewWithTag:100];
-        [segue.destinationViewController performSelector:@selector(setDefaultsKey:) withObject:(label.text)];
+        NSString *obj = label.text;
+        [setDefaultsKey setArgument:&obj atIndex:2];
+        [setDefaultsKey invoke];
+        
+        NSMutableArray *pickerValues = [[NSMutableArray alloc]init];
+        UILabel *defaultLabel = (UILabel *)[((UITableViewCell *)sender) viewWithTag:200];
+        
+        if ([label.text hasSuffix:@"Cardio Increment"]) {
+            [pickerValues addObjectsFromArray:@[@"0.5", @"1.0", @"2.0", @"2.5", @"5.0"]];
+        }
+        
+        if([label.text hasSuffix:@"Resistance Increment"]) {
+            [pickerValues addObjectsFromArray:@[@"0.5", @"1.0", @"2.0", @"2.5", @"5.0"]];
+        }
+        
+        if ([label.text hasSuffix:@"Use iCloud"]) {
+            [pickerValues addObjectsFromArray:@[@"Yes", @"No"]];
+        }
+        
+        NSInvocation *setPicker = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setPickerValuesSelector]];
+        setPicker.target = segue.destinationViewController;
+        setPicker.selector = setPickerValuesSelector;
+        
+        [self addPickerValue:pickerValues value: defaultLabel.text];
+        [setPicker setArgument:&pickerValues atIndex:2];
+        [setPicker invoke];
     }
+}
+
+- (NSArray *) addPickerValue:(NSMutableArray *)array value:(NSString *) value
+{
+    if (![array containsObject:value]){
+        [array addObject:value];
+    }
+    
+    [array sortUsingComparator:^NSComparisonResult(NSString *str1, NSString *str2) {
+        return [str1 compare:str2 options:(NSNumericSearch)];
+    }];
+    
+    return array;
 }
 
 @end

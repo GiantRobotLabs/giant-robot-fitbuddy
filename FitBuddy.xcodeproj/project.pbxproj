@@ -11,9 +11,14 @@
 		D60B4CC014D7A888001ECCE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60B4CBF14D7A888001ECCE3 /* Foundation.framework */; };
 		D60B4CC214D7A888001ECCE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60B4CC114D7A888001ECCE3 /* CoreGraphics.framework */; };
 		D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */; };
-		D67D7CE9170E708300E12E96 /* icon-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D67D7CE6170E708300E12E96 /* icon-big.png */; };
-		D67D7CEA170E708300E12E96 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D67D7CE7170E708300E12E96 /* icon-small.png */; };
 		D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */; };
+		D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */; };
+		D6C0AE841894EDC5004F599E /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AE831894EDC5004F599E /* SwitchCell.m */; };
+		D6C0AE8618975566004F599E /* WorkoutControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControl.xib */; };
+		D6C0AE89189D7C36004F599E /* UIView+Autolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AE88189D7C36004F599E /* UIView+Autolayout.m */; };
+		D6C0AEAD189ECC1F004F599E /* UbiquityStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AEAA189ECC1F004F599E /* UbiquityStoreManager.m */; };
+		D6C0AEAE189ECC1F004F599E /* NSError+UbiquityStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AEAB189ECC1F004F599E /* NSError+UbiquityStoreManager.m */; };
+		D6C0AEB1189ECC40004F599E /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AEB0189ECC40004F599E /* JRSwizzle.m */; };
 		D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C26B2A14F15A710068DEA5 /* libz.dylib */; };
 		D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */; };
 		D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA11170E6BB400BA02DA /* CoreDataTableController.m */; };
@@ -47,81 +52,22 @@
 		D6C2CA72170E6C8800BA02DA /* WorkoutModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA6C170E6C8800BA02DA /* WorkoutModeViewController.m */; };
 		D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA6E170E6C8800BA02DA /* WorkoutSummaryViewController.m */; };
 		D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */; };
-		D6C2CAB2170E6CD300BA02DA /* background-chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA76170E6CD300BA02DA /* background-chrome-bottom.png */; };
-		D6C2CAB3170E6CD300BA02DA /* background-chrome.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA77170E6CD300BA02DA /* background-chrome.png */; };
-		D6C2CAB4170E6CD300BA02DA /* background-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA78170E6CD300BA02DA /* background-normal.png */; };
-		D6C2CAB5170E6CD300BA02DA /* bg-chrome-cardio.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA79170E6CD300BA02DA /* bg-chrome-cardio.png */; };
-		D6C2CAB6170E6CD300BA02DA /* bg-chrome-workout.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7A170E6CD300BA02DA /* bg-chrome-workout.png */; };
-		D6C2CAB7170E6CD300BA02DA /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7B170E6CD300BA02DA /* black.png */; };
-		D6C2CAB8170E6CD300BA02DA /* button-buddy.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7C170E6CD300BA02DA /* button-buddy.png */; };
-		D6C2CAB9170E6CD300BA02DA /* check-transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7D170E6CD300BA02DA /* check-transparent.png */; };
-		D6C2CABA170E6CD300BA02DA /* check-white.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7E170E6CD300BA02DA /* check-white.png */; };
-		D6C2CABB170E6CD300BA02DA /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7F170E6CD300BA02DA /* checked.png */; };
-		D6C2CABC170E6CD300BA02DA /* clear.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA80170E6CD300BA02DA /* clear.png */; };
-		D6C2CABD170E6CD300BA02DA /* exercises.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA81170E6CD300BA02DA /* exercises.png */; };
-		D6C2CABE170E6CD300BA02DA /* gb-background-chrome.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA82170E6CD300BA02DA /* gb-background-chrome.png */; };
-		D6C2CABF170E6CD300BA02DA /* gb-background-long.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA83170E6CD300BA02DA /* gb-background-long.png */; };
-		D6C2CAC0170E6CD300BA02DA /* gb-background-ui2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA84170E6CD300BA02DA /* gb-background-ui2.png */; };
-		D6C2CAC1170E6CD300BA02DA /* gb-background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA85170E6CD300BA02DA /* gb-background.png */; };
-		D6C2CAC2170E6CD300BA02DA /* gb-button-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA86170E6CD300BA02DA /* gb-button-big.png */; };
-		D6C2CAC3170E6CD300BA02DA /* gb-button-dark-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA87170E6CD300BA02DA /* gb-button-dark-big.png */; };
-		D6C2CAC4170E6CD300BA02DA /* gb-button-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA88170E6CD300BA02DA /* gb-button-dark.png */; };
-		D6C2CAC5170E6CD300BA02DA /* gb-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA89170E6CD300BA02DA /* gb-button.png */; };
-		D6C2CAC6170E6CD300BA02DA /* gb-cell.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8A170E6CD300BA02DA /* gb-cell.png */; };
-		D6C2CAC7170E6CD300BA02DA /* gb-green-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8B170E6CD300BA02DA /* gb-green-plus.png */; };
-		D6C2CAC8170E6CD300BA02DA /* gb-green.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8C170E6CD300BA02DA /* gb-green.png */; };
-		D6C2CAC9170E6CD300BA02DA /* gb-nostatus.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8D170E6CD300BA02DA /* gb-nostatus.png */; };
-		D6C2CACA170E6CD300BA02DA /* gb-orange.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8E170E6CD300BA02DA /* gb-orange.png */; };
-		D6C2CACB170E6CD300BA02DA /* gb-red.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8F170E6CD300BA02DA /* gb-red.png */; };
-		D6C2CACC170E6CD300BA02DA /* gb-textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA90170E6CD300BA02DA /* gb-textfield.png */; };
-		D6C2CACD170E6CD300BA02DA /* gb-title.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA91170E6CD300BA02DA /* gb-title.png */; };
-		D6C2CACE170E6CD300BA02DA /* gb-titlebar-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA92170E6CD300BA02DA /* gb-titlebar-1.png */; };
-		D6C2CACF170E6CD300BA02DA /* gb-titlebar-chrome.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA93170E6CD300BA02DA /* gb-titlebar-chrome.png */; };
-		D6C2CAD0170E6CD300BA02DA /* gb-titlebar.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA94170E6CD300BA02DA /* gb-titlebar.png */; };
-		D6C2CAD1170E6CD300BA02DA /* gb-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA95170E6CD300BA02DA /* gb-undo.png */; };
-		D6C2CAD2170E6CD300BA02DA /* icon-5757.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA96170E6CD300BA02DA /* icon-5757.png */; };
-		D6C2CAD3170E6CD300BA02DA /* icon-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA97170E6CD300BA02DA /* icon-big.png */; };
-		D6C2CAD4170E6CD300BA02DA /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA98170E6CD300BA02DA /* icon-small.png */; };
-		D6C2CAD5170E6CD300BA02DA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA99170E6CD300BA02DA /* icon.png */; };
-		D6C2CAD6170E6CD300BA02DA /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9A170E6CD300BA02DA /* icon2.png */; };
-		D6C2CAD7170E6CD300BA02DA /* instructions-background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9B170E6CD300BA02DA /* instructions-background.png */; };
-		D6C2CAD8170E6CD300BA02DA /* instructions-justwords.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9C170E6CD300BA02DA /* instructions-justwords.png */; };
-		D6C2CAD9170E6CD300BA02DA /* logbook.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9D170E6CD300BA02DA /* logbook.png */; };
-		D6C2CADA170E6CD300BA02DA /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9E170E6CD300BA02DA /* red.png */; };
-		D6C2CADB170E6CD300BA02DA /* run.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9F170E6CD300BA02DA /* run.png */; };
-		D6C2CADC170E6CD300BA02DA /* sm-checked.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA0170E6CD300BA02DA /* sm-checked.png */; };
-		D6C2CADD170E6CD300BA02DA /* sm-unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA1170E6CD300BA02DA /* sm-unchecked.png */; };
-		D6C2CADE170E6CD300BA02DA /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA2170E6CD300BA02DA /* success.png */; };
-		D6C2CADF170E6CD300BA02DA /* tb-chrome-cardio.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA3170E6CD300BA02DA /* tb-chrome-cardio.png */; };
-		D6C2CAE0170E6CD300BA02DA /* tb-chrome-workout.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA4170E6CD300BA02DA /* tb-chrome-workout.png */; };
-		D6C2CAE1170E6CD300BA02DA /* titlebar-chrome.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA5170E6CD300BA02DA /* titlebar-chrome.png */; };
-		D6C2CAE2170E6CD300BA02DA /* titlebar.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA6170E6CD300BA02DA /* titlebar.png */; };
-		D6C2CAE3170E6CD300BA02DA /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA7170E6CD300BA02DA /* unchecked.png */; };
-		D6C2CAE4170E6CD300BA02DA /* unworkout.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA8170E6CD300BA02DA /* unworkout.png */; };
-		D6C2CAE5170E6CD300BA02DA /* workout-navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA9170E6CD300BA02DA /* workout-navbar@2x.png */; };
-		D6C2CAE6170E6CD300BA02DA /* workout-transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAA170E6CD300BA02DA /* workout-transparent.png */; };
-		D6C2CAE7170E6CD300BA02DA /* workout.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAB170E6CD300BA02DA /* workout.png */; };
-		D6C2CAE8170E6CD300BA02DA /* workoutbar-run.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAC170E6CD300BA02DA /* workoutbar-run.png */; };
-		D6C2CAE9170E6CD300BA02DA /* workoutbar-run@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAD170E6CD300BA02DA /* workoutbar-run@2x.png */; };
-		D6C2CAEA170E6CD300BA02DA /* workoutbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAE170E6CD300BA02DA /* workoutbar.png */; };
-		D6C2CAEB170E6CD300BA02DA /* workoutbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAF170E6CD300BA02DA /* workoutbar@2x.png */; };
-		D6C2CAEC170E6CD300BA02DA /* workoutnavbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAB0170E6CD300BA02DA /* workoutnavbar.png */; };
-		D6C2CAED170E6CD300BA02DA /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAB1170E6CD300BA02DA /* x.png */; };
-		D6C2CAFA170E6CF100BA02DA /* demo1.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAEF170E6CF100BA02DA /* demo1.png */; };
-		D6C2CAFB170E6CF100BA02DA /* demo2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF0170E6CF100BA02DA /* demo2.png */; };
-		D6C2CAFC170E6CF100BA02DA /* demo3.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF1170E6CF100BA02DA /* demo3.png */; };
-		D6C2CAFD170E6CF100BA02DA /* demo4.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF2170E6CF100BA02DA /* demo4.png */; };
-		D6C2CAFE170E6CF100BA02DA /* demo5.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF3170E6CF100BA02DA /* demo5.png */; };
-		D6C2CAFF170E6CF100BA02DA /* demo6.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF4170E6CF100BA02DA /* demo6.png */; };
-		D6C2CB00170E6CF100BA02DA /* demo7.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF5170E6CF100BA02DA /* demo7.png */; };
-		D6C2CB01170E6CF100BA02DA /* demo8.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF6170E6CF100BA02DA /* demo8.png */; };
-		D6C2CB02170E6CF100BA02DA /* demo9.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF7170E6CF100BA02DA /* demo9.png */; };
 		D6C2CB03170E6CF100BA02DA /* DemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CAF9170E6CF100BA02DA /* DemoView.m */; };
-		D6C2CB07170E6D2500BA02DA /* FitBuddy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CB04170E6D2500BA02DA /* FitBuddy-Info.plist */; };
 		D6C2CB08170E6D2500BA02DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CB06170E6D2500BA02DA /* main.m */; };
 		D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CB0A170E6D5300BA02DA /* InfoPlist.strings */; };
 		D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
+		D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FF1D141870B50A004A1D2A /* Images.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D6C0AE8E189E9D63004F599E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6C0AE8A189E9D62004F599E /* UbiquityStoreManagerExample.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5B4B122215227C6D00153613;
+			remoteInfo = UbiquityStoreManagerExample;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D60B4CBD14D7A888001ECCE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -129,13 +75,24 @@
 		D60B4CC114D7A888001ECCE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D6135CD3151027D30055F337 /* FitBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FitBuddy.entitlements; sourceTree = SOURCE_ROOT; };
-		D67D7CE6170E708300E12E96 /* icon-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-big.png"; sourceTree = SOURCE_ROOT; };
-		D67D7CE7170E708300E12E96 /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = SOURCE_ROOT; };
 		D67D7CF4170E75DC00E12E96 /* GymBuddyModel0.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel0.0.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF5170E75DC00E12E96 /* GymBuddyModel1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.0.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF6170E75DC00E12E96 /* GymBuddyModel1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.1.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF7170E75DC00E12E96 /* GymBuddyModel1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.2.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF8170E75DC00E12E96 /* GymBuddyModel1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.3.xcdatamodel; sourceTree = "<group>"; };
+		D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-Autolayout.storyboard"; sourceTree = SOURCE_ROOT; };
+		D6C0AE821894EDC5004F599E /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchCell.h; path = FitBuddy/MainViewControllers/SwitchCell.h; sourceTree = SOURCE_ROOT; };
+		D6C0AE831894EDC5004F599E /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchCell.m; path = FitBuddy/MainViewControllers/SwitchCell.m; sourceTree = SOURCE_ROOT; };
+		D6C0AE8518975566004F599E /* WorkoutControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutControl.xib; sourceTree = SOURCE_ROOT; };
+		D6C0AE87189D7C36004F599E /* UIView+Autolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Autolayout.h"; path = "FitBuddy/Components/UIView+Autolayout.h"; sourceTree = SOURCE_ROOT; };
+		D6C0AE88189D7C36004F599E /* UIView+Autolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Autolayout.m"; path = "FitBuddy/Components/UIView+Autolayout.m"; sourceTree = SOURCE_ROOT; };
+		D6C0AE8A189E9D62004F599E /* UbiquityStoreManagerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UbiquityStoreManagerExample.xcodeproj; path = ../UbiquityStoreManager/UbiquityStoreManagerExample.xcodeproj; sourceTree = "<group>"; };
+		D6C0AEA9189ECC1F004F599E /* UbiquityStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UbiquityStoreManager.h; sourceTree = SOURCE_ROOT; };
+		D6C0AEAA189ECC1F004F599E /* UbiquityStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UbiquityStoreManager.m; sourceTree = SOURCE_ROOT; };
+		D6C0AEAB189ECC1F004F599E /* NSError+UbiquityStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+UbiquityStoreManager.m"; sourceTree = SOURCE_ROOT; };
+		D6C0AEAC189ECC1F004F599E /* NSError+UbiquityStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+UbiquityStoreManager.h"; sourceTree = SOURCE_ROOT; };
+		D6C0AEAF189ECC40004F599E /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = SOURCE_ROOT; };
+		D6C0AEB0189ECC40004F599E /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = SOURCE_ROOT; };
 		D6C26B2A14F15A710068DEA5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D6C2CA0E170E6BB400BA02DA /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = FitBuddy/Components/CoreDataHelper.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = FitBuddy/Components/CoreDataHelper.m; sourceTree = SOURCE_ROOT; };
@@ -197,75 +154,6 @@
 		D6C2CA6E170E6C8800BA02DA /* WorkoutSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSummaryViewController.m; sourceTree = "<group>"; };
 		D6C2CA6F170E6C8800BA02DA /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
 		D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
-		D6C2CA76170E6CD300BA02DA /* background-chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-chrome-bottom.png"; sourceTree = "<group>"; };
-		D6C2CA77170E6CD300BA02DA /* background-chrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-chrome.png"; sourceTree = "<group>"; };
-		D6C2CA78170E6CD300BA02DA /* background-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-normal.png"; sourceTree = "<group>"; };
-		D6C2CA79170E6CD300BA02DA /* bg-chrome-cardio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-chrome-cardio.png"; sourceTree = "<group>"; };
-		D6C2CA7A170E6CD300BA02DA /* bg-chrome-workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-chrome-workout.png"; sourceTree = "<group>"; };
-		D6C2CA7B170E6CD300BA02DA /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
-		D6C2CA7C170E6CD300BA02DA /* button-buddy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-buddy.png"; sourceTree = "<group>"; };
-		D6C2CA7D170E6CD300BA02DA /* check-transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-transparent.png"; sourceTree = "<group>"; };
-		D6C2CA7E170E6CD300BA02DA /* check-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-white.png"; sourceTree = "<group>"; };
-		D6C2CA7F170E6CD300BA02DA /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
-		D6C2CA80170E6CD300BA02DA /* clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clear.png; sourceTree = "<group>"; };
-		D6C2CA81170E6CD300BA02DA /* exercises.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exercises.png; sourceTree = "<group>"; };
-		D6C2CA82170E6CD300BA02DA /* gb-background-chrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-background-chrome.png"; sourceTree = "<group>"; };
-		D6C2CA83170E6CD300BA02DA /* gb-background-long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-background-long.png"; sourceTree = "<group>"; };
-		D6C2CA84170E6CD300BA02DA /* gb-background-ui2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-background-ui2.png"; sourceTree = "<group>"; };
-		D6C2CA85170E6CD300BA02DA /* gb-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-background.png"; sourceTree = "<group>"; };
-		D6C2CA86170E6CD300BA02DA /* gb-button-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-button-big.png"; sourceTree = "<group>"; };
-		D6C2CA87170E6CD300BA02DA /* gb-button-dark-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-button-dark-big.png"; sourceTree = "<group>"; };
-		D6C2CA88170E6CD300BA02DA /* gb-button-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-button-dark.png"; sourceTree = "<group>"; };
-		D6C2CA89170E6CD300BA02DA /* gb-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-button.png"; sourceTree = "<group>"; };
-		D6C2CA8A170E6CD300BA02DA /* gb-cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-cell.png"; sourceTree = "<group>"; };
-		D6C2CA8B170E6CD300BA02DA /* gb-green-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-green-plus.png"; sourceTree = "<group>"; };
-		D6C2CA8C170E6CD300BA02DA /* gb-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-green.png"; sourceTree = "<group>"; };
-		D6C2CA8D170E6CD300BA02DA /* gb-nostatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-nostatus.png"; sourceTree = "<group>"; };
-		D6C2CA8E170E6CD300BA02DA /* gb-orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-orange.png"; sourceTree = "<group>"; };
-		D6C2CA8F170E6CD300BA02DA /* gb-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-red.png"; sourceTree = "<group>"; };
-		D6C2CA90170E6CD300BA02DA /* gb-textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-textfield.png"; sourceTree = "<group>"; };
-		D6C2CA91170E6CD300BA02DA /* gb-title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-title.png"; sourceTree = "<group>"; };
-		D6C2CA92170E6CD300BA02DA /* gb-titlebar-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-titlebar-1.png"; sourceTree = "<group>"; };
-		D6C2CA93170E6CD300BA02DA /* gb-titlebar-chrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-titlebar-chrome.png"; sourceTree = "<group>"; };
-		D6C2CA94170E6CD300BA02DA /* gb-titlebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-titlebar.png"; sourceTree = "<group>"; };
-		D6C2CA95170E6CD300BA02DA /* gb-undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-undo.png"; sourceTree = "<group>"; };
-		D6C2CA96170E6CD300BA02DA /* icon-5757.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-5757.png"; sourceTree = "<group>"; };
-		D6C2CA97170E6CD300BA02DA /* icon-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-big.png"; sourceTree = "<group>"; };
-		D6C2CA98170E6CD300BA02DA /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
-		D6C2CA99170E6CD300BA02DA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		D6C2CA9A170E6CD300BA02DA /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
-		D6C2CA9B170E6CD300BA02DA /* instructions-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instructions-background.png"; sourceTree = "<group>"; };
-		D6C2CA9C170E6CD300BA02DA /* instructions-justwords.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instructions-justwords.png"; sourceTree = "<group>"; };
-		D6C2CA9D170E6CD300BA02DA /* logbook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logbook.png; sourceTree = "<group>"; };
-		D6C2CA9E170E6CD300BA02DA /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
-		D6C2CA9F170E6CD300BA02DA /* run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run.png; sourceTree = "<group>"; };
-		D6C2CAA0170E6CD300BA02DA /* sm-checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sm-checked.png"; sourceTree = "<group>"; };
-		D6C2CAA1170E6CD300BA02DA /* sm-unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sm-unchecked.png"; sourceTree = "<group>"; };
-		D6C2CAA2170E6CD300BA02DA /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
-		D6C2CAA3170E6CD300BA02DA /* tb-chrome-cardio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tb-chrome-cardio.png"; sourceTree = "<group>"; };
-		D6C2CAA4170E6CD300BA02DA /* tb-chrome-workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tb-chrome-workout.png"; sourceTree = "<group>"; };
-		D6C2CAA5170E6CD300BA02DA /* titlebar-chrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar-chrome.png"; sourceTree = "<group>"; };
-		D6C2CAA6170E6CD300BA02DA /* titlebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titlebar.png; sourceTree = "<group>"; };
-		D6C2CAA7170E6CD300BA02DA /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
-		D6C2CAA8170E6CD300BA02DA /* unworkout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unworkout.png; sourceTree = "<group>"; };
-		D6C2CAA9170E6CD300BA02DA /* workout-navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout-navbar@2x.png"; sourceTree = "<group>"; };
-		D6C2CAAA170E6CD300BA02DA /* workout-transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout-transparent.png"; sourceTree = "<group>"; };
-		D6C2CAAB170E6CD300BA02DA /* workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workout.png; sourceTree = "<group>"; };
-		D6C2CAAC170E6CD300BA02DA /* workoutbar-run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workoutbar-run.png"; sourceTree = "<group>"; };
-		D6C2CAAD170E6CD300BA02DA /* workoutbar-run@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workoutbar-run@2x.png"; sourceTree = "<group>"; };
-		D6C2CAAE170E6CD300BA02DA /* workoutbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workoutbar.png; sourceTree = "<group>"; };
-		D6C2CAAF170E6CD300BA02DA /* workoutbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workoutbar@2x.png"; sourceTree = "<group>"; };
-		D6C2CAB0170E6CD300BA02DA /* workoutnavbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workoutnavbar.png; sourceTree = "<group>"; };
-		D6C2CAB1170E6CD300BA02DA /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
-		D6C2CAEF170E6CF100BA02DA /* demo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo1.png; sourceTree = "<group>"; };
-		D6C2CAF0170E6CF100BA02DA /* demo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo2.png; sourceTree = "<group>"; };
-		D6C2CAF1170E6CF100BA02DA /* demo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo3.png; sourceTree = "<group>"; };
-		D6C2CAF2170E6CF100BA02DA /* demo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo4.png; sourceTree = "<group>"; };
-		D6C2CAF3170E6CF100BA02DA /* demo5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo5.png; sourceTree = "<group>"; };
-		D6C2CAF4170E6CF100BA02DA /* demo6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo6.png; sourceTree = "<group>"; };
-		D6C2CAF5170E6CF100BA02DA /* demo7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo7.png; sourceTree = "<group>"; };
-		D6C2CAF6170E6CF100BA02DA /* demo8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo8.png; sourceTree = "<group>"; };
-		D6C2CAF7170E6CF100BA02DA /* demo9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo9.png; sourceTree = "<group>"; };
 		D6C2CAF8170E6CF100BA02DA /* DemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoView.h; sourceTree = "<group>"; };
 		D6C2CAF9170E6CF100BA02DA /* DemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoView.m; sourceTree = "<group>"; };
 		D6C2CB04170E6D2500BA02DA /* FitBuddy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FitBuddy-Info.plist"; path = "FitBuddy/FitBuddy-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -273,6 +161,7 @@
 		D6C2CB06170E6D2500BA02DA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FitBuddy/main.m; sourceTree = SOURCE_ROOT; };
 		D6C2CB0B170E6D5300BA02DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D6FF1D141870B50A004A1D2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FitBuddy/Images.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +183,7 @@
 		D60B4CAE14D7A888001ECCE3 = {
 			isa = PBXGroup;
 			children = (
+				D6C0AE90189E9D8D004F599E /* Dependencies */,
 				D60B4CC314D7A888001ECCE3 /* FitBuddy */,
 				D60B4CBC14D7A888001ECCE3 /* Frameworks */,
 				D6135CD3151027D30055F337 /* FitBuddy.app */,
@@ -319,7 +209,7 @@
 				D67825D614E583B600C00BD4 /* Components */,
 				D67825D814E583FC00C00BD4 /* CoreData */,
 				D67825D714E583E600C00BD4 /* Storyboards */,
-				D60B4CC414D7A888001ECCE3 /* Supporting Files */,
+				D6FF1D141870B50A004A1D2A /* Images.xcassets */,
 			);
 			name = FitBuddy;
 			path = GymBuddy;
@@ -330,10 +220,7 @@
 			children = (
 				D6C2CB09170E6D5300BA02DA /* en.lproj */,
 				D6C2CAEE170E6CF100BA02DA /* Demo */,
-				D6C2CA75170E6CD300BA02DA /* Images */,
 				D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */,
-				D67D7CE6170E708300E12E96 /* icon-big.png */,
-				D67D7CE7170E708300E12E96 /* icon-small.png */,
 				D6C2CB04170E6D2500BA02DA /* FitBuddy-Info.plist */,
 				D6C2CB05170E6D2500BA02DA /* FitBuddy-Prefix.pch */,
 				D6C2CB06170E6D2500BA02DA /* main.m */,
@@ -360,6 +247,8 @@
 				D6C2CA1A170E6BB400BA02DA /* SugueCustomViewController.m */,
 				D6C2CA1B170E6BB400BA02DA /* UICheckboxButton.h */,
 				D6C2CA1C170E6BB400BA02DA /* UICheckboxButton.m */,
+				D6C0AE87189D7C36004F599E /* UIView+Autolayout.h */,
+				D6C0AE88189D7C36004F599E /* UIView+Autolayout.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -368,6 +257,9 @@
 			isa = PBXGroup;
 			children = (
 				D6C2CA45170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard */,
+				D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */,
+				D6C0AE8518975566004F599E /* WorkoutControl.xib */,
+				D60B4CC414D7A888001ECCE3 /* Supporting Files */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -375,6 +267,12 @@
 		D67825D814E583FC00C00BD4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				D6C0AEA9189ECC1F004F599E /* UbiquityStoreManager.h */,
+				D6C0AEAA189ECC1F004F599E /* UbiquityStoreManager.m */,
+				D6C0AEAB189ECC1F004F599E /* NSError+UbiquityStoreManager.m */,
+				D6C0AEAC189ECC1F004F599E /* NSError+UbiquityStoreManager.h */,
+				D6C0AEAF189ECC40004F599E /* JRSwizzle.h */,
+				D6C0AEB0189ECC40004F599E /* JRSwizzle.m */,
 				D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */,
 				D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */,
 				D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */,
@@ -394,6 +292,22 @@
 				D6C2CA2F170E6BDA00BA02DA /* Workout.m */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		D6C0AE8B189E9D62004F599E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0AE8F189E9D63004F599E /* UbiquityStoreManagerExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6C0AE90189E9D8D004F599E /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				D6C0AE8A189E9D62004F599E /* UbiquityStoreManagerExample.xcodeproj */,
+			);
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
 		D6C2CA65170E6C4C00BA02DA /* MainViewControllers */ = {
@@ -417,8 +331,8 @@
 				D6C2CA56170E6C4000BA02DA /* SettingsIncrementViewController.m */,
 				D6C2CA57170E6C4000BA02DA /* SettingsViewController.h */,
 				D6C2CA58170E6C4000BA02DA /* SettingsViewController.m */,
-				D6C2CA59170E6C4000BA02DA /* WorkoutAddViewController.h */,
-				D6C2CA5A170E6C4000BA02DA /* WorkoutAddViewController.m */,
+				D6C0AE821894EDC5004F599E /* SwitchCell.h */,
+				D6C0AE831894EDC5004F599E /* SwitchCell.m */,
 			);
 			name = MainViewControllers;
 			sourceTree = "<group>";
@@ -432,6 +346,8 @@
 				D6C2CA6C170E6C8800BA02DA /* WorkoutModeViewController.m */,
 				D6C2CA6D170E6C8800BA02DA /* WorkoutSummaryViewController.h */,
 				D6C2CA6E170E6C8800BA02DA /* WorkoutSummaryViewController.m */,
+				D6C2CA59170E6C4000BA02DA /* WorkoutAddViewController.h */,
+				D6C2CA5A170E6C4000BA02DA /* WorkoutAddViewController.m */,
 				D6C2CA6F170E6C8800BA02DA /* WorkoutViewController.h */,
 				D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */,
 			);
@@ -439,86 +355,9 @@
 			path = FitBuddy/WorkoutModeControllers;
 			sourceTree = SOURCE_ROOT;
 		};
-		D6C2CA75170E6CD300BA02DA /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				D6C2CA76170E6CD300BA02DA /* background-chrome-bottom.png */,
-				D6C2CA77170E6CD300BA02DA /* background-chrome.png */,
-				D6C2CA78170E6CD300BA02DA /* background-normal.png */,
-				D6C2CA79170E6CD300BA02DA /* bg-chrome-cardio.png */,
-				D6C2CA7A170E6CD300BA02DA /* bg-chrome-workout.png */,
-				D6C2CA7B170E6CD300BA02DA /* black.png */,
-				D6C2CA7C170E6CD300BA02DA /* button-buddy.png */,
-				D6C2CA7D170E6CD300BA02DA /* check-transparent.png */,
-				D6C2CA7E170E6CD300BA02DA /* check-white.png */,
-				D6C2CA7F170E6CD300BA02DA /* checked.png */,
-				D6C2CA80170E6CD300BA02DA /* clear.png */,
-				D6C2CA81170E6CD300BA02DA /* exercises.png */,
-				D6C2CA82170E6CD300BA02DA /* gb-background-chrome.png */,
-				D6C2CA83170E6CD300BA02DA /* gb-background-long.png */,
-				D6C2CA84170E6CD300BA02DA /* gb-background-ui2.png */,
-				D6C2CA85170E6CD300BA02DA /* gb-background.png */,
-				D6C2CA86170E6CD300BA02DA /* gb-button-big.png */,
-				D6C2CA87170E6CD300BA02DA /* gb-button-dark-big.png */,
-				D6C2CA88170E6CD300BA02DA /* gb-button-dark.png */,
-				D6C2CA89170E6CD300BA02DA /* gb-button.png */,
-				D6C2CA8A170E6CD300BA02DA /* gb-cell.png */,
-				D6C2CA8B170E6CD300BA02DA /* gb-green-plus.png */,
-				D6C2CA8C170E6CD300BA02DA /* gb-green.png */,
-				D6C2CA8D170E6CD300BA02DA /* gb-nostatus.png */,
-				D6C2CA8E170E6CD300BA02DA /* gb-orange.png */,
-				D6C2CA8F170E6CD300BA02DA /* gb-red.png */,
-				D6C2CA90170E6CD300BA02DA /* gb-textfield.png */,
-				D6C2CA91170E6CD300BA02DA /* gb-title.png */,
-				D6C2CA92170E6CD300BA02DA /* gb-titlebar-1.png */,
-				D6C2CA93170E6CD300BA02DA /* gb-titlebar-chrome.png */,
-				D6C2CA94170E6CD300BA02DA /* gb-titlebar.png */,
-				D6C2CA95170E6CD300BA02DA /* gb-undo.png */,
-				D6C2CA96170E6CD300BA02DA /* icon-5757.png */,
-				D6C2CA97170E6CD300BA02DA /* icon-big.png */,
-				D6C2CA98170E6CD300BA02DA /* icon-small.png */,
-				D6C2CA99170E6CD300BA02DA /* icon.png */,
-				D6C2CA9A170E6CD300BA02DA /* icon2.png */,
-				D6C2CA9B170E6CD300BA02DA /* instructions-background.png */,
-				D6C2CA9C170E6CD300BA02DA /* instructions-justwords.png */,
-				D6C2CA9D170E6CD300BA02DA /* logbook.png */,
-				D6C2CA9E170E6CD300BA02DA /* red.png */,
-				D6C2CA9F170E6CD300BA02DA /* run.png */,
-				D6C2CAA0170E6CD300BA02DA /* sm-checked.png */,
-				D6C2CAA1170E6CD300BA02DA /* sm-unchecked.png */,
-				D6C2CAA2170E6CD300BA02DA /* success.png */,
-				D6C2CAA3170E6CD300BA02DA /* tb-chrome-cardio.png */,
-				D6C2CAA4170E6CD300BA02DA /* tb-chrome-workout.png */,
-				D6C2CAA5170E6CD300BA02DA /* titlebar-chrome.png */,
-				D6C2CAA6170E6CD300BA02DA /* titlebar.png */,
-				D6C2CAA7170E6CD300BA02DA /* unchecked.png */,
-				D6C2CAA8170E6CD300BA02DA /* unworkout.png */,
-				D6C2CAA9170E6CD300BA02DA /* workout-navbar@2x.png */,
-				D6C2CAAA170E6CD300BA02DA /* workout-transparent.png */,
-				D6C2CAAB170E6CD300BA02DA /* workout.png */,
-				D6C2CAAC170E6CD300BA02DA /* workoutbar-run.png */,
-				D6C2CAAD170E6CD300BA02DA /* workoutbar-run@2x.png */,
-				D6C2CAAE170E6CD300BA02DA /* workoutbar.png */,
-				D6C2CAAF170E6CD300BA02DA /* workoutbar@2x.png */,
-				D6C2CAB0170E6CD300BA02DA /* workoutnavbar.png */,
-				D6C2CAB1170E6CD300BA02DA /* x.png */,
-			);
-			name = Images;
-			path = FitBuddy/Images;
-			sourceTree = SOURCE_ROOT;
-		};
 		D6C2CAEE170E6CF100BA02DA /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				D6C2CAEF170E6CF100BA02DA /* demo1.png */,
-				D6C2CAF0170E6CF100BA02DA /* demo2.png */,
-				D6C2CAF1170E6CF100BA02DA /* demo3.png */,
-				D6C2CAF2170E6CF100BA02DA /* demo4.png */,
-				D6C2CAF3170E6CF100BA02DA /* demo5.png */,
-				D6C2CAF4170E6CF100BA02DA /* demo6.png */,
-				D6C2CAF5170E6CF100BA02DA /* demo7.png */,
-				D6C2CAF6170E6CF100BA02DA /* demo8.png */,
-				D6C2CAF7170E6CF100BA02DA /* demo9.png */,
 				D6C2CAF8170E6CF100BA02DA /* DemoView.h */,
 				D6C2CAF9170E6CF100BA02DA /* DemoView.m */,
 			);
@@ -561,8 +400,18 @@
 		D60B4CB014D7A888001ECCE3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = jneyer.com;
+				TargetAttributes = {
+					D60B4CB814D7A888001ECCE3 = {
+						DevelopmentTeam = MK3WE6JNT9;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = D60B4CB314D7A888001ECCE3 /* Build configuration list for PBXProject "FitBuddy" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -574,6 +423,12 @@
 			mainGroup = D60B4CAE14D7A888001ECCE3;
 			productRefGroup = D60B4CAE14D7A888001ECCE3;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D6C0AE8B189E9D62004F599E /* Products */;
+					ProjectRef = D6C0AE8A189E9D62004F599E /* UbiquityStoreManagerExample.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D60B4CB814D7A888001ECCE3 /* FitBuddy */,
@@ -581,86 +436,27 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		D6C0AE8F189E9D63004F599E /* UbiquityStoreManagerExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = UbiquityStoreManagerExample.app;
+			remoteRef = D6C0AE8E189E9D63004F599E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		D60B4CB714D7A888001ECCE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D6C2CA46170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard in Resources */,
-				D6C2CAB2170E6CD300BA02DA /* background-chrome-bottom.png in Resources */,
-				D6C2CAB3170E6CD300BA02DA /* background-chrome.png in Resources */,
-				D6C2CAB4170E6CD300BA02DA /* background-normal.png in Resources */,
-				D6C2CAB5170E6CD300BA02DA /* bg-chrome-cardio.png in Resources */,
-				D6C2CAB6170E6CD300BA02DA /* bg-chrome-workout.png in Resources */,
-				D6C2CAB7170E6CD300BA02DA /* black.png in Resources */,
-				D6C2CAB8170E6CD300BA02DA /* button-buddy.png in Resources */,
-				D6C2CAB9170E6CD300BA02DA /* check-transparent.png in Resources */,
-				D6C2CABA170E6CD300BA02DA /* check-white.png in Resources */,
-				D6C2CABB170E6CD300BA02DA /* checked.png in Resources */,
-				D6C2CABC170E6CD300BA02DA /* clear.png in Resources */,
-				D6C2CABD170E6CD300BA02DA /* exercises.png in Resources */,
-				D6C2CABE170E6CD300BA02DA /* gb-background-chrome.png in Resources */,
-				D6C2CABF170E6CD300BA02DA /* gb-background-long.png in Resources */,
-				D6C2CAC0170E6CD300BA02DA /* gb-background-ui2.png in Resources */,
-				D6C2CAC1170E6CD300BA02DA /* gb-background.png in Resources */,
-				D6C2CAC2170E6CD300BA02DA /* gb-button-big.png in Resources */,
-				D6C2CAC3170E6CD300BA02DA /* gb-button-dark-big.png in Resources */,
-				D6C2CAC4170E6CD300BA02DA /* gb-button-dark.png in Resources */,
-				D6C2CAC5170E6CD300BA02DA /* gb-button.png in Resources */,
-				D6C2CAC6170E6CD300BA02DA /* gb-cell.png in Resources */,
-				D6C2CAC7170E6CD300BA02DA /* gb-green-plus.png in Resources */,
-				D6C2CAC8170E6CD300BA02DA /* gb-green.png in Resources */,
-				D6C2CAC9170E6CD300BA02DA /* gb-nostatus.png in Resources */,
-				D6C2CACA170E6CD300BA02DA /* gb-orange.png in Resources */,
-				D6C2CACB170E6CD300BA02DA /* gb-red.png in Resources */,
-				D6C2CACC170E6CD300BA02DA /* gb-textfield.png in Resources */,
-				D6C2CACD170E6CD300BA02DA /* gb-title.png in Resources */,
-				D6C2CACE170E6CD300BA02DA /* gb-titlebar-1.png in Resources */,
-				D6C2CACF170E6CD300BA02DA /* gb-titlebar-chrome.png in Resources */,
-				D6C2CAD0170E6CD300BA02DA /* gb-titlebar.png in Resources */,
-				D6C2CAD1170E6CD300BA02DA /* gb-undo.png in Resources */,
-				D6C2CAD2170E6CD300BA02DA /* icon-5757.png in Resources */,
-				D6C2CAD3170E6CD300BA02DA /* icon-big.png in Resources */,
-				D6C2CAD4170E6CD300BA02DA /* icon-small.png in Resources */,
-				D6C2CAD5170E6CD300BA02DA /* icon.png in Resources */,
-				D6C2CAD6170E6CD300BA02DA /* icon2.png in Resources */,
-				D6C2CAD7170E6CD300BA02DA /* instructions-background.png in Resources */,
-				D6C2CAD8170E6CD300BA02DA /* instructions-justwords.png in Resources */,
-				D6C2CAD9170E6CD300BA02DA /* logbook.png in Resources */,
-				D6C2CADA170E6CD300BA02DA /* red.png in Resources */,
-				D6C2CADB170E6CD300BA02DA /* run.png in Resources */,
-				D6C2CADC170E6CD300BA02DA /* sm-checked.png in Resources */,
-				D6C2CADD170E6CD300BA02DA /* sm-unchecked.png in Resources */,
-				D6C2CADE170E6CD300BA02DA /* success.png in Resources */,
-				D6C2CADF170E6CD300BA02DA /* tb-chrome-cardio.png in Resources */,
-				D6C2CAE0170E6CD300BA02DA /* tb-chrome-workout.png in Resources */,
-				D6C2CAE1170E6CD300BA02DA /* titlebar-chrome.png in Resources */,
-				D6C2CAE2170E6CD300BA02DA /* titlebar.png in Resources */,
-				D6C2CAE3170E6CD300BA02DA /* unchecked.png in Resources */,
-				D6C2CAE4170E6CD300BA02DA /* unworkout.png in Resources */,
-				D6C2CAE5170E6CD300BA02DA /* workout-navbar@2x.png in Resources */,
-				D6C2CAE6170E6CD300BA02DA /* workout-transparent.png in Resources */,
-				D6C2CAE7170E6CD300BA02DA /* workout.png in Resources */,
-				D6C2CAE8170E6CD300BA02DA /* workoutbar-run.png in Resources */,
-				D6C2CAE9170E6CD300BA02DA /* workoutbar-run@2x.png in Resources */,
-				D6C2CAEA170E6CD300BA02DA /* workoutbar.png in Resources */,
-				D6C2CAEB170E6CD300BA02DA /* workoutbar@2x.png in Resources */,
-				D6C2CAEC170E6CD300BA02DA /* workoutnavbar.png in Resources */,
-				D6C2CAED170E6CD300BA02DA /* x.png in Resources */,
-				D6C2CAFA170E6CF100BA02DA /* demo1.png in Resources */,
-				D6C2CAFB170E6CF100BA02DA /* demo2.png in Resources */,
-				D6C2CAFC170E6CF100BA02DA /* demo3.png in Resources */,
-				D6C2CAFD170E6CF100BA02DA /* demo4.png in Resources */,
-				D6C2CAFE170E6CF100BA02DA /* demo5.png in Resources */,
-				D6C2CAFF170E6CF100BA02DA /* demo6.png in Resources */,
-				D6C2CB00170E6CF100BA02DA /* demo7.png in Resources */,
-				D6C2CB01170E6CF100BA02DA /* demo8.png in Resources */,
-				D6C2CB02170E6CF100BA02DA /* demo9.png in Resources */,
-				D6C2CB07170E6D2500BA02DA /* FitBuddy-Info.plist in Resources */,
+				D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */,
+				D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */,
 				D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */,
 				D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */,
-				D67D7CE9170E708300E12E96 /* icon-big.png in Resources */,
-				D67D7CEA170E708300E12E96 /* icon-small.png in Resources */,
+				D6C0AE8618975566004F599E /* WorkoutControl.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,16 +490,21 @@
 				D6C2CA5E170E6C4000BA02DA /* ExerciseListTableViewController.m in Sources */,
 				D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */,
 				D6C2CA60170E6C4000BA02DA /* LogbookViewController.m in Sources */,
+				D6C0AEAE189ECC1F004F599E /* NSError+UbiquityStoreManager.m in Sources */,
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
+				D6C0AE841894EDC5004F599E /* SwitchCell.m in Sources */,
 				D6C2CA62170E6C4000BA02DA /* SettingsIncrementViewController.m in Sources */,
 				D6C2CA63170E6C4000BA02DA /* SettingsViewController.m in Sources */,
 				D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */,
 				D6C2CA71170E6C8800BA02DA /* WorkoutModeParentController.m in Sources */,
+				D6C0AE89189D7C36004F599E /* UIView+Autolayout.m in Sources */,
 				D6C2CA72170E6C8800BA02DA /* WorkoutModeViewController.m in Sources */,
 				D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */,
 				D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */,
+				D6C0AEB1189ECC40004F599E /* JRSwizzle.m in Sources */,
 				D6C2CB03170E6CF100BA02DA /* DemoView.m in Sources */,
 				D6C2CB08170E6D2500BA02DA /* main.m in Sources */,
+				D6C0AEAD189ECC1F004F599E /* UbiquityStoreManager.m in Sources */,
 				D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -726,8 +527,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
@@ -740,10 +546,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "B277DEB2-5CBB-4FD4-8B5C-B99C15A75D1E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -754,15 +565,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -776,15 +596,18 @@
 		D60B4CDB14D7A888001ECCE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FitBuddy/FitBuddy-Prefix.pch";
 				INFOPLIST_FILE = "FitBuddy/FitBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D399D8BD-8ADC-4E60-AF4D-1E63B87CBF62";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -792,15 +615,18 @@
 		D60B4CDC14D7A888001ECCE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FitBuddy/FitBuddy-Prefix.pch";
 				INFOPLIST_FILE = "FitBuddy/FitBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D399D8BD-8ADC-4E60-AF4D-1E63B87CBF62";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -809,15 +635,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -831,15 +666,18 @@
 		D6CF078B14FA995C004AC44D /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FitBuddy/FitBuddy-Prefix.pch";
 				INFOPLIST_FILE = "FitBuddy/FitBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D399D8BD-8ADC-4E60-AF4D-1E63B87CBF62";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Distribution;

@@ -32,7 +32,7 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
                              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
                              [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
                              nil];
-    
+
     NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
     NSDictionary *iCloudOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
@@ -49,13 +49,14 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     NSString *value = [defaults valueForKey:@"Use iCloud"];
     if (value && [value isEqualToString:@"Yes"])
     {
-        //if (DEBUG) NSLog(@"opening icloud store");
+        NSLog(@"opening icloud store");
+    
         url = [iCloudUrl URLByAppendingPathComponent:name];
         options = iCloudOptions;
     }
     else
     {
-        //if (DEBUG) NSLog(@"opening file store");
+        NSLog(@"opening file store");
         url = [fileUrl URLByAppendingPathComponent:name];
         options = fileOptions;
     }
@@ -88,12 +89,15 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
 
 + (NSManagedObjectContext *) getActiveManagedObjectContext
 {
+    
     UIManagedDocument *document = [managedDocumentDictionary objectForKey:DATABASE];
     
+    NSManagedObjectContext *context = [[UIApplication sharedApplication].delegate performSelector:NSSelectorFromString(@"managedObjectContext")];
+    
     if (document)
-        return document.managedObjectContext;
+       return document.managedObjectContext;
     else
-        return nil;
+        return context;
 }
 
 + (void) callSave: (NSManagedObjectContext *) obj

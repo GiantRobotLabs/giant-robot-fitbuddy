@@ -57,7 +57,9 @@ NSFetchedResultsController *frc;
     return cardioScore;
 }
 
--(LogbookEntry *) fetchOldLogbookEntry: (Workout *)workout: (NSDate *)priorToDate: (NSString *)exercise
+-(LogbookEntry *)fetchOldLogbookEntry: (Workout *) workout
+                                     priorToDate:(NSDate *) priorToDate
+                                     exercise:(NSString *)exercise
 {
     LogbookEntry *oldEntry = nil;
     
@@ -108,7 +110,7 @@ NSFetchedResultsController *frc;
     {
         if (entry.completed == [NSNumber numberWithInt:1])
         {
-            LogbookEntry *oldLogbook = [self fetchOldLogbookEntry:entry.workout :entry.date :entry.exercise_name];
+            LogbookEntry *oldLogbook = [self fetchOldLogbookEntry:entry.workout priorToDate:entry.date exercise:entry.exercise_name];
             
             strength += [self calculateWorkoutScore:entry];
             strengthOld += [self calculateWorkoutScore:oldLogbook];
@@ -153,8 +155,7 @@ NSFetchedResultsController *frc;
 -(void) viewWillAppear:(BOOL)animated
 {
     // Visual stuff
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE_LONG]];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
     [self setForm];
 }
 

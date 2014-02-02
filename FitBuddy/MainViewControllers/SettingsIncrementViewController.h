@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsIncrementViewController : UITableViewController <UIAlertViewDelegate>
+@interface SettingsIncrementViewController : UIViewController <UIAlertViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @property  (nonatomic, strong) NSString *defaultsKey;
+@property (nonatomic, weak) IBOutlet UIPickerView *picker;
+@property (nonatomic, strong) NSArray *pickerValues;
+@property (nonatomic, weak) IBOutlet UILabel *spinnerTitle;
+
+-(IBAction) confirmChange:(id) sender;
 
 @end

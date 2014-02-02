@@ -9,77 +9,85 @@
 #import "SettingsIncrementViewController.h"
 #import "GymBuddyMacros.h"
 #import "CoreDataHelper.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation SettingsIncrementViewController
-
 @synthesize defaults = _defaults;
 @synthesize defaultsKey = _key;
 
 -(void) setDefaultsKey:(NSString *)defaultsKey
 {
     _key = defaultsKey;
-     self.navigationItem.title = self.defaultsKey;
 }
 
--(void) loadTableFromDefaults
-{
-    UITableViewCell *cell;
-    NSString *value = [self.defaults stringForKey:self.defaultsKey];
+- (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [self.pickerValues count];
+}
 
-    for (cell in [self.tableView visibleCells])
-    {
-        UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
-        
-        if ([value isEqualToString:cellLabel.text])
-        {
-            UIImageView *checkmark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:GB_CHECK_WHITE]];
-            cell.accessoryView = checkmark;
-        }
-        else
-        {
-            cell.accessoryView = nil;
-        }
-    }
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return self.pickerValues[row];
+    
+}
+
+-(void) loadPickerFromDefaults
+{
+    NSString *value = [self.defaults stringForKey:self.defaultsKey];
+    NSInteger index = [self.pickerValues indexOfObject:value];
+    [self.picker selectRow:index inComponent:0 animated:YES];
+    [self.picker reloadComponent:0];
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    // Visual stuff    
-    self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
-    self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    
     self.defaults = [NSUserDefaults standardUserDefaults];
-    
-    [self loadTableFromDefaults];
+    [self loadPickerFromDefaults];
+    [self.spinnerTitle setText:self.defaultsKey];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void) viewDidLoad
 {
-    UILabel *label = (UILabel *)[[tableView cellForRowAtIndexPath:indexPath] viewWithTag:100];
+    [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+}
+
+
+-(void) confirmChange:(id)sender {
     
-    if (![[self.defaults objectForKey:self.defaultsKey] isEqualToString: label.text])
+    NSInteger index = [self.picker selectedRowInComponent:0];
+    NSString *value = self.pickerValues[index];
+    
+    if (![[self.defaults objectForKey:self.defaultsKey] isEqualToString: value])
     {
-        [self.defaults setObject:label.text forKey:self.defaultsKey];
+        [self.defaults setObject:value forKey:self.defaultsKey];
         
         if ([self.defaultsKey isEqualToString:@"Use iCloud"])
         {
             [CoreDataHelper resetDatabaseConnection];
-            [self handleiCloudToggle:label.text];
+            [self handleiCloudToggle:value];
         }
         else
         {
             [self exit];
         }
     }
-    else 
+    else
     {
         [self exit];
     }
+    
+    
 }
 
 - (void) handleiCloudToggle: (NSString *) value
-{ 
+{
+    GymBuddyAppDelegate *appDelegate = (GymBuddyAppDelegate *)[UIApplication sharedApplication].delegate;
+    
     if ([value isEqualToString:@"Yes"])
     {
         if ([[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil] == nil)
@@ -107,19 +115,23 @@
         }
         else 
         {
-            if ([CoreDataHelper copyLocaltoiCloud] == YES)
-            {
-                [self exit];  
-            }
+            [appDelegate.ubiquityStoreManager migrateLocalToCloud];
+            
+            //if ([CoreDataHelper copyLocaltoiCloud] == YES)
+            //{
+            //    [self exit];
+            //}
         }
     }
     else if ([value isEqualToString:@"No"])
     {
+        [appDelegate.ubiquityStoreManager migrateCloudToLocal];
+        
         //Copy iCloud to local database
-        if ([CoreDataHelper copyiCloudtoLocal] == YES)
-        {
-            [self exit];   
-        }
+        //if ([CoreDataHelper copyiCloudtoLocal] == YES)
+        //{
+        //[self exit];
+        //}
     }
 }
 
@@ -144,7 +156,8 @@
 
 - (void) exit
 {
-    [self loadTableFromDefaults];
+    //[self loadPickerFromDefaults];
+    [self.defaults synchronize];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
