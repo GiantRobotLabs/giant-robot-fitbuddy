@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UbiquityStoreManager.h"
 
-@interface GymBuddyAppDelegate : UIResponder <UIApplicationDelegate, UbiquityStoreManagerDelegate>
+@interface GymBuddyAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (strong, nonatomic) UbiquityStoreManager *ubiquityStoreManager;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 + (GymBuddyAppDelegate *)sharedAppDelegate;
-+ (NSManagedObjectContext *) sharedContext;
+
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
 
 @end

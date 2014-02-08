@@ -13,20 +13,15 @@
 		D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */; };
 		D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */; };
 		D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */; };
-		D6C0AE841894EDC5004F599E /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AE831894EDC5004F599E /* SwitchCell.m */; };
 		D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */; };
 		D6C0AE89189D7C36004F599E /* UIView+Autolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AE88189D7C36004F599E /* UIView+Autolayout.m */; };
-		D6C0AEAD189ECC1F004F599E /* UbiquityStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AEAA189ECC1F004F599E /* UbiquityStoreManager.m */; };
-		D6C0AEAE189ECC1F004F599E /* NSError+UbiquityStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AEAB189ECC1F004F599E /* NSError+UbiquityStoreManager.m */; };
-		D6C0AEB1189ECC40004F599E /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AEB0189ECC40004F599E /* JRSwizzle.m */; };
+		D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AF0218A34990004F599E /* SwitchCell.m */; };
 		D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C26B2A14F15A710068DEA5 /* libz.dylib */; };
 		D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */; };
 		D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA11170E6BB400BA02DA /* CoreDataTableController.m */; };
 		D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA13170E6BB400BA02DA /* CoreDataTableViewController.m */; };
 		D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */; };
 		D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */; };
-		D6C2CA22170E6BB400BA02DA /* SugueCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA1A170E6BB400BA02DA /* SugueCustomViewController.m */; };
-		D6C2CA23170E6BB400BA02DA /* UICheckboxButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA1C170E6BB400BA02DA /* UICheckboxButton.m */; };
 		D6C2CA30170E6BDA00BA02DA /* CardioExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA25170E6BDA00BA02DA /* CardioExercise.m */; };
 		D6C2CA31170E6BDA00BA02DA /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA27170E6BDA00BA02DA /* Exercise.m */; };
 		D6C2CA32170E6BDA00BA02DA /* LogbookEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA29170E6BDA00BA02DA /* LogbookEntry.m */; };
@@ -81,18 +76,12 @@
 		D67D7CF7170E75DC00E12E96 /* GymBuddyModel1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.2.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF8170E75DC00E12E96 /* GymBuddyModel1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.3.xcdatamodel; sourceTree = "<group>"; };
 		D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-Autolayout.storyboard"; sourceTree = SOURCE_ROOT; };
-		D6C0AE821894EDC5004F599E /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchCell.h; path = FitBuddy/MainViewControllers/SwitchCell.h; sourceTree = SOURCE_ROOT; };
-		D6C0AE831894EDC5004F599E /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchCell.m; path = FitBuddy/MainViewControllers/SwitchCell.m; sourceTree = SOURCE_ROOT; };
 		D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutControlerComponent.xib; sourceTree = SOURCE_ROOT; };
 		D6C0AE87189D7C36004F599E /* UIView+Autolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Autolayout.h"; path = "FitBuddy/Components/UIView+Autolayout.h"; sourceTree = SOURCE_ROOT; };
 		D6C0AE88189D7C36004F599E /* UIView+Autolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Autolayout.m"; path = "FitBuddy/Components/UIView+Autolayout.m"; sourceTree = SOURCE_ROOT; };
 		D6C0AE8A189E9D62004F599E /* UbiquityStoreManagerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UbiquityStoreManagerExample.xcodeproj; path = ../UbiquityStoreManager/UbiquityStoreManagerExample.xcodeproj; sourceTree = "<group>"; };
-		D6C0AEA9189ECC1F004F599E /* UbiquityStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UbiquityStoreManager.h; sourceTree = SOURCE_ROOT; };
-		D6C0AEAA189ECC1F004F599E /* UbiquityStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UbiquityStoreManager.m; sourceTree = SOURCE_ROOT; };
-		D6C0AEAB189ECC1F004F599E /* NSError+UbiquityStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+UbiquityStoreManager.m"; sourceTree = SOURCE_ROOT; };
-		D6C0AEAC189ECC1F004F599E /* NSError+UbiquityStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+UbiquityStoreManager.h"; sourceTree = SOURCE_ROOT; };
-		D6C0AEAF189ECC40004F599E /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = SOURCE_ROOT; };
-		D6C0AEB0189ECC40004F599E /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = SOURCE_ROOT; };
+		D6C0AF0118A34990004F599E /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = SOURCE_ROOT; };
+		D6C0AF0218A34990004F599E /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = SOURCE_ROOT; };
 		D6C26B2A14F15A710068DEA5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D6C2CA0E170E6BB400BA02DA /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = FitBuddy/Components/CoreDataHelper.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = FitBuddy/Components/CoreDataHelper.m; sourceTree = SOURCE_ROOT; };
@@ -105,10 +94,6 @@
 		D6C2CA16170E6BB400BA02DA /* GymBuddyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GymBuddyMacros.h; path = FitBuddy/Components/GymBuddyMacros.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA17170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+CocoaDevUsersAdditions.h"; path = "FitBuddy/Components/NSData+CocoaDevUsersAdditions.h"; sourceTree = SOURCE_ROOT; };
 		D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+CocoaDevUsersAdditions.m"; path = "FitBuddy/Components/NSData+CocoaDevUsersAdditions.m"; sourceTree = SOURCE_ROOT; };
-		D6C2CA19170E6BB400BA02DA /* SugueCustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SugueCustomViewController.h; path = FitBuddy/Components/SugueCustomViewController.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA1A170E6BB400BA02DA /* SugueCustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SugueCustomViewController.m; path = FitBuddy/Components/SugueCustomViewController.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA1B170E6BB400BA02DA /* UICheckboxButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICheckboxButton.h; path = FitBuddy/Components/UICheckboxButton.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA1C170E6BB400BA02DA /* UICheckboxButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICheckboxButton.m; path = FitBuddy/Components/UICheckboxButton.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA24170E6BDA00BA02DA /* CardioExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioExercise.h; path = FitBuddy/CoreData/CardioExercise.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA25170E6BDA00BA02DA /* CardioExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioExercise.m; path = FitBuddy/CoreData/CardioExercise.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA26170E6BDA00BA02DA /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = FitBuddy/CoreData/Exercise.h; sourceTree = SOURCE_ROOT; };
@@ -232,6 +217,8 @@
 		D67825D614E583B600C00BD4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D6C0AF0118A34990004F599E /* SwitchCell.h */,
+				D6C0AF0218A34990004F599E /* SwitchCell.m */,
 				D6C2CA0E170E6BB400BA02DA /* CoreDataHelper.h */,
 				D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */,
 				D6C2CA10170E6BB400BA02DA /* CoreDataTableController.h */,
@@ -243,10 +230,6 @@
 				D6C2CA16170E6BB400BA02DA /* GymBuddyMacros.h */,
 				D6C2CA17170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.h */,
 				D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */,
-				D6C2CA19170E6BB400BA02DA /* SugueCustomViewController.h */,
-				D6C2CA1A170E6BB400BA02DA /* SugueCustomViewController.m */,
-				D6C2CA1B170E6BB400BA02DA /* UICheckboxButton.h */,
-				D6C2CA1C170E6BB400BA02DA /* UICheckboxButton.m */,
 				D6C0AE87189D7C36004F599E /* UIView+Autolayout.h */,
 				D6C0AE88189D7C36004F599E /* UIView+Autolayout.m */,
 			);
@@ -267,12 +250,6 @@
 		D67825D814E583FC00C00BD4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				D6C0AEA9189ECC1F004F599E /* UbiquityStoreManager.h */,
-				D6C0AEAA189ECC1F004F599E /* UbiquityStoreManager.m */,
-				D6C0AEAB189ECC1F004F599E /* NSError+UbiquityStoreManager.m */,
-				D6C0AEAC189ECC1F004F599E /* NSError+UbiquityStoreManager.h */,
-				D6C0AEAF189ECC40004F599E /* JRSwizzle.h */,
-				D6C0AEB0189ECC40004F599E /* JRSwizzle.m */,
 				D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */,
 				D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */,
 				D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */,
@@ -331,8 +308,6 @@
 				D6C2CA56170E6C4000BA02DA /* SettingsIncrementViewController.m */,
 				D6C2CA57170E6C4000BA02DA /* SettingsViewController.h */,
 				D6C2CA58170E6C4000BA02DA /* SettingsViewController.m */,
-				D6C0AE821894EDC5004F599E /* SwitchCell.h */,
-				D6C0AE831894EDC5004F599E /* SwitchCell.m */,
 			);
 			name = MainViewControllers;
 			sourceTree = "<group>";
@@ -472,8 +447,6 @@
 				D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */,
 				D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */,
 				D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */,
-				D6C2CA22170E6BB400BA02DA /* SugueCustomViewController.m in Sources */,
-				D6C2CA23170E6BB400BA02DA /* UICheckboxButton.m in Sources */,
 				D6C2CA30170E6BDA00BA02DA /* CardioExercise.m in Sources */,
 				D6C2CA31170E6BDA00BA02DA /* Exercise.m in Sources */,
 				D6C2CA32170E6BDA00BA02DA /* LogbookEntry.m in Sources */,
@@ -488,11 +461,10 @@
 				D6C2CA5C170E6C4000BA02DA /* ExerciseControlController.m in Sources */,
 				D6C2CA5D170E6C4000BA02DA /* ExerciseEditViewController.m in Sources */,
 				D6C2CA5E170E6C4000BA02DA /* ExerciseListTableViewController.m in Sources */,
+				D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */,
 				D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */,
 				D6C2CA60170E6C4000BA02DA /* LogbookViewController.m in Sources */,
-				D6C0AEAE189ECC1F004F599E /* NSError+UbiquityStoreManager.m in Sources */,
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
-				D6C0AE841894EDC5004F599E /* SwitchCell.m in Sources */,
 				D6C2CA62170E6C4000BA02DA /* SettingsIncrementViewController.m in Sources */,
 				D6C2CA63170E6C4000BA02DA /* SettingsViewController.m in Sources */,
 				D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */,
@@ -501,10 +473,8 @@
 				D6C2CA72170E6C8800BA02DA /* WorkoutModeViewController.m in Sources */,
 				D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */,
 				D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */,
-				D6C0AEB1189ECC40004F599E /* JRSwizzle.m in Sources */,
 				D6C2CB03170E6CF100BA02DA /* DemoView.m in Sources */,
 				D6C2CB08170E6D2500BA02DA /* main.m in Sources */,
-				D6C0AEAD189ECC1F004F599E /* UbiquityStoreManager.m in Sources */,
 				D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@
 #import "ExerciseAddViewController.h"
 #import "CoreDataHelper.h"
 #import "Exercise.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation ExerciseAddViewController
 
@@ -40,7 +41,7 @@
 {
     if (![self.addExerciseField.text isEqualToString:@""]) 
     {
-        NSManagedObjectContext *context = [CoreDataHelper getActiveManagedObjectContext];
+        NSManagedObjectContext *context = [[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext];
         NSManagedObject *newExercise;
 
         if (self.exerciseTypeToggle.selectedSegmentIndex == 0)

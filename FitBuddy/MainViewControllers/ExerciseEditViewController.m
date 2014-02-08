@@ -10,6 +10,7 @@
 #import "CoreDataHelper.h"
 #import "CardioExercise.h"
 #import "ResistanceExercise.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation ExerciseEditViewController
 
@@ -19,7 +20,7 @@ NSManagedObjectContext *context;
 
 -(void) setupFetchedResultsController
 {
-    context = [CoreDataHelper getActiveManagedObjectContext];
+    context = [[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
         request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];

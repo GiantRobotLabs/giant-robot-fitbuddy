@@ -21,8 +21,6 @@
 @property (nonatomic, strong) Exercise *exercise;
 @property (nonatomic, strong) NSMutableOrderedSet *workoutSet;
 
-@property (nonatomic, strong) UIManagedDocument *document;
-
 -(IBAction) checkboxClicked:(id) sender;
 
 @end

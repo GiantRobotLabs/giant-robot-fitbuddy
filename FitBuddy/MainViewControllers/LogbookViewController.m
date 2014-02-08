@@ -11,6 +11,7 @@
 #import "CoreDataHelper.h"
 #import "Workout.h"
 #import "UIView+Autolayout.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation LogbookViewController
 
@@ -31,31 +32,15 @@
     request.predicate = [NSPredicate predicateWithFormat:@"completed = %@", [NSNumber numberWithBool:YES]];
 
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
+                                                                        managedObjectContext: [[GymBuddyAppDelegate sharedAppDelegate]managedObjectContext]
                                                                           sectionNameKeyPath:@"date_t" 
                                                                                    cacheName:nil];
-}
-
--(void)setDocument:(UIManagedDocument *) document
-{
-    if (_document != document)
-    {
-        _document = document;
-        [self setupFetchedResultsController];
-    }
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    // Setup the database
-    //if (!self.document)
-    //{
-        [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
-            self.document = doc;
-        }];
-    //}  
+    [self setupFetchedResultsController];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -140,7 +125,7 @@
             //Update the cell or model 
             cell.editing = YES;
             LogbookEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [[CoreDataHelper getActiveManagedObjectContext] deleteObject:entry];
+            [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext deleteObject:entry];
         }
     }    
 }

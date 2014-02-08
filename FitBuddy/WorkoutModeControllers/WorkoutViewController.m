@@ -22,15 +22,15 @@
 @synthesize edit = _edit;
 
 #pragma mark CoreData
-@synthesize document = _document;
+@synthesize context = _context;
 
 #pragma mark -
 #pragma mark Initialization
 
 -(void) setupFetchedResultsController
 {
-    NSManagedObjectContext *context = [CoreDataHelper getActiveManagedObjectContext];
-    [self setupFetchedResultsControllerWithContext:context];
+    self.context = [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
+    [self setupFetchedResultsControllerWithContext:self.context];
     
 }
 
@@ -59,56 +59,22 @@
         [defaults setObject:@"0" forKey:@"firstrun"];
 }
 
--(void) setDocument:(UIManagedDocument *)document
-{
-    if (!self.document)
-    {
-        _document = document;
-    }
-    
-    [self setupFetchedResultsController];
-}
-
 -(void) viewDidLoad
 {
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
-    
-    // STEP 3 - Handle USMStoreDidChangeNotification to update the UI.
-    
-   // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetFetchedResults:)
-   //                                              name:USMStoreWillChangeNotification
-   //                                            object:[GymBuddyAppDelegate sharedAppDelegate].ubiquityStoreManager];
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadFetchedResults:)
-    //                                             name:USMStoreDidChangeNotification
-    //                                           object:[GymBuddyAppDelegate sharedAppDelegate].ubiquityStoreManager];
+    [self setupFetchedResultsController];
+
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    // Setup and initialize
-    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    //NSString *value = [defaults stringForKey:@"firstrun"];
-    
-    //if (value == nil)
-    //{
-    //    [self performSegueWithIdentifier:@"Startup Demo" sender:self];
-    //}
     
     [self initializeDefaults];
 
     // Visual stuff
-    
     [self.startButton setBackgroundImage:[UIImage imageNamed:kSTARTDISABLED] forState:UIControlStateDisabled];
     [self.startButton setBackgroundImage:[UIImage imageNamed:kSTART] forState:UIControlStateNormal];
     [self enableButtons:NO];
-    
-    // Initialize view    
-    if (!self.document)
-    {
-        [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
-            self.document = doc;
-        }]; 
-    }
     
 }
 
@@ -162,7 +128,9 @@
             //Update the cell or model 
             cell.editing = YES;
             Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [[CoreDataHelper getActiveManagedObjectContext] deleteObject:workout];
+            
+            [self.context deleteObject:workout];
+            [[GymBuddyAppDelegate sharedAppDelegate] saveContext];
         }
         
         [self enableButtons:NO];
@@ -232,7 +200,7 @@
     {
         NSLog(@"In add workout segue");
         workout = [NSEntityDescription insertNewObjectForEntityForName:WORKOUT_TABLE
-                                                inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
+                                                inManagedObjectContext:self.context];
     }
     else if ([segue.identifier isEqualToString:START_WORKOUT_SEGUE])
     {

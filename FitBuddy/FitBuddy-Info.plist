@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIFileSharingEnabled</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -74,15 +76,15 @@
 				<string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>GymBuddy Backup</string>
+			<string>FitBuddy Backup</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.jneyer.gymbuddy.gbz</string>
+			<string>com.jneyer.fitbuddy.gbz</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
 				<string>gbz</string>
 				<key>public.mime-type</key>
-				<string>application/gymbuddy</string>
+				<string>application/fitbuddy</string>
 			</dict>
 		</dict>
 	</array>

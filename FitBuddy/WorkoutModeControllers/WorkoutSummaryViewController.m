@@ -11,6 +11,7 @@
 #import "LogbookEntry.h"
 #import "Workout.h"
 #import "CoreDataHelper.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation WorkoutSummaryViewController
 @synthesize navigationBar;
@@ -69,7 +70,7 @@ NSFetchedResultsController *frc;
                          workout, exercise, priorToDate, [NSNumber numberWithBool:YES]];
 
     frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                              managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
+                                              managedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext
                                                 sectionNameKeyPath:nil 
                                                          cacheName:nil];
     

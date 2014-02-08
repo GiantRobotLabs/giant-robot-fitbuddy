@@ -86,8 +86,6 @@
 
 - (void) handleiCloudToggle: (NSString *) value
 {
-    GymBuddyAppDelegate *appDelegate = (GymBuddyAppDelegate *)[UIApplication sharedApplication].delegate;
-    
     if ([value isEqualToString:@"Yes"])
     {
         if ([[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil] == nil)
@@ -115,7 +113,7 @@
         }
         else 
         {
-            [appDelegate.ubiquityStoreManager migrateLocalToCloud];
+            //[appDelegate.ubiquityStoreManager migrateLocalToCloud];
             
             //if ([CoreDataHelper copyLocaltoiCloud] == YES)
             //{
@@ -125,7 +123,7 @@
     }
     else if ([value isEqualToString:@"No"])
     {
-        [appDelegate.ubiquityStoreManager migrateCloudToLocal];
+        //[appDelegate.ubiquityStoreManager migrateCloudToLocal];
         
         //Copy iCloud to local database
         //if ([CoreDataHelper copyiCloudtoLocal] == YES)
@@ -147,10 +145,10 @@
     {
         NSLog(@"Replace");
         // Copy local database to iCloud
-        if ([CoreDataHelper copyLocaltoiCloud] == YES)
-        {
+        //if ([CoreDataHelper copyLocaltoiCloud] == YES)
+        //{
             [self exit]; 
-        }
+        //}
     }
 }
 

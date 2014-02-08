@@ -7,10 +7,9 @@
 //
 
 #import "WorkoutAddViewController.h"
-#import "CoreDataHelper.h"
-#import "UICheckboxButton.h"
 #import "GymBuddyMacros.h"
 #import "SwitchCell.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation WorkoutAddViewController
 
@@ -20,13 +19,10 @@
 @synthesize exercise = _exercise;
 @synthesize workoutSet = _workoutSet;
 
-@synthesize document = _document;
-
-NSManagedObjectContext *context;
 
 -(void) setupFetchedResultsController
 {
-    context = [CoreDataHelper getActiveManagedObjectContext];
+    NSManagedObjectContext *context = [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
@@ -34,19 +30,11 @@ NSManagedObjectContext *context;
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
 }
 
--(void)setDocument:(UIManagedDocument *) document
-{
-    if (_document != document)
-    {
-        _document = document;
-        [self setupFetchedResultsController];
-    }
-}
-
 -(void) viewDidLoad
 {
     [super viewDidLoad];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+    [self setupFetchedResultsController];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -68,14 +56,6 @@ NSManagedObjectContext *context;
     }
     
     self.workoutNameTextField.text = self.workout.workout_name;
-    
-    // Setup the database
-//    if (!self.document)
-//    {
-        [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
-            self.document = doc;
-        }];
-//    }  
     
     // Dismiss Keyboard
     [self.workoutNameTextField addTarget:self
@@ -102,8 +82,7 @@ NSManagedObjectContext *context;
 - (IBAction)addWorkout:(UITextField *)sender {
     self.workout.workout_name = sender.text;
     
-    NSError *error;
-    [context save:&error];
+    [[GymBuddyAppDelegate sharedAppDelegate] saveContext];
     NSLog(@"Workout saved %@", sender.text);
 }
 
@@ -115,8 +94,7 @@ NSManagedObjectContext *context;
         self.workout.workout_name = @"Empty Workout";
     }
     
-    NSError *error;
-    [context save:&error];
+    [[GymBuddyAppDelegate sharedAppDelegate]saveContext];
     NSLog(@"Workout %@ created", self.workout.workout_name);
 }
 
@@ -171,6 +149,7 @@ NSManagedObjectContext *context;
         [self.workoutSet removeObject:exercise];
     }
     
+    [[GymBuddyAppDelegate sharedAppDelegate] saveContext];
     NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name, self.workout.workout_name, self.workout.exercises.count);
     
 }

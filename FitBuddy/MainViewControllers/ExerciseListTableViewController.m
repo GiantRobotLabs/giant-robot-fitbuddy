@@ -9,6 +9,7 @@
 #import "ExerciseListTableViewController.h"
 #import "Exercise.h"
 #import "CoreDataHelper.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation ExerciseListTableViewController
 
@@ -17,21 +18,12 @@
 
 -(void) setupFetchedResultsController
 {
-    NSManagedObjectContext *context = [CoreDataHelper getActiveManagedObjectContext];
+    NSManagedObjectContext *context = [[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
-}
-
--(void)setDocument:(UIManagedDocument *) document
-{
-    if (_document != document)
-    {
-        _document = document;
-        [self setupFetchedResultsController];
-    }
 }
 
 -(void) viewDidLoad
@@ -43,14 +35,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    // Setup the database
-    //if (!self.document)
-    //{
-        [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
-            self.document = doc;
-        }];
-    //}  
+    [self setupFetchedResultsController];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,7 +115,7 @@
             //Update the cell or model 
             cell.editing = YES;
             Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [[CoreDataHelper getActiveManagedObjectContext] deleteObject:exercise];
+            [[[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext] deleteObject:exercise];
         }
     }    
 }

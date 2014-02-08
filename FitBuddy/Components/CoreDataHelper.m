@@ -10,11 +10,15 @@
 #import <CoreData/CoreData.h>
 #import "GymBuddyMacros.h"
 #import "NSData+CocoaDevUsersAdditions.h"
+#import "GymBuddyAppDelegate.h"
 
 static NSMutableDictionary *managedDocumentDictionary = nil;
+static UIManagedDocument *cdhDocument = nil;
 
 @implementation CoreDataHelper
 
+
+/*
 + (void)openDatabase:(NSString *)name usingBlock:(completion_block_t)completionBlock
 {
     //if (DEBUG) NSLog(@"Entering open database block");
@@ -85,6 +89,8 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     {
         [document saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) { }];
     }
+    
+    cdhDocument = document;
 }
 
 + (NSManagedObjectContext *) getActiveManagedObjectContext
@@ -131,35 +137,7 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
         //if (DEBUG) NSLog(@"Fetch failed: %@", err);
     }
 }
-
-- (BOOL)importData:(NSData *)zippedData {
-    
-    // Read data into a dir Wrapper
-    NSData *unzippedData = [zippedData gzipInflate];                
-    NSFileWrapper *dirWrapper = [[NSFileWrapper alloc] initWithSerializedRepresentation:unzippedData];
-    if (dirWrapper == nil) {
-        NSLog(@"Error creating dir wrapper from unzipped data");
-        return FALSE;
-    }
-    
-    // Calculate desired name
-    NSURL *dirUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    dirUrl = [dirUrl URLByAppendingPathComponent:DATABASE];                
-    NSError *error;
-    BOOL success = [dirWrapper writeToURL:dirUrl options:NSFileWrapperWritingAtomic originalContentsURL:nil error:&error];
-    if (!success) {
-        NSLog(@"Error importing file: %@", error.localizedDescription);
-        return FALSE;
-    }
-    
-    // Success!
-    return TRUE;    
-}
-
-- (BOOL)importFromURL:(NSURL *)importURL {
-    NSData *zippedData = [NSData dataWithContentsOfURL:importURL];
-    return [self importData:zippedData];    
-}
+*/
 
 + (BOOL)checkiCloudExists
 {
@@ -174,7 +152,7 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
 + (void) resetDatabaseConnection
 {
     NSError *err;
-    [[self getActiveManagedObjectContext] save:&err];
+    [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext save:&err];
     
     if (!err)
     {
@@ -187,7 +165,7 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
     
     managedDocumentDictionary = [[NSMutableDictionary alloc]init];
 }
-
+ 
 + (BOOL) copyLocaltoiCloud
 {
     BOOL rtn = NO;
@@ -224,5 +202,64 @@ static NSMutableDictionary *managedDocumentDictionary = nil;
         rtn = YES;
     return rtn;
 }
+
+static UIManagedDocument *oldDatabase;
+
++ (BOOL) migrateDataToSqlite: (NSManagedObjectContext *) newContext {
+    
+    NSError *err;
+    
+    NSURL *fileUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Use iCloud"] isEqualToString:@"Yes"])
+    {
+        [CoreDataHelper copyiCloudtoLocal];
+        [[NSUserDefaults standardUserDefaults] setObject:@"No" forKey:@"Use iCloud"];
+        NSLog(@"Turning off iCloud prior to migration");
+    }
+    
+    //[CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
+    //    oldDatabase = doc;
+    //}];
+    
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    
+    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: oldDatabase.managedObjectModel];
+    NSPersistentStore *oldStore = [psc persistentStoreForURL:[fileUrl URLByAppendingPathComponent:DATABASE]];
+
+    [psc migratePersistentStore:oldStore toURL: [fileUrl URLByAppendingPathComponent:@"fitbuddy.gbz"]  options:options withType:NSSQLiteStoreType error:&err];
+    
+    return TRUE;
+}
+
+- (BOOL)importData:(NSData *)zippedData {
+    
+    // Read data into a dir Wrapper
+    NSData *unzippedData = [zippedData gzipInflate];
+    NSFileWrapper *dirWrapper = [[NSFileWrapper alloc] initWithSerializedRepresentation:unzippedData];
+    if (dirWrapper == nil) {
+        NSLog(@"Error creating dir wrapper from unzipped data");
+        return FALSE;
+    }
+    
+    // Calculate desired name
+    NSURL *dirUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    dirUrl = [dirUrl URLByAppendingPathComponent:DATABASE];
+    NSError *error;
+    BOOL success = [dirWrapper writeToURL:dirUrl options:NSFileWrapperWritingAtomic originalContentsURL:nil error:&error];
+    if (!success) {
+        NSLog(@"Error importing file: %@", error.localizedDescription);
+        return FALSE;
+    }
+    
+    // Success!
+    return TRUE;
+}
+
+- (BOOL)importFromURL:(NSURL *)importURL {
+    NSData *zippedData = [NSData dataWithContentsOfURL:importURL];
+    return [self importData:zippedData];
+}
+
 
 @end

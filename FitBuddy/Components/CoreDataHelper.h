@@ -8,21 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "UbiquityStoreManager.h"
+
 
 typedef void (^completion_block_t)(UIManagedDocument *database);
 
 @interface CoreDataHelper : NSObject
 
-+ (void)openDatabase:(NSString *) name usingBlock:(completion_block_t)completionBlock;
-+ (void)callSave: (NSManagedObjectContext *) obj;
-+ (void)refetchDataFromFetchedResultsController: (NSFetchedResultsController *) frc;
-+ (NSManagedObjectContext *) getActiveManagedObjectContext;
+//+ (void)openDatabase:(NSString *) name usingBlock:(completion_block_t)completionBlock;
+//+ (void)callSave: (NSManagedObjectContext *) obj;
+//+ (void)refetchDataFromFetchedResultsController: (NSFetchedResultsController *) frc;
+//+ (NSManagedObjectContext *) getActiveManagedObjectContext;
 
 - (BOOL)importFromURL:(NSURL *)importURL;
 + (BOOL)checkiCloudExists;
 + (void)resetDatabaseConnection;
 + (BOOL) copyiCloudtoLocal;
-+ (BOOL) copyLocaltoiCloud;
+//+ (BOOL) copyLocaltoiCloud;
+
++ (BOOL) migrateDataToSqlite: (NSManagedObjectContext *) newContext;
 
 @end

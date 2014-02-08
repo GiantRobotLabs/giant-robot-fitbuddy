@@ -9,6 +9,7 @@
 #import "LogbookEntryViewController.h"
 #import "GymBuddyMacros.h"
 #import "CoreDataHelper.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation LogbookEntryViewController
 
@@ -88,7 +89,7 @@
                          exerciseName, entryDate, [NSNumber numberWithBool:YES]];
     
     frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                              managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
+                                              managedObjectContext:[[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext]
                                                 sectionNameKeyPath:nil 
                                                          cacheName:nil];
     NSError *error;

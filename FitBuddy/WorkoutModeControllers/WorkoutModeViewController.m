@@ -10,6 +10,7 @@
 #import "CoreDataHelper.h"
 #import "CardioExercise.h"
 #import "ResistanceExercise.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation WorkoutModeViewController {
 }
@@ -53,7 +54,7 @@
         if (tempEntry == nil)
         {
             tempEntry = [NSEntityDescription insertNewObjectForEntityForName:LOGBOOK_TABLE
-                                                      inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
+                                                      inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
             [self.logbookEntries addObject:tempEntry]; 
             if (DEBUG) NSLog(@"Added a new logbook entry for Workout%@ Exercise %@, index %d", self.workout.workout_name, self.exercise.name, idx);
         }
@@ -310,7 +311,7 @@
         
         for (LogbookEntry *lbe in array)
         {
-            [[CoreDataHelper getActiveManagedObjectContext] deleteObject:lbe];
+            [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext deleteObject:lbe];
         }
         
         [self.logbookEntries removeObjectsAtIndexes:count];
