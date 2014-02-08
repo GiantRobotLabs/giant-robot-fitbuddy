@@ -14,6 +14,9 @@
 		D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */; };
 		D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = D696191418A6A793002FE7C2 /* FitBuddyArchive.m */; };
 		D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */; };
+		D6B6D56018A6E00B00DFF255 /* UbiquityStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B6D55D18A6E00B00DFF255 /* UbiquityStoreManager.m */; };
+		D6B6D56118A6E00B00DFF255 /* NSError+UbiquityStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B6D55E18A6E00B00DFF255 /* NSError+UbiquityStoreManager.m */; };
+		D6B6D56418A6E01900DFF255 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B6D56318A6E01900DFF255 /* JRSwizzle.m */; };
 		D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */; };
 		D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AF0218A34990004F599E /* SwitchCell.m */; };
 		D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C26B2A14F15A710068DEA5 /* libz.dylib */; };
@@ -53,6 +56,16 @@
 		D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FF1D141870B50A004A1D2A /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D6B6D54B18A6DEBD00DFF255 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6B6D54718A6DEBC00DFF255 /* UbiquityStoreManagerExample.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5B4B122215227C6D00153613;
+			remoteInfo = UbiquityStoreManagerExample;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		D60B4CBD14D7A888001ECCE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D60B4CBF14D7A888001ECCE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,6 +80,13 @@
 		D696191318A6A793002FE7C2 /* FitBuddyArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FitBuddyArchive.h; path = FitBuddy/CoreData/FitBuddyArchive.h; sourceTree = SOURCE_ROOT; };
 		D696191418A6A793002FE7C2 /* FitBuddyArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FitBuddyArchive.m; path = FitBuddy/CoreData/FitBuddyArchive.m; sourceTree = SOURCE_ROOT; };
 		D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-Autolayout.storyboard"; sourceTree = SOURCE_ROOT; };
+		D6B6D54718A6DEBC00DFF255 /* UbiquityStoreManagerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UbiquityStoreManagerExample.xcodeproj; path = ../UbiquityStoreManager/UbiquityStoreManagerExample.xcodeproj; sourceTree = "<group>"; };
+		D6B6D55C18A6E00B00DFF255 /* UbiquityStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UbiquityStoreManager.h; sourceTree = SOURCE_ROOT; };
+		D6B6D55D18A6E00B00DFF255 /* UbiquityStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UbiquityStoreManager.m; sourceTree = SOURCE_ROOT; };
+		D6B6D55E18A6E00B00DFF255 /* NSError+UbiquityStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+UbiquityStoreManager.m"; sourceTree = SOURCE_ROOT; };
+		D6B6D55F18A6E00B00DFF255 /* NSError+UbiquityStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+UbiquityStoreManager.h"; sourceTree = SOURCE_ROOT; };
+		D6B6D56218A6E01900DFF255 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = SOURCE_ROOT; };
+		D6B6D56318A6E01900DFF255 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = SOURCE_ROOT; };
 		D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutControlerComponent.xib; sourceTree = SOURCE_ROOT; };
 		D6C0AF0118A34990004F599E /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = SOURCE_ROOT; };
 		D6C0AF0218A34990004F599E /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = SOURCE_ROOT; };
@@ -154,6 +174,7 @@
 		D60B4CAE14D7A888001ECCE3 = {
 			isa = PBXGroup;
 			children = (
+				D6B6D54718A6DEBC00DFF255 /* UbiquityStoreManagerExample.xcodeproj */,
 				D60B4CC314D7A888001ECCE3 /* FitBuddy */,
 				D60B4CBC14D7A888001ECCE3 /* Frameworks */,
 				D6135CD3151027D30055F337 /* FitBuddy.app */,
@@ -263,6 +284,7 @@
 		D696191A18A6A9C4002FE7C2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D6B6D55B18A6DFC000DFF255 /* UbiquityStoreManager */,
 				D6C2CA16170E6BB400BA02DA /* FitBuddyMacros.h */,
 				D6C2CA0E170E6BB400BA02DA /* CoreDataHelper.h */,
 				D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */,
@@ -281,6 +303,27 @@
 				D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */,
 			);
 			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D6B6D54818A6DEBC00DFF255 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6B6D54C18A6DEBD00DFF255 /* UbiquityStoreManagerExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6B6D55B18A6DFC000DFF255 /* UbiquityStoreManager */ = {
+			isa = PBXGroup;
+			children = (
+				D6B6D56218A6E01900DFF255 /* JRSwizzle.h */,
+				D6B6D56318A6E01900DFF255 /* JRSwizzle.m */,
+				D6B6D55C18A6E00B00DFF255 /* UbiquityStoreManager.h */,
+				D6B6D55D18A6E00B00DFF255 /* UbiquityStoreManager.m */,
+				D6B6D55E18A6E00B00DFF255 /* NSError+UbiquityStoreManager.m */,
+				D6B6D55F18A6E00B00DFF255 /* NSError+UbiquityStoreManager.h */,
+			);
+			name = UbiquityStoreManager;
 			sourceTree = "<group>";
 		};
 		D6C2CA65170E6C4C00BA02DA /* MainViewControllers */ = {
@@ -380,12 +423,28 @@
 			mainGroup = D60B4CAE14D7A888001ECCE3;
 			productRefGroup = D60B4CAE14D7A888001ECCE3;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D6B6D54818A6DEBC00DFF255 /* Products */;
+					ProjectRef = D6B6D54718A6DEBC00DFF255 /* UbiquityStoreManagerExample.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D60B4CB814D7A888001ECCE3 /* FitBuddy */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D6B6D54C18A6DEBD00DFF255 /* UbiquityStoreManagerExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = UbiquityStoreManagerExample.app;
+			remoteRef = D6B6D54B18A6DEBD00DFF255 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D60B4CB714D7A888001ECCE3 /* Resources */ = {
@@ -413,6 +472,7 @@
 				D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */,
 				D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */,
 				D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */,
+				D6B6D56018A6E00B00DFF255 /* UbiquityStoreManager.m in Sources */,
 				D6C2CA30170E6BDA00BA02DA /* CardioExercise.m in Sources */,
 				D6C2CA31170E6BDA00BA02DA /* Exercise.m in Sources */,
 				D6C2CA32170E6BDA00BA02DA /* LogbookEntry.m in Sources */,
@@ -430,6 +490,7 @@
 				D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */,
 				D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */,
 				D6C2CA60170E6C4000BA02DA /* LogbookViewController.m in Sources */,
+				D6B6D56118A6E00B00DFF255 /* NSError+UbiquityStoreManager.m in Sources */,
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
 				D6C2CA62170E6C4000BA02DA /* SettingsIncrementViewController.m in Sources */,
 				D6C2CA63170E6C4000BA02DA /* SettingsViewController.m in Sources */,
@@ -440,6 +501,7 @@
 				D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */,
 				D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */,
 				D6C2CB08170E6D2500BA02DA /* main.m in Sources */,
+				D6B6D56418A6E01900DFF255 /* JRSwizzle.m in Sources */,
 				D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

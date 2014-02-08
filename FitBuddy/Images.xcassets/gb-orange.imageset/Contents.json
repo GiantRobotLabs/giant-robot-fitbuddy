@@ -3,11 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "gb-orange.png"
+      "filename" : "gymbuddy-23.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "gymbuddy-23-1.png"
     }
   ],
   "info" : {

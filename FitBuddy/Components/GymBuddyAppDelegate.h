@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FitBuddyMacros.h"
+#import "UbiquityStoreManager.h"
 
 @interface GymBuddyAppDelegate : UIResponder <UIApplicationDelegate>
 

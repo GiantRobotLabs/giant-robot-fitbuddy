@@ -8,7 +8,7 @@
 
 #import "SettingsIncrementViewController.h"
 #import "CoreDataHelper.h"
-#import "FitBuddyMacros.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation SettingsIncrementViewController
 @synthesize defaults = _defaults;
@@ -156,18 +156,21 @@
 -(BOOL) migrateLocalToiCloud
 {
     //TODO: do it
+    
     return TRUE;
 }
 
 -(BOOL) migrateiCloudToLocal
 {
     //TODO: do it
+   
     return TRUE;
 }
 
 -(BOOL) iCloudExists
 {
     //TODO: determine if icloud exists
+   
     return TRUE;
 }
 

@@ -10,6 +10,9 @@
 #import "CoreDataHelper.h"
 
 @implementation GymBuddyAppDelegate
+{
+
+}
 
 @synthesize window = _window;
 
@@ -32,7 +35,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self checkUpgradePath];
-    
+
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:TRUE];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:kTITLEBAR] forBarMetrics:UIBarMetricsDefault];
@@ -202,6 +205,5 @@ static UIManagedDocument *olddb;
     
     return TRUE;
 }
-
 
 @end
