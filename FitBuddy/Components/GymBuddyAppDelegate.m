@@ -32,6 +32,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self checkUpgradePath];
     
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:TRUE];
@@ -40,7 +41,6 @@
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
 
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]];
-    
 
     return YES;
 }
@@ -168,6 +168,23 @@ static UIManagedDocument *olddb;
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - Upgrades
+
+-(BOOL) checkUpgradePath
+{
+    
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"DataVersion"] isEqualToString:@"2.0"])
+    {
+        NSLog(@"Migrate data for user");
+        if ([CoreDataHelper migrateDataToSqlite: self.managedObjectContext])
+        {
+            [[NSUserDefaults standardUserDefaults] setObject:@"2.0" forKey:@"DataVersion"];
+        }
+    }
+    
+    return TRUE;
 }
 
 

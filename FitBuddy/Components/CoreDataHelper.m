@@ -18,7 +18,7 @@ static UIManagedDocument *cdhDocument = nil;
 @implementation CoreDataHelper
 
 
-/*
+
 + (void)openDatabase:(NSString *)name usingBlock:(completion_block_t)completionBlock
 {
     //if (DEBUG) NSLog(@"Entering open database block");
@@ -92,7 +92,7 @@ static UIManagedDocument *cdhDocument = nil;
     
     cdhDocument = document;
 }
-
+/*
 + (NSManagedObjectContext *) getActiveManagedObjectContext
 {
     
@@ -190,7 +190,7 @@ static UIManagedDocument *cdhDocument = nil;
     BOOL rtn = NO;
     
     NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-    NSURL *fileUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSURL *fileUrl = [[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory];
     
     NSError *err;
     [[NSFileManager defaultManager] removeItemAtURL:[fileUrl URLByAppendingPathComponent:DATABASE] error:&err];
@@ -203,13 +203,13 @@ static UIManagedDocument *cdhDocument = nil;
     return rtn;
 }
 
-static UIManagedDocument *oldDatabase;
-
-+ (BOOL) migrateDataToSqlite: (NSManagedObjectContext *) newContext {
++ (BOOL) migrateDataToSqlite: (NSManagedObjectContext *) newContext
+{
     
     NSError *err;
-    
-    NSURL *fileUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSURL *fileUrl = [[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory];
+    NSURL *dbPath = [fileUrl URLByAppendingPathComponent:DATABASE];
+    NSURL *oldFile = [dbPath URLByAppendingPathComponent:@"/StoreContent/persistentStore"];
     
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Use iCloud"] isEqualToString:@"Yes"])
     {
@@ -218,18 +218,58 @@ static UIManagedDocument *oldDatabase;
         NSLog(@"Turning off iCloud prior to migration");
     }
     
-    //[CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
-    //    oldDatabase = doc;
-    //}];
+     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
     
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    NSPersistentStoreCoordinator *psc = [GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator;
+    NSPersistentStore *oldStore = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:oldFile options:options error:&err];
     
-    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: oldDatabase.managedObjectModel];
-    NSPersistentStore *oldStore = [psc persistentStoreForURL:[fileUrl URLByAppendingPathComponent:DATABASE]];
+    
+   if (oldStore)
+   {
+       [psc migratePersistentStore:oldStore toURL: [fileUrl URLByAppendingPathComponent:@"fitbuddy.tmp"]  options:options withType:NSSQLiteStoreType error:&err];
+   }
+   
+    NSURL *newFile = [fileUrl URLByAppendingPathComponent:@"FitBuddy.sqlite"];
+    
+    while ([psc.persistentStores lastObject]) {
+        [psc removePersistentStore:[psc.persistentStores lastObject] error:&err];
+    }
+    
+    NSURL *backup = [fileUrl URLByAppendingPathComponent:@"fitbuddy.tmp"];
+    
+    [[NSFileManager defaultManager] replaceItemAtURL:newFile withItemAtURL:backup backupItemName:@"fitbuddy.bak" options:NSFileManagerItemReplacementUsingNewMetadataOnly resultingItemURL:&newFile error:&err];
+    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:newFile options:options error:&err];
+    
 
-    [psc migratePersistentStore:oldStore toURL: [fileUrl URLByAppendingPathComponent:@"fitbuddy.gbz"]  options:options withType:NSSQLiteStoreType error:&err];
-    
-    return TRUE;
+    if (!err)
+    {
+        NSLog(@"Export created.");
+        
+        NSRegularExpression *e = [[NSRegularExpression alloc]initWithPattern:@"fitbuddy.tmp-.*" options:NSRegularExpressionCaseInsensitive error:&err];
+        [CoreDataHelper removeFiles:e inPath:[fileUrl path]];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[dbPath path]])
+        {
+            [[NSFileManager defaultManager] removeItemAtPath:[dbPath path] error:&err];
+        }
+        
+        return TRUE;
+    }
+    else
+    {
+        NSLog(@"Problem migrating database: %@", err);
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[backup path]])
+        {
+            [[NSFileManager defaultManager] removeItemAtPath:[backup path] error:&err];
+        }
+        
+        if (err) {
+            NSLog(@"Error removing temp file: %@", err);
+        }
+        
+        return FALSE;
+    }
 }
 
 - (BOOL)importData:(NSData *)zippedData {
@@ -260,6 +300,23 @@ static UIManagedDocument *oldDatabase;
     NSData *zippedData = [NSData dataWithContentsOfURL:importURL];
     return [self importData:zippedData];
 }
+
++ (void)removeFiles:(NSRegularExpression*)regex inPath:(NSString*)path {
+    NSDirectoryEnumerator *filesEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:path];
+    
+    NSString *file;
+    NSError *error;
+    while (file = [filesEnumerator nextObject]) {
+        NSUInteger match = [regex numberOfMatchesInString:file
+                                                  options:0
+                                                    range:NSMakeRange(0, [file length])];
+        
+        if (match) {
+            [[NSFileManager defaultManager] removeItemAtPath:[path stringByAppendingPathComponent:file] error:&error];
+        }
+    }
+}
+
 
 
 @end

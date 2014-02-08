@@ -14,7 +14,7 @@ typedef void (^completion_block_t)(UIManagedDocument *database);
 
 @interface CoreDataHelper : NSObject
 
-//+ (void)openDatabase:(NSString *) name usingBlock:(completion_block_t)completionBlock;
++ (void)openDatabase:(NSString *) name usingBlock:(completion_block_t)completionBlock;
 //+ (void)callSave: (NSManagedObjectContext *) obj;
 //+ (void)refetchDataFromFetchedResultsController: (NSFetchedResultsController *) frc;
 //+ (NSManagedObjectContext *) getActiveManagedObjectContext;
@@ -26,5 +26,7 @@ typedef void (^completion_block_t)(UIManagedDocument *database);
 //+ (BOOL) copyLocaltoiCloud;
 
 + (BOOL) migrateDataToSqlite: (NSManagedObjectContext *) newContext;
+
++ (void)removeFiles:(NSRegularExpression*)regex inPath:(NSString*)path;
 
 @end
