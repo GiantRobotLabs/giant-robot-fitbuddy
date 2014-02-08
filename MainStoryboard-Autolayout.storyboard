@@ -182,16 +182,6 @@
                                 <rect key="frame" x="68" y="527" width="184" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="&lt;workout>" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zb-1Q-sBK">
-                                <rect key="frame" x="20" y="71" width="280" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="dR2-54-9J9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vne-eT-WjQ">
                                 <rect key="frame" x="0.0" y="99" width="235" height="318"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -470,11 +460,19 @@
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="0.87058823529999996" green="0.043137254899999998" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;workout>" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zb-1Q-sBK">
+                                <rect key="frame" x="20" y="67" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="Vne-eT-WjQ" secondAttribute="centerY" id="080-mv-AIn"/>
                             <constraint firstItem="YuX-Ac-U5W" firstAttribute="leading" secondItem="Vne-eT-WjQ" secondAttribute="trailing" constant="15" id="120-QU-6GH"/>
+                            <constraint firstItem="3zb-1Q-sBK" firstAttribute="top" secondItem="6Is-Gk-lTv" secondAttribute="bottom" constant="3" id="53m-1U-qhE"/>
                             <constraint firstItem="YuX-Ac-U5W" firstAttribute="bottom" secondItem="Vne-eT-WjQ" secondAttribute="bottom" id="638-aD-8dy"/>
                             <constraint firstAttribute="trailing" secondItem="eQw-kU-9lU" secondAttribute="trailing" constant="20" id="BqR-ZK-paY"/>
                             <constraint firstItem="XVI-5e-xtW" firstAttribute="top" secondItem="lbb-vD-JGM" secondAttribute="bottom" id="CQl-Hk-DbZ"/>
@@ -1948,9 +1946,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Nhs-lP-Pu3"/>
-        <segue reference="Scy-Fj-bRo"/>
         <segue reference="l6r-Rf-eJl"/>
+        <segue reference="Nhs-lP-Pu3"/>
         <segue reference="avZ-yz-EAW"/>
+        <segue reference="Scy-Fj-bRo"/>
     </inferredMetricsTieBreakers>
 </document>

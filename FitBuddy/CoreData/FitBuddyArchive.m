@@ -11,42 +11,46 @@
 #import "NSData+CocoaDevUsersAdditions.h"
 
 @implementation FitBuddyArchive
+{
+    NSString *_fileName;
+}
 
 - (NSString *)getExportFileName
 {
-    NSString *fileName = kEXPORTNAME;
-    NSString *zippedName = [fileName stringByAppendingString:kEXPORTEXT];
-    return zippedName;
+    if (_fileName)
+    {
+        return _fileName;
+    }
+    
+    _fileName = [[[kEXPORTNAME stringByAppendingString:@"-"] stringByAppendingString:[self getTimestamp]] stringByAppendingString:kEXPORTEXT];
+    return _fileName;
 }
 
 - (BOOL)exportToDiskWithForce:(BOOL)force {
-    
-    
-    [self buildItems];
+
     // Figure out destination name (in public docs dir)    
-    NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    NSString *zippedName = [self getExportFileName];
-    NSString *zippedPath = [documentsDirectory stringByAppendingPathComponent:zippedName];
+    NSURL *documentsDirectory = [GymBuddyAppDelegate sharedAppDelegate].applicationDocumentsDirectory;
+    NSString *exportName = [self getExportFileName];
+    NSURL *exportPath = [documentsDirectory URLByAppendingPathComponent:exportName];
     
-    // Check if file already exists (unless we force the write)
-    if (!force && [[NSFileManager defaultManager] fileExistsAtPath:zippedPath]) {
+    NSURL *dbUrl = [[documentsDirectory URLByAppendingPathComponent:@"Database"] URLByAppendingPathComponent:kDATABASE2_0];
+    
+    NSError *err;
+    [[NSFileManager defaultManager] copyItemAtURL:dbUrl toURL:exportPath error:&err];
+    
+    if (err)
+    {
+        NSLog(@"Error exporting database: %@", err);
         return FALSE;
     }
     
-    // Export to data buffer
-    NSData *gzData = [self exportToNSData];
-    if (gzData == nil) return FALSE;
-    
-    // Write to disk
-    [gzData writeToFile:zippedPath atomically:YES];
     return TRUE;
-    
 }
 
-- (NSData *)exportToNSData {
+- (NSData *)exportToNSData: (NSURL *) directoryUrl {
     NSError *error;
-    NSURL *url = [GymBuddyAppDelegate sharedAppDelegate].applicationDocumentsDirectory;
-    NSFileWrapper *dirWrapper = [[NSFileWrapper alloc] initWithURL:url options:0 error:&error];
+
+    NSFileWrapper *dirWrapper = [[NSFileWrapper alloc] initWithURL:directoryUrl options:0 error:&error];
     if (dirWrapper == nil) {
         NSLog(@"Error creating directory wrapper: %@", error.localizedDescription);
         return nil;
@@ -57,115 +61,13 @@
     return gzData;
 }
 
-- (void) buildItems
-
+- (NSString *) getTimestamp
 {
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"ddMMyyHHmmss"];
     
-    // Define the paths
-    
-    NSString *documentsPath = [NSHomeDirectory()
-                               
-                               stringByAppendingPathComponent:@"Documents"];
-    
-    NSString *testFolderPath = [documentsPath
-                                
-                                stringByAppendingPathComponent:@"TestFolder"];
-    
-    NSString *filePath1 = [testFolderPath
-                           
-                           stringByAppendingPathComponent:@"Hello.txt"];
-    
-    NSString *filePath2 = [documentsPath
-                           
-                           stringByAppendingPathComponent:@"Hello.txt"];
-    
-    
-    
-    NSError *error;
-    
-    BOOL success;
-    
-    
-    
-    // Create a folder
-    
-    if (![[NSFileManager defaultManager]
-          
-          fileExistsAtPath:testFolderPath])
-        
-    {
-        
-        success = [[NSFileManager defaultManager]
-                   
-                   createDirectoryAtPath:testFolderPath
-                   
-                   withIntermediateDirectories:NO
-                   
-                   attributes:nil error:&error];
-        
-        if (!success)
-            
-        {
-            
-            NSLog(@"Error creating test folder: %@",
-                  
-                  error.localizedFailureReason);
-            
-            return;
-            
-        }
-        
-    }
-    
-    
-    
-    // Now put a file there
-    
-    success = [@"Hello world\n" writeToFile:filePath1
-               
-                                 atomically:YES encoding:NSUTF8StringEncoding
-               
-                                      error:&error];
-    
-    if (!success)
-        
-    {
-        
-        NSLog(@"Error writing file 1: %@",
-              
-              error.localizedFailureReason);
-        
-        return;
-        
-    }
-    
-    
-    
-    // Put a file into the main Documents folder too
-    
-    success = [@"Hello world\n" writeToFile:filePath2
-               
-                                 atomically:YES encoding:NSUTF8StringEncoding
-               
-                                      error:&error];
-    
-    if (!success)
-        
-    {
-        
-        NSLog(@"Error writing file 2: %@",
-              
-              error.localizedFailureReason);
-        
-        return;
-        
-    }
-    
-    
-    
-    NSLog(@"Success. Files and folder created.");
-    
+    NSString *timestamp = [format stringFromDate:[[NSDate alloc] init]];
+    return timestamp;
 }
-
 
 @end

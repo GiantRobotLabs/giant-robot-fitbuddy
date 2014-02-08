@@ -126,7 +126,19 @@ static UIManagedDocument *olddb;
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:kDATABASE2_0];
+    NSURL *dbDirURL = [[self applicationDocumentsDirectory]URLByAppendingPathComponent:@"Database"];
+    NSURL *storeURL = [dbDirURL URLByAppendingPathComponent:kDATABASE2_0];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[dbDirURL path]])
+    {
+        NSError *err;
+        [[NSFileManager defaultManager] createDirectoryAtURL:dbDirURL withIntermediateDirectories:YES attributes:nil error:&err];
+        
+        if (err)
+        {
+            NSLog(@"Unable to create directory for database: %@", err);
+        }
+    }
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

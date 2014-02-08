@@ -69,7 +69,7 @@
        [psc migratePersistentStore:oldStore toURL:tempFileUrl options:options withType:NSSQLiteStoreType error:&err];
    }
    
-    NSURL *newFileUrl = [appDocsUrl URLByAppendingPathComponent:kDATABASE2_0];
+    NSURL *newFileUrl = [[appDocsUrl URLByAppendingPathComponent:@"Database"] URLByAppendingPathComponent:kDATABASE2_0];
     
     // Disconnect databases to prepare for the shuffle
     while ([psc.persistentStores lastObject]) {
