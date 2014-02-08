@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GymBuddyMacros.h"
-
 @interface ExerciseAddViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *addExerciseField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *exerciseTypeToggle;

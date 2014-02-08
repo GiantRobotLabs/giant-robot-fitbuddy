@@ -11,8 +11,6 @@
 #import "Workout.h"
 #import "Exercise.h"
 
-#import "GymBuddyMacros.h"
-
 @interface WorkoutAddViewController : CoreDataTableController
 
 @property (nonatomic, weak) IBOutlet UITextField *workoutNameTextField;

@@ -10,8 +10,6 @@
 #import "CoreDataTableViewController.h"
 #import "LogbookEntry.h"
 
-#import "GymBuddyMacros.h"
-
 @interface LogbookViewController : CoreDataTableViewController
 
 @property (nonatomic, strong) LogbookEntry *logbookEntry;

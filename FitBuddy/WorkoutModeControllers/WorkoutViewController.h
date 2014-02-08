@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableController.h"
 
-#import "GymBuddyMacros.h"
-
 @interface WorkoutViewController : CoreDataTableController
 
 // Outlets

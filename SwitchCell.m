@@ -7,11 +7,12 @@
 //
 
 #import "SwitchCell.h"
+#import "FitBuddyMacros.h"
 
 @implementation SwitchCell
 
 - (void)switched:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CheckboxToggled" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kCHECKBOXTOGGLED object:self];
 }
 
 

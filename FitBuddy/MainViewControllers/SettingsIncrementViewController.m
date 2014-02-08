@@ -7,9 +7,8 @@
 //
 
 #import "SettingsIncrementViewController.h"
-#import "GymBuddyMacros.h"
 #import "CoreDataHelper.h"
-#import "GymBuddyAppDelegate.h"
+#import "FitBuddyMacros.h"
 
 @implementation SettingsIncrementViewController
 @synthesize defaults = _defaults;
@@ -37,8 +36,16 @@
 -(void) loadPickerFromDefaults
 {
     NSString *value = [self.defaults stringForKey:self.defaultsKey];
-    NSInteger index = [self.pickerValues indexOfObject:value];
-    [self.picker selectRow:index inComponent:0 animated:YES];
+    if (value)
+    {
+        NSInteger index = [self.pickerValues indexOfObject:value];
+        [self.picker selectRow:index inComponent:0 animated:YES];
+    }
+    else
+    {
+        [self.picker selectRow:0 inComponent:0 animated:YES];
+    }
+    
     [self.picker reloadComponent:0];
 }
 
@@ -62,13 +69,19 @@
     NSInteger index = [self.picker selectedRowInComponent:0];
     NSString *value = self.pickerValues[index];
     
+    if ([self.defaultsKey isEqualToString:kEXPORTDBKEY])
+    {
+        [self handleExportToggle: value];
+        [self exit];
+    }
+    
+    
     if (![[self.defaults objectForKey:self.defaultsKey] isEqualToString: value])
     {
         [self.defaults setObject:value forKey:self.defaultsKey];
         
-        if ([self.defaultsKey isEqualToString:@"Use iCloud"])
+        if ([self.defaultsKey isEqualToString:kUSEICLOUDKEY])
         {
-            [CoreDataHelper resetDatabaseConnection];
             [self handleiCloudToggle:value];
         }
         else
@@ -80,13 +93,13 @@
     {
         [self exit];
     }
-    
-    
 }
 
+
+#pragma mark - iCloud Handler
 - (void) handleiCloudToggle: (NSString *) value
 {
-    if ([value isEqualToString:@"Yes"])
+    if ([value isEqualToString:kYES])
     {
         if ([[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil] == nil)
         {
@@ -99,9 +112,10 @@
             [alert show];
             
             [self.defaults setObject:@"No" forKey:self.defaultsKey];
+            [self loadPickerFromDefaults];
             
         }
-        else if ([CoreDataHelper checkiCloudExists])
+        else if ([self iCloudExists])
         {
             UIAlertView *alert = [[UIAlertView alloc]
                                   initWithTitle: @"Switching to iCloud"
@@ -111,25 +125,14 @@
                                   otherButtonTitles:@"Replace", nil];
             [alert show];
         }
-        else 
+        else
         {
-            //[appDelegate.ubiquityStoreManager migrateLocalToCloud];
-            
-            //if ([CoreDataHelper copyLocaltoiCloud] == YES)
-            //{
-            //    [self exit];
-            //}
+            [self migrateLocalToiCloud];
         }
     }
-    else if ([value isEqualToString:@"No"])
+    else if ([value isEqualToString:kNO])
     {
-        //[appDelegate.ubiquityStoreManager migrateCloudToLocal];
-        
-        //Copy iCloud to local database
-        //if ([CoreDataHelper copyiCloudtoLocal] == YES)
-        //{
-        //[self exit];
-        //}
+        [self migrateiCloudToLocal];
     }
 }
 
@@ -144,17 +147,40 @@
     else if (button_index == 1)
     {
         NSLog(@"Replace");
-        // Copy local database to iCloud
-        //if ([CoreDataHelper copyLocaltoiCloud] == YES)
-        //{
-            [self exit]; 
-        //}
+        
+        [self migrateLocalToiCloud];
+        [self exit];
     }
 }
 
+-(BOOL) migrateLocalToiCloud
+{
+    //TODO: do it
+    return TRUE;
+}
+
+-(BOOL) migrateiCloudToLocal
+{
+    //TODO: do it
+    return TRUE;
+}
+
+-(BOOL) iCloudExists
+{
+    //TODO: determine if icloud exists
+    return TRUE;
+}
+
+#pragma mark - Export Options
+- (void) handleExportToggle: (NSString *) exportType
+{
+    [CoreDataHelper exportDatabaseTo:exportType];
+}
+
+
+#pragma mark - Exit
 - (void) exit
 {
-    //[self loadPickerFromDefaults];
     [self.defaults synchronize];
     [self.navigationController popViewControllerAnimated:YES];
 }

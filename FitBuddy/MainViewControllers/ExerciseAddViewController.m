@@ -7,9 +7,8 @@
 //
 
 #import "ExerciseAddViewController.h"
-#import "CoreDataHelper.h"
-#import "Exercise.h"
 #import "GymBuddyAppDelegate.h"
+#import "Exercise.h"
 
 @implementation ExerciseAddViewController
 

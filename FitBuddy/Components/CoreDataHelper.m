@@ -7,261 +7,103 @@
 //
 
 #import "CoreDataHelper.h"
-#import <CoreData/CoreData.h>
-#import "GymBuddyMacros.h"
-#import "NSData+CocoaDevUsersAdditions.h"
 #import "GymBuddyAppDelegate.h"
-
-static NSMutableDictionary *managedDocumentDictionary = nil;
-static UIManagedDocument *cdhDocument = nil;
+#import "FitBuddyArchive.h"
 
 @implementation CoreDataHelper
-
-
-
-+ (void)openDatabase:(NSString *)name usingBlock:(completion_block_t)completionBlock
-{
-    //if (DEBUG) NSLog(@"Entering open database block");
-    
-    if (managedDocumentDictionary == nil)
-        managedDocumentDictionary = [[NSMutableDictionary alloc]init];
-    
-    // Try to retrieve the relevant UIManagedDocument from managedDocumentDictionary
-    UIManagedDocument *document = [managedDocumentDictionary objectForKey:name];
-    
-    // Get URL for the database -> "<Documents Directory>/<database name>" 
-    // Set options with migration
-    NSURL *fileUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSDictionary *fileOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
-                             nil];
-
-    NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-    NSDictionary *iCloudOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
-                             name, NSPersistentStoreUbiquitousContentNameKey,
-                             [iCloudUrl URLByAppendingPathComponent:@"CoreData"], NSPersistentStoreUbiquitousContentURLKey,
-                             nil];
-
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSURL *url = nil;
-    NSDictionary *options = nil;
-    
-    NSString *value = [defaults valueForKey:@"Use iCloud"];
-    if (value && [value isEqualToString:@"Yes"])
-    {
-        NSLog(@"opening icloud store");
-    
-        url = [iCloudUrl URLByAppendingPathComponent:name];
-        options = iCloudOptions;
-    }
-    else
-    {
-        NSLog(@"opening file store");
-        url = [fileUrl URLByAppendingPathComponent:name];
-        options = fileOptions;
-    }
-    
-    // If UIManagedObject was not retrieved, create it
-    if (!document) {
-        
-        // Create UIManagedDocument with this URL
-        document = [[UIManagedDocument alloc] initWithFileURL:url];
-        document.persistentStoreOptions = options;
-
-        // Add to managedDocumentDictionary
-        [managedDocumentDictionary setObject:document forKey:name];
-    }
-    
-    // If document exists on disk...
-    if ([[NSFileManager defaultManager] fileExistsAtPath:[url path]]) 
-    {
-        NSLog(@"File URL %@", url);
-        [document openWithCompletionHandler:^(BOOL success) 
-         {
-             completionBlock(document);
-         }];
-    } 
-    else 
-    {
-        [document saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) { }];
-    }
-    
-    cdhDocument = document;
-}
-/*
-+ (NSManagedObjectContext *) getActiveManagedObjectContext
-{
-    
-    UIManagedDocument *document = [managedDocumentDictionary objectForKey:DATABASE];
-    
-    NSManagedObjectContext *context = [[UIApplication sharedApplication].delegate performSelector:NSSelectorFromString(@"managedObjectContext")];
-    
-    if (document)
-       return document.managedObjectContext;
-    else
-        return context;
-}
-
-+ (void) callSave: (NSManagedObjectContext *) obj
-{
-    NSError *err = nil;
-    
-    [obj save:&err];
-    
-    if (!err)
-    {
-         //if (DEBUG) NSLog(@"Save successful");
-    }
-    else
-    {
-        //if (DEBUG) NSLog(@"Save failed: %@", err);
-    }
-}
-
-+ (void) refetchDataFromFetchedResultsController:(NSFetchedResultsController *)frc
-{
-    NSError *err = nil;
-    
-    [frc performFetch:&err];
-    
-    if (!err)
-    {
-        //if (DEBUG) NSLog(@"Fetch successful");
-    }
-    else
-    {
-        //if (DEBUG) NSLog(@"Fetch failed: %@", err);
-    }
-}
-*/
-
-+ (BOOL)checkiCloudExists
-{
-    NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath: [iCloudUrl URLByAppendingPathComponent:DATABASE].path])
-        return YES;
-    else
-        return NO;
-}
-
-+ (void) resetDatabaseConnection
-{
-    NSError *err;
-    [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext save:&err];
-    
-    if (!err)
-    {
-        //if (DEBUG) NSLog(@"Save successful");
-    }
-    else
-    {
-        //if (DEBUG) NSLog(@"Save failed: %@", err);
-    }
-    
-    managedDocumentDictionary = [[NSMutableDictionary alloc]init];
-}
- 
-+ (BOOL) copyLocaltoiCloud
-{
-    BOOL rtn = NO;
-    
-    NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-    NSURL *fileUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    
-    NSError *err;
-    [[NSFileManager defaultManager] removeItemAtURL:[iCloudUrl URLByAppendingPathComponent:DATABASE] error:&err];
-    [[NSFileManager defaultManager] copyItemAtURL:[fileUrl URLByAppendingPathComponent:DATABASE] toURL:[iCloudUrl URLByAppendingPathComponent:DATABASE] error:&err];
-    
-    NSLog(@"Tried to copy db: %@", err);
-    
-    if (err == nil)
-        rtn = YES;
-    return rtn;
-}
-
 
 + (BOOL) copyiCloudtoLocal
 {
     BOOL rtn = NO;
     
     NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-    NSURL *fileUrl = [[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory];
+    NSURL *appDocsUrl = [[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory];
     
     NSError *err;
-    [[NSFileManager defaultManager] removeItemAtURL:[fileUrl URLByAppendingPathComponent:DATABASE] error:&err];
-    [[NSFileManager defaultManager] copyItemAtURL:[iCloudUrl URLByAppendingPathComponent:DATABASE] toURL:[fileUrl URLByAppendingPathComponent:DATABASE] error:&err];
+    [[NSFileManager defaultManager] removeItemAtURL:[appDocsUrl URLByAppendingPathComponent:kDATABASE1_0] error:&err];
+    [[NSFileManager defaultManager] copyItemAtURL:[iCloudUrl URLByAppendingPathComponent:kDATABASE1_0] toURL:[appDocsUrl URLByAppendingPathComponent:kDATABASE1_0] error:&err];
     
-    NSLog(@"Tried to copy db: %@", err);
+    if (DEBUG) NSLog(@"Tried to copy db: %@", err);
     
     if (err == nil)
         rtn = YES;
+    
     return rtn;
 }
 
-+ (BOOL) migrateDataToSqlite: (NSManagedObjectContext *) newContext
+#define TEMPFILENAME @"fitbuddy.tmp"
+#define BACKUPFILENAME @"fitbuddy.bak"
+
++ (BOOL) migrateDataToSqlite
 {
     
     NSError *err;
-    NSURL *fileUrl = [[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory];
-    NSURL *dbPath = [fileUrl URLByAppendingPathComponent:DATABASE];
-    NSURL *oldFile = [dbPath URLByAppendingPathComponent:@"/StoreContent/persistentStore"];
+    NSURL *appDocsUrl = [[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory];
     
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Use iCloud"] isEqualToString:@"Yes"])
-    {
-        [CoreDataHelper copyiCloudtoLocal];
-        [[NSUserDefaults standardUserDefaults] setObject:@"No" forKey:@"Use iCloud"];
-        NSLog(@"Turning off iCloud prior to migration");
+    NSURL *oldDbStorePath = [appDocsUrl URLByAppendingPathComponent:kDATABASE1_0];
+    NSURL *oldSqlFilePath = [oldDbStorePath URLByAppendingPathComponent:@"/StoreContent/persistentStore"];
+    NSURL *backupFileUrl = [appDocsUrl URLByAppendingPathComponent:TEMPFILENAME];
+    NSURL *tempFileUrl = [appDocsUrl URLByAppendingPathComponent:TEMPFILENAME];
+
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[oldDbStorePath path]]) {
+        // We cleaned up already or this is a new install.
+        // Nothing to migrate.
+        return TRUE;
     }
     
+    // Check if we're on iCloud and move to local
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUSEICLOUDKEY] isEqualToString:kYES])
+    {
+        [CoreDataHelper copyiCloudtoLocal];
+        [[NSUserDefaults standardUserDefaults] setObject:kNO forKey:kUSEICLOUDKEY];
+        if (DEBUG) NSLog(@"Turning off iCloud prior to migration");
+    }
+    
+    // Start migrating
      NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-    
     NSPersistentStoreCoordinator *psc = [GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator;
-    NSPersistentStore *oldStore = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:oldFile options:options error:&err];
-    
+    NSPersistentStore *oldStore = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:oldSqlFilePath options:options error:&err];
     
    if (oldStore)
    {
-       [psc migratePersistentStore:oldStore toURL: [fileUrl URLByAppendingPathComponent:@"fitbuddy.tmp"]  options:options withType:NSSQLiteStoreType error:&err];
+       [psc migratePersistentStore:oldStore toURL:tempFileUrl options:options withType:NSSQLiteStoreType error:&err];
    }
    
-    NSURL *newFile = [fileUrl URLByAppendingPathComponent:@"FitBuddy.sqlite"];
+    NSURL *newFileUrl = [appDocsUrl URLByAppendingPathComponent:kDATABASE2_0];
     
+    // Disconnect databases to prepare for the shuffle
     while ([psc.persistentStores lastObject]) {
         [psc removePersistentStore:[psc.persistentStores lastObject] error:&err];
     }
     
-    NSURL *backup = [fileUrl URLByAppendingPathComponent:@"fitbuddy.tmp"];
-    
-    [[NSFileManager defaultManager] replaceItemAtURL:newFile withItemAtURL:backup backupItemName:@"fitbuddy.bak" options:NSFileManagerItemReplacementUsingNewMetadataOnly resultingItemURL:&newFile error:&err];
-    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:newFile options:options error:&err];
+    [[NSFileManager defaultManager] replaceItemAtURL:newFileUrl withItemAtURL:backupFileUrl backupItemName:BACKUPFILENAME options:NSFileManagerItemReplacementUsingNewMetadataOnly resultingItemURL:&newFileUrl error:&err];
+    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:newFileUrl options:options error:&err];
     
 
+    // If no errors - Clean up temp files
     if (!err)
     {
-        NSLog(@"Export created.");
+        if (DEBUG) NSLog(@"Migration complete.");
         
-        NSRegularExpression *e = [[NSRegularExpression alloc]initWithPattern:@"fitbuddy.tmp-.*" options:NSRegularExpressionCaseInsensitive error:&err];
-        [CoreDataHelper removeFiles:e inPath:[fileUrl path]];
+        NSString *temp = TEMPFILENAME;
+        NSRegularExpression *re = [[NSRegularExpression alloc]initWithPattern:[temp stringByAppendingString: @"-.*"] options:NSRegularExpressionCaseInsensitive error:&err];
         
-        if ([[NSFileManager defaultManager] fileExistsAtPath:[dbPath path]])
+        [CoreDataHelper removeFilesUsingExpression:re inPath:[appDocsUrl path]];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[oldDbStorePath path]])
         {
-            [[NSFileManager defaultManager] removeItemAtPath:[dbPath path] error:&err];
+            [[NSFileManager defaultManager] removeItemAtPath:[oldDbStorePath path] error:&err];
         }
         
         return TRUE;
     }
     else
     {
-        NSLog(@"Problem migrating database: %@", err);
+        NSLog(@"There was a problem migrating the database: %@", err);
         
-        if ([[NSFileManager defaultManager] fileExistsAtPath:[backup path]])
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[backupFileUrl path]])
         {
-            [[NSFileManager defaultManager] removeItemAtPath:[backup path] error:&err];
+            [[NSFileManager defaultManager] removeItemAtPath:[backupFileUrl path] error:&err];
         }
         
         if (err) {
@@ -272,36 +114,7 @@ static UIManagedDocument *cdhDocument = nil;
     }
 }
 
-- (BOOL)importData:(NSData *)zippedData {
-    
-    // Read data into a dir Wrapper
-    NSData *unzippedData = [zippedData gzipInflate];
-    NSFileWrapper *dirWrapper = [[NSFileWrapper alloc] initWithSerializedRepresentation:unzippedData];
-    if (dirWrapper == nil) {
-        NSLog(@"Error creating dir wrapper from unzipped data");
-        return FALSE;
-    }
-    
-    // Calculate desired name
-    NSURL *dirUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    dirUrl = [dirUrl URLByAppendingPathComponent:DATABASE];
-    NSError *error;
-    BOOL success = [dirWrapper writeToURL:dirUrl options:NSFileWrapperWritingAtomic originalContentsURL:nil error:&error];
-    if (!success) {
-        NSLog(@"Error importing file: %@", error.localizedDescription);
-        return FALSE;
-    }
-    
-    // Success!
-    return TRUE;
-}
-
-- (BOOL)importFromURL:(NSURL *)importURL {
-    NSData *zippedData = [NSData dataWithContentsOfURL:importURL];
-    return [self importData:zippedData];
-}
-
-+ (void)removeFiles:(NSRegularExpression*)regex inPath:(NSString*)path {
++ (void)removeFilesUsingExpression:(NSRegularExpression*)regex inPath:(NSString*)path {
     NSDirectoryEnumerator *filesEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:path];
     
     NSString *file;
@@ -310,13 +123,23 @@ static UIManagedDocument *cdhDocument = nil;
         NSUInteger match = [regex numberOfMatchesInString:file
                                                   options:0
                                                     range:NSMakeRange(0, [file length])];
-        
         if (match) {
             [[NSFileManager defaultManager] removeItemAtPath:[path stringByAppendingPathComponent:file] error:&error];
         }
     }
 }
 
++ (BOOL) exportDatabaseTo: (NSString *) exportType
+{
+    if ([exportType isEqualToString:kITUNES])
+    {
+        FitBuddyArchive *arch = [[FitBuddyArchive alloc] init];
+        return [arch exportToDiskWithForce:TRUE];
+    }
 
+    NSLog(@"Unknown export type: %@", exportType);
+    return FALSE;
+
+}
 
 @end

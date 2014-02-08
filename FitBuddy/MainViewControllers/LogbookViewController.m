@@ -8,10 +8,9 @@
 
 #import "LogbookViewController.h"
 #import "LogbookEntry.h"
-#import "CoreDataHelper.h"
 #import "Workout.h"
-#import "UIView+Autolayout.h"
 #import "GymBuddyAppDelegate.h"
+#import "CoreDataHelper.h"
 
 @implementation LogbookViewController
 
@@ -151,7 +150,7 @@
     }
     
     UIView *labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 60.0)];
-    [labelView setBackgroundColor: kGRAY];
+    [labelView setBackgroundColor: kCOLOR_GRAY];
     [labelView setAutoresizesSubviews:TRUE];
     
     // Create label with section title

@@ -7,7 +7,6 @@
 //
 
 #import "WorkoutAddViewController.h"
-#import "GymBuddyMacros.h"
 #import "SwitchCell.h"
 #import "GymBuddyAppDelegate.h"
 
@@ -65,7 +64,7 @@
     // Listen for checkboxes
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(checkboxClicked:) 
-                                                 name:@"CheckboxToggled"
+                                                 name:kCHECKBOXTOGGLED
                                                object:nil];
     
     //if (DEBUG) NSLog(@"View will appear");

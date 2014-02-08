@@ -9,24 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-
-typedef void (^completion_block_t)(UIManagedDocument *database);
-
 @interface CoreDataHelper : NSObject
-
-+ (void)openDatabase:(NSString *) name usingBlock:(completion_block_t)completionBlock;
-//+ (void)callSave: (NSManagedObjectContext *) obj;
-//+ (void)refetchDataFromFetchedResultsController: (NSFetchedResultsController *) frc;
-//+ (NSManagedObjectContext *) getActiveManagedObjectContext;
-
-- (BOOL)importFromURL:(NSURL *)importURL;
-+ (BOOL)checkiCloudExists;
-+ (void)resetDatabaseConnection;
 + (BOOL) copyiCloudtoLocal;
-//+ (BOOL) copyLocaltoiCloud;
-
-+ (BOOL) migrateDataToSqlite: (NSManagedObjectContext *) newContext;
-
-+ (void)removeFiles:(NSRegularExpression*)regex inPath:(NSString*)path;
++ (BOOL) migrateDataToSqlite;
++ (void)removeFilesUsingExpression:(NSRegularExpression*)regex inPath:(NSString*)path;
++ (BOOL) exportDatabaseTo: (NSString *) exportType;
 
 @end

@@ -10,7 +10,6 @@
 #import "WorkoutModeViewController.h"
 #import "CoreDataHelper.h"
 #import "Workout.h"
-#import "GymBuddyMacros.h"
 #import "GymBuddyAppDelegate.h"
 
 @implementation WorkoutViewController 

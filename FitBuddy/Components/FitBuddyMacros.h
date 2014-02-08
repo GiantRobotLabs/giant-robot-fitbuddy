@@ -1,25 +1,40 @@
 //
-//  GymbuddyMacros.h
-//  GymBuddy
+//  FitBuddyMacros.h
+//  FitBuddy
 //
 //  Created by John Neyer on 2/12/12.
 //  Copyright (c) 2012 jneyer.com. All rights reserved.
 //
 
-#ifndef GymBuddy_GymbuddyMacros_h
-#define GymBuddy_GymbuddyMacros_h
+#ifndef FitBuddy_FitBuddyMacros_h
+#define FitBuddy_FitBuddyMacros_h
 
 // DEBUG - Defined in Xcode project settings
 //#define DEBUG               YES
 
 // DATABASE
-#define DATABASE            @"GymBuddy"
-#define UBIQUITYDB          @"GymBuddyUbiqity"
+#define kDATABASE2_0        @"FitBuddy.sqlite"
+#define kDATABASE1_0        @"GymBuddy"
+#define kEXPORTNAME         @"FitBuddy"
+#define kEXPORTEXT          @".gbz"
+
 #define EXERCISE_TABLE      @"Exercise"
 #define WORKOUT_TABLE       @"Workout"
 #define LOGBOOK_TABLE       @"LogbookEntry"
 #define CARDIO_EXERCISE_TABLE @"CardioExercise"
 #define RESISTANCE_EXERCISE_TABLE @"ResistanceExercise"
+
+// DEFAULTS KEYS
+#define kDATAVERSIONKEY     @"DataVersion"
+#define kDATAVERSION        @"2.0"
+#define kUSEICLOUDKEY       @"Use iCloud"
+#define kYES                @"Yes"
+#define kNO                 @"No"
+#define kEXPORTDBKEY        @"Export Database"
+#define kITUNES             @"iTunes"
+
+// NOTIFICATIONS
+#define kCHECKBOXTOGGLED    @"CheckboxToggled"
 
 // NEW_ASSETS
 #define kTITLEBAR            @"titlebar"
@@ -31,8 +46,8 @@
 #define kCARDIOW             @"workout-run"
 #define kRESISTANCEW         @"workout-resistance"
 
-#define kRED        [UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]
-#define kGRAY       [UIColor colorWithRed:173.0/255.0 green:175.0/255.0 blue:178.0/255.0 alpha:1]
+#define kCOLOR_RED        [UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]
+#define kCOLOR_GRAY       [UIColor colorWithRed:173.0/255.0 green:175.0/255.0 blue:178.0/255.0 alpha:1]
 
 // IMAGES
 #define BACKGROUND_IMAGE    @"gb-background.png"

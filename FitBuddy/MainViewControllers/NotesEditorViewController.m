@@ -7,6 +7,7 @@
 //
 
 #import "NotesEditorViewController.h"
+#import "FitBuddyMacros.h"
 
 @implementation NotesEditorViewController
 

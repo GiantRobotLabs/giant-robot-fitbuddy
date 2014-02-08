@@ -7,7 +7,6 @@
 //
 
 #import "WorkoutSummaryViewController.h"
-#import "GymBuddyMacros.h"
 #import "LogbookEntry.h"
 #import "Workout.h"
 #import "CoreDataHelper.h"

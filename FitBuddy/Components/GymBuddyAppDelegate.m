@@ -8,7 +8,6 @@
 
 #import "GymBuddyAppDelegate.h"
 #import "CoreDataHelper.h"
-#import "GymBuddyMacros.h"
 
 @implementation GymBuddyAppDelegate
 
@@ -36,7 +35,7 @@
     
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:TRUE];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titlebar"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:kTITLEBAR] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
 
@@ -127,7 +126,7 @@ static UIManagedDocument *olddb;
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"FitBuddy.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:kDATABASE2_0];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -175,13 +174,18 @@ static UIManagedDocument *olddb;
 -(BOOL) checkUpgradePath
 {
     
-    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"DataVersion"] isEqualToString:@"2.0"])
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:kDATAVERSIONKEY] isEqualToString:kDATAVERSION])
     {
-        NSLog(@"Migrate data for user");
-        if ([CoreDataHelper migrateDataToSqlite: self.managedObjectContext])
+        if (DEBUG) NSLog(@"Migrating data for user");
+        if ([CoreDataHelper migrateDataToSqlite])
         {
-            [[NSUserDefaults standardUserDefaults] setObject:@"2.0" forKey:@"DataVersion"];
+            [[NSUserDefaults standardUserDefaults] setObject:kDATAVERSION forKey:kDATAVERSIONKEY];
         }
+    }
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:kEXPORTDBKEY])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:@"iTunes" forKey:kEXPORTDBKEY];
     }
     
     return TRUE;

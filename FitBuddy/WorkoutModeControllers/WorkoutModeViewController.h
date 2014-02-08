@@ -11,8 +11,6 @@
 #import "LogbookEntry.h"
 #import "Workout.h"
 
-#import "GymBuddyMacros.h"
-
 @interface WorkoutModeViewController : ExerciseControlController
 
 // Outlets

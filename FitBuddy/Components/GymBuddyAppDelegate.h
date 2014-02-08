@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FitBuddyMacros.h"
 
 @interface GymBuddyAppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -7,7 +7,7 @@
 //
 
 #import "SettingsViewController.h"
-#import "GymBuddyMacros.h"
+#import "FitBuddyMacros.h"
 
 @implementation SettingsViewController
 
@@ -85,6 +85,10 @@
         
         if ([label.text hasSuffix:@"Use iCloud"]) {
             [pickerValues addObjectsFromArray:@[@"Yes", @"No"]];
+        }
+        
+        if ([label.text hasSuffix:@"Export Database"]) {
+            [pickerValues addObjectsFromArray:@[@"iTunes"]];
         }
         
         NSInvocation *setPicker = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setPickerValuesSelector]];
