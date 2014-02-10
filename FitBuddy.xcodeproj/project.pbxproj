@@ -53,16 +53,6 @@
 		D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FF1D141870B50A004A1D2A /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D6B6D54B18A6DEBD00DFF255 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D6B6D54718A6DEBC00DFF255 /* UbiquityStoreManagerExample.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5B4B122215227C6D00153613;
-			remoteInfo = UbiquityStoreManagerExample;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		D60B4CBD14D7A888001ECCE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D60B4CBF14D7A888001ECCE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -77,7 +67,6 @@
 		D696191318A6A793002FE7C2 /* FitBuddyArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FitBuddyArchive.h; path = FitBuddy/CoreData/FitBuddyArchive.h; sourceTree = SOURCE_ROOT; };
 		D696191418A6A793002FE7C2 /* FitBuddyArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FitBuddyArchive.m; path = FitBuddy/CoreData/FitBuddyArchive.m; sourceTree = SOURCE_ROOT; };
 		D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-Autolayout.storyboard"; sourceTree = SOURCE_ROOT; };
-		D6B6D54718A6DEBC00DFF255 /* UbiquityStoreManagerExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UbiquityStoreManagerExample.xcodeproj; path = ../UbiquityStoreManager/UbiquityStoreManagerExample.xcodeproj; sourceTree = "<group>"; };
 		D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutControlerComponent.xib; sourceTree = SOURCE_ROOT; };
 		D6C0AF0118A34990004F599E /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = SOURCE_ROOT; };
 		D6C0AF0218A34990004F599E /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = SOURCE_ROOT; };
@@ -165,7 +154,6 @@
 		D60B4CAE14D7A888001ECCE3 = {
 			isa = PBXGroup;
 			children = (
-				D6B6D54718A6DEBC00DFF255 /* UbiquityStoreManagerExample.xcodeproj */,
 				D60B4CC314D7A888001ECCE3 /* FitBuddy */,
 				D60B4CBC14D7A888001ECCE3 /* Frameworks */,
 				D6135CD3151027D30055F337 /* FitBuddy.app */,
@@ -295,14 +283,6 @@
 			name = AppDelegate;
 			sourceTree = "<group>";
 		};
-		D6B6D54818A6DEBC00DFF255 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D6B6D54C18A6DEBD00DFF255 /* UbiquityStoreManagerExample.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		D6C2CA65170E6C4C00BA02DA /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,28 +380,12 @@
 			mainGroup = D60B4CAE14D7A888001ECCE3;
 			productRefGroup = D60B4CAE14D7A888001ECCE3;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D6B6D54818A6DEBC00DFF255 /* Products */;
-					ProjectRef = D6B6D54718A6DEBC00DFF255 /* UbiquityStoreManagerExample.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D60B4CB814D7A888001ECCE3 /* FitBuddy */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		D6B6D54C18A6DEBD00DFF255 /* UbiquityStoreManagerExample.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = UbiquityStoreManagerExample.app;
-			remoteRef = D6B6D54B18A6DEBD00DFF255 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D60B4CB714D7A888001ECCE3 /* Resources */ = {
