@@ -17,6 +17,7 @@
 #define kDATABASE1_0        @"GymBuddy"
 #define kEXPORTNAME         @"FitBuddy"
 #define kEXPORTEXT          @".gbz"
+#define kUBIQUITYCONTAINER  @"MK3WE6JNT9.com.giantrobotapps.FitBuddy"
 
 #define EXERCISE_TABLE      @"Exercise"
 #define WORKOUT_TABLE       @"Workout"
@@ -35,6 +36,7 @@
 
 // NOTIFICATIONS
 #define kCHECKBOXTOGGLED    @"CheckboxToggled"
+#define kUBIQUITYCHANGED    @"UbiquityChangedLocalStore"
 
 // NEW_ASSETS
 #define kTITLEBAR            @"titlebar"

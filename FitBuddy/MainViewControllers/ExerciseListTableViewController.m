@@ -29,7 +29,10 @@
 -(void) viewDidLoad
 {
     [super viewDidLoad];
+    
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[GymBuddyAppDelegate sharedAppDelegate]];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -43,7 +46,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{    
+{
+    
+    if (DEBUG) NSLog(@"Building exercise cell");
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Exercise Cell"];
     UILabel *label = (UILabel *)[cell viewWithTag:101];
     UIImageView *icon = (UIImageView *)[cell viewWithTag:102];
@@ -73,10 +79,7 @@
     Exercise *exercise = nil;
     
     SEL setExerciseSelector = sel_registerName("setExercise:");
-    NSInvocation *setExercise = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setExerciseSelector]];
-    setExercise.target = segue.destinationViewController;
-    setExercise.selector = setExerciseSelector;
-    
+        
     //if (DEBUG) NSLog(@"Segue: %@", segue.identifier);
     
     if ([segue.identifier isEqualToString: (ADD_EXERCISE_SEGUE)])
@@ -90,8 +93,7 @@
     
     if ([segue.destinationViewController respondsToSelector:setExerciseSelector]) {
         
-        [setExercise setArgument:&exercise atIndex:2];
-        [setExercise invoke];
+        [segue.destinationViewController performSelector:setExerciseSelector withObject:exercise];
     }
 }
 
@@ -123,4 +125,5 @@
 -(void) viewWillDisappear:(BOOL)animated
 {
 }
+
 @end

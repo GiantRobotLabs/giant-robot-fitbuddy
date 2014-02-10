@@ -10,9 +10,6 @@
 #import "CoreDataHelper.h"
 
 @implementation GymBuddyAppDelegate
-{
-
-}
 
 @synthesize window = _window;
 
@@ -26,11 +23,9 @@
     return (GymBuddyAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
-// Return shared context
-+ (NSManagedObjectContext *) sharedObjectContext {
-    return [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
++ (NSURL *) theLocalStore {
+    return [[[[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory] URLByAppendingPathComponent:@"Database"] URLByAppendingPathComponent:kDATABASE2_0];
 }
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -87,6 +82,9 @@
             abort();
         }
     }
+    
+    [self.managedObjectContext reset];
+    [self.managedObjectContext save:&error];
 }
 
 static UIManagedDocument *olddb;
@@ -102,8 +100,9 @@ static UIManagedDocument *olddb;
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    
     if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     return _managedObjectContext;
@@ -130,7 +129,7 @@ static UIManagedDocument *olddb;
     }
     
     NSURL *dbDirURL = [[self applicationDocumentsDirectory]URLByAppendingPathComponent:@"Database"];
-    NSURL *storeURL = [dbDirURL URLByAppendingPathComponent:kDATABASE2_0];
+    NSURL *storeURL = [GymBuddyAppDelegate theLocalStore];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[dbDirURL path]])
     {
@@ -143,9 +142,17 @@ static UIManagedDocument *olddb;
         }
     }
     
+    NSLog(@"[storeURL path]=%@",[storeURL path]);
+    
+    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
+                              NSInferMappingModelAutomaticallyOption:@YES,
+                              NSPersistentStoreUbiquitousContentNameKey : @"iCloudStore"};
+    
     NSError *error = nil;
+    
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          
@@ -172,6 +179,10 @@ static UIManagedDocument *olddb;
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(storeWillChangeHandler:) name:NSPersistentStoreCoordinatorStoresWillChangeNotification object:_persistentStoreCoordinator];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(storeDidChangeHandler:) name:NSPersistentStoreCoordinatorStoresDidChangeNotification object:_persistentStoreCoordinator];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(storeDidImportHandler:) name:NSPersistentStoreDidImportUbiquitousContentChangesNotification object:_persistentStoreCoordinator];
     
     return _persistentStoreCoordinator;
 }
@@ -204,6 +215,65 @@ static UIManagedDocument *olddb;
     }
     
     return TRUE;
+}
+
+- (void) storeWillChangeHandler: (id) sender
+{
+    if (_managedObjectContext)
+    {
+        if (DEBUG) NSLog(@"Saving context prior to change.");
+        
+        NSError *err;
+        [_managedObjectContext save:&err];
+        [_managedObjectContext reset];
+        
+        if (err)
+        {
+            NSLog(@"Error occured while saving context during prepare: %@", err);
+        }
+        
+    }
+    
+}
+
+-(void) storeDidChangeHandler: (id) sender
+{
+    if (_managedObjectContext)
+    {
+        NSError *err;
+        
+        [_managedObjectContext save:&err];
+        
+        if (err)
+        {
+            NSLog(@"Error occured while saving context on change: %@", err);
+        }
+        
+        if (DEBUG) NSLog(@"Store did change. Notify listeners");
+       
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUBIQUITYCHANGED object:self];
+        
+    }
+    
+}
+
+-(void) storeDidImportHandler: (id) sender
+{
+    if (_managedObjectContext)
+    {
+        NSError *err;
+        
+        if (err)
+        {
+            NSLog(@"Error occured while merging context on change: %@", err);
+        }
+        
+        if (DEBUG) NSLog(@"Store did change on import. Notify listeners");
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUBIQUITYCHANGED object:self];
+        
+    }
+    
 }
 
 @end

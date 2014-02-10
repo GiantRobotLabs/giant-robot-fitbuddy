@@ -60,8 +60,11 @@
 
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
+    
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
-    [self setupFetchedResultsController];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:nil];
 
 }
 
@@ -69,11 +72,14 @@
 {
     
     [self initializeDefaults];
+    [self setupFetchedResultsController];
 
     // Visual stuff
     [self.startButton setBackgroundImage:[UIImage imageNamed:kSTARTDISABLED] forState:UIControlStateDisabled];
     [self.startButton setBackgroundImage:[UIImage imageNamed:kSTART] forState:UIControlStateNormal];
     [self enableButtons:NO];
+    
+    [super viewWillAppear:animated];
     
 }
 

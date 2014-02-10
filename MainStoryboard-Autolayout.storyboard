@@ -2014,9 +2014,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Nhs-lP-Pu3"/>
-        <segue reference="A6d-ae-Wto"/>
-        <segue reference="DsT-89-qaf"/>
         <segue reference="l6r-Rf-eJl"/>
+        <segue reference="DsT-89-qaf"/>
+        <segue reference="Nhs-lP-Pu3"/>
+        <segue reference="avZ-yz-EAW"/>
     </inferredMetricsTieBreakers>
 </document>

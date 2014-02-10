@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "FitBuddyMacros.h"
-#import "UbiquityStoreManager.h"
 
 @interface GymBuddyAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,6 +18,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 + (GymBuddyAppDelegate *)sharedAppDelegate;
++ (NSURL *) theLocalStore;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

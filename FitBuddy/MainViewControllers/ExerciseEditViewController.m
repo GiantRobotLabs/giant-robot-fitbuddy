@@ -16,17 +16,14 @@
 
 @synthesize nameLabel = _nameLabel;
 
-NSManagedObjectContext *context;
-
 -(void) setupFetchedResultsController
 {
-    context = [[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
         request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
         request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
         
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:[[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
 }
 
 - (void) loadFormDataFromExerciseObject
@@ -41,7 +38,7 @@ NSManagedObjectContext *context;
     [super setExerciseFromForm];
     
     NSError *error;
-    [context save:&error];
+    [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext save:&error];
     NSLog(@"Updating exercise %@", self.exercise.name);
     
 }
