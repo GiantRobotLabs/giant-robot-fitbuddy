@@ -50,6 +50,8 @@
 
 #define kCOLOR_RED        [UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]
 #define kCOLOR_GRAY       [UIColor colorWithRed:173.0/255.0 green:175.0/255.0 blue:178.0/255.0 alpha:1]
+#define kCOLOR_LTGRAY     [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:244.0/255.0 alpha:1]
+#define kCOLOR_DKGRAY     [UIColor colorWithRed:109.0/255.0 green:109.0/255.0 blue:114.0/255.0 alpha:1]
 
 // IMAGES
 #define BACKGROUND_IMAGE    @"gb-background.png"

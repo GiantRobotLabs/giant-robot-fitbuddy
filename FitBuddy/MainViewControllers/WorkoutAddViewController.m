@@ -11,6 +11,9 @@
 #import "GymBuddyAppDelegate.h"
 
 @implementation WorkoutAddViewController
+{
+    UITableViewCell *editCell;
+}
 
 @synthesize workoutNameTextField;
 
@@ -32,6 +35,8 @@
 -(void) viewDidLoad
 {
     [super viewDidLoad];
+    
+    editCell = [self.tableView dequeueReusableCellWithIdentifier:@"Workout Edit Cell"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
     [self setupFetchedResultsController];
 }
@@ -53,8 +58,6 @@
         self.workoutNameTextField.borderStyle = UITextBorderStyleNone;
         self.workoutNameTextField.textColor = [UIColor whiteColor];
     }
-    
-    self.workoutNameTextField.text = self.workout.workout_name;
     
     // Dismiss Keyboard
     [self.workoutNameTextField addTarget:self
@@ -90,7 +93,7 @@
     // Set the name for empty workout objects
     if (!self.workout.workout_name)
     {
-        self.workout.workout_name = @"Empty Workout";
+        self.workout.workout_name = @"New Workout";
     }
     
     [[GymBuddyAppDelegate sharedAppDelegate]saveContext];
@@ -99,6 +102,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 100.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -151,6 +159,21 @@
     [[GymBuddyAppDelegate sharedAppDelegate] saveContext];
     NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name, self.workout.workout_name, self.workout.exercises.count);
     
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    self.workoutNameTextField = (UITextField *)[editCell viewWithTag:100];
+    [self.workoutNameTextField setDelegate:self];
+    self.workoutNameTextField.text = self.workout.workout_name;
+    self.workoutNameTextField.keyboardType = UIKeyboardTypeAlphabet;
+    [editCell setBackgroundColor:kCOLOR_LTGRAY];
+    return editCell;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self addWorkout:textField];
 }
 
 - (void) dealloc

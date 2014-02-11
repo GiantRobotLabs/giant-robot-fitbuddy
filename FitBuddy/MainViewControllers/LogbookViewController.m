@@ -112,8 +112,6 @@
   
 }
 
-
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) 
     {
@@ -152,20 +150,16 @@
     }
     
     UIView *labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 60.0)];
-    [labelView setBackgroundColor: kCOLOR_GRAY];
+    [labelView setBackgroundColor: kCOLOR_LTGRAY];
     [labelView setAutoresizesSubviews:TRUE];
     
     // Create label with section title
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 60.0)];
-    label.font = [UIFont systemFontOfSize:18.0];
-    label.text = [self convertRawToShortDateString:sectionTitle];
-    [label setTextColor: [UIColor whiteColor]];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, tableView.frame.size.width, 60.0)];
+    label.font = [UIFont systemFontOfSize:14.0];
+    label.text = [[self convertRawToShortDateString:sectionTitle] capitalizedString];
+    [label setTextColor: kCOLOR_DKGRAY];
 
     [labelView addSubview:label];
-    
- //   NSLayoutConstraint *c = [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:labelView attribute:NSLayoutAttributeRight multiplier:1.0 constant:20];
-    
- //   [tableView addConstraint:c];
     
     return labelView;
 }

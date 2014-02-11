@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CoreDataTableController.h"
+#import "CoreDataTableViewController.h"
 #import "Workout.h"
 #import "Exercise.h"
 
-@interface WorkoutAddViewController : CoreDataTableController
+@interface WorkoutAddViewController : CoreDataTableViewController <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *workoutNameTextField;
 

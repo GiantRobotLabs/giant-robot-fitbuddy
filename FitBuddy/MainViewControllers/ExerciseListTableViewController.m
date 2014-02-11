@@ -31,7 +31,7 @@
     [super viewDidLoad];
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[GymBuddyAppDelegate sharedAppDelegate]];
 }
 
@@ -42,6 +42,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     return 60.0;
 }
 
@@ -120,6 +125,33 @@
             [[[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext] deleteObject:exercise];
         }
     }    
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    if (sectionTitle == nil) {
+        return nil;
+    }
+    
+    UIView *labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 60.0)];
+    [labelView setBackgroundColor: kCOLOR_LTGRAY];
+    [labelView setAutoresizesSubviews:TRUE];
+    
+    // Create label with section title
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, tableView.frame.size.width, 60.0)];
+    label.text = @"EXERCISES";
+    label.font = [UIFont systemFontOfSize:14.0];
+    [label setTextColor: kCOLOR_DKGRAY];
+    
+    [labelView addSubview:label];
+    
+    return labelView;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Exercises";
 }
 
 -(void) viewWillDisappear:(BOOL)animated
