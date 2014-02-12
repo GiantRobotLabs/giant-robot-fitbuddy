@@ -263,6 +263,34 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
+        <view contentMode="scaleToFill" id="0tI-sb-1Fp">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sd8-xP-ZOW">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fWt-Te-hKn">
+                    <rect key="frame" x="0.0" y="193" width="320" height="375"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="fWt-Te-hKn" secondAttribute="bottom" id="0fV-NJ-dEU"/>
+                <constraint firstItem="fWt-Te-hKn" firstAttribute="top" secondItem="Sd8-xP-ZOW" secondAttribute="bottom" constant="8" id="4UO-K3-hUP"/>
+                <constraint firstAttribute="trailing" secondItem="Sd8-xP-ZOW" secondAttribute="trailing" id="D2u-jp-tQ1"/>
+                <constraint firstAttribute="trailing" secondItem="fWt-Te-hKn" secondAttribute="trailing" id="HlC-bg-gVE"/>
+                <constraint firstAttribute="bottom" secondItem="Sd8-xP-ZOW" secondAttribute="bottom" constant="383" id="TeV-CY-AeD"/>
+                <constraint firstItem="Sd8-xP-ZOW" firstAttribute="top" secondItem="0tI-sb-1Fp" secondAttribute="top" id="ZEc-Fs-K2c"/>
+                <constraint firstItem="fWt-Te-hKn" firstAttribute="leading" secondItem="0tI-sb-1Fp" secondAttribute="leading" id="hKb-SM-erD"/>
+                <constraint firstItem="Sd8-xP-ZOW" firstAttribute="leading" secondItem="0tI-sb-1Fp" secondAttribute="leading" id="x6S-ES-j3v"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
     </objects>
     <resources>
         <image name="gb-undo" width="70" height="70"/>

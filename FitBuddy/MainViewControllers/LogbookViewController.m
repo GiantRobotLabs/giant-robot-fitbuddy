@@ -24,6 +24,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:nil];
     
+    self.chartView.delegate = self;
+    self.chartView.dataSource = self;
+    
 }
 
 -(void) setupFetchedResultsController
@@ -171,5 +174,19 @@
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
     return 0;
 }
+
+#pragma mark - JBChartView Delegate
+
+- (NSInteger)numberOfBarsInBarChartView:(JBBarChartView *)barChartView
+{
+    return 30; // number of bars in chart
+}
+
+- (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSInteger)index
+{
+    return 20; // height of bar at index
+}
+
+
 
 @end
