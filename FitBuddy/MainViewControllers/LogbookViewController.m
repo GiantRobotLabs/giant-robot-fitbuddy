@@ -11,8 +11,14 @@
 #import "Workout.h"
 #import "GymBuddyAppDelegate.h"
 #import "CoreDataHelper.h"
+#import "FitBuddyMacros.h"
 
 @implementation LogbookViewController
+{
+    JBBarChartView *chart;
+    NSFetchedResultsController *chartDataSource;
+    NSMutableArray *entries;
+}
 
 @synthesize logbookEntry = _logbookEntry;
 @synthesize document = _document;
@@ -24,8 +30,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:nil];
     
-    self.chartView.delegate = self;
-    self.chartView.dataSource = self;
+    entries = [[NSMutableArray alloc]init];
+    
     
 }
 
@@ -39,12 +45,24 @@
                                                                         managedObjectContext: [[GymBuddyAppDelegate sharedAppDelegate]managedObjectContext]
                                                                           sectionNameKeyPath:@"date_t" 
                                                                                    cacheName:nil];
+    
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self setupFetchedResultsController];
+    
+    
+    chart = [[JBBarChartView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.bounds.size.width, self.view.bounds.size.height/2)];
+
+    chart.delegate = self;
+    chart.dataSource = self;
+    [self.chartView addSubview:chart];
+    [chart reloadData];
+ 
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,6 +84,7 @@
     
     // Add the data to the cell
     LogbookEntry *logbookEntry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [entries addObject:logbookEntry];
     
     exerciseLabel.text = logbookEntry.exercise_name;
     workoutLabel.text = logbookEntry.workout_name;
@@ -184,9 +203,20 @@
 
 - (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSInteger)index
 {
-    return 20; // height of bar at index
+  //  LogbookEntry *entry = entries[index];
+    
+  //  if (entry)
+  //      return [entry.weight doubleValue];
+    return [self.logbookEntry.weight doubleValue];
+    
 }
 
+- (UIView *)barViewForBarChartView:(JBBarChartView *)barChartView atIndex:(NSInteger)index
+{
+    UIView *view = [[UIView alloc]init];
+    [view setBackgroundColor: kCOLOR_LTGRAY];
+    return view; // color of line in chart
+}
 
 
 @end

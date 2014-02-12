@@ -16,6 +16,6 @@
 
 @property (nonatomic, strong) LogbookEntry *logbookEntry;
 @property (nonatomic, strong) UIManagedDocument *document;
-@property (weak, nonatomic) IBOutlet JBBarChartView *chartView;
+@property (strong, nonatomic) IBOutlet JBBarChartView *chartView;
 
 @end

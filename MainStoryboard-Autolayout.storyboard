@@ -942,7 +942,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V07-TV-Yxr" customClass="JBBarChartView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V07-TV-Yxr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="256"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
@@ -1041,6 +1041,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="V07-TV-Yxr" secondAttribute="trailing" id="3yl-oP-44m"/>
                             <constraint firstItem="OxD-hY-euP" firstAttribute="width" secondItem="V07-TV-Yxr" secondAttribute="width" id="C55-92-8sw"/>
                             <constraint firstItem="7w2-bX-QcM" firstAttribute="top" secondItem="OxD-hY-euP" secondAttribute="bottom" id="DTr-2c-fTq"/>
                             <constraint firstItem="OxD-hY-euP" firstAttribute="leading" secondItem="a0A-y8-7tU" secondAttribute="leading" id="DoS-Jk-rmf"/>
