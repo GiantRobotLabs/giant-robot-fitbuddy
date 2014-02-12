@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 jneyer.com. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "FitBuddyArchive.h"
 #import "GymBuddyAppDelegate.h"
 #import "NSData+CocoaDevUsersAdditions.h"
@@ -33,10 +34,17 @@
     NSString *exportName = [self getExportFileName];
     NSURL *exportPath = [documentsDirectory URLByAppendingPathComponent:exportName];
     
-    NSURL *dbUrl = [[documentsDirectory URLByAppendingPathComponent:@"Database"] URLByAppendingPathComponent:kDATABASE2_0];
-    
     NSError *err;
-    [[NSFileManager defaultManager] copyItemAtURL:dbUrl toURL:exportPath error:&err];
+
+    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
+                              NSInferMappingModelAutomaticallyOption:@YES,
+                              NSPersistentStoreUbiquitousContentNameKey : @"iCloudStore"};
+    
+    NSPersistentStoreCoordinator *psc = [[GymBuddyAppDelegate sharedAppDelegate] persistentStoreCoordinator];
+    
+    NSPersistentStore *ps = [[psc persistentStores] lastObject];
+    
+    [psc migratePersistentStore:ps toURL:exportPath options:options withType:NSSQLiteStoreType error:&err];
     
     if (err)
     {
