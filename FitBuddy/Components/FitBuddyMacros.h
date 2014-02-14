@@ -24,10 +24,19 @@
 #define LOGBOOK_TABLE       @"LogbookEntry"
 #define CARDIO_EXERCISE_TABLE @"CardioExercise"
 #define RESISTANCE_EXERCISE_TABLE @"ResistanceExercise"
+#define RESISTANCE_HISTORY  @"ResistanceHistory"
+#define CARDIO_HISTORY      @"CardioHistory"
+#define RESISTANCE_LOGBOOK  @"ResistanceLogbook"
+#define CARDIO_LOGBOOK      @"CardioLogbook"
+
 
 // DEFAULTS KEYS
-#define kDATAVERSIONKEY     @"DataVersion"
-#define kDATAVERSION        @"2.0"
+#define kAPPVERSIONKEY      @"DataVersion"
+#define kAPPVERSION         @"2.0"
+
+#define kDBVERSIONKEY      @"DbVersion"
+#define kDBVERSION         @"1.4.1"
+
 #define kUSEICLOUDKEY       @"Use iCloud"
 #define kYES                @"Yes"
 #define kNO                 @"No"
@@ -50,8 +59,13 @@
 
 #define kCOLOR_RED        [UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]
 #define kCOLOR_GRAY       [UIColor colorWithRed:173.0/255.0 green:175.0/255.0 blue:178.0/255.0 alpha:1]
+#define kCOLOR_RED_t      [UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:0.8]
+#define kCOLOR_GRAY_t     [UIColor colorWithRed:173.0/255.0 green:175.0/255.0 blue:178.0/255.0 alpha:0.8]
 #define kCOLOR_LTGRAY     [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:244.0/255.0 alpha:1]
 #define kCOLOR_DKGRAY     [UIColor colorWithRed:109.0/255.0 green:109.0/255.0 blue:114.0/255.0 alpha:1]
+
+#define kJBColorBarChartBarBlue UIColorFromHex(0x08bcef)
+#define kJBColorBarChartBarGreen UIColorFromHex(0x34b234)
 
 // IMAGES
 #define BACKGROUND_IMAGE    @"gb-background.png"

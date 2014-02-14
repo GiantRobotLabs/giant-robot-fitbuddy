@@ -1,3 +1,4 @@
+
 //
 //  LogbookViewController.m
 //  GymBuddy
@@ -12,12 +13,17 @@
 #import "GymBuddyAppDelegate.h"
 #import "CoreDataHelper.h"
 #import "FitBuddyMacros.h"
+#import "BarChartDataSource.h"
+#import "JBChartView.h"
+#import "FitBuddyMacros.h"
 
 @implementation LogbookViewController
 {
     JBBarChartView *chart;
     NSFetchedResultsController *chartDataSource;
     NSMutableArray *entries;
+    BarChartDataSource *chartData;
+    BOOL frameLoaded;
 }
 
 @synthesize logbookEntry = _logbookEntry;
@@ -53,24 +59,68 @@
 {
     [super viewWillAppear:animated];
     [self setupFetchedResultsController];
-    
-    
-    chart = [[JBBarChartView alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.bounds.size.width, self.view.bounds.size.height/2)];
-
-    chart.delegate = self;
-    chart.dataSource = self;
-    [self.chartView addSubview:chart];
-    [chart reloadData];
- 
-
 }
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    [self prepareChart];
+    [super viewDidAppear:animated];
+    
+    if (!frameLoaded)
+    {
+        CGRect footerframe = chart.footerView.frame;
+        footerframe.origin.y = footerframe.origin.y + 20;
+        [chart.footerView setFrame: footerframe];
+        frameLoaded = TRUE;
+    }
+}
+
+- (void) prepareChart
+{
+    if (chart == nil)
+    {
+        chart = [[JBBarChartView alloc]init];
+        chartData = [[BarChartDataSource alloc] init];
+        [chartData load];
+        [chart setDelegate:chartData];
+        [chart setDataSource:chartData];
+        [self addSubview:chart fillingAndInsertedIntoView:self.chartView];
+    
+        UILabel *headerView = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, ceil(chart.bounds.size.height * 0.5) - ceil(80.0f * 0.5), chart.bounds.size.width - (10.0f * 2), 80.0f)];
+        headerView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 14)];
+        
+        [headerView setText: [@"30 Day Activity Profile" uppercaseString]];
+        [headerView setTextAlignment:NSTextAlignmentCenter];
+        [headerView setTextColor: kCOLOR_DKGRAY];
+        [headerView setFont:[UIFont fontWithName:headerView.font.fontName size:14.0f]];
+        chart.headerView = headerView;
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"dd MMM yyyy"];
+        
+        NSString *rightDate = [dateFormat stringFromDate:[[NSDate alloc] init]];
+        
+        UILabel *rightLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 400, chart.bounds.size.width - (10.0f * 2), 40.0f)];
+        rightLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,200,12)];
+        [rightLabel setText: [rightDate uppercaseString]];
+        [rightLabel setTextAlignment:NSTextAlignmentRight];
+        [rightLabel setTextColor: [UIColor blackColor]];
+        [rightLabel setFont:[UIFont fontWithName:rightLabel.font.fontName size:12.0f]];
+        chart.footerView = rightLabel;
+        
+        [chart layoutIfNeeded];
+        
+        [chart reloadData];
+    }
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 60.0;
+    return 40.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,12 +221,12 @@
         return nil;
     }
     
-    UIView *labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 60.0)];
+    UIView *labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40.0)];
     [labelView setBackgroundColor: kCOLOR_LTGRAY];
     [labelView setAutoresizesSubviews:TRUE];
     
     // Create label with section title
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, tableView.frame.size.width, 60.0)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, tableView.frame.size.width, 40.0)];
     label.font = [UIFont systemFontOfSize:14.0];
     label.text = [[self convertRawToShortDateString:sectionTitle] capitalizedString];
     [label setTextColor: kCOLOR_DKGRAY];
@@ -195,28 +245,23 @@
 }
 
 #pragma mark - JBChartView Delegate
-
-- (NSInteger)numberOfBarsInBarChartView:(JBBarChartView *)barChartView
-{
-    return 30; // number of bars in chart
-}
-
-- (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSInteger)index
-{
-  //  LogbookEntry *entry = entries[index];
+- (void)addSubview:(UIView *)insertedView fillingAndInsertedIntoView:(UIView *)containerView {
     
-  //  if (entry)
-  //      return [entry.weight doubleValue];
-    return [self.logbookEntry.weight doubleValue];
+    [containerView addSubview:insertedView];
+    [insertedView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[insertedView]|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:NSDictionaryOfVariableBindings(insertedView)]];
+    [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[insertedView]|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:NSDictionaryOfVariableBindings(insertedView)]];
+    
+    [containerView layoutIfNeeded];
 }
 
-- (UIView *)barViewForBarChartView:(JBBarChartView *)barChartView atIndex:(NSInteger)index
-{
-    UIView *view = [[UIView alloc]init];
-    [view setBackgroundColor: kCOLOR_LTGRAY];
-    return view; // color of line in chart
-}
 
 
 @end

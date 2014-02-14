@@ -200,12 +200,12 @@ static UIManagedDocument *olddb;
 -(BOOL) checkUpgradePath
 {
     
-    if (![[[NSUserDefaults standardUserDefaults] objectForKey:kDATAVERSIONKEY] isEqualToString:kDATAVERSION])
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:kAPPVERSIONKEY] isEqualToString:kAPPVERSION])
     {
         if (DEBUG) NSLog(@"Migrating data for user");
         if ([CoreDataHelper migrateDataToSqlite])
         {
-            [[NSUserDefaults standardUserDefaults] setObject:kDATAVERSION forKey:kDATAVERSIONKEY];
+            [[NSUserDefaults standardUserDefaults] setObject:kAPPVERSION forKey:kAPPVERSIONKEY];
         }
     }
     
@@ -213,6 +213,15 @@ static UIManagedDocument *olddb;
     {
         [[NSUserDefaults standardUserDefaults] setObject:@"iTunes" forKey:kEXPORTDBKEY];
     }
+    
+ //   if (![[[NSUserDefaults standardUserDefaults] objectForKey:kDBVERSIONKEY] isEqualToString:kDBVERSION])
+ //   {
+ //       if (DEBUG) NSLog(@"Building version data for user");
+ //       if ([CoreDataHelper createChartHistory])
+ //       {
+ //           [[NSUserDefaults standardUserDefaults] setObject:kDBVERSION forKey:kDBVERSIONKEY];
+ //       }
+ //   }
     
     return TRUE;
 }

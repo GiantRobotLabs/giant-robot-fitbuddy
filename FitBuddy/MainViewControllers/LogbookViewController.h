@@ -12,10 +12,10 @@
 #import "JBChartView.h"
 #import "JBBarChartView.h"
 
-@interface LogbookViewController : CoreDataTableController <JBBarChartViewDataSource, JBBarChartViewDelegate>
+@interface LogbookViewController : CoreDataTableController
 
 @property (nonatomic, strong) LogbookEntry *logbookEntry;
 @property (nonatomic, strong) UIManagedDocument *document;
-@property (strong, nonatomic) IBOutlet JBBarChartView *chartView;
+@property (strong, nonatomic) IBOutlet UIView *chartView;
 
 @end
