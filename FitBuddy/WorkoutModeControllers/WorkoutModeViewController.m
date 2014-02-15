@@ -353,16 +353,12 @@
     NSLog(@"Starting segue to logbook");
     
     SEL setFinalProgressSelector = sel_registerName("setFinalProgress:");
-    NSInvocation *setFinalProgress = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setFinalProgressSelector]];
-    setFinalProgress.target = segue.destinationViewController;
-    setFinalProgress.selector = setFinalProgressSelector;
+    SEL setExerciseSelector = sel_registerName("setExercise:");
     
     if ([segue.destinationViewController respondsToSelector:setFinalProgressSelector]) {
         
         NSNumber *progressValue = [NSNumber numberWithFloat: self.progressBar.progress];
-        [setFinalProgress setArgument:&progressValue atIndex:2];
-        [setFinalProgress invoke];
-        
+        [segue.destinationViewController performSelector:setFinalProgressSelector withObject:progressValue];
         [segue.destinationViewController performSelector:@selector(setLogbookEntries:) withObject:self.logbookEntries];
     }
     
@@ -372,6 +368,7 @@
     
     if ([segue.identifier isEqualToString: NOTES_SEGUE]) {
         [self setExerciseFromForm];
+        [segue.destinationViewController performSelector: setExerciseSelector withObject:self.exercise];
     }
 }
 

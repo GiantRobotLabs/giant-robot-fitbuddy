@@ -18,4 +18,5 @@
 @property (nonatomic, strong) UIManagedDocument *document;
 @property (strong, nonatomic) IBOutlet UIView *chartView;
 
+
 @end

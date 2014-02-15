@@ -36,8 +36,9 @@
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:kTITLEBAR] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setBackgroundColor:kCOLOR_LTGRAY];
 
-    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]];
+    [[UITabBar appearance] setTintColor:kCOLOR_RED];
 
     return YES;
 }

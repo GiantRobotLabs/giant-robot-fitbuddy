@@ -63,16 +63,21 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    [self prepareChart];
-    [super viewDidAppear:animated];
-    
-    if (!frameLoaded)
+    if (chartData == nil)
     {
-        CGRect footerframe = chart.footerView.frame;
-        footerframe.origin.y = footerframe.origin.y + 20;
-        [chart.footerView setFrame: footerframe];
-        frameLoaded = TRUE;
+        chartData = [[BarChartDataSource alloc] init];
     }
+    
+    [chartData load];
+    [self prepareChart];
+    [chart reloadData];
+    
+    [super viewDidAppear:animated];
+
+    CGRect footerframe = chart.footerView.frame;
+    footerframe.origin.y = footerframe.origin.y + 20;
+    [chart.footerView setFrame: footerframe];
+
 }
 
 - (void) prepareChart
@@ -80,10 +85,9 @@
     if (chart == nil)
     {
         chart = [[JBBarChartView alloc]init];
-        chartData = [[BarChartDataSource alloc] init];
-        [chartData load];
         [chart setDelegate:chartData];
         [chart setDataSource:chartData];
+        
         [self addSubview:chart fillingAndInsertedIntoView:self.chartView];
     
         UILabel *headerView = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, ceil(chart.bounds.size.height * 0.5) - ceil(80.0f * 0.5), chart.bounds.size.width - (10.0f * 2), 80.0f)];
@@ -109,8 +113,7 @@
         chart.footerView = rightLabel;
         
         [chart layoutIfNeeded];
-        
-        [chart reloadData];
+
     }
 }
 

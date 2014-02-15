@@ -136,13 +136,11 @@
         currentObject.score = nscore;
         currentObject.comp = ncomp;
         
-        NSDate *compDate = currentObject.date;
-        NSDate *compDate2 = [self.resistanceDataSource objectForKey:compDate];
+        [self.resistanceDataSource setObject:currentObject forKey:currentObject.date];
         
         if ([self.resistanceDataSource objectForKey: currentObject.date] == nil)
         {
-            [self.resistanceDataSource setObject:currentObject forKey:currentObject.date];
-             NSLog(@"Adding resistance history for: %@ %f", entryDate , score);
+            NSLog(@"Adding new resistance history for: %@ %f", entryDate , score);
             
             currentObject = (ResistanceHistory *)[NSEntityDescription insertNewObjectForEntityForName:RESISTANCE_HISTORY inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
             
@@ -169,9 +167,6 @@
         currentObject.date = entryDate;
         currentObject.score = nscore;
         currentObject.comp = ncomp;
-        
-        NSDate *compDate = currentObject.date;
-        NSDate *compDate2 = [self.cardioDataSource objectForKey:compDate];
         
         if ([self.cardioDataSource objectForKey: currentObject.date] == nil)
         {
@@ -209,7 +204,6 @@
 #pragma mark = JBBarChartViewDataSource delegate
 - (NSInteger)numberOfBarsInBarChartView:(JBBarChartView *)barChartView
 {
-    NSInteger count = [self.resistanceDataSource count];
     return 30;
 }
 

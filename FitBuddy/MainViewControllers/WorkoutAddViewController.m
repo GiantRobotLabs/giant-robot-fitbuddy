@@ -90,6 +90,11 @@
 
 - (void) viewWillDisappear:(BOOL)animated
 {
+    if (![self.workoutNameTextField.text isEqualToString:self.workout.workout_name])
+    {
+        [self textFieldDidEndEditing:self.workoutNameTextField];
+    }
+    
     // Set the name for empty workout objects
     if (!self.workout.workout_name)
     {

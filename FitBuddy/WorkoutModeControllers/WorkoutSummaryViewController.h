@@ -25,6 +25,5 @@
 
 -(float) calculateWorkoutScore: (LogbookEntry *) entry;
 -(float) calculateCardioScore: (LogbookEntry *) entry;
-+(void) loadResistanceTable:(NSArray *) entries;
 
 @end
