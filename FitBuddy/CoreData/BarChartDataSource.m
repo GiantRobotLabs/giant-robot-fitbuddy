@@ -237,7 +237,18 @@
     
     
     ResistanceHistory *rec = [self.resistanceDataSource objectForKey:[dateOnlyFormat dateFromString:dateOnly]];
-    NSNumber *score = [rec score];
+    
+    NSNumber *score = rec.score;
+    //if (score == 0)
+    //{
+    //    NSInteger randomNumber = arc4random() % 500;
+    //    score = [NSNumber numberWithDouble: (12000.0 + randomNumber)];
+    //
+    //}
+    
+    score = [NSNumber numberWithDouble: ([score doubleValue]/10000.0)];
+    
+    //score = (index %3 == 0) ? score : [NSNumber numberWithDouble:[score doubleValue]/2.0];
     return [score doubleValue];
 }
 

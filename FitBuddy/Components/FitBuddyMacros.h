@@ -56,6 +56,8 @@
 #define kRESISTANCE          @"toggle-workout"
 #define kCARDIOW             @"workout-run"
 #define kRESISTANCEW         @"workout-resistance"
+#define kCARDIOWHITE         @"cardio-white"
+#define kRESISTANCEWHITE     @"resistance-white"
 
 #define kCOLOR_RED        [UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]
 #define kCOLOR_GRAY       [UIColor colorWithRed:173.0/255.0 green:175.0/255.0 blue:178.0/255.0 alpha:1]
@@ -107,6 +109,8 @@
 #define WORKOUT_REVERSE_SEGUE  @"Go Back To Me Segue"
 #define GO_HOME_SEGUE       @"Go Home Segue"
 #define NOTES_SEGUE         @"Segue To Notes"
+#define SETTINGS_SEGUE      @"Segue to Settings"
+#define DEMO_SEGUE          @"Segue to Demo"
 
 // COLORS
 #define GYMBUDDY_RED        [UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]
@@ -117,3 +121,7 @@
 #define GYMBUDDY_DK_BROWN   [UIColor colorWithRed:114.0/255.0 green:102.0/255.0 blue:89.0/255.0 alpha:1]
 #define GYMBUDDY_CELL_BG    [UIColor colorWithRed:154.0/255.0 green:133.0/255.0 blue:122.0/255.0 alpha:.50]
 #endif
+
+// DEMO SETTINGS
+#define kDEMO_PAGE_TITLES   @[@"Tap Add to start setting up a workout.", @"Set a name for the workout and tap Add to add more exercies.", @"Toggle to mark as cardio/treadmill or resistance.", @"Use toggles to add exercies to workout.", @"Select the workout and tap Start to begin", @"Swipe through your workout and tap the Log button to record activity.", @"Tap Finish to complete the workout and get some quick stats", @"The Logbook records your activity and plots out your effort." ];
+#define kDEMO_PAGE_IMAGES   @[@"page1", @"page2", @"page3", @"page4", @"page5", @"page6", @"page7", @"page8"];

@@ -57,47 +57,51 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    SEL setDefaultsKeySelector = sel_registerName("setDefaultsKey:");
-    SEL setPickerValuesSelector = sel_registerName("setPickerValues:");
-    
-    NSInvocation *setDefaultsKey = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setDefaultsKeySelector]];
-    setDefaultsKey.target = segue.destinationViewController;
-    setDefaultsKey.selector = setDefaultsKeySelector;
-    
-    if ([segue.destinationViewController respondsToSelector:setDefaultsKeySelector])
-    {
+
+    if ([segue.identifier isEqualToString:SETTINGS_SEGUE]) {
         
-        UILabel *label = (UILabel *)[((UITableViewCell *)sender) viewWithTag:100];
-        NSString *obj = label.text;
-        [setDefaultsKey setArgument:&obj atIndex:2];
-        [setDefaultsKey invoke];
+        SEL setDefaultsKeySelector = sel_registerName("setDefaultsKey:");
+        SEL setPickerValuesSelector = sel_registerName("setPickerValues:");
         
-        NSMutableArray *pickerValues = [[NSMutableArray alloc]init];
-        UILabel *defaultLabel = (UILabel *)[((UITableViewCell *)sender) viewWithTag:200];
+        NSInvocation *setDefaultsKey = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setDefaultsKeySelector]];
+        setDefaultsKey.target = segue.destinationViewController;
+        setDefaultsKey.selector = setDefaultsKeySelector;
         
-        if ([label.text hasSuffix:@"Cardio Increment"]) {
-            [pickerValues addObjectsFromArray:@[@"0.5", @"1.0", @"2.0", @"2.5", @"5.0"]];
+        if ([segue.destinationViewController respondsToSelector:setDefaultsKeySelector])
+        {
+        
+            UILabel *label = (UILabel *)[((UITableViewCell *)sender) viewWithTag:100];
+            NSString *obj = label.text;
+            [setDefaultsKey setArgument:&obj atIndex:2];
+            [setDefaultsKey invoke];
+            
+            NSMutableArray *pickerValues = [[NSMutableArray alloc]init];
+            UILabel *defaultLabel = (UILabel *)[((UITableViewCell *)sender) viewWithTag:200];
+            
+            if ([label.text hasSuffix:@"Cardio Increment"]) {
+                [pickerValues addObjectsFromArray:@[@"0.5", @"1.0", @"2.0", @"2.5", @"5.0"]];
+            }
+            
+            if([label.text hasSuffix:@"Resistance Increment"]) {
+                [pickerValues addObjectsFromArray:@[@"0.5", @"1.0", @"2.0", @"2.5", @"5.0"]];
+            }
+            
+            if ([label.text hasSuffix:@"Use iCloud"]) {
+                [pickerValues addObjectsFromArray:@[@"Yes", @"No"]];
+            }
+            
+            if ([label.text hasSuffix:@"Export Database"]) {
+                [pickerValues addObjectsFromArray:@[@"iTunes"]];
+            }
+            
+            NSInvocation *setPicker = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setPickerValuesSelector]];
+            setPicker.target = segue.destinationViewController;
+            setPicker.selector = setPickerValuesSelector;
+            
+            [self addPickerValue:pickerValues value: defaultLabel.text];
+            [setPicker setArgument:&pickerValues atIndex:2];
+            [setPicker invoke];
         }
-        
-        if([label.text hasSuffix:@"Resistance Increment"]) {
-            [pickerValues addObjectsFromArray:@[@"0.5", @"1.0", @"2.0", @"2.5", @"5.0"]];
-        }
-        
-        if ([label.text hasSuffix:@"Use iCloud"]) {
-            [pickerValues addObjectsFromArray:@[@"Yes", @"No"]];
-        }
-        
-        if ([label.text hasSuffix:@"Export Database"]) {
-            [pickerValues addObjectsFromArray:@[@"iTunes"]];
-        }
-        
-        NSInvocation *setPicker = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setPickerValuesSelector]];
-        setPicker.target = segue.destinationViewController;
-        setPicker.selector = setPickerValuesSelector;
-        
-        [self addPickerValue:pickerValues value: defaultLabel.text];
-        [setPicker setArgument:&pickerValues atIndex:2];
-        [setPicker invoke];
     }
 }
 

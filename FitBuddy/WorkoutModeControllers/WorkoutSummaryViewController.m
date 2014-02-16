@@ -106,9 +106,9 @@ NSFetchedResultsController *frc;
     
     // Total Resistance = Sum of (Weight * Sets * Reps) for each complete logbook
     // Total Distance = Sum of (Pace * Time || Distance) for each complete logbook
-    for (entry in self.logbookEntries)
+    for (entry in [self.logbookEntries allValues])
     {
-        if (entry.completed == [NSNumber numberWithInt:1])
+        if (entry && entry.completed == [NSNumber numberWithInt:1])
         {
             LogbookEntry *oldLogbook = [self fetchOldLogbookEntry:entry.workout priorToDate:entry.date exercise:entry.exercise_name];
             

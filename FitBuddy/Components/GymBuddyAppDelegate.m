@@ -39,6 +39,10 @@
     [[UITabBar appearance] setBackgroundColor:kCOLOR_LTGRAY];
 
     [[UITabBar appearance] setTintColor:kCOLOR_RED];
+    
+    [[UIPageControl appearance] setPageIndicatorTintColor:kCOLOR_GRAY];
+    [[UIPageControl appearance] setCurrentPageIndicatorTintColor:kCOLOR_RED];
+    [[UIPageControl appearance] setBackgroundColor:[UIColor clearColor]];
 
     return YES;
 }

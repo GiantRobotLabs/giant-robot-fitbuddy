@@ -161,7 +161,6 @@
         [self.workoutSet removeObject:exercise];
     }
     
-    [[GymBuddyAppDelegate sharedAppDelegate] saveContext];
     NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name, self.workout.workout_name, self.workout.exercises.count);
     
 }
