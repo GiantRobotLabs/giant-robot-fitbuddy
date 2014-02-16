@@ -108,7 +108,7 @@ NSFetchedResultsController *frc;
     // Total Distance = Sum of (Pace * Time || Distance) for each complete logbook
     for (entry in [self.logbookEntries allValues])
     {
-        if (entry && entry.completed == [NSNumber numberWithInt:1])
+        if (entry && entry.completed)
         {
             LogbookEntry *oldLogbook = [self fetchOldLogbookEntry:entry.workout priorToDate:entry.date exercise:entry.exercise_name];
             
@@ -154,9 +154,17 @@ NSFetchedResultsController *frc;
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     // Visual stuff
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
     [self setForm];
+;
+}
+
+-(void) viewDidAppear:(BOOL)animated
+
+{
+    
 }
 
 - (void)viewDidUnload {

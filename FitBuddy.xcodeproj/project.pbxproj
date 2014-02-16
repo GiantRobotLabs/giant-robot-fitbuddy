@@ -61,6 +61,7 @@
 		D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */; };
 		D6C2CB08170E6D2500BA02DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CB06170E6D2500BA02DA /* main.m */; };
 		D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CB0A170E6D5300BA02DA /* InfoPlist.strings */; };
+		D6CBFE0B18B0A435001119E1 /* Screenshots.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6CBFE0A18B0A435001119E1 /* Screenshots.xcassets */; };
 		D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
 		D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FF1D141870B50A004A1D2A /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -167,6 +168,7 @@
 		D6C2CB05170E6D2500BA02DA /* FitBuddy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FitBuddy-Prefix.pch"; path = "FitBuddy/FitBuddy-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D6C2CB06170E6D2500BA02DA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FitBuddy/main.m; sourceTree = SOURCE_ROOT; };
 		D6C2CB0B170E6D5300BA02DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		D6CBFE0A18B0A435001119E1 /* Screenshots.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Screenshots.xcassets; sourceTree = SOURCE_ROOT; };
 		D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D6FF1D141870B50A004A1D2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FitBuddy/Images.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -296,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				D6FF1D141870B50A004A1D2A /* Images.xcassets */,
+				D6CBFE0A18B0A435001119E1 /* Screenshots.xcassets */,
 				D601921418AFE01600255256 /* Demo.xcassets */,
 				D6C2CA45170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard */,
 				D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */,
@@ -478,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6C2CA46170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard in Resources */,
+				D6CBFE0B18B0A435001119E1 /* Screenshots.xcassets in Resources */,
 				D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */,
 				D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */,
 				D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */,

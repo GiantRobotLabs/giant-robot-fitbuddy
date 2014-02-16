@@ -218,7 +218,7 @@
 #pragma mark progress bar
 - (void) setProgressBarProgress
 {
-    int skip = 0;
+    
     UIColor *butColor;
     
     if (self.skippedEntries == nil || self.skippedEntries.count == 0)
@@ -229,13 +229,13 @@
     else if (self.skippedEntries.count == self.workout.exercises.count)
     {
         [self.progressBar setProgressTintColor: GYMBUDDY_RED];
-        skip = self.skippedEntries.count;
+ 
         butColor = GYMBUDDY_RED;
     }
     else if (self.skippedEntries.count > 0)
     {
         [self.progressBar setProgressTintColor: GYMBUDDY_YELLOW];
-        skip = self.skippedEntries.count;
+ 
         butColor = GYMBUDDY_YELLOW;
     }
     
