@@ -10,7 +10,7 @@
 #define FitBuddy_FitBuddyMacros_h
 
 // DEBUG - Defined in Xcode project settings
-//#define DEBUG               YES
+#define DEBUG               YES
 
 // DATABASE
 #define kDATABASE2_0        @"FitBuddy.sqlite"

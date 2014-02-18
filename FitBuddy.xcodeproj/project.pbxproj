@@ -30,6 +30,8 @@
 		D67E166718B2C7BE001E9257 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166618B2C7BE001E9257 /* Exercise.m */; };
 		D67E166A18B2C7BE001E9257 /* CardioHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166918B2C7BE001E9257 /* CardioHistory.m */; };
 		D67E166D18B2C7BE001E9257 /* ResistanceHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */; };
+		D67E167018B31C97001E9257 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166E18B31C97001E9257 /* icon-small.png */; };
+		D67E167118B31C97001E9257 /* icon-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166F18B31C97001E9257 /* icon-big.png */; };
 		D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = D696191418A6A793002FE7C2 /* FitBuddyArchive.m */; };
 		D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */; };
 		D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */; };
@@ -62,7 +64,6 @@
 		D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */; };
 		D6C2CB08170E6D2500BA02DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CB06170E6D2500BA02DA /* main.m */; };
 		D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CB0A170E6D5300BA02DA /* InfoPlist.strings */; };
-		D6CBFE0B18B0A435001119E1 /* Screenshots.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6CBFE0A18B0A435001119E1 /* Screenshots.xcassets */; };
 		D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
 		D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FF1D141870B50A004A1D2A /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -117,6 +118,8 @@
 		D67E166918B2C7BE001E9257 /* CardioHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioHistory.m; path = FitBuddy/CoreData/CardioHistory.m; sourceTree = SOURCE_ROOT; };
 		D67E166B18B2C7BE001E9257 /* ResistanceHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceHistory.h; path = FitBuddy/CoreData/ResistanceHistory.h; sourceTree = SOURCE_ROOT; };
 		D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceHistory.m; path = FitBuddy/CoreData/ResistanceHistory.m; sourceTree = SOURCE_ROOT; };
+		D67E166E18B31C97001E9257 /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = SOURCE_ROOT; };
+		D67E166F18B31C97001E9257 /* icon-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-big.png"; sourceTree = SOURCE_ROOT; };
 		D687065C18B165740078187D /* GymBuddyModel1.4.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.3.xcdatamodel; sourceTree = "<group>"; };
 		D687067018B291740078187D /* GymBuddyModel1.4.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.4.xcdatamodel; sourceTree = "<group>"; };
 		D696191318A6A793002FE7C2 /* FitBuddyArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FitBuddyArchive.h; path = FitBuddy/CoreData/FitBuddyArchive.h; sourceTree = SOURCE_ROOT; };
@@ -252,6 +255,8 @@
 		D60B4CC414D7A888001ECCE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D67E166E18B31C97001E9257 /* icon-small.png */,
+				D67E166F18B31C97001E9257 /* icon-big.png */,
 				D6C2CB09170E6D5300BA02DA /* en.lproj */,
 				D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */,
 				D6C2CB04170E6D2500BA02DA /* FitBuddy-Info.plist */,
@@ -490,12 +495,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D67E167118B31C97001E9257 /* icon-big.png in Resources */,
 				D6C2CA46170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard in Resources */,
-				D6CBFE0B18B0A435001119E1 /* Screenshots.xcassets in Resources */,
 				D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */,
 				D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */,
 				D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */,
 				D601921518AFE01600255256 /* Demo.xcassets in Resources */,
+				D67E167018B31C97001E9257 /* icon-small.png in Resources */,
 				D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */,
 				D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */,
 			);

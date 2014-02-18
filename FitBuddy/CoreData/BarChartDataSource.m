@@ -41,12 +41,12 @@
 
 - (NSNumber *) numberOfRowsInResistanceLogbook
 {
-    return [NSNumber numberWithInt:[self.resistanceDataSource count]];
+    return [NSNumber numberWithInteger:[self.resistanceDataSource count]];
 }
 
 - (NSNumber *) numberOfRowsInCardioLogbook
 {
-    return [NSNumber numberWithInt:[self.cardioDataSource count]];
+    return [NSNumber numberWithInteger:[self.cardioDataSource count]];
 }
 
 - (NSNumber *) numberOfRowsInResistanceHistory
