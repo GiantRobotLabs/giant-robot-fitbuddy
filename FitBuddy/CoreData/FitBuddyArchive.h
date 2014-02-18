@@ -11,7 +11,6 @@
 @interface FitBuddyArchive : NSObject
 
 - (NSString *)getExportFileName;
-- (NSData *)exportToNSData: (NSURL *) directoryUrl;
 - (BOOL)exportToDiskWithForce:(BOOL)force;
 
 @end

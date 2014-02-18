@@ -1,9 +1,9 @@
 //
 //  Workout.h
-//  GymBuddy
+//  FitBuddy
 //
-//  Created by John Neyer on 2/18/12.
-//  Copyright (c) 2012 jneyer.com. All rights reserved.
+//  Created by john.neyer on 2/17/14.
+//  Copyright (c) 2014 jneyer.com. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -14,6 +14,8 @@
 @interface Workout : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * deleted;
+@property (nonatomic, retain) NSNumber * display;
+@property (nonatomic, retain) NSDate * last_workout;
 @property (nonatomic, retain) NSString * workout_name;
 @property (nonatomic, retain) NSOrderedSet *exercises;
 @property (nonatomic, retain) NSOrderedSet *logbookEntries;

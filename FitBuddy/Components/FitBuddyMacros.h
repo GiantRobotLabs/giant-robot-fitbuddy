@@ -115,13 +115,20 @@
 // COLORS
 #define GYMBUDDY_RED        [UIColor colorWithRed:222.0/255.0 green:11.0/255.0 blue:25.0/255.0 alpha:1]
 //#define GYMBUDDY_GREEN      [UIColor colorWithRed:33.0/255.0 green:158.0/255.0 blue:74.0/255.0 alpha:1]
-#define GYMBUDDY_GREEN      [UIColor colorWithRed:140.0/255.0 green:197.0/255.0 blue:65.0/255.0 alpha:1]
-#define GYMBUDDY_YELLOW     [UIColor colorWithRed:241.0/255.0 green:191.0/255.0 blue:40.0/255.0 alpha:1]
+#define GYMBUDDY_GREEN      [UIColor colorWithRed:39.0/255.0 green:179.0/255.0 blue:89.0/255.0 alpha:1]
+#define GYMBUDDY_YELLOW     [UIColor colorWithRed:250.0/255.0 green:145.0/255.0 blue:61.0/255.0 alpha:1]
 #define GYMBUDDY_BROWN      [UIColor colorWithRed:194.0/255.0 green:181.0/255.0 blue:155.0/255.0 alpha:1]
 #define GYMBUDDY_DK_BROWN   [UIColor colorWithRed:114.0/255.0 green:102.0/255.0 blue:89.0/255.0 alpha:1]
 #define GYMBUDDY_CELL_BG    [UIColor colorWithRed:154.0/255.0 green:133.0/255.0 blue:122.0/255.0 alpha:.50]
 #endif
 
 // DEMO SETTINGS
-#define kDEMO_PAGE_TITLES   @[@"Tap Add to start setting up a workout.", @"Set a name for the workout and tap Add to add more exercies.", @"Toggle to mark as cardio/treadmill or resistance.", @"Use toggles to add exercies to workout.", @"Select the workout and tap Start to begin", @"Swipe through your workout and tap the Log button to record activity.", @"Tap Finish to complete the workout and get some quick stats", @"The Logbook records your activity and plots your effort." ];
+#define kDEMO_PAGE_TITLES   @[@"Tap Add to start setting up a workout.", @"Set a name for the workout and tap Add to add more exercies.", @"Use the toggle to mark as cardio (pace/distance) or resistance.", @"Use the switches to add exercies to your workout.", @"Select your workout and tap Start to begin.", @"Swipe through your workout and tap the Log button to record activity.", @"Tap Finish to complete the workout get your stats.", @"Finally, the Logbook tab gives you a quick rundown of your efforts." ];
 #define kDEMO_PAGE_IMAGES   @[@"page1", @"page2", @"page3", @"page4", @"page5", @"page6", @"page7", @"page8"];
+
+
+#define kDEFAULT_RESISTANCE_SETTINGS @[@"0.5", @"1.0", @"2.0", @"2.5", @"5.0"]
+#define kDEFAULT_CARDIO_SETTINGS @[@"0.1", @"0.2", @"0.3", @"0.4", @"0.5", @"1.0", @"2.0", @"2.5", @"5.0"]
+#define kDEFAULT_BOOLEAN_OPTIONS @[@"Yes", @"No"]
+#define kDEFAULT_EXPORT_TYPES @[@"iTunes"]
+

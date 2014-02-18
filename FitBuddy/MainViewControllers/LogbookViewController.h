@@ -15,7 +15,6 @@
 @interface LogbookViewController : CoreDataTableController
 
 @property (nonatomic, strong) LogbookEntry *logbookEntry;
-@property (nonatomic, strong) UIManagedDocument *document;
 @property (strong, nonatomic) IBOutlet UIView *chartView;
 
 

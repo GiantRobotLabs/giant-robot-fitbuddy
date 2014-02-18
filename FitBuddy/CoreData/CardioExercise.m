@@ -1,9 +1,9 @@
 //
 //  CardioExercise.m
-//  GymBuddy
+//  FitBuddy
 //
-//  Created by John Neyer on 2/18/12.
-//  Copyright (c) 2012 jneyer.com. All rights reserved.
+//  Created by john.neyer on 2/17/14.
+//  Copyright (c) 2014 jneyer.com. All rights reserved.
 //
 
 #import "CardioExercise.h"
@@ -11,8 +11,8 @@
 
 @implementation CardioExercise
 
-@dynamic duration;
 @dynamic distance;
+@dynamic duration;
 @dynamic pace;
 
 @end

@@ -22,7 +22,7 @@
 
 #pragma mark -
 #pragma mark View initializers
--(void) loadFormDataFromExerciseObject
+-(void) loadFormDataFromExercise
 {
     self.navigationItem.title = self.exercise.name;
     self.exerciseLabel.text = self.exercise.name;
@@ -54,29 +54,28 @@
     [super viewWillAppear:animated];
     
     // Initialize form
-    [self loadFormDataFromExerciseObject];
+    [self loadFormDataFromExercise];
     if (DEBUG) NSLog(@"View will appear");
+
 }
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
     if (DEBUG) NSLog(@"View did appear");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WorkoutWillAppear" object:self];
+    
+    [super viewDidAppear:animated];
+    
 }
 
-
-- (void)viewWillDisappear:(BOOL)animated
+- (void) viewWillDisappear:(BOOL)animated
 {
-    [self saveLogbookEntry];
     [super viewWillDisappear:animated];
+    [self setExerciseFromForm];
 }
-
 
 #pragma mark - Logbook
 -(void) saveLogbookEntry {
-    
-    [self setExerciseFromForm];
     
     self.logbookEntry.date = [[NSDate alloc] init];
     self.logbookEntry.workout_name = self.workout.workout_name;
@@ -98,7 +97,9 @@
     }
     
     self.logbookEntry.workout = self.workout;
-    NSMutableOrderedSet *tempSet = [self.workout mutableOrderedSetValueForKey:@"logbookEntries"];
+    
+    NSMutableOrderedSet *tempSet = [self.workout.logbookEntries mutableCopy];
+    
     [tempSet addObject:self.logbookEntry];
     
     NSError *error;
@@ -117,9 +118,27 @@
 {
     LogbookEntry *newEntry = [NSEntityDescription insertNewObjectForEntityForName:LOGBOOK_TABLE
                                                 inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
+    
     if (DEBUG) NSLog(@"Added a new logbook entry for Exercise %@", self.exercise.name);
     
     return newEntry;
+}
+
+-(void) setExerciseFromForm
+{
+    NSEntityDescription *desc = self.exercise.entity;
+    if ([desc.name isEqualToString: @"CardioExercise"] == YES)
+    {
+        ((CardioExercise *)self.exercise).pace = self.slotOneValue.text;
+        ((CardioExercise *)self.exercise).duration = self.slotTwoValue.text;
+        ((CardioExercise *)self.exercise).distance = self.slotThreeValue.text;
+    }
+    else
+    {
+        ((ResistanceExercise *)self.exercise).weight = self.slotOneValue.text;
+        ((ResistanceExercise *)self.exercise).reps = self.slotTwoValue.text;
+        ((ResistanceExercise *)self.exercise).sets = self.slotThreeValue.text;
+    }
 }
 
 @end

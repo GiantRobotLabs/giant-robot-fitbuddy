@@ -79,19 +79,19 @@
             UILabel *defaultLabel = (UILabel *)[((UITableViewCell *)sender) viewWithTag:200];
             
             if ([label.text hasSuffix:@"Cardio Increment"]) {
-                [pickerValues addObjectsFromArray:@[@"0.5", @"1.0", @"2.0", @"2.5", @"5.0"]];
+                [pickerValues addObjectsFromArray:kDEFAULT_CARDIO_SETTINGS];
             }
             
             if([label.text hasSuffix:@"Resistance Increment"]) {
-                [pickerValues addObjectsFromArray:@[@"0.5", @"1.0", @"2.0", @"2.5", @"5.0"]];
+                [pickerValues addObjectsFromArray:kDEFAULT_RESISTANCE_SETTINGS];
             }
             
             if ([label.text hasSuffix:@"Use iCloud"]) {
-                [pickerValues addObjectsFromArray:@[@"Yes", @"No"]];
+                [pickerValues addObjectsFromArray:kDEFAULT_BOOLEAN_OPTIONS];
             }
             
             if ([label.text hasSuffix:@"Export Database"]) {
-                [pickerValues addObjectsFromArray:@[@"iTunes"]];
+                [pickerValues addObjectsFromArray:kDEFAULT_EXPORT_TYPES];
             }
             
             NSInvocation *setPicker = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setPickerValuesSelector]];

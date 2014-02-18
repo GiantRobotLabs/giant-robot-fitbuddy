@@ -35,11 +35,18 @@
 -(void) setExerciseFromForm
 {
     self.exercise.name = self.nameLabel.text;
+    
     [super setExerciseFromForm];
     
     NSError *error;
     [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext save:&error];
-    NSLog(@"Updating exercise %@", self.exercise.name);
+    
+    if (DEBUG) NSLog(@"Updating exercise %@", self.exercise.name);
+    
+    if (error)
+    {
+        NSLog(@"Error setExerciseFromForm in ExerciseEditViewController: %@", error);
+    }
     
 }
 

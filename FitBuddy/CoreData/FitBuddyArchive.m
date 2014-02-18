@@ -10,6 +10,7 @@
 #import "FitBuddyArchive.h"
 #import "GymBuddyAppDelegate.h"
 #import "NSData+CocoaDevUsersAdditions.h"
+#import "CoreDataHelper.h"
 
 @implementation FitBuddyArchive
 {
@@ -36,9 +37,7 @@
     
     NSError *err;
 
-    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
-                              NSInferMappingModelAutomaticallyOption:@YES,
-                              NSPersistentStoreUbiquitousContentNameKey : @"iCloudStore"};
+    NSDictionary *options = [CoreDataHelper defaultStoreOptionsForCloud:NO];
     
     NSPersistentStoreCoordinator *psc = [[GymBuddyAppDelegate sharedAppDelegate] persistentStoreCoordinator];
     
@@ -53,20 +52,6 @@
     }
     
     return TRUE;
-}
-
-- (NSData *)exportToNSData: (NSURL *) directoryUrl {
-    NSError *error;
-
-    NSFileWrapper *dirWrapper = [[NSFileWrapper alloc] initWithURL:directoryUrl options:0 error:&error];
-    if (dirWrapper == nil) {
-        NSLog(@"Error creating directory wrapper: %@", error.localizedDescription);
-        return nil;
-    }
-    
-    NSData *dirData = [dirWrapper serializedRepresentation];
-    NSData *gzData = [dirData gzipDeflate];
-    return gzData;
 }
 
 - (NSString *) getTimestamp

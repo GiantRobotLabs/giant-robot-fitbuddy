@@ -38,6 +38,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     // Create page view controller
@@ -61,8 +62,8 @@
     
     [self.view bringSubviewToFront:self.workoutControlPanel];
     
-    self.skipitButton.tintColor = kCOLOR_DKGRAY;
-    self.logitButton.tintColor = kCOLOR_DKGRAY;
+    self.logitButton.backgroundColor = kCOLOR_GRAY;
+    self.skipitButton.backgroundColor = kCOLOR_GRAY;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateInterface:) name:@"WorkoutWillAppear" object:nil];
     
@@ -70,6 +71,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     //currentViewController has to be set on initialization
     currentViewController = [self viewControllerAtIndex:0];
     [self setExerciseTypeIcon];
@@ -127,10 +130,7 @@
     // Create a new view controller and pass suitable data.
     WorkoutModeViewController2 *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WorkoutContentViewController"];
    
-    [pageContentViewController initialSetupOfFormWithExercise:self.workout.exercises[index]
-                                                   andLogbook:[self.logbookEntries objectForKey:[NSNumber numberWithInteger:index]]
-                                                   forWorkout:self.workout];
-    
+    [pageContentViewController initialSetupOfFormWithExercise: self.workout.exercises[index] andLogbook:[self.logbookEntries objectForKey:[NSNumber numberWithInteger:index]] forWorkout:self.workout];
 
     [pageContentViewController setPageIndex:index];
     
@@ -142,9 +142,10 @@
     
     if (DEBUG) NSLog(@"Updating UI for parent controller");
     currentViewController = (WorkoutModeViewController2 *)sender.object;
+    ;
+    self.logitButton.backgroundColor = kCOLOR_GRAY;
+    self.skipitButton.backgroundColor = kCOLOR_GRAY;
     
-    self.skipitButton.tintColor = kCOLOR_DKGRAY;
-    self.logitButton.tintColor = kCOLOR_DKGRAY;
     [self.pageControl setCurrentPage: currentViewController.pageIndex];
     
     LogbookEntry *logbookEntry = [self.logbookEntries objectForKey:[NSNumber numberWithInteger: currentViewController.pageIndex]];
@@ -196,22 +197,23 @@
 }
 
 #pragma mark - Exercise Controller
-#pragma mark exercise log toggles
 // Only chages the color of the buttons
 
 - (void) setExerciseLogToggleValue: (BOOL) logged
 {
     // Reset the colors
-    self.skipitButton.tintColor = kCOLOR_DKGRAY;
-    self.logitButton.tintColor = kCOLOR_DKGRAY;
+    self.logitButton.backgroundColor = kCOLOR_GRAY;
+    self.skipitButton.backgroundColor = kCOLOR_GRAY;
     
     NSLog(@"Logging");
     if (logged == YES) {
         self.logitButton.tintColor = GYMBUDDY_GREEN;
+        self.logitButton.backgroundColor = GYMBUDDY_GREEN;
     }
     else if (logged == NO)
     {
         self.skipitButton.tintColor = GYMBUDDY_YELLOW;
+        self.skipitButton.backgroundColor = GYMBUDDY_YELLOW;
     }
 }
 
@@ -265,6 +267,7 @@
     // Toggles will update during the save. Give immediate feedback if it's the first time
     [self setExerciseLogToggleValue:YES];
     [self setProgressBarProgress];
+    [currentViewController saveLogbookEntry];
     
 }
 
@@ -277,6 +280,7 @@
     
     [self setExerciseLogToggleValue:NO];
     [self setProgressBarProgress];
+    [currentViewController saveLogbookEntry];
 }
 
 #pragma mark -
@@ -310,6 +314,7 @@
 - (void) homeButtonCleanup
 {
     // We're leaving. Clean up after yourself.
+    [currentViewController saveLogbookEntry];
     
     NSArray *logValues = [self.logbookEntries allValues];
     
@@ -358,8 +363,12 @@
 {
     NSLog(@"Starting segue to final results");
     
+    [currentViewController setExerciseFromForm];
+    
     if ([segue.destinationViewController respondsToSelector:@selector(setFinalProgress:)]) {
         
+        self.workout.last_workout = ((LogbookEntry *)[[self.logbookEntries allValues] lastObject]).date;
+
         NSNumber *progressValue = [NSNumber numberWithFloat: self.progressBar.progress];
         [segue.destinationViewController performSelector:@selector(setFinalProgress:) withObject:progressValue];
         [segue.destinationViewController performSelector:@selector(setLogbookEntries:) withObject:self.logbookEntries];

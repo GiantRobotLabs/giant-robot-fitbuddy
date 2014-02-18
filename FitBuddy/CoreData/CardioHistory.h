@@ -2,7 +2,7 @@
 //  CardioHistory.h
 //  FitBuddy
 //
-//  Created by john.neyer on 2/13/14.
+//  Created by john.neyer on 2/17/14.
 //  Copyright (c) 2014 jneyer.com. All rights reserved.
 //
 
@@ -12,8 +12,8 @@
 
 @interface CardioHistory : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * score;
-@property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * comp;
+@property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSNumber * score;
 
 @end

@@ -25,6 +25,8 @@
                             andLogbook: (LogbookEntry *) logbookEntry
                             forWorkout: (Workout *) workout;
 -(void) saveLogbookEntry;
+-(void) setExerciseFromForm;
+
 
 @property NSUInteger pageIndex;
 

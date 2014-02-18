@@ -2,7 +2,7 @@
 //  CardioHistory.m
 //  FitBuddy
 //
-//  Created by john.neyer on 2/13/14.
+//  Created by john.neyer on 2/17/14.
 //  Copyright (c) 2014 jneyer.com. All rights reserved.
 //
 
@@ -11,8 +11,8 @@
 
 @implementation CardioHistory
 
-@dynamic score;
-@dynamic date;
 @dynamic comp;
+@dynamic date;
+@dynamic score;
 
 @end

@@ -149,9 +149,7 @@ static UIManagedDocument *olddb;
     
     NSLog(@"[storeURL path]=%@",[storeURL path]);
     
-    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
-                              NSInferMappingModelAutomaticallyOption:@YES,
-                              NSPersistentStoreUbiquitousContentNameKey : @"iCloudStore"};
+    NSDictionary *options = [CoreDataHelper defaultStoreOptions];
     
     NSError *error = nil;
     

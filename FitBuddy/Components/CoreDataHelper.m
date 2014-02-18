@@ -12,6 +12,75 @@
 
 @implementation CoreDataHelper
 
+
++ (NSDictionary *) defaultStoreOptions
+{
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUSEICLOUDKEY] isEqualToString: kYES])
+    {
+        return [CoreDataHelper defaultStoreOptionsForCloud:YES];
+    }
+    else{
+        return [CoreDataHelper defaultStoreOptionsForCloud:NO];
+    }
+}
+
+
++ (NSDictionary *) defaultStoreOptionsForCloud: (BOOL) isCloud
+{
+    NSDictionary *options;
+    
+    if (isCloud)
+    {
+        options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
+                                  NSInferMappingModelAutomaticallyOption:@YES,
+                                  NSPersistentStoreUbiquitousContentNameKey : @"iCloudStore"};
+    }
+    else
+    {
+        options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
+                    NSInferMappingModelAutomaticallyOption:@YES};
+    }
+    
+    return options;
+}
+
++ (BOOL) moveLocalStoreToBackup
+{
+    BOOL rtn = NO;
+    
+    NSURL *appDocsUrl = [[[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory] URLByAppendingPathComponent:@"Database"];
+    NSURL *backupDocsUrl = [appDocsUrl URLByAppendingPathComponent:@"backup"];
+    
+    NSError *err;
+    
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    if ([fm fileExistsAtPath:[backupDocsUrl path]])
+    {
+        [fm removeItemAtURL:backupDocsUrl error:&err];
+        
+        if (err)
+        {
+            NSLog(@"Could not remove backup at path %@: %@", [backupDocsUrl path], err);
+        }
+    }
+    
+    [fm createDirectoryAtURL:backupDocsUrl withIntermediateDirectories:YES attributes:nil error:&err];
+
+    NSRegularExpression *re = [[NSRegularExpression alloc]initWithPattern:[kDATABASE2_0 stringByAppendingString: @"*"] options:NSRegularExpressionCaseInsensitive error:&err];
+    
+    [CoreDataHelper moveFilesUsingExpression:re inPath:[appDocsUrl path] toPath:[backupDocsUrl path]];
+    
+    if (DEBUG) NSLog(@"Tried to copy db: %@", err);
+    
+    if (err == nil)
+        rtn = YES;
+    
+    return rtn;
+}
+
+
+// PRE-2.0 MIGRATION
 + (BOOL) copyiCloudtoLocal
 {
     BOOL rtn = NO;
@@ -125,6 +194,40 @@
                                                     range:NSMakeRange(0, [file length])];
         if (match) {
             [[NSFileManager defaultManager] removeItemAtPath:[path stringByAppendingPathComponent:file] error:&error];
+        }
+    }
+}
+
++ (void)moveFilesUsingExpression:(NSRegularExpression*)regex inPath:(NSString*)fromPath toPath:(NSString *) destPath {
+    
+    NSDirectoryEnumerator *filesEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:fromPath];
+    
+    NSString *file;
+    NSError *error;
+    
+    while (file = [filesEnumerator nextObject]) {
+        NSUInteger match = [regex numberOfMatchesInString:file
+                                                  options:0
+                                                    range:NSMakeRange(0, [file length])];
+        if (match) {
+            [[NSFileManager defaultManager] moveItemAtPath:[fromPath stringByAppendingPathComponent:file] toPath:[destPath stringByAppendingPathComponent:file] error:&error];
+        }
+    }
+}
+
++ (void)copyFilesUsingExpression:(NSRegularExpression*)regex inPath:(NSString*)fromPath toPath:(NSString *) destPath {
+    
+    NSDirectoryEnumerator *filesEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:fromPath];
+    
+    NSString *file;
+    NSError *error;
+    
+    while (file = [filesEnumerator nextObject]) {
+        NSUInteger match = [regex numberOfMatchesInString:file
+                                                  options:0
+                                                    range:NSMakeRange(0, [file length])];
+        if (match) {
+            [[NSFileManager defaultManager] copyItemAtPath:[fromPath stringByAppendingPathComponent:file] toPath:[destPath stringByAppendingPathComponent:file] error:&error];
         }
     }
 }

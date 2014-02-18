@@ -15,6 +15,8 @@
 @property (nonatomic, weak) IBOutlet UIPickerView *picker;
 @property (nonatomic, strong) NSArray *pickerValues;
 @property (nonatomic, weak) IBOutlet UILabel *spinnerTitle;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
+@property (weak, nonatomic) IBOutlet UIView *activityViewOverlay;
 
 -(IBAction) confirmChange:(id) sender;
 

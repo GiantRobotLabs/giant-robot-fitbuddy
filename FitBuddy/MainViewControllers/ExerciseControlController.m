@@ -11,6 +11,12 @@
 #import "ResistanceExercise.h"
 #import "CoreDataTableViewController.h"
 
+@interface ExerciseControlController ()
+{
+    
+}
+@end
+
 @implementation ExerciseControlController
 
 @synthesize slotOneValue = _weightLabel;
@@ -23,13 +29,16 @@
 @synthesize slotThreeTitle = _slotThreeTitle;
 
 @synthesize exercise = _exercise;
-@synthesize fetchedResultsController = _fetchedResultsController;
 
-BOOL calcDistance = NO;
+BOOL calcDistance;
 
--(void) setupFetchedResultsController
-{
-    // Override me please
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    
+    if (self) {
+        calcDistance = YES;
+    }
+    return self;
 }
 
 -(BOOL) isCardio {
@@ -103,6 +112,7 @@ BOOL calcDistance = NO;
         self.slotThreeValue.text = [NSString stringWithFormat:@"%.1f", (self.slotOneValue.text.doubleValue * 
                                                                     (self.slotTwoValue.text.doubleValue / 60.0))];
     NSLog(@"%@ * %@/60", self.slotThreeValue.text, self.slotTwoValue.text);
+    
 }
 
 -(void) calculateSlotOne

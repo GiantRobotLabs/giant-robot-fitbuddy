@@ -44,19 +44,27 @@
     </entity>
     <entity name="Workout" representedClassName="Workout" syncable="YES">
         <attribute name="deleted" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="display" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="last_workout" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="workout_name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise" inverseName="workouts" inverseEntity="Exercise" syncable="YES"/>
         <relationship name="logbookEntries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="LogbookEntry" inverseName="workout" inverseEntity="LogbookEntry" syncable="YES"/>
     </entity>
+    <entity name="WorkoutSequence" representedClassName="WorkoutSequence" syncable="YES">
+        <attribute name="sequence" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" syncable="YES"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" syncable="YES"/>
+    </entity>
     <fetchRequest name="CardioLogbook" entity="LogbookEntry" predicateString="pace != &quot;nil&quot; AND completed == 1"/>
     <fetchRequest name="ResistanceLogbook" entity="LogbookEntry" predicateString="weight != &quot;nil&quot; AND completed == 1"/>
     <elements>
-        <element name="CardioExercise" positionX="-36" positionY="27" width="128" height="90"/>
-        <element name="CardioHistory" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Exercise" positionX="-36" positionY="27" width="128" height="120"/>
-        <element name="LogbookEntry" positionX="-137" positionY="99" width="128" height="240"/>
-        <element name="ResistanceExercise" positionX="-126" positionY="-117" width="128" height="90"/>
-        <element name="ResistanceHistory" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Workout" positionX="88" positionY="-108" width="128" height="118"/>
+        <element name="CardioExercise" positionX="-243" positionY="-45" width="128" height="90"/>
+        <element name="CardioHistory" positionX="34" positionY="270" width="128" height="75"/>
+        <element name="Exercise" positionX="-72" positionY="132" width="128" height="120"/>
+        <element name="LogbookEntry" positionX="-252" positionY="93" width="128" height="240"/>
+        <element name="ResistanceExercise" positionX="-83" positionY="-126" width="128" height="90"/>
+        <element name="ResistanceHistory" positionX="180" positionY="270" width="128" height="75"/>
+        <element name="Workout" positionX="126" positionY="-117" width="128" height="118"/>
+        <element name="WorkoutSequence" positionX="162" positionY="89" width="126" height="88"/>
     </elements>
 </model>

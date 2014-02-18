@@ -36,7 +36,8 @@
 -(void) setupFetchedResultsControllerWithContext: (NSManagedObjectContext *) context
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WORKOUT_TABLE];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"workout_name" ascending:YES]];
+    
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"last_workout" ascending:NO]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
 }
@@ -64,8 +65,6 @@
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:nil];
-
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -78,6 +77,8 @@
     [self.startButton setBackgroundImage:[UIImage imageNamed:kSTARTDISABLED] forState:UIControlStateDisabled];
     [self.startButton setBackgroundImage:[UIImage imageNamed:kSTART] forState:UIControlStateNormal];
     [self enableButtons:NO];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[GymBuddyAppDelegate sharedAppDelegate]];
     
     [super viewWillAppear:animated];
     
@@ -108,22 +109,35 @@
     Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
     label.text = workout.workout_name;
     
-    if (workout.logbookEntries.count == 0) dateLabel.text = @"never";
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd MMM yyyy"];
+    
+    if (workout.last_workout)
+    {
+        dateLabel.text = [format stringFromDate: workout.last_workout];
+    }
     else
     {
-        NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        [format setDateFormat:@"dd MMM yyyy"];
-        dateLabel.text = [format stringFromDate:
-                          ((LogbookEntry *)[workout.logbookEntries lastObject]).date];
+        if (workout.logbookEntries.count == 0)
+        {
+            dateLabel.text = @"never";
+        }
+        else
+        {
+            // Old last date
+            NSSortDescriptor *sortDescriptor;
+            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date"
+                                                         ascending:NO];
+            NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+            NSArray *sortedArray = [workout.logbookEntries sortedArrayUsingDescriptors:sortDescriptors];
+            
+            NSDate *lastDate =  ((LogbookEntry *)sortedArray[0]).date;
+            dateLabel.text = [format stringFromDate: lastDate];
+            workout.last_workout = lastDate;
+        }
     }
     
     return cell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-    // Return YES to edit
-    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -221,7 +235,6 @@
     else
     {
         workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        //if (DEBUG) NSLog(@"Before Segue for Workout:%@", workout.workout_name);
     }
     
     if ([segue.destinationViewController respondsToSelector:@selector(setWorkout:)]) 
@@ -257,10 +270,40 @@
     return @"Workouts";
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+#pragma mark - reordering
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+    
+}
+- (void) setOrderFromCells
+{
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewDidDisappear:animated];
+    
+}
 
 - (void)viewDidUnload {
     [self setEditButton:nil];
     [self setStartButton:nil];
+    
     [super viewDidUnload];
 }
 @end

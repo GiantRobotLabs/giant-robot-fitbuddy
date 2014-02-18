@@ -27,7 +27,6 @@
 }
 
 @synthesize logbookEntry = _logbookEntry;
-@synthesize document = _document;
 
 - (void)viewDidLoad
 {
@@ -77,7 +76,7 @@
     CGRect footerframe = chart.footerView.frame;
     footerframe.origin.y = footerframe.origin.y + 20;
     [chart.footerView setFrame: footerframe];
-
+    
 }
 
 - (void) prepareChart
@@ -98,6 +97,8 @@
         [headerView setTextColor: kCOLOR_DKGRAY];
         [headerView setFont:[UIFont fontWithName:headerView.font.fontName size:14.0f]];
         chart.headerView = headerView;
+        
+        [chart setHeaderPadding:10.0f];
         
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"dd MMM yyyy"];

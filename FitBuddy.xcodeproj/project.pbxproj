@@ -19,12 +19,17 @@
 		D63E445518AB2CA300A13883 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E445118AB2CA300A13883 /* JBChartView.m */; };
 		D63E445618AB2CA300A13883 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E445318AB2CA300A13883 /* JBLineChartView.m */; };
 		D63E445818AB2DA500A13883 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63E445718AB2DA500A13883 /* QuartzCore.framework */; };
-		D63E446218AC743400A13883 /* LogbookEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E446118AC743400A13883 /* LogbookEntry.m */; };
-		D63E446518AC97D400A13883 /* ResistanceHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E446418AC97D400A13883 /* ResistanceHistory.m */; };
-		D63E446818AC97D500A13883 /* CardioHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E446718AC97D500A13883 /* CardioHistory.m */; };
 		D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E446B18ACF49700A13883 /* BarChartDataSource.m */; };
 		D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */; };
 		D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */; };
+		D67E165818B2C7BE001E9257 /* WorkoutSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E165718B2C7BE001E9257 /* WorkoutSequence.m */; };
+		D67E165B18B2C7BE001E9257 /* LogbookEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E165A18B2C7BE001E9257 /* LogbookEntry.m */; };
+		D67E165E18B2C7BE001E9257 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E165D18B2C7BE001E9257 /* Workout.m */; };
+		D67E166118B2C7BE001E9257 /* ResistanceExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166018B2C7BE001E9257 /* ResistanceExercise.m */; };
+		D67E166418B2C7BE001E9257 /* CardioExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166318B2C7BE001E9257 /* CardioExercise.m */; };
+		D67E166718B2C7BE001E9257 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166618B2C7BE001E9257 /* Exercise.m */; };
+		D67E166A18B2C7BE001E9257 /* CardioHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166918B2C7BE001E9257 /* CardioHistory.m */; };
+		D67E166D18B2C7BE001E9257 /* ResistanceHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */; };
 		D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = D696191418A6A793002FE7C2 /* FitBuddyArchive.m */; };
 		D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */; };
 		D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */; };
@@ -35,11 +40,7 @@
 		D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA13170E6BB400BA02DA /* CoreDataTableViewController.m */; };
 		D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */; };
 		D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */; };
-		D6C2CA30170E6BDA00BA02DA /* CardioExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA25170E6BDA00BA02DA /* CardioExercise.m */; };
-		D6C2CA31170E6BDA00BA02DA /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA27170E6BDA00BA02DA /* Exercise.m */; };
 		D6C2CA33170E6BDA00BA02DA /* LogbookEntry+TDate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */; };
-		D6C2CA34170E6BDA00BA02DA /* ResistanceExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA2D170E6BDA00BA02DA /* ResistanceExercise.m */; };
-		D6C2CA35170E6BDA00BA02DA /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA2F170E6BDA00BA02DA /* Workout.m */; };
 		D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */; };
 		D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */; };
 		D6C2CA42170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */; };
@@ -75,6 +76,7 @@
 		D60B4CBD14D7A888001ECCE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D60B4CBF14D7A888001ECCE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D60B4CC114D7A888001ECCE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D611806D18B10C9200786DBF /* GymBuddyModel1.4.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.2.xcdatamodel; sourceTree = "<group>"; };
 		D6135CD3151027D30055F337 /* FitBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D625E86518B00ED900FFE96D /* WorkoutModeParentController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutModeParentController2.h; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeParentController2.h; sourceTree = SOURCE_ROOT; };
 		D625E86618B00ED900FFE96D /* WorkoutModeParentController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutModeParentController2.m; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeParentController2.m; sourceTree = SOURCE_ROOT; };
@@ -88,12 +90,6 @@
 		D63E445318AB2CA300A13883 /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = SOURCE_ROOT; };
 		D63E445718AB2DA500A13883 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D63E445918AC662000A13883 /* GymBuddyModel1. 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GymBuddyModel1. 4.xcdatamodel"; sourceTree = "<group>"; };
-		D63E446018AC743400A13883 /* LogbookEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogbookEntry.h; path = FitBuddy/CoreData/LogbookEntry.h; sourceTree = SOURCE_ROOT; };
-		D63E446118AC743400A13883 /* LogbookEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogbookEntry.m; path = FitBuddy/CoreData/LogbookEntry.m; sourceTree = SOURCE_ROOT; };
-		D63E446318AC97D400A13883 /* ResistanceHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceHistory.h; path = FitBuddy/CoreData/ResistanceHistory.h; sourceTree = SOURCE_ROOT; };
-		D63E446418AC97D400A13883 /* ResistanceHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceHistory.m; path = FitBuddy/CoreData/ResistanceHistory.m; sourceTree = SOURCE_ROOT; };
-		D63E446618AC97D500A13883 /* CardioHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioHistory.h; path = FitBuddy/CoreData/CardioHistory.h; sourceTree = SOURCE_ROOT; };
-		D63E446718AC97D500A13883 /* CardioHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioHistory.m; path = FitBuddy/CoreData/CardioHistory.m; sourceTree = SOURCE_ROOT; };
 		D63E446918AC994600A13883 /* GymBuddyModel1.4.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.1.xcdatamodel; sourceTree = "<group>"; };
 		D63E446A18ACF49700A13883 /* BarChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarChartDataSource.h; path = FitBuddy/CoreData/BarChartDataSource.h; sourceTree = SOURCE_ROOT; };
 		D63E446B18ACF49700A13883 /* BarChartDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarChartDataSource.m; path = FitBuddy/CoreData/BarChartDataSource.m; sourceTree = SOURCE_ROOT; };
@@ -103,6 +99,26 @@
 		D67D7CF6170E75DC00E12E96 /* GymBuddyModel1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.1.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF7170E75DC00E12E96 /* GymBuddyModel1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.2.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF8170E75DC00E12E96 /* GymBuddyModel1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.3.xcdatamodel; sourceTree = "<group>"; };
+		D67E15FD18B2A3E4001E9257 /* GymBuddyModel1.4.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.4.xcdatamodel; sourceTree = "<group>"; };
+		D67E161618B2A4EE001E9257 /* GymBuddyModel1.4.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = GymBuddyModel1.4.5.xcdatamodel; sourceTree = "<group>"; };
+		D67E165618B2C7BE001E9257 /* WorkoutSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutSequence.h; path = FitBuddy/CoreData/WorkoutSequence.h; sourceTree = SOURCE_ROOT; };
+		D67E165718B2C7BE001E9257 /* WorkoutSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutSequence.m; path = FitBuddy/CoreData/WorkoutSequence.m; sourceTree = SOURCE_ROOT; };
+		D67E165918B2C7BE001E9257 /* LogbookEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogbookEntry.h; path = FitBuddy/CoreData/LogbookEntry.h; sourceTree = SOURCE_ROOT; };
+		D67E165A18B2C7BE001E9257 /* LogbookEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogbookEntry.m; path = FitBuddy/CoreData/LogbookEntry.m; sourceTree = SOURCE_ROOT; };
+		D67E165C18B2C7BE001E9257 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = FitBuddy/CoreData/Workout.h; sourceTree = SOURCE_ROOT; };
+		D67E165D18B2C7BE001E9257 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = FitBuddy/CoreData/Workout.m; sourceTree = SOURCE_ROOT; };
+		D67E165F18B2C7BE001E9257 /* ResistanceExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceExercise.h; path = FitBuddy/CoreData/ResistanceExercise.h; sourceTree = SOURCE_ROOT; };
+		D67E166018B2C7BE001E9257 /* ResistanceExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceExercise.m; path = FitBuddy/CoreData/ResistanceExercise.m; sourceTree = SOURCE_ROOT; };
+		D67E166218B2C7BE001E9257 /* CardioExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioExercise.h; path = FitBuddy/CoreData/CardioExercise.h; sourceTree = SOURCE_ROOT; };
+		D67E166318B2C7BE001E9257 /* CardioExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioExercise.m; path = FitBuddy/CoreData/CardioExercise.m; sourceTree = SOURCE_ROOT; };
+		D67E166518B2C7BE001E9257 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = FitBuddy/CoreData/Exercise.h; sourceTree = SOURCE_ROOT; };
+		D67E166618B2C7BE001E9257 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = FitBuddy/CoreData/Exercise.m; sourceTree = SOURCE_ROOT; };
+		D67E166818B2C7BE001E9257 /* CardioHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioHistory.h; path = FitBuddy/CoreData/CardioHistory.h; sourceTree = SOURCE_ROOT; };
+		D67E166918B2C7BE001E9257 /* CardioHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioHistory.m; path = FitBuddy/CoreData/CardioHistory.m; sourceTree = SOURCE_ROOT; };
+		D67E166B18B2C7BE001E9257 /* ResistanceHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceHistory.h; path = FitBuddy/CoreData/ResistanceHistory.h; sourceTree = SOURCE_ROOT; };
+		D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceHistory.m; path = FitBuddy/CoreData/ResistanceHistory.m; sourceTree = SOURCE_ROOT; };
+		D687065C18B165740078187D /* GymBuddyModel1.4.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.3.xcdatamodel; sourceTree = "<group>"; };
+		D687067018B291740078187D /* GymBuddyModel1.4.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.4.xcdatamodel; sourceTree = "<group>"; };
 		D696191318A6A793002FE7C2 /* FitBuddyArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FitBuddyArchive.h; path = FitBuddy/CoreData/FitBuddyArchive.h; sourceTree = SOURCE_ROOT; };
 		D696191418A6A793002FE7C2 /* FitBuddyArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FitBuddyArchive.m; path = FitBuddy/CoreData/FitBuddyArchive.m; sourceTree = SOURCE_ROOT; };
 		D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-Autolayout.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -121,16 +137,8 @@
 		D6C2CA16170E6BB400BA02DA /* FitBuddyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FitBuddyMacros.h; path = FitBuddy/Components/FitBuddyMacros.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA17170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+CocoaDevUsersAdditions.h"; path = "FitBuddy/Components/NSData+CocoaDevUsersAdditions.h"; sourceTree = SOURCE_ROOT; };
 		D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+CocoaDevUsersAdditions.m"; path = "FitBuddy/Components/NSData+CocoaDevUsersAdditions.m"; sourceTree = SOURCE_ROOT; };
-		D6C2CA24170E6BDA00BA02DA /* CardioExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioExercise.h; path = FitBuddy/CoreData/CardioExercise.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA25170E6BDA00BA02DA /* CardioExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioExercise.m; path = FitBuddy/CoreData/CardioExercise.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA26170E6BDA00BA02DA /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = FitBuddy/CoreData/Exercise.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA27170E6BDA00BA02DA /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = FitBuddy/CoreData/Exercise.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA2A170E6BDA00BA02DA /* LogbookEntry+TDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LogbookEntry+TDate.h"; path = "FitBuddy/CoreData/LogbookEntry+TDate.h"; sourceTree = SOURCE_ROOT; };
 		D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LogbookEntry+TDate.m"; path = "FitBuddy/CoreData/LogbookEntry+TDate.m"; sourceTree = SOURCE_ROOT; };
-		D6C2CA2C170E6BDA00BA02DA /* ResistanceExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceExercise.h; path = FitBuddy/CoreData/ResistanceExercise.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA2D170E6BDA00BA02DA /* ResistanceExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceExercise.m; path = FitBuddy/CoreData/ResistanceExercise.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA2E170E6BDA00BA02DA /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = FitBuddy/CoreData/Workout.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA2F170E6BDA00BA02DA /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = FitBuddy/CoreData/Workout.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.0.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.0.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.1.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.1.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.2.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.2.xcmappingmodel; sourceTree = SOURCE_ROOT; };
@@ -311,26 +319,28 @@
 			isa = PBXGroup;
 			children = (
 				D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */,
-				D63E446618AC97D500A13883 /* CardioHistory.h */,
-				D63E446718AC97D500A13883 /* CardioHistory.m */,
-				D63E446318AC97D400A13883 /* ResistanceHistory.h */,
-				D63E446418AC97D400A13883 /* ResistanceHistory.m */,
+				D67E165C18B2C7BE001E9257 /* Workout.h */,
+				D67E165D18B2C7BE001E9257 /* Workout.m */,
+				D67E166B18B2C7BE001E9257 /* ResistanceHistory.h */,
+				D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */,
+				D67E166818B2C7BE001E9257 /* CardioHistory.h */,
+				D67E166918B2C7BE001E9257 /* CardioHistory.m */,
+				D67E166518B2C7BE001E9257 /* Exercise.h */,
+				D67E166618B2C7BE001E9257 /* Exercise.m */,
+				D67E166218B2C7BE001E9257 /* CardioExercise.h */,
+				D67E166318B2C7BE001E9257 /* CardioExercise.m */,
+				D67E165F18B2C7BE001E9257 /* ResistanceExercise.h */,
+				D67E166018B2C7BE001E9257 /* ResistanceExercise.m */,
+				D67E165918B2C7BE001E9257 /* LogbookEntry.h */,
+				D67E165A18B2C7BE001E9257 /* LogbookEntry.m */,
+				D67E165618B2C7BE001E9257 /* WorkoutSequence.h */,
+				D67E165718B2C7BE001E9257 /* WorkoutSequence.m */,
+				D6C2CA2A170E6BDA00BA02DA /* LogbookEntry+TDate.h */,
+				D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */,
 				D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */,
 				D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */,
 				D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */,
 				D6C2CA39170E6C0100BA02DA /* GymBuddyMappingModel1.3.xcmappingmodel */,
-				D6C2CA24170E6BDA00BA02DA /* CardioExercise.h */,
-				D6C2CA25170E6BDA00BA02DA /* CardioExercise.m */,
-				D6C2CA26170E6BDA00BA02DA /* Exercise.h */,
-				D6C2CA27170E6BDA00BA02DA /* Exercise.m */,
-				D63E446018AC743400A13883 /* LogbookEntry.h */,
-				D63E446118AC743400A13883 /* LogbookEntry.m */,
-				D6C2CA2A170E6BDA00BA02DA /* LogbookEntry+TDate.h */,
-				D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */,
-				D6C2CA2C170E6BDA00BA02DA /* ResistanceExercise.h */,
-				D6C2CA2D170E6BDA00BA02DA /* ResistanceExercise.m */,
-				D6C2CA2E170E6BDA00BA02DA /* Workout.h */,
-				D6C2CA2F170E6BDA00BA02DA /* Workout.m */,
 			);
 			name = "CoreData Model";
 			sourceTree = "<group>";
@@ -500,6 +510,7 @@
 			files = (
 				D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */,
 				D625E86E18B00EF900FFE96D /* WorkoutModeViewController2.m in Sources */,
+				D67E165E18B2C7BE001E9257 /* Workout.m in Sources */,
 				D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */,
 				D63E445618AB2CA300A13883 /* JBLineChartView.m in Sources */,
 				D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */,
@@ -508,31 +519,31 @@
 				D63E445518AB2CA300A13883 /* JBChartView.m in Sources */,
 				D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */,
 				D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */,
-				D6C2CA30170E6BDA00BA02DA /* CardioExercise.m in Sources */,
-				D6C2CA31170E6BDA00BA02DA /* Exercise.m in Sources */,
 				D6C2CA33170E6BDA00BA02DA /* LogbookEntry+TDate.m in Sources */,
-				D6C2CA34170E6BDA00BA02DA /* ResistanceExercise.m in Sources */,
-				D6C2CA35170E6BDA00BA02DA /* Workout.m in Sources */,
 				D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */,
 				D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */,
 				D6C2CA42170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */,
 				D6C2CA43170E6C0100BA02DA /* GymBuddyMappingModel1.3.xcmappingmodel in Sources */,
+				D67E166718B2C7BE001E9257 /* Exercise.m in Sources */,
 				D6C2CA5B170E6C4000BA02DA /* ExerciseAddViewController.m in Sources */,
 				D6C2CA5C170E6C4000BA02DA /* ExerciseControlController.m in Sources */,
 				D63E445418AB2CA300A13883 /* JBBarChartView.m in Sources */,
 				D6C2CA5D170E6C4000BA02DA /* ExerciseEditViewController.m in Sources */,
+				D67E166118B2C7BE001E9257 /* ResistanceExercise.m in Sources */,
+				D67E166418B2C7BE001E9257 /* CardioExercise.m in Sources */,
 				D6C2CA5E170E6C4000BA02DA /* ExerciseListTableViewController.m in Sources */,
 				D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */,
 				D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */,
 				D6C2CA60170E6C4000BA02DA /* LogbookViewController.m in Sources */,
+				D67E166A18B2C7BE001E9257 /* CardioHistory.m in Sources */,
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
 				D6C2CA62170E6C4000BA02DA /* SettingsIncrementViewController.m in Sources */,
 				D6C2CA63170E6C4000BA02DA /* SettingsViewController.m in Sources */,
 				D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */,
 				D6C2CA71170E6C8800BA02DA /* WorkoutModeParentController.m in Sources */,
 				D601920F18AFDF0C00255256 /* DemoViewController.m in Sources */,
-				D63E446218AC743400A13883 /* LogbookEntry.m in Sources */,
-				D63E446818AC97D500A13883 /* CardioHistory.m in Sources */,
+				D67E165B18B2C7BE001E9257 /* LogbookEntry.m in Sources */,
+				D67E166D18B2C7BE001E9257 /* ResistanceHistory.m in Sources */,
 				D6C2CA72170E6C8800BA02DA /* WorkoutModeViewController.m in Sources */,
 				D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */,
 				D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */,
@@ -540,7 +551,7 @@
 				D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */,
 				D6C2CB08170E6D2500BA02DA /* main.m in Sources */,
 				D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */,
-				D63E446518AC97D400A13883 /* ResistanceHistory.m in Sources */,
+				D67E165818B2C7BE001E9257 /* WorkoutSequence.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +763,11 @@
 		D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D67E15FD18B2A3E4001E9257 /* GymBuddyModel1.4.4.xcdatamodel */,
+				D687065C18B165740078187D /* GymBuddyModel1.4.3.xcdatamodel */,
+				D67E161618B2A4EE001E9257 /* GymBuddyModel1.4.5.xcdatamodel */,
+				D687067018B291740078187D /* GymBuddyModel1.4.4.xcdatamodel */,
+				D611806D18B10C9200786DBF /* GymBuddyModel1.4.2.xcdatamodel */,
 				D63E446918AC994600A13883 /* GymBuddyModel1.4.1.xcdatamodel */,
 				D63E445918AC662000A13883 /* GymBuddyModel1. 4.xcdatamodel */,
 				D67D7CF4170E75DC00E12E96 /* GymBuddyModel0.0.xcdatamodel */,
@@ -760,7 +776,7 @@
 				D67D7CF7170E75DC00E12E96 /* GymBuddyModel1.2.xcdatamodel */,
 				D67D7CF8170E75DC00E12E96 /* GymBuddyModel1.3.xcdatamodel */,
 			);
-			currentVersion = D63E446918AC994600A13883 /* GymBuddyModel1.4.1.xcdatamodel */;
+			currentVersion = D687065C18B165740078187D /* GymBuddyModel1.4.3.xcdatamodel */;
 			path = GymBuddyModel.xcdatamodeld;
 			sourceTree = SOURCE_ROOT;
 			versionGroupType = wrapper.xcdatamodel;

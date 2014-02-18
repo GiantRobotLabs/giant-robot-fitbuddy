@@ -9,8 +9,13 @@
 #import "SettingsIncrementViewController.h"
 #import "CoreDataHelper.h"
 #import "GymBuddyAppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation SettingsIncrementViewController
+{
+    UIActivityIndicatorView* activityIndicatorView;
+}
+
 @synthesize defaults = _defaults;
 @synthesize defaultsKey = _key;
 
@@ -55,6 +60,11 @@
     self.defaults = [NSUserDefaults standardUserDefaults];
     [self loadPickerFromDefaults];
     [self.spinnerTitle setText:self.defaultsKey];
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    
 }
 
 -(void) viewDidLoad
@@ -127,7 +137,7 @@
         }
         else
         {
-            [self migrateLocalToiCloud];
+            [self migrateLocalToiCloudWithRecovery:YES];
         }
     }
     else if ([value isEqualToString:kNO])
@@ -141,29 +151,77 @@
     if (button_index == 0)
     {
         NSLog (@"Recover");
-        // Nothing to do here
-        [self exit];
+        [self migrateLocalToiCloudWithRecovery:YES];
     }
     else if (button_index == 1)
     {
         NSLog(@"Replace");
         
-        [self migrateLocalToiCloud];
-        [self exit];
+        [self migrateLocalToiCloudWithRecovery:NO];
     }
 }
 
--(BOOL) migrateLocalToiCloud
+-(BOOL) migrateLocalToiCloudWithRecovery: (BOOL) recover
 {
-    //TODO: do it
+    
+    NSError *err;
+    NSDictionary *options = [CoreDataHelper defaultStoreOptionsForCloud:YES];
+    
+    [self waitForiCloudResponse];
+    
+    NSPersistentStore *oldstore = [[GymBuddyAppDelegate sharedAppDelegate]. persistentStoreCoordinator.persistentStores lastObject];
+    
+    if (recover)
+    {
+        NSPersistentStore *newStore = [[GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[GymBuddyAppDelegate theLocalStore] options:options error:&err];
+        
+        [[[GymBuddyAppDelegate sharedAppDelegate] persistentStoreCoordinator] removePersistentStore:oldstore error:&err];
+        
+        if (err)
+        {
+            NSLog(@"Failed to replace Cloud store with Local store: %@", err);
+            
+            return FALSE;
+        }
+    }
+    else
+    {
+        [[GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[GymBuddyAppDelegate theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
+        
+        if (err)
+        {
+            NSLog(@"Failed to migrate Local to iCloud store: %@", err);
+            return FALSE;
+        }
+    }
     
     return TRUE;
 }
 
 -(BOOL) migrateiCloudToLocal
 {
-    //TODO: do it
-   
+    NSError *err;
+    NSDictionary *options = [CoreDataHelper defaultStoreOptionsForCloud:NO];
+    
+    [self waitForiCloudResponse];
+    
+    NSPersistentStore *oldstore = [[GymBuddyAppDelegate sharedAppDelegate]. persistentStoreCoordinator.persistentStores lastObject];
+    
+    [CoreDataHelper moveLocalStoreToBackup];
+    
+    NSPersistentStoreCoordinator *psc = [GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator;
+    
+   NSPersistentStore *newStore = [[GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[GymBuddyAppDelegate theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
+    
+    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[GymBuddyAppDelegate theLocalStore] options:options error:&err];
+    
+    if (err)
+    {
+        NSLog(@"Failed to migrate iCloud to local store: %@", err);
+        return FALSE;
+    }
+    
+    [self exit];
     return TRUE;
 }
 
@@ -171,7 +229,7 @@
 {
     //TODO: determine if icloud exists
    
-    return TRUE;
+    return FALSE;
 }
 
 #pragma mark - Export Options
@@ -180,6 +238,49 @@
     [CoreDataHelper exportDatabaseTo:exportType];
 }
 
+- (UIActivityIndicatorView *)showActivityIndicatorOnView:(UIView*)aView
+{
+    CGSize viewSize = aView.bounds.size;
+    
+    // create new dialog box view and components
+    activityIndicatorView = [[UIActivityIndicatorView alloc]
+                                                      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    // other size? change it
+    activityIndicatorView.bounds = CGRectMake(0, 0, 65, 65);
+    activityIndicatorView.hidesWhenStopped = YES;
+    activityIndicatorView.alpha = 0.7f;
+    activityIndicatorView.backgroundColor = kCOLOR_GRAY_t;
+    activityIndicatorView.layer.cornerRadius = 10.0f;
+    
+    // display it in the center of your view
+    activityIndicatorView.center = CGPointMake(viewSize.width / 2.0, viewSize.height / 2.0);
+    
+    [aView addSubview:activityIndicatorView];
+    
+    [activityIndicatorView startAnimating];
+    
+    return activityIndicatorView;
+}
+
+- (void) waitForiCloudResponse
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDidRespond:) name:kUBIQUITYCHANGED object:[GymBuddyAppDelegate sharedAppDelegate]];
+    [self showActivityIndicatorOnView:self.tabBarController.view.superview];
+    [[[UIApplication sharedApplication] keyWindow] setUserInteractionEnabled:FALSE];
+}
+
+- (void) cloudDidRespond: (id) sender
+{
+    NSLog(@"response from icloud");
+    
+    [activityIndicatorView stopAnimating];
+    [[[UIApplication sharedApplication] keyWindow] setUserInteractionEnabled:TRUE];
+    activityIndicatorView = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [self exit];
+}
 
 #pragma mark - Exit
 - (void) exit
