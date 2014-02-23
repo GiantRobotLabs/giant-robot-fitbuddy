@@ -10,6 +10,7 @@
 #import "CoreDataHelper.h"
 #import "CardioExercise.h"
 #import "ResistanceExercise.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation WorkoutModeViewController {
 }
@@ -53,9 +54,9 @@
         if (tempEntry == nil)
         {
             tempEntry = [NSEntityDescription insertNewObjectForEntityForName:LOGBOOK_TABLE
-                                                      inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
+                                                      inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
             [self.logbookEntries addObject:tempEntry]; 
-            //if (DEBUG) NSLog(@"Added a new logbook entry for Workout%@ Exercise %@, index %d", self.workout.workout_name, self.exercise.name, idx);
+            if (DEBUG) NSLog(@"Added a new logbook entry for Workout%@ Exercise %@, index %d", self.workout.workout_name, self.exercise.name, idx);
         }
         
         self.logbookEntry = tempEntry;
@@ -68,6 +69,7 @@
 -(void) loadFormDataFromExerciseObject
 {
     self.navigationItem.title = self.exercise.name;
+    self.workoutLabel.text = self.exercise.name;
     [super loadFormDataFromExerciseObject];
 }
 
@@ -83,21 +85,11 @@
     self.skippedEntries = [[NSMutableOrderedSet alloc]init];
     [self createViewsPlusOne];
     
-    //if (DEBUG) NSLog(@"Entering initialSetupOfFormWithWorkout: Workout %@, Exercise %@", 
-    //                 self.workout.workout_name, self.exercise.name);
+    NSLog(@"Entering initialSetupOfFormWithWorkout: Workout %@, Exercise %@", self.workout.workout_name, self.exercise.name);
 }
 
 -(void)setToolbarBack:(NSString*)bgFilename toolbar:(UIToolbar*)toolbar {   
-    // Add Custom Toolbar
-    UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:bgFilename]];
-    iv.frame = CGRectMake(0, 0, toolbar.frame.size.width, toolbar.frame.size.height);
-    iv.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    // Add the tab bar controller's view to the window and display.
-    if([[[UIDevice currentDevice] systemVersion] intValue] >= 5)
-        [toolbar insertSubview:iv atIndex:1]; // iOS5 atIndex:1
-    else
-        [toolbar insertSubview:iv atIndex:0]; // iOS4 atIndex:0
-    toolbar.backgroundColor = [UIColor clearColor];
+
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -106,33 +98,22 @@
     [self loadFormDataFromExerciseObject];
     [self initializeLogbookEntry];
     [self setProgressBarProgress];
-    self.workoutLabel.text = self.workout.workout_name;
+    //self.workoutLabel.text = self.workout.workout_name;
 
     // Visual Stuff
-    UIImage *backgroundImage;
-    UIImage *titlebarImage;
-    
     NSEntityDescription *desc = self.exercise.entity;
     if ([desc.name isEqualToString: @"CardioExercise"])
     {
-        backgroundImage = [UIImage imageNamed:GB_CHROME_CAR_BG];
-        titlebarImage = [UIImage imageNamed:GB_CHROME_CAR_TB];
+        self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kCARDIOW]];
     }
     else
     {
-        backgroundImage = [UIImage imageNamed:GB_CHROME_WO_BG];
-        titlebarImage = [UIImage imageNamed:GB_CHROME_WO_TB];
+        self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kRESISTANCEW]];
     }
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
-    [[self.navigationController navigationBar] setBackgroundImage:titlebarImage forBarMetrics:UIBarMetricsDefault];
-    self.slotOneValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
-    self.slotTwoValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
-    self.slotThreeValue.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:TEXTFIELD_IMAGE]];
     self.pageControl.numberOfPages = self.exercises.count;
     self.pageControl.currentPage = [self.exercises indexOfObject:self.exercise];
     
-    [self setToolbarBack:GB_BG_CHROME_BOTTOM toolbar:self.toolBar];
     
     //Try to set the toggles if we're transitioning from ourself
     if (self.logbookEntry.completed != nil)
@@ -151,7 +132,7 @@
     [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [[self view] addGestureRecognizer:recognizer];
     
-    //if (DEBUG) NSLog(@"View will appear");
+    if (DEBUG) NSLog(@"View will appear");
 }
 
 #pragma mark -
@@ -181,10 +162,15 @@
     
     self.logbookEntry.completed = [NSNumber numberWithBool: completed];
     
-    //if (DEBUG) NSLog(@"workout=%@ logbook=%@", self.workout.managedObjectContext.description, self.logbookEntry.managedObjectContext.description);
+    NSLog(@"workout=%@ logbook=%@", self.workout.managedObjectContext.description, self.logbookEntry.managedObjectContext.description);
+    
     self.logbookEntry.workout = self.workout;
     NSMutableOrderedSet *tempSet = [self.workout mutableOrderedSetValueForKey:@"logbookEntries"];
     [tempSet addObject:self.logbookEntry];
+    
+    NSError *error;
+    [self.workout.managedObjectContext save:&error];
+    NSLog(@"Saving logbook entry");
     
     [self setExerciseFromForm];
 }
@@ -228,13 +214,12 @@
 // Only chages the color of the buttons
 - (void) setExerciseLogToggleVale: (BOOL) logged
 {
+    NSLog(@"Logging");
     if (logged == YES) {
-        self.skipitButton.tintColor = [UIColor blackColor];
         self.logitButton.tintColor = GYMBUDDY_GREEN;
     }
     else if (logged == NO)
     {
-        self.logitButton.tintColor = [UIColor blackColor];
         self.skipitButton.tintColor = GYMBUDDY_RED;   
     }
 }
@@ -247,18 +232,18 @@
     
     if (self.skippedEntries == nil || self.skippedEntries.count == 0)
     {
-        self.progressBar.progressTintColor = GYMBUDDY_GREEN;
+        [self.progressBar setProgressTintColor: GYMBUDDY_GREEN];
         butColor = GYMBUDDY_GREEN;
     }
     else if (self.skippedEntries.count == self.exercises.count)
     {
-        self.progressBar.progressTintColor = GYMBUDDY_RED;
+        [self.progressBar setProgressTintColor: GYMBUDDY_RED];
         skip = self.skippedEntries.count;
         butColor = GYMBUDDY_RED;
     }
     else if (self.skippedEntries.count > 0)
     {
-        self.progressBar.progressTintColor = GYMBUDDY_YELLOW;
+        [self.progressBar setProgressTintColor: GYMBUDDY_YELLOW];
         skip = self.skippedEntries.count;
         butColor = GYMBUDDY_YELLOW;
     }
@@ -278,7 +263,7 @@
     
 }
 
-- (IBAction)logitButtonPressedWithSave:(UIBarButtonItem *)sender 
+- (IBAction)logitButtonPressedWithSave:(UIButton *)sender
 {
     [self.skippedEntries removeObject:self.logbookEntry];
     
@@ -289,7 +274,7 @@
     [self gotoNext];
 }
 
-- (IBAction)skipitButtonPressedWithSave:(UIBarButtonItem *)sender 
+- (IBAction)skipitButtonPressedWithSave:(UIButton *)sender
 {
     if (self.skippedEntries == nil) self.skippedEntries = [[NSMutableOrderedSet alloc]init];
     [self.skippedEntries addObject:self.logbookEntry];
@@ -326,11 +311,13 @@
         
         for (LogbookEntry *lbe in array)
         {
-            [[CoreDataHelper getActiveManagedObjectContext] deleteObject:lbe];
+            [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext deleteObject:lbe];
         }
         
         [self.logbookEntries removeObjectsAtIndexes:count];
     }
+    
+    
 }
 
 #pragma mark -
@@ -363,9 +350,15 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.destinationViewController respondsToSelector:@selector(setFinalProgress:)]) {
-        [segue.destinationViewController performSelector:@selector(setFinalProgress:) 
-                                              withObject: [NSNumber numberWithFloat: self.progressBar.progress]];
+    NSLog(@"Starting segue to logbook");
+    
+    SEL setFinalProgressSelector = sel_registerName("setFinalProgress:");
+    SEL setExerciseSelector = sel_registerName("setExercise:");
+    
+    if ([segue.destinationViewController respondsToSelector:setFinalProgressSelector]) {
+        
+        NSNumber *progressValue = [NSNumber numberWithFloat: self.progressBar.progress];
+        [segue.destinationViewController performSelector:setFinalProgressSelector withObject:progressValue];
         [segue.destinationViewController performSelector:@selector(setLogbookEntries:) withObject:self.logbookEntries];
     }
     
@@ -375,6 +368,7 @@
     
     if ([segue.identifier isEqualToString: NOTES_SEGUE]) {
         [self setExerciseFromForm];
+        [segue.destinationViewController performSelector: setExerciseSelector withObject:self.exercise];
     }
 }
 
@@ -409,7 +403,7 @@ BOOL (^isInputEven)(int) = ^(int input)
 
 -(WorkoutModeViewController *)getNextController:(NSNumber *)idx {
     
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainStoryboard-Autolayout" bundle:nil];
     WorkoutModeViewController *nextView = [sb instantiateViewControllerWithIdentifier:@"WorkoutModeViewController"];
 
     [nextView setWorkout: self.workout];

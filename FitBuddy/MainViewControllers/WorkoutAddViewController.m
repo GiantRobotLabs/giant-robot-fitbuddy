@@ -7,11 +7,13 @@
 //
 
 #import "WorkoutAddViewController.h"
-#import "CoreDataHelper.h"
-#import "UICheckboxButton.h"
-#import "GymBuddyMacros.h"
+#import "SwitchCell.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation WorkoutAddViewController
+{
+    UITableViewCell *editCell;
+}
 
 @synthesize workoutNameTextField;
 
@@ -19,39 +21,35 @@
 @synthesize exercise = _exercise;
 @synthesize workoutSet = _workoutSet;
 
-@synthesize document = _document;
 
 -(void) setupFetchedResultsController
 {
+    NSManagedObjectContext *context = [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
-                                                                          sectionNameKeyPath:nil 
-                                                                                   cacheName:nil];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
 }
 
--(void)setDocument:(UIManagedDocument *) document
+-(void) viewDidLoad
 {
-    if (_document != document)
-    {
-        _document = document;
-        [self setupFetchedResultsController];
-    }
+    [super viewDidLoad];
+    
+    editCell = [self.tableView dequeueReusableCellWithIdentifier:@"Workout Edit Cell"];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+    [self setupFetchedResultsController];
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     // Setup and initialize
     
     // Visual stuff
     self.navigationItem.title = nil;
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    self.tableView.backgroundColor = [UIColor clearColor];
-    
+        
     // Initialize the view
     self.workoutSet = [self.workout mutableOrderedSetValueForKey:@"exercises"];
     
@@ -61,16 +59,6 @@
         self.workoutNameTextField.textColor = [UIColor whiteColor];
     }
     
-    self.workoutNameTextField.text = self.workout.workout_name;
-    
-    // Setup the database
-//    if (!self.document)
-//    {
-        [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
-            self.document = doc;
-        }];
-//    }  
-    
     // Dismiss Keyboard
     [self.workoutNameTextField addTarget:self
                                   action:@selector(workoutNameTextFieldFinished:)
@@ -79,7 +67,7 @@
     // Listen for checkboxes
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(checkboxClicked:) 
-                                                 name:@"CheckboxToggled"
+                                                 name:kCHECKBOXTOGGLED
                                                object:nil];
     
     //if (DEBUG) NSLog(@"View will appear");
@@ -95,15 +83,35 @@
 
 - (IBAction)addWorkout:(UITextField *)sender {
     self.workout.workout_name = sender.text;
+    
+    [[GymBuddyAppDelegate sharedAppDelegate] saveContext];
+    NSLog(@"Workout saved %@", sender.text);
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
+    if (![self.workoutNameTextField.text isEqualToString:self.workout.workout_name])
+    {
+        [self textFieldDidEndEditing:self.workoutNameTextField];
+    }
+    
     // Set the name for empty workout objects
     if (!self.workout.workout_name)
     {
-        self.workout.workout_name = @"Empty Workout";
-    } 
+        self.workout.workout_name = @"New Workout";
+    }
+    
+    [[GymBuddyAppDelegate sharedAppDelegate]saveContext];
+    NSLog(@"Workout %@ created", self.workout.workout_name);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 100.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,43 +119,41 @@
     // Prototype Components
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Workout Exercise Cell"];
     UILabel *label = (UILabel *)[cell viewWithTag:101];
-    UICheckboxButton *checkbox = (UICheckboxButton *)[cell viewWithTag:100];
+    //UICheckboxButton *checkbox = (UICheckboxButton *)[cell viewWithTag:100];
     UIImageView *icon = (UIImageView *)[cell viewWithTag:102];
-    
-    // Visual stuff
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
-    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
-    cell.backgroundView = bgView;
+    UISwitch *checkbox = (UISwitch *)[cell viewWithTag:103];
     
     // Add the data to the cell
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
     label.text = exercise.name;
-    checkbox.checked = [self.workoutSet containsObject:exercise];
+    [checkbox setOn:[self.workoutSet containsObject:exercise]];
+    //checkbox.checked = [self.workoutSet containsObject:exercise];
     
     NSEntityDescription *desc = exercise.entity;
     if ([desc.name isEqualToString: @"CardioExercise"])
     {
-        icon.image = [UIImage imageNamed:GB_CARDIO_IMAGE]; 
+        icon.image = [UIImage imageNamed:kCARDIO];
     }
     else
     {
-        icon.image = [UIImage imageNamed:GB_RESISTANCE_IMAGE];
+        icon.image = [UIImage imageNamed:kRESISTANCE];
     }
 
+    
+    cell.showsReorderControl = YES;
     return cell;
 }
 
 -(IBAction) checkboxClicked:(NSNotification *) sender
 {
     // Retrieve the Exercise object from the checkbox reference
-    UIView *contentView = [(UICheckboxButton *)sender.object superview];
-    UITableViewCell *cell = (UITableViewCell *)[contentView superview];
+    SwitchCell *cell = (SwitchCell *) sender.object;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    //if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@", exercise.name,  self.workout.workout_name);
+    NSLog(@"Exercise: %@ added to Workout: %@", exercise.name,  self.workout.workout_name);
     
-    if (((UICheckboxButton *)sender.object).checked)
+    if ([cell.checkbox isOn])
     {
         [self.workoutSet addObject:exercise];
     }
@@ -157,10 +163,42 @@
         [self.workoutSet removeObject:exercise];
     }
     
-    //if (DEBUG) NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name,  
-    //      self.workout.workout_name, self.workout.exercises.count);
+    NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name, self.workout.workout_name, self.workout.exercises.count);
     
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    self.workoutNameTextField = (UITextField *)[editCell viewWithTag:100];
+    [self.workoutNameTextField setDelegate:self];
+    self.workoutNameTextField.text = self.workout.workout_name;
+    self.workoutNameTextField.keyboardType = UIKeyboardTypeAlphabet;
+    [editCell setBackgroundColor:kCOLOR_LTGRAY];
+    return editCell;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self addWorkout:textField];
+}
+
+#pragma mark - reordering
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleNone;
+}
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+    
+}
+
 
 - (void) dealloc
 {

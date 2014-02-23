@@ -7,21 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CoreDataTableController.h"
+#import "CoreDataTableViewController.h"
 #import "Workout.h"
 #import "Exercise.h"
 
-#import "GymBuddyMacros.h"
+@interface WorkoutAddViewController : CoreDataTableViewController <UITextFieldDelegate>
 
-@interface WorkoutAddViewController : CoreDataTableController
-
-@property (weak, nonatomic) IBOutlet UITextField *workoutNameTextField;
+@property (nonatomic, weak) IBOutlet UITextField *workoutNameTextField;
 
 @property (nonatomic, strong) Workout *workout;
 @property (nonatomic, strong) Exercise *exercise;
 @property (nonatomic, strong) NSMutableOrderedSet *workoutSet;
-
-@property (nonatomic, strong) UIManagedDocument *document;
 
 -(IBAction) checkboxClicked:(id) sender;
 

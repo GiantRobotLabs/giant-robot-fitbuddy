@@ -7,8 +7,8 @@
 //
 
 #import "LogbookEntryViewController.h"
-#import "GymBuddyMacros.h"
 #import "CoreDataHelper.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation LogbookEntryViewController
 
@@ -27,7 +27,15 @@
 @synthesize slotTwoColTwo = _slotTwoColTwo;
 @synthesize slotThreeColTwo = _slotThreeColTwo;
 
--(NSString *) tinyDateFormat: (NSDate *) date: (NSString *) format
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+    
+}
+
+-(NSString *) tinyDateFormat: (NSDate *) date
+                      format:(NSString *) format
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:format];
@@ -37,7 +45,7 @@
 -(void) loadFormDataFromLogbook
 {
     // Set the data
-    self.entryDate.text = [self tinyDateFormat:self.logbookEntry.date :@"dd MMM yyyy"];
+    self.entryDate.text = [self tinyDateFormat:self.logbookEntry.date format:@"dd MMM yyyy"];
     
     self.entryName.text = self.logbookEntry.exercise_name;
     
@@ -64,7 +72,7 @@
         self.slotThreeColOne.text = self.logbookEntry.reps;   
     }
     
-    self.colOneDate.text = [self tinyDateFormat:self.logbookEntry.date :@"MM/dd/yy"];
+    self.colOneDate.text = [self tinyDateFormat:self.logbookEntry.date format:@"MM/dd/yy"];
 }
 
 
@@ -74,17 +82,19 @@
     NSDate *entryDate = [self.logbookEntry.date copy];
     NSFetchedResultsController *frc;
     
-    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:LOGBOOK_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
     request.predicate = [NSPredicate predicateWithFormat:@"(exercise_name = %@) AND (date < %@) AND (completed = %@)", 
                          exerciseName, entryDate, [NSNumber numberWithBool:YES]];
     
     frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                              managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
+                                              managedObjectContext:[[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext]
                                                 sectionNameKeyPath:nil 
                                                          cacheName:nil];
-    [frc performFetch:nil];
+    NSError *error;
+    [frc performFetch:&error];
+    NSLog(@"Retrieving logbook");
+    
     NSArray *array = [frc fetchedObjects];
     LogbookEntry *theEntry;
     
@@ -92,7 +102,7 @@
     {
         theEntry = (LogbookEntry *)[array lastObject];
         
-        self.colTwoDate.text = [self tinyDateFormat:theEntry.date :@"MM/dd/yy"];
+        self.colTwoDate.text = [self tinyDateFormat:theEntry.date format:@"MM/dd/yy"];
         
         if (theEntry.pace || theEntry.distance || theEntry.duration)
         {
@@ -110,7 +120,7 @@
     }
     else
     {
-        self.colTwoDate.text = [self tinyDateFormat:theEntry.date :@"--/--/--"];
+        self.colTwoDate.text = [self tinyDateFormat:theEntry.date format:@"--/--/--"];
         self.slotOneColTwo.text = @"-";
         self.slotTwoColTwo.text = @"-";
         self.slotThreeColTwo.text = @"-"; 
@@ -119,9 +129,6 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    // Visual stuff    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    
     // Data stuff
     [self loadFormDataFromLogbook];
     

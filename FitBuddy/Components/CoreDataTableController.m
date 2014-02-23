@@ -7,6 +7,7 @@
 //
 
 #import "CoreDataTableController.h"
+#import "FitBuddyMacros.h"
 
 @interface CoreDataTableController()
 @property (nonatomic) BOOL beganUpdates;

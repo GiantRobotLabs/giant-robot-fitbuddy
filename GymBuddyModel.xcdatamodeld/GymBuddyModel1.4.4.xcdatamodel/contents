@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CardioExercise" representedClassName="CardioExercise" parentEntity="Exercise" syncable="YES">
+        <attribute name="distance" optional="YES" attributeType="String" defaultValueString="0" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="String" defaultValueString="0" syncable="YES"/>
+        <attribute name="pace" optional="YES" attributeType="String" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="CardioHistory" representedClassName="CardioHistory" syncable="YES">
+        <attribute name="comp" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Exercise" representedClassName="Exercise" syncable="YES">
+        <attribute name="deleted" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sequence" optional="YES" transient="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workout" inverseName="exercises" inverseEntity="Workout" syncable="YES"/>
+    </entity>
+    <entity name="LogbookEntry" representedClassName="LogbookEntry" syncable="YES">
+        <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="date_t" optional="YES" transient="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exercise_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pace" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reps" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sets" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workout_name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="workout" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="logbookEntries" inverseEntity="Workout" syncable="YES"/>
+    </entity>
+    <entity name="ResistanceExercise" representedClassName="ResistanceExercise" parentEntity="Exercise" syncable="YES">
+        <attribute name="reps" optional="YES" attributeType="String" defaultValueString="0" syncable="YES"/>
+        <attribute name="sets" optional="YES" attributeType="String" defaultValueString="0" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="String" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="ResistanceHistory" representedClassName="ResistanceHistory" syncable="YES">
+        <attribute name="comp" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Workout" representedClassName="Workout" syncable="YES">
+        <attribute name="deleted" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="display" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="last_workout" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="workout_name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise" inverseName="workouts" inverseEntity="Exercise" syncable="YES"/>
+        <relationship name="logbookEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LogbookEntry" inverseName="workout" inverseEntity="LogbookEntry" syncable="YES"/>
+    </entity>
+    <entity name="WorkoutSequence" representedClassName="WorkoutSequence" syncable="YES">
+        <attribute name="sequence" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" syncable="YES"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" syncable="YES"/>
+    </entity>
+    <fetchRequest name="CardioLogbook" entity="LogbookEntry" predicateString="pace != &quot;nil&quot; AND completed == 1"/>
+    <fetchRequest name="ResistanceLogbook" entity="LogbookEntry" predicateString="weight != &quot;nil&quot; AND completed == 1"/>
+    <elements>
+        <element name="CardioExercise" positionX="54" positionY="162" width="128" height="90"/>
+        <element name="CardioHistory" positionX="576" positionY="-18" width="128" height="90"/>
+        <element name="Exercise" positionX="-11" positionY="-9" width="128" height="118"/>
+        <element name="LogbookEntry" positionX="432" positionY="-0" width="128" height="240"/>
+        <element name="ResistanceExercise" positionX="-207" positionY="72" width="128" height="90"/>
+        <element name="ResistanceHistory" positionX="342" positionY="-162" width="128" height="90"/>
+        <element name="Workout" positionX="243" positionY="-9" width="128" height="133"/>
+        <element name="WorkoutSequence" positionX="115" positionY="-162" width="128" height="88"/>
+    </elements>
+</model>

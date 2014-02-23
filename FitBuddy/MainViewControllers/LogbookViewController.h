@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CoreDataTableViewController.h"
+#import "CoreDataTableController.h"
 #import "LogbookEntry.h"
+#import "JBChartView.h"
+#import "JBBarChartView.h"
 
-#import "GymBuddyMacros.h"
-
-@interface LogbookViewController : CoreDataTableViewController
+@interface LogbookViewController : CoreDataTableController
 
 @property (nonatomic, strong) LogbookEntry *logbookEntry;
-@property (nonatomic, strong) UIManagedDocument *document;
+@property (strong, nonatomic) IBOutlet UIView *chartView;
+
 
 @end

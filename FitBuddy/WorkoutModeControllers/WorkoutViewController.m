@@ -10,7 +10,7 @@
 #import "WorkoutModeViewController.h"
 #import "CoreDataHelper.h"
 #import "Workout.h"
-#import "GymBuddyMacros.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation WorkoutViewController 
 
@@ -21,21 +21,25 @@
 @synthesize edit = _edit;
 
 #pragma mark CoreData
-@synthesize document = _document;
+@synthesize context = _context;
 
 #pragma mark -
 #pragma mark Initialization
 
 -(void) setupFetchedResultsController
 {
+    self.context = [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
+    [self setupFetchedResultsControllerWithContext:self.context];
     
+}
+
+-(void) setupFetchedResultsControllerWithContext: (NSManagedObjectContext *) context
+{
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WORKOUT_TABLE];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"workout_name" ascending:YES]];
     
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:[CoreDataHelper getActiveManagedObjectContext] 
-                                                                          sectionNameKeyPath:nil 
-                                                                                   cacheName:nil];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"last_workout" ascending:NO]];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
 }
 
 -(void) initializeDefaults
@@ -55,83 +59,85 @@
         [defaults setObject:@"0" forKey:@"firstrun"];
 }
 
--(void) setDocument:(UIManagedDocument *)document
+-(void) viewDidLoad
 {
-    if (!self.document)
-    {
-        _document = document;
-    }
+    [super viewDidLoad];
     
-    [self setupFetchedResultsController];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    // Setup and initialize
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *value = [defaults stringForKey:@"firstrun"];
-    
-    if (value == nil)
-    {
-        [self performSegueWithIdentifier:@"Startup Demo" sender:self];
-    }
     
     [self initializeDefaults];
+    [self setupFetchedResultsController];
 
     // Visual stuff
-    self.navigationItem.title = nil;
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    self.tableView.backgroundColor = [UIColor clearColor];
-    [self.startButton setBackgroundImage:[UIImage imageNamed:BUTTON_IMAGE_DARK_LG] forState:UIControlStateDisabled];
-    [self.startButton setBackgroundImage:[UIImage imageNamed:BUTTON_IMAGE_LG] forState:UIControlStateNormal];
+    [self.startButton setBackgroundImage:[UIImage imageNamed:kSTARTDISABLED] forState:UIControlStateDisabled];
+    [self.startButton setBackgroundImage:[UIImage imageNamed:kSTART] forState:UIControlStateNormal];
     [self enableButtons:NO];
     
-    // Initialize view    
-    //if (!self.document)    
-    //{
-        [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
-            self.document = doc;
-        }]; 
-    //}
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[GymBuddyAppDelegate sharedAppDelegate]];
+    
+    [super viewWillAppear:animated];
     
 }
 
 #pragma mark -
 #pragma mark TableView Implementations
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 60.0;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{    
+{
+    if (DEBUG) NSLog(@"Building cell");
+    
     // Get the Prototypes
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Workout Cell"];
     UILabel *label = (UILabel *)[cell viewWithTag:101];
     UILabel *dateLabel = (UILabel *)[cell viewWithTag:200];
-    
-    // Visual stuff
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
-    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
-    cell.backgroundView = bgView;
-    
+
     // Add the data to the cell
     Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
     label.text = workout.workout_name;
     
-    if (workout.logbookEntries.count == 0) dateLabel.text = @"never";
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd MMM yyyy"];
+    
+    if (workout.last_workout)
+    {
+        dateLabel.text = [format stringFromDate: workout.last_workout];
+    }
     else
     {
-        NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        [format setDateFormat:@"dd MMM yyyy"];
-        dateLabel.text = [format stringFromDate:
-                          ((LogbookEntry *)[workout.logbookEntries lastObject]).date];
+        if (workout.logbookEntries.count == 0)
+        {
+            dateLabel.text = @"never";
+        }
+        else
+        {
+            // Old last date
+            NSSortDescriptor *sortDescriptor;
+            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date"
+                                                         ascending:NO];
+            NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+            NSArray *sortedArray = [workout.logbookEntries sortedArrayUsingDescriptors:sortDescriptors];
+            
+            NSDate *lastDate =  ((LogbookEntry *)sortedArray[0]).date;
+            dateLabel.text = [format stringFromDate: lastDate];
+            workout.last_workout = lastDate;
+        }
     }
     
     return cell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath 
-{
-    // Return YES to edit
-    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -146,7 +152,9 @@
             //Update the cell or model 
             cell.editing = YES;
             Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [[CoreDataHelper getActiveManagedObjectContext] deleteObject:workout];
+            
+            [self.context deleteObject:workout];
+            [[GymBuddyAppDelegate sharedAppDelegate] saveContext];
         }
         
         [self enableButtons:NO];
@@ -155,14 +163,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
     [self enableButtons:YES];
-    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor blackColor];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self enableButtons:NO];
-    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark -
@@ -176,7 +184,7 @@
     if (enable)
     {
         self.startButton.titleLabel.text = @"Start";
-        self.editButton.tintColor = [UIColor blackColor];
+        self.editButton.tintColor = [UIColor whiteColor];
     }
     else
     {
@@ -211,20 +219,22 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     Workout *workout = nil;
     
+    if (DEBUG) NSLog(@"In prepare for segue");
     if ([segue.identifier isEqualToString: (ADD_WORKOUT_SEGUE)])
     {
+        NSLog(@"In add workout segue");
         workout = [NSEntityDescription insertNewObjectForEntityForName:WORKOUT_TABLE
-                                                inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
+                                                inManagedObjectContext:self.context];
     }
     else if ([segue.identifier isEqualToString:START_WORKOUT_SEGUE])
     {
+        NSLog(@"In start workout segue");
         workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [((WorkoutModeViewController *)[segue.destinationViewController topViewController]) initialSetupOfFormWithWorkout: workout];
     }
     else
     {
         workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        //if (DEBUG) NSLog(@"Before Segue for Workout:%@", workout.workout_name);
     }
     
     if ([segue.destinationViewController respondsToSelector:@selector(setWorkout:)]) 
@@ -233,10 +243,67 @@
     }
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    if (sectionTitle == nil) {
+        return nil;
+    }
+    
+    UIView *labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 60.0)];
+    [labelView setBackgroundColor: [UIColor whiteColor]];
+    [labelView setAutoresizesSubviews:TRUE];
+    
+    // Create label with section title
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, tableView.frame.size.width, 60.0)];
+    label.text = @"WORKOUTS";
+    label.font = [UIFont systemFontOfSize:14.0];
+    [label setTextColor: kCOLOR_DKGRAY];
+    
+    [labelView addSubview:label];
+    
+    return labelView;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Workouts";
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+#pragma mark - reordering
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+    
+}
+- (void) setOrderFromCells
+{
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewDidDisappear:animated];
+    
+}
 
 - (void)viewDidUnload {
     [self setEditButton:nil];
     [self setStartButton:nil];
+    
     [super viewDidUnload];
 }
 @end

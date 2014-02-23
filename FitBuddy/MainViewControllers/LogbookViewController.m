@@ -1,3 +1,4 @@
+
 //
 //  LogbookViewController.m
 //  GymBuddy
@@ -8,52 +9,122 @@
 
 #import "LogbookViewController.h"
 #import "LogbookEntry.h"
-#import "CoreDataHelper.h"
 #import "Workout.h"
+#import "GymBuddyAppDelegate.h"
+#import "CoreDataHelper.h"
+#import "FitBuddyMacros.h"
+#import "BarChartDataSource.h"
+#import "JBChartView.h"
+#import "FitBuddyMacros.h"
 
 @implementation LogbookViewController
+{
+    JBBarChartView *chart;
+    NSFetchedResultsController *chartDataSource;
+    NSMutableArray *entries;
+    BarChartDataSource *chartData;
+    BOOL frameLoaded;
+}
 
 @synthesize logbookEntry = _logbookEntry;
-@synthesize document = _document;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:nil];
+    
+    entries = [[NSMutableArray alloc]init];
+    
+    
+}
 
 -(void) setupFetchedResultsController
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:LOGBOOK_TABLE];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES selector:@selector(compare:)]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO selector:@selector(compare:)]];
     request.predicate = [NSPredicate predicateWithFormat:@"completed = %@", [NSNumber numberWithBool:YES]];
 
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
+                                                                        managedObjectContext: [[GymBuddyAppDelegate sharedAppDelegate]managedObjectContext]
                                                                           sectionNameKeyPath:@"date_t" 
                                                                                    cacheName:nil];
-}
-
--(void)setDocument:(UIManagedDocument *) document
-{
-    if (_document != document)
-    {
-        _document = document;
-        [self setupFetchedResultsController];
-    }
+    
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self setupFetchedResultsController];
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    if (chartData == nil)
+    {
+        chartData = [[BarChartDataSource alloc] init];
+    }
     
-    // Visual stuff    
-    self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
-    self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    [[self.navigationController navigationBar] setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
-    self.searchDisplayController.searchBar.tintColor = [UIColor clearColor];
+    [chartData load];
+    [self prepareChart];
+    [chart reloadData];
     
-    // Setup the database
-    //if (!self.document)
-    //{
-        [CoreDataHelper openDatabase:DATABASE usingBlock:^(UIManagedDocument *doc) {
-            self.document = doc;
-        }];
-    //}  
+    [super viewDidAppear:animated];
+
+    CGRect footerframe = chart.footerView.frame;
+    footerframe.origin.y = footerframe.origin.y + 20;
+    [chart.footerView setFrame: footerframe];
+    
+}
+
+- (void) prepareChart
+{
+    if (chart == nil)
+    {
+        chart = [[JBBarChartView alloc]init];
+        [chart setDelegate:chartData];
+        [chart setDataSource:chartData];
+        
+        [self addSubview:chart fillingAndInsertedIntoView:self.chartView];
+    
+        UILabel *headerView = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, ceil(chart.bounds.size.height * 0.5) - ceil(80.0f * 0.5), chart.bounds.size.width - (10.0f * 2), 80.0f)];
+        headerView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 14)];
+        
+        [headerView setText: [@"30 Day Activity Profile" uppercaseString]];
+        [headerView setTextAlignment:NSTextAlignmentCenter];
+        [headerView setTextColor: kCOLOR_DKGRAY];
+        [headerView setFont:[UIFont fontWithName:headerView.font.fontName size:14.0f]];
+        chart.headerView = headerView;
+        
+        [chart setHeaderPadding:10.0f];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"dd MMM yyyy"];
+        
+        NSString *rightDate = [dateFormat stringFromDate:[[NSDate alloc] init]];
+        
+        UILabel *rightLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 400, chart.bounds.size.width - (10.0f * 2), 40.0f)];
+        rightLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,200,12)];
+        [rightLabel setText: [rightDate uppercaseString]];
+        [rightLabel setTextAlignment:NSTextAlignmentRight];
+        [rightLabel setTextColor: [UIColor blackColor]];
+        [rightLabel setFont:[UIFont fontWithName:rightLabel.font.fontName size:12.0f]];
+        chart.footerView = rightLabel;
+        
+        [chart layoutIfNeeded];
+
+    }
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,26 +136,22 @@
     UILabel *qstatValue = (UILabel *) [cell viewWithTag:103];
     UILabel *qstatLabel = (UILabel *) [cell viewWithTag:104];
     
-    // Visual stuff
-    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
-    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:CELL_IMAGE]];
-    cell.backgroundView = bgView;
-    
     // Add the data to the cell
     LogbookEntry *logbookEntry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [entries addObject:logbookEntry];
     
     exerciseLabel.text = logbookEntry.exercise_name;
     workoutLabel.text = logbookEntry.workout_name;
     
     if (logbookEntry.pace || logbookEntry.distance || logbookEntry.duration)
     {
-        exerciseIcon.image = [UIImage imageNamed:GB_CARDIO_IMAGE];
+        exerciseIcon.image = [UIImage imageNamed:kCARDIO];
         qstatLabel.text = @"Pace";
         qstatValue.text = logbookEntry.pace;
     }
     else
     {
-        exerciseIcon.image = [UIImage imageNamed:GB_RESISTANCE_IMAGE];
+        exerciseIcon.image = [UIImage imageNamed:kRESISTANCE];
         qstatLabel.text = @"Weight";
         qstatValue.text = logbookEntry.weight;
     }
@@ -101,7 +168,7 @@
     if ([segue.destinationViewController respondsToSelector:@selector(setLogbookEntry:)]) {
         [segue.destinationViewController performSelector:@selector(setLogbookEntry:) withObject:entry];
     }
-    [self.tableView cellForRowAtIndexPath:[self.tableView indexPathForSelectedRow]].backgroundColor = [UIColor clearColor];
+
 }
 
 
@@ -114,12 +181,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView reloadData];
-    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor blackColor];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.tableView cellForRowAtIndexPath:indexPath].backgroundColor = [UIColor clearColor];
+  
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,7 +200,7 @@
             //Update the cell or model 
             cell.editing = YES;
             LogbookEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [[CoreDataHelper getActiveManagedObjectContext] deleteObject:entry];
+            [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext deleteObject:entry];
         }
     }    
 }
@@ -159,21 +225,47 @@
         return nil;
     }
     
+    UIView *labelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40.0)];
+    [labelView setBackgroundColor: kCOLOR_LTGRAY];
+    [labelView setAutoresizesSubviews:TRUE];
+    
     // Create label with section title
-    UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake(0, 0, 320, 25);
-    label.backgroundColor = GYMBUDDY_DK_BROWN;
-    label.textColor = [UIColor whiteColor];
-    label.shadowColor = [UIColor clearColor];
-    label.shadowOffset = CGSizeMake(0.0, 1.0);
-    label.font = [UIFont boldSystemFontOfSize:16];
-    label.text = [self convertRawToShortDateString:sectionTitle];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, tableView.frame.size.width, 40.0)];
+    label.font = [UIFont systemFontOfSize:14.0];
+    label.text = [[self convertRawToShortDateString:sectionTitle] capitalizedString];
+    [label setTextColor: kCOLOR_DKGRAY];
+
+    [labelView addSubview:label];
     
-    // Create header view and add label as a subview
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 25)];
-    [view addSubview:label];
-    
-    return view;
+    return labelView;
 }
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return nil;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return 0;
+}
+
+#pragma mark - JBChartView Delegate
+- (void)addSubview:(UIView *)insertedView fillingAndInsertedIntoView:(UIView *)containerView {
+    
+    [containerView addSubview:insertedView];
+    [insertedView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[insertedView]|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:NSDictionaryOfVariableBindings(insertedView)]];
+    [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[insertedView]|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:NSDictionaryOfVariableBindings(insertedView)]];
+    
+    [containerView layoutIfNeeded];
+}
+
+
 
 @end

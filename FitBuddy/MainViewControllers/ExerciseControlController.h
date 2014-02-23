@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Exercise.h"
-#import "GymBuddyMacros.h"
 
 @interface ExerciseControlController : UIViewController
 

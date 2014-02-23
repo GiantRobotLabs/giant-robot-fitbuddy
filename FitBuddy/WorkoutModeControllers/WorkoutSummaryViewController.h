@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @property (nonatomic, strong) NSNumber *finalProgress;
-@property (nonatomic, strong) NSOrderedSet *logbookEntries;
+@property (nonatomic, strong) NSDictionary *logbookEntries;
 @property (nonatomic, strong) NSOrderedSet *skippedEntries;
 
 @property (weak, nonatomic) IBOutlet UILabel *completedValue;

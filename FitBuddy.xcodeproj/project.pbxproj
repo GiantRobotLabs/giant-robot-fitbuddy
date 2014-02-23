@@ -7,27 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D601920F18AFDF0C00255256 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D601920E18AFDF0C00255256 /* DemoViewController.m */; };
+		D601921318AFDF6F00255256 /* DemoContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D601921218AFDF6F00255256 /* DemoContentViewController.m */; };
+		D601921518AFE01600255256 /* Demo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D601921418AFE01600255256 /* Demo.xcassets */; };
 		D60B4CBE14D7A888001ECCE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60B4CBD14D7A888001ECCE3 /* UIKit.framework */; };
 		D60B4CC014D7A888001ECCE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60B4CBF14D7A888001ECCE3 /* Foundation.framework */; };
 		D60B4CC214D7A888001ECCE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60B4CC114D7A888001ECCE3 /* CoreGraphics.framework */; };
+		D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D625E86618B00ED900FFE96D /* WorkoutModeParentController2.m */; };
+		D625E86E18B00EF900FFE96D /* WorkoutModeViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D625E86818B00ED900FFE96D /* WorkoutModeViewController2.m */; };
+		D63E445418AB2CA300A13883 /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E444F18AB2CA300A13883 /* JBBarChartView.m */; };
+		D63E445518AB2CA300A13883 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E445118AB2CA300A13883 /* JBChartView.m */; };
+		D63E445618AB2CA300A13883 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E445318AB2CA300A13883 /* JBLineChartView.m */; };
+		D63E445818AB2DA500A13883 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63E445718AB2DA500A13883 /* QuartzCore.framework */; };
+		D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E446B18ACF49700A13883 /* BarChartDataSource.m */; };
 		D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */; };
-		D67D7CE9170E708300E12E96 /* icon-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D67D7CE6170E708300E12E96 /* icon-big.png */; };
-		D67D7CEA170E708300E12E96 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D67D7CE7170E708300E12E96 /* icon-small.png */; };
 		D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */; };
+		D67E165818B2C7BE001E9257 /* WorkoutSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E165718B2C7BE001E9257 /* WorkoutSequence.m */; };
+		D67E165B18B2C7BE001E9257 /* LogbookEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E165A18B2C7BE001E9257 /* LogbookEntry.m */; };
+		D67E165E18B2C7BE001E9257 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E165D18B2C7BE001E9257 /* Workout.m */; };
+		D67E166118B2C7BE001E9257 /* ResistanceExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166018B2C7BE001E9257 /* ResistanceExercise.m */; };
+		D67E166418B2C7BE001E9257 /* CardioExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166318B2C7BE001E9257 /* CardioExercise.m */; };
+		D67E166718B2C7BE001E9257 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166618B2C7BE001E9257 /* Exercise.m */; };
+		D67E166A18B2C7BE001E9257 /* CardioHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166918B2C7BE001E9257 /* CardioHistory.m */; };
+		D67E166D18B2C7BE001E9257 /* ResistanceHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */; };
+		D67E167018B31C97001E9257 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166E18B31C97001E9257 /* icon-small.png */; };
+		D67E167118B31C97001E9257 /* icon-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166F18B31C97001E9257 /* icon-big.png */; };
+		D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = D696191418A6A793002FE7C2 /* FitBuddyArchive.m */; };
+		D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */; };
+		D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */; };
+		D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AF0218A34990004F599E /* SwitchCell.m */; };
 		D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C26B2A14F15A710068DEA5 /* libz.dylib */; };
 		D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */; };
 		D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA11170E6BB400BA02DA /* CoreDataTableController.m */; };
 		D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA13170E6BB400BA02DA /* CoreDataTableViewController.m */; };
 		D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */; };
 		D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */; };
-		D6C2CA22170E6BB400BA02DA /* SugueCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA1A170E6BB400BA02DA /* SugueCustomViewController.m */; };
-		D6C2CA23170E6BB400BA02DA /* UICheckboxButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA1C170E6BB400BA02DA /* UICheckboxButton.m */; };
-		D6C2CA30170E6BDA00BA02DA /* CardioExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA25170E6BDA00BA02DA /* CardioExercise.m */; };
-		D6C2CA31170E6BDA00BA02DA /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA27170E6BDA00BA02DA /* Exercise.m */; };
-		D6C2CA32170E6BDA00BA02DA /* LogbookEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA29170E6BDA00BA02DA /* LogbookEntry.m */; };
 		D6C2CA33170E6BDA00BA02DA /* LogbookEntry+TDate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */; };
-		D6C2CA34170E6BDA00BA02DA /* ResistanceExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA2D170E6BDA00BA02DA /* ResistanceExercise.m */; };
-		D6C2CA35170E6BDA00BA02DA /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA2F170E6BDA00BA02DA /* Workout.m */; };
 		D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */; };
 		D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */; };
 		D6C2CA42170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */; };
@@ -47,95 +62,72 @@
 		D6C2CA72170E6C8800BA02DA /* WorkoutModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA6C170E6C8800BA02DA /* WorkoutModeViewController.m */; };
 		D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA6E170E6C8800BA02DA /* WorkoutSummaryViewController.m */; };
 		D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */; };
-		D6C2CAB2170E6CD300BA02DA /* background-chrome-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA76170E6CD300BA02DA /* background-chrome-bottom.png */; };
-		D6C2CAB3170E6CD300BA02DA /* background-chrome.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA77170E6CD300BA02DA /* background-chrome.png */; };
-		D6C2CAB4170E6CD300BA02DA /* background-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA78170E6CD300BA02DA /* background-normal.png */; };
-		D6C2CAB5170E6CD300BA02DA /* bg-chrome-cardio.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA79170E6CD300BA02DA /* bg-chrome-cardio.png */; };
-		D6C2CAB6170E6CD300BA02DA /* bg-chrome-workout.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7A170E6CD300BA02DA /* bg-chrome-workout.png */; };
-		D6C2CAB7170E6CD300BA02DA /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7B170E6CD300BA02DA /* black.png */; };
-		D6C2CAB8170E6CD300BA02DA /* button-buddy.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7C170E6CD300BA02DA /* button-buddy.png */; };
-		D6C2CAB9170E6CD300BA02DA /* check-transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7D170E6CD300BA02DA /* check-transparent.png */; };
-		D6C2CABA170E6CD300BA02DA /* check-white.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7E170E6CD300BA02DA /* check-white.png */; };
-		D6C2CABB170E6CD300BA02DA /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA7F170E6CD300BA02DA /* checked.png */; };
-		D6C2CABC170E6CD300BA02DA /* clear.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA80170E6CD300BA02DA /* clear.png */; };
-		D6C2CABD170E6CD300BA02DA /* exercises.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA81170E6CD300BA02DA /* exercises.png */; };
-		D6C2CABE170E6CD300BA02DA /* gb-background-chrome.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA82170E6CD300BA02DA /* gb-background-chrome.png */; };
-		D6C2CABF170E6CD300BA02DA /* gb-background-long.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA83170E6CD300BA02DA /* gb-background-long.png */; };
-		D6C2CAC0170E6CD300BA02DA /* gb-background-ui2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA84170E6CD300BA02DA /* gb-background-ui2.png */; };
-		D6C2CAC1170E6CD300BA02DA /* gb-background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA85170E6CD300BA02DA /* gb-background.png */; };
-		D6C2CAC2170E6CD300BA02DA /* gb-button-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA86170E6CD300BA02DA /* gb-button-big.png */; };
-		D6C2CAC3170E6CD300BA02DA /* gb-button-dark-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA87170E6CD300BA02DA /* gb-button-dark-big.png */; };
-		D6C2CAC4170E6CD300BA02DA /* gb-button-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA88170E6CD300BA02DA /* gb-button-dark.png */; };
-		D6C2CAC5170E6CD300BA02DA /* gb-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA89170E6CD300BA02DA /* gb-button.png */; };
-		D6C2CAC6170E6CD300BA02DA /* gb-cell.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8A170E6CD300BA02DA /* gb-cell.png */; };
-		D6C2CAC7170E6CD300BA02DA /* gb-green-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8B170E6CD300BA02DA /* gb-green-plus.png */; };
-		D6C2CAC8170E6CD300BA02DA /* gb-green.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8C170E6CD300BA02DA /* gb-green.png */; };
-		D6C2CAC9170E6CD300BA02DA /* gb-nostatus.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8D170E6CD300BA02DA /* gb-nostatus.png */; };
-		D6C2CACA170E6CD300BA02DA /* gb-orange.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8E170E6CD300BA02DA /* gb-orange.png */; };
-		D6C2CACB170E6CD300BA02DA /* gb-red.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA8F170E6CD300BA02DA /* gb-red.png */; };
-		D6C2CACC170E6CD300BA02DA /* gb-textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA90170E6CD300BA02DA /* gb-textfield.png */; };
-		D6C2CACD170E6CD300BA02DA /* gb-title.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA91170E6CD300BA02DA /* gb-title.png */; };
-		D6C2CACE170E6CD300BA02DA /* gb-titlebar-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA92170E6CD300BA02DA /* gb-titlebar-1.png */; };
-		D6C2CACF170E6CD300BA02DA /* gb-titlebar-chrome.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA93170E6CD300BA02DA /* gb-titlebar-chrome.png */; };
-		D6C2CAD0170E6CD300BA02DA /* gb-titlebar.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA94170E6CD300BA02DA /* gb-titlebar.png */; };
-		D6C2CAD1170E6CD300BA02DA /* gb-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA95170E6CD300BA02DA /* gb-undo.png */; };
-		D6C2CAD2170E6CD300BA02DA /* icon-5757.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA96170E6CD300BA02DA /* icon-5757.png */; };
-		D6C2CAD3170E6CD300BA02DA /* icon-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA97170E6CD300BA02DA /* icon-big.png */; };
-		D6C2CAD4170E6CD300BA02DA /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA98170E6CD300BA02DA /* icon-small.png */; };
-		D6C2CAD5170E6CD300BA02DA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA99170E6CD300BA02DA /* icon.png */; };
-		D6C2CAD6170E6CD300BA02DA /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9A170E6CD300BA02DA /* icon2.png */; };
-		D6C2CAD7170E6CD300BA02DA /* instructions-background.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9B170E6CD300BA02DA /* instructions-background.png */; };
-		D6C2CAD8170E6CD300BA02DA /* instructions-justwords.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9C170E6CD300BA02DA /* instructions-justwords.png */; };
-		D6C2CAD9170E6CD300BA02DA /* logbook.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9D170E6CD300BA02DA /* logbook.png */; };
-		D6C2CADA170E6CD300BA02DA /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9E170E6CD300BA02DA /* red.png */; };
-		D6C2CADB170E6CD300BA02DA /* run.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA9F170E6CD300BA02DA /* run.png */; };
-		D6C2CADC170E6CD300BA02DA /* sm-checked.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA0170E6CD300BA02DA /* sm-checked.png */; };
-		D6C2CADD170E6CD300BA02DA /* sm-unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA1170E6CD300BA02DA /* sm-unchecked.png */; };
-		D6C2CADE170E6CD300BA02DA /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA2170E6CD300BA02DA /* success.png */; };
-		D6C2CADF170E6CD300BA02DA /* tb-chrome-cardio.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA3170E6CD300BA02DA /* tb-chrome-cardio.png */; };
-		D6C2CAE0170E6CD300BA02DA /* tb-chrome-workout.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA4170E6CD300BA02DA /* tb-chrome-workout.png */; };
-		D6C2CAE1170E6CD300BA02DA /* titlebar-chrome.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA5170E6CD300BA02DA /* titlebar-chrome.png */; };
-		D6C2CAE2170E6CD300BA02DA /* titlebar.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA6170E6CD300BA02DA /* titlebar.png */; };
-		D6C2CAE3170E6CD300BA02DA /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA7170E6CD300BA02DA /* unchecked.png */; };
-		D6C2CAE4170E6CD300BA02DA /* unworkout.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA8170E6CD300BA02DA /* unworkout.png */; };
-		D6C2CAE5170E6CD300BA02DA /* workout-navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAA9170E6CD300BA02DA /* workout-navbar@2x.png */; };
-		D6C2CAE6170E6CD300BA02DA /* workout-transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAA170E6CD300BA02DA /* workout-transparent.png */; };
-		D6C2CAE7170E6CD300BA02DA /* workout.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAB170E6CD300BA02DA /* workout.png */; };
-		D6C2CAE8170E6CD300BA02DA /* workoutbar-run.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAC170E6CD300BA02DA /* workoutbar-run.png */; };
-		D6C2CAE9170E6CD300BA02DA /* workoutbar-run@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAD170E6CD300BA02DA /* workoutbar-run@2x.png */; };
-		D6C2CAEA170E6CD300BA02DA /* workoutbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAE170E6CD300BA02DA /* workoutbar.png */; };
-		D6C2CAEB170E6CD300BA02DA /* workoutbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAAF170E6CD300BA02DA /* workoutbar@2x.png */; };
-		D6C2CAEC170E6CD300BA02DA /* workoutnavbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAB0170E6CD300BA02DA /* workoutnavbar.png */; };
-		D6C2CAED170E6CD300BA02DA /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAB1170E6CD300BA02DA /* x.png */; };
-		D6C2CAFA170E6CF100BA02DA /* demo1.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAEF170E6CF100BA02DA /* demo1.png */; };
-		D6C2CAFB170E6CF100BA02DA /* demo2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF0170E6CF100BA02DA /* demo2.png */; };
-		D6C2CAFC170E6CF100BA02DA /* demo3.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF1170E6CF100BA02DA /* demo3.png */; };
-		D6C2CAFD170E6CF100BA02DA /* demo4.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF2170E6CF100BA02DA /* demo4.png */; };
-		D6C2CAFE170E6CF100BA02DA /* demo5.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF3170E6CF100BA02DA /* demo5.png */; };
-		D6C2CAFF170E6CF100BA02DA /* demo6.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF4170E6CF100BA02DA /* demo6.png */; };
-		D6C2CB00170E6CF100BA02DA /* demo7.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF5170E6CF100BA02DA /* demo7.png */; };
-		D6C2CB01170E6CF100BA02DA /* demo8.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF6170E6CF100BA02DA /* demo8.png */; };
-		D6C2CB02170E6CF100BA02DA /* demo9.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CAF7170E6CF100BA02DA /* demo9.png */; };
-		D6C2CB03170E6CF100BA02DA /* DemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CAF9170E6CF100BA02DA /* DemoView.m */; };
-		D6C2CB07170E6D2500BA02DA /* FitBuddy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CB04170E6D2500BA02DA /* FitBuddy-Info.plist */; };
 		D6C2CB08170E6D2500BA02DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CB06170E6D2500BA02DA /* main.m */; };
 		D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CB0A170E6D5300BA02DA /* InfoPlist.strings */; };
 		D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
+		D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FF1D141870B50A004A1D2A /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D601920D18AFDF0C00255256 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoViewController.h; path = Demo/DemoViewController.h; sourceTree = SOURCE_ROOT; };
+		D601920E18AFDF0C00255256 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoViewController.m; path = Demo/DemoViewController.m; sourceTree = SOURCE_ROOT; };
+		D601921118AFDF6F00255256 /* DemoContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoContentViewController.h; path = Demo/DemoContentViewController.h; sourceTree = SOURCE_ROOT; };
+		D601921218AFDF6F00255256 /* DemoContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoContentViewController.m; path = Demo/DemoContentViewController.m; sourceTree = SOURCE_ROOT; };
+		D601921418AFE01600255256 /* Demo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Demo.xcassets; sourceTree = SOURCE_ROOT; };
 		D60B4CBD14D7A888001ECCE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D60B4CBF14D7A888001ECCE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D60B4CC114D7A888001ECCE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D611806D18B10C9200786DBF /* GymBuddyModel1.4.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.2.xcdatamodel; sourceTree = "<group>"; };
 		D6135CD3151027D30055F337 /* FitBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D625E86518B00ED900FFE96D /* WorkoutModeParentController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutModeParentController2.h; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeParentController2.h; sourceTree = SOURCE_ROOT; };
+		D625E86618B00ED900FFE96D /* WorkoutModeParentController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutModeParentController2.m; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeParentController2.m; sourceTree = SOURCE_ROOT; };
+		D625E86718B00ED900FFE96D /* WorkoutModeViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutModeViewController2.h; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeViewController2.h; sourceTree = SOURCE_ROOT; };
+		D625E86818B00ED900FFE96D /* WorkoutModeViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutModeViewController2.m; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeViewController2.m; sourceTree = SOURCE_ROOT; };
+		D63E444E18AB2CA300A13883 /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = SOURCE_ROOT; };
+		D63E444F18AB2CA300A13883 /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = SOURCE_ROOT; };
+		D63E445018AB2CA300A13883 /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = SOURCE_ROOT; };
+		D63E445118AB2CA300A13883 /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = SOURCE_ROOT; };
+		D63E445218AB2CA300A13883 /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = SOURCE_ROOT; };
+		D63E445318AB2CA300A13883 /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = SOURCE_ROOT; };
+		D63E445718AB2DA500A13883 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D63E445918AC662000A13883 /* GymBuddyModel1. 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GymBuddyModel1. 4.xcdatamodel"; sourceTree = "<group>"; };
+		D63E446918AC994600A13883 /* GymBuddyModel1.4.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.1.xcdatamodel; sourceTree = "<group>"; };
+		D63E446A18ACF49700A13883 /* BarChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarChartDataSource.h; path = FitBuddy/CoreData/BarChartDataSource.h; sourceTree = SOURCE_ROOT; };
+		D63E446B18ACF49700A13883 /* BarChartDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarChartDataSource.m; path = FitBuddy/CoreData/BarChartDataSource.m; sourceTree = SOURCE_ROOT; };
 		D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FitBuddy.entitlements; sourceTree = SOURCE_ROOT; };
-		D67D7CE6170E708300E12E96 /* icon-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-big.png"; sourceTree = SOURCE_ROOT; };
-		D67D7CE7170E708300E12E96 /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = SOURCE_ROOT; };
 		D67D7CF4170E75DC00E12E96 /* GymBuddyModel0.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel0.0.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF5170E75DC00E12E96 /* GymBuddyModel1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.0.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF6170E75DC00E12E96 /* GymBuddyModel1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.1.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF7170E75DC00E12E96 /* GymBuddyModel1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.2.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF8170E75DC00E12E96 /* GymBuddyModel1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.3.xcdatamodel; sourceTree = "<group>"; };
+		D67E15FD18B2A3E4001E9257 /* GymBuddyModel1.4.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.4.xcdatamodel; sourceTree = "<group>"; };
+		D67E161618B2A4EE001E9257 /* GymBuddyModel1.4.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = GymBuddyModel1.4.5.xcdatamodel; sourceTree = "<group>"; };
+		D67E165618B2C7BE001E9257 /* WorkoutSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutSequence.h; path = FitBuddy/CoreData/WorkoutSequence.h; sourceTree = SOURCE_ROOT; };
+		D67E165718B2C7BE001E9257 /* WorkoutSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutSequence.m; path = FitBuddy/CoreData/WorkoutSequence.m; sourceTree = SOURCE_ROOT; };
+		D67E165918B2C7BE001E9257 /* LogbookEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogbookEntry.h; path = FitBuddy/CoreData/LogbookEntry.h; sourceTree = SOURCE_ROOT; };
+		D67E165A18B2C7BE001E9257 /* LogbookEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogbookEntry.m; path = FitBuddy/CoreData/LogbookEntry.m; sourceTree = SOURCE_ROOT; };
+		D67E165C18B2C7BE001E9257 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = FitBuddy/CoreData/Workout.h; sourceTree = SOURCE_ROOT; };
+		D67E165D18B2C7BE001E9257 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = FitBuddy/CoreData/Workout.m; sourceTree = SOURCE_ROOT; };
+		D67E165F18B2C7BE001E9257 /* ResistanceExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceExercise.h; path = FitBuddy/CoreData/ResistanceExercise.h; sourceTree = SOURCE_ROOT; };
+		D67E166018B2C7BE001E9257 /* ResistanceExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceExercise.m; path = FitBuddy/CoreData/ResistanceExercise.m; sourceTree = SOURCE_ROOT; };
+		D67E166218B2C7BE001E9257 /* CardioExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioExercise.h; path = FitBuddy/CoreData/CardioExercise.h; sourceTree = SOURCE_ROOT; };
+		D67E166318B2C7BE001E9257 /* CardioExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioExercise.m; path = FitBuddy/CoreData/CardioExercise.m; sourceTree = SOURCE_ROOT; };
+		D67E166518B2C7BE001E9257 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = FitBuddy/CoreData/Exercise.h; sourceTree = SOURCE_ROOT; };
+		D67E166618B2C7BE001E9257 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = FitBuddy/CoreData/Exercise.m; sourceTree = SOURCE_ROOT; };
+		D67E166818B2C7BE001E9257 /* CardioHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioHistory.h; path = FitBuddy/CoreData/CardioHistory.h; sourceTree = SOURCE_ROOT; };
+		D67E166918B2C7BE001E9257 /* CardioHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioHistory.m; path = FitBuddy/CoreData/CardioHistory.m; sourceTree = SOURCE_ROOT; };
+		D67E166B18B2C7BE001E9257 /* ResistanceHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceHistory.h; path = FitBuddy/CoreData/ResistanceHistory.h; sourceTree = SOURCE_ROOT; };
+		D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceHistory.m; path = FitBuddy/CoreData/ResistanceHistory.m; sourceTree = SOURCE_ROOT; };
+		D67E166E18B31C97001E9257 /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = SOURCE_ROOT; };
+		D67E166F18B31C97001E9257 /* icon-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-big.png"; sourceTree = SOURCE_ROOT; };
+		D687065C18B165740078187D /* GymBuddyModel1.4.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.3.xcdatamodel; sourceTree = "<group>"; };
+		D687067018B291740078187D /* GymBuddyModel1.4.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.4.xcdatamodel; sourceTree = "<group>"; };
+		D696191318A6A793002FE7C2 /* FitBuddyArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FitBuddyArchive.h; path = FitBuddy/CoreData/FitBuddyArchive.h; sourceTree = SOURCE_ROOT; };
+		D696191418A6A793002FE7C2 /* FitBuddyArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FitBuddyArchive.m; path = FitBuddy/CoreData/FitBuddyArchive.m; sourceTree = SOURCE_ROOT; };
+		D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-Autolayout.storyboard"; sourceTree = SOURCE_ROOT; };
+		D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutControlerComponent.xib; sourceTree = SOURCE_ROOT; };
+		D6C0AF0118A34990004F599E /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = SOURCE_ROOT; };
+		D6C0AF0218A34990004F599E /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = SOURCE_ROOT; };
 		D6C26B2A14F15A710068DEA5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D6C2CA0E170E6BB400BA02DA /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = FitBuddy/Components/CoreDataHelper.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = FitBuddy/Components/CoreDataHelper.m; sourceTree = SOURCE_ROOT; };
@@ -145,25 +137,11 @@
 		D6C2CA13170E6BB400BA02DA /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataTableViewController.m; path = FitBuddy/Components/CoreDataTableViewController.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA14170E6BB400BA02DA /* GymBuddyAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GymBuddyAppDelegate.h; path = FitBuddy/Components/GymBuddyAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GymBuddyAppDelegate.m; path = FitBuddy/Components/GymBuddyAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA16170E6BB400BA02DA /* GymBuddyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GymBuddyMacros.h; path = FitBuddy/Components/GymBuddyMacros.h; sourceTree = SOURCE_ROOT; };
+		D6C2CA16170E6BB400BA02DA /* FitBuddyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FitBuddyMacros.h; path = FitBuddy/Components/FitBuddyMacros.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA17170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+CocoaDevUsersAdditions.h"; path = "FitBuddy/Components/NSData+CocoaDevUsersAdditions.h"; sourceTree = SOURCE_ROOT; };
 		D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+CocoaDevUsersAdditions.m"; path = "FitBuddy/Components/NSData+CocoaDevUsersAdditions.m"; sourceTree = SOURCE_ROOT; };
-		D6C2CA19170E6BB400BA02DA /* SugueCustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SugueCustomViewController.h; path = FitBuddy/Components/SugueCustomViewController.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA1A170E6BB400BA02DA /* SugueCustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SugueCustomViewController.m; path = FitBuddy/Components/SugueCustomViewController.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA1B170E6BB400BA02DA /* UICheckboxButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICheckboxButton.h; path = FitBuddy/Components/UICheckboxButton.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA1C170E6BB400BA02DA /* UICheckboxButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UICheckboxButton.m; path = FitBuddy/Components/UICheckboxButton.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA24170E6BDA00BA02DA /* CardioExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioExercise.h; path = FitBuddy/CoreData/CardioExercise.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA25170E6BDA00BA02DA /* CardioExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioExercise.m; path = FitBuddy/CoreData/CardioExercise.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA26170E6BDA00BA02DA /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = FitBuddy/CoreData/Exercise.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA27170E6BDA00BA02DA /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = FitBuddy/CoreData/Exercise.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA28170E6BDA00BA02DA /* LogbookEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogbookEntry.h; path = FitBuddy/CoreData/LogbookEntry.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA29170E6BDA00BA02DA /* LogbookEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogbookEntry.m; path = FitBuddy/CoreData/LogbookEntry.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA2A170E6BDA00BA02DA /* LogbookEntry+TDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LogbookEntry+TDate.h"; path = "FitBuddy/CoreData/LogbookEntry+TDate.h"; sourceTree = SOURCE_ROOT; };
 		D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LogbookEntry+TDate.m"; path = "FitBuddy/CoreData/LogbookEntry+TDate.m"; sourceTree = SOURCE_ROOT; };
-		D6C2CA2C170E6BDA00BA02DA /* ResistanceExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceExercise.h; path = FitBuddy/CoreData/ResistanceExercise.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA2D170E6BDA00BA02DA /* ResistanceExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceExercise.m; path = FitBuddy/CoreData/ResistanceExercise.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA2E170E6BDA00BA02DA /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = FitBuddy/CoreData/Workout.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA2F170E6BDA00BA02DA /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = FitBuddy/CoreData/Workout.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.0.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.0.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.1.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.1.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.2.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.2.xcmappingmodel; sourceTree = SOURCE_ROOT; };
@@ -197,82 +175,13 @@
 		D6C2CA6E170E6C8800BA02DA /* WorkoutSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSummaryViewController.m; sourceTree = "<group>"; };
 		D6C2CA6F170E6C8800BA02DA /* WorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutViewController.h; sourceTree = "<group>"; };
 		D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
-		D6C2CA76170E6CD300BA02DA /* background-chrome-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-chrome-bottom.png"; sourceTree = "<group>"; };
-		D6C2CA77170E6CD300BA02DA /* background-chrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-chrome.png"; sourceTree = "<group>"; };
-		D6C2CA78170E6CD300BA02DA /* background-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-normal.png"; sourceTree = "<group>"; };
-		D6C2CA79170E6CD300BA02DA /* bg-chrome-cardio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-chrome-cardio.png"; sourceTree = "<group>"; };
-		D6C2CA7A170E6CD300BA02DA /* bg-chrome-workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-chrome-workout.png"; sourceTree = "<group>"; };
-		D6C2CA7B170E6CD300BA02DA /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
-		D6C2CA7C170E6CD300BA02DA /* button-buddy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-buddy.png"; sourceTree = "<group>"; };
-		D6C2CA7D170E6CD300BA02DA /* check-transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-transparent.png"; sourceTree = "<group>"; };
-		D6C2CA7E170E6CD300BA02DA /* check-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-white.png"; sourceTree = "<group>"; };
-		D6C2CA7F170E6CD300BA02DA /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
-		D6C2CA80170E6CD300BA02DA /* clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clear.png; sourceTree = "<group>"; };
-		D6C2CA81170E6CD300BA02DA /* exercises.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exercises.png; sourceTree = "<group>"; };
-		D6C2CA82170E6CD300BA02DA /* gb-background-chrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-background-chrome.png"; sourceTree = "<group>"; };
-		D6C2CA83170E6CD300BA02DA /* gb-background-long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-background-long.png"; sourceTree = "<group>"; };
-		D6C2CA84170E6CD300BA02DA /* gb-background-ui2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-background-ui2.png"; sourceTree = "<group>"; };
-		D6C2CA85170E6CD300BA02DA /* gb-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-background.png"; sourceTree = "<group>"; };
-		D6C2CA86170E6CD300BA02DA /* gb-button-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-button-big.png"; sourceTree = "<group>"; };
-		D6C2CA87170E6CD300BA02DA /* gb-button-dark-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-button-dark-big.png"; sourceTree = "<group>"; };
-		D6C2CA88170E6CD300BA02DA /* gb-button-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-button-dark.png"; sourceTree = "<group>"; };
-		D6C2CA89170E6CD300BA02DA /* gb-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-button.png"; sourceTree = "<group>"; };
-		D6C2CA8A170E6CD300BA02DA /* gb-cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-cell.png"; sourceTree = "<group>"; };
-		D6C2CA8B170E6CD300BA02DA /* gb-green-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-green-plus.png"; sourceTree = "<group>"; };
-		D6C2CA8C170E6CD300BA02DA /* gb-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-green.png"; sourceTree = "<group>"; };
-		D6C2CA8D170E6CD300BA02DA /* gb-nostatus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-nostatus.png"; sourceTree = "<group>"; };
-		D6C2CA8E170E6CD300BA02DA /* gb-orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-orange.png"; sourceTree = "<group>"; };
-		D6C2CA8F170E6CD300BA02DA /* gb-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-red.png"; sourceTree = "<group>"; };
-		D6C2CA90170E6CD300BA02DA /* gb-textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-textfield.png"; sourceTree = "<group>"; };
-		D6C2CA91170E6CD300BA02DA /* gb-title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-title.png"; sourceTree = "<group>"; };
-		D6C2CA92170E6CD300BA02DA /* gb-titlebar-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-titlebar-1.png"; sourceTree = "<group>"; };
-		D6C2CA93170E6CD300BA02DA /* gb-titlebar-chrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-titlebar-chrome.png"; sourceTree = "<group>"; };
-		D6C2CA94170E6CD300BA02DA /* gb-titlebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-titlebar.png"; sourceTree = "<group>"; };
-		D6C2CA95170E6CD300BA02DA /* gb-undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gb-undo.png"; sourceTree = "<group>"; };
-		D6C2CA96170E6CD300BA02DA /* icon-5757.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-5757.png"; sourceTree = "<group>"; };
-		D6C2CA97170E6CD300BA02DA /* icon-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-big.png"; sourceTree = "<group>"; };
-		D6C2CA98170E6CD300BA02DA /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
-		D6C2CA99170E6CD300BA02DA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		D6C2CA9A170E6CD300BA02DA /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
-		D6C2CA9B170E6CD300BA02DA /* instructions-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instructions-background.png"; sourceTree = "<group>"; };
-		D6C2CA9C170E6CD300BA02DA /* instructions-justwords.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instructions-justwords.png"; sourceTree = "<group>"; };
-		D6C2CA9D170E6CD300BA02DA /* logbook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logbook.png; sourceTree = "<group>"; };
-		D6C2CA9E170E6CD300BA02DA /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
-		D6C2CA9F170E6CD300BA02DA /* run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run.png; sourceTree = "<group>"; };
-		D6C2CAA0170E6CD300BA02DA /* sm-checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sm-checked.png"; sourceTree = "<group>"; };
-		D6C2CAA1170E6CD300BA02DA /* sm-unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sm-unchecked.png"; sourceTree = "<group>"; };
-		D6C2CAA2170E6CD300BA02DA /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
-		D6C2CAA3170E6CD300BA02DA /* tb-chrome-cardio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tb-chrome-cardio.png"; sourceTree = "<group>"; };
-		D6C2CAA4170E6CD300BA02DA /* tb-chrome-workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tb-chrome-workout.png"; sourceTree = "<group>"; };
-		D6C2CAA5170E6CD300BA02DA /* titlebar-chrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar-chrome.png"; sourceTree = "<group>"; };
-		D6C2CAA6170E6CD300BA02DA /* titlebar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titlebar.png; sourceTree = "<group>"; };
-		D6C2CAA7170E6CD300BA02DA /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
-		D6C2CAA8170E6CD300BA02DA /* unworkout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unworkout.png; sourceTree = "<group>"; };
-		D6C2CAA9170E6CD300BA02DA /* workout-navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout-navbar@2x.png"; sourceTree = "<group>"; };
-		D6C2CAAA170E6CD300BA02DA /* workout-transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workout-transparent.png"; sourceTree = "<group>"; };
-		D6C2CAAB170E6CD300BA02DA /* workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workout.png; sourceTree = "<group>"; };
-		D6C2CAAC170E6CD300BA02DA /* workoutbar-run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workoutbar-run.png"; sourceTree = "<group>"; };
-		D6C2CAAD170E6CD300BA02DA /* workoutbar-run@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workoutbar-run@2x.png"; sourceTree = "<group>"; };
-		D6C2CAAE170E6CD300BA02DA /* workoutbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workoutbar.png; sourceTree = "<group>"; };
-		D6C2CAAF170E6CD300BA02DA /* workoutbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "workoutbar@2x.png"; sourceTree = "<group>"; };
-		D6C2CAB0170E6CD300BA02DA /* workoutnavbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workoutnavbar.png; sourceTree = "<group>"; };
-		D6C2CAB1170E6CD300BA02DA /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
-		D6C2CAEF170E6CF100BA02DA /* demo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo1.png; sourceTree = "<group>"; };
-		D6C2CAF0170E6CF100BA02DA /* demo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo2.png; sourceTree = "<group>"; };
-		D6C2CAF1170E6CF100BA02DA /* demo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo3.png; sourceTree = "<group>"; };
-		D6C2CAF2170E6CF100BA02DA /* demo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo4.png; sourceTree = "<group>"; };
-		D6C2CAF3170E6CF100BA02DA /* demo5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo5.png; sourceTree = "<group>"; };
-		D6C2CAF4170E6CF100BA02DA /* demo6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo6.png; sourceTree = "<group>"; };
-		D6C2CAF5170E6CF100BA02DA /* demo7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo7.png; sourceTree = "<group>"; };
-		D6C2CAF6170E6CF100BA02DA /* demo8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo8.png; sourceTree = "<group>"; };
-		D6C2CAF7170E6CF100BA02DA /* demo9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo9.png; sourceTree = "<group>"; };
-		D6C2CAF8170E6CF100BA02DA /* DemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoView.h; sourceTree = "<group>"; };
-		D6C2CAF9170E6CF100BA02DA /* DemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoView.m; sourceTree = "<group>"; };
 		D6C2CB04170E6D2500BA02DA /* FitBuddy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FitBuddy-Info.plist"; path = "FitBuddy/FitBuddy-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D6C2CB05170E6D2500BA02DA /* FitBuddy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FitBuddy-Prefix.pch"; path = "FitBuddy/FitBuddy-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D6C2CB06170E6D2500BA02DA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FitBuddy/main.m; sourceTree = SOURCE_ROOT; };
 		D6C2CB0B170E6D5300BA02DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		D6CBFE0A18B0A435001119E1 /* Screenshots.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Screenshots.xcassets; sourceTree = SOURCE_ROOT; };
 		D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D6FF1D141870B50A004A1D2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FitBuddy/Images.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */,
+				D63E445818AB2DA500A13883 /* QuartzCore.framework in Frameworks */,
 				D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */,
 				D60B4CBE14D7A888001ECCE3 /* UIKit.framework in Frameworks */,
 				D60B4CC014D7A888001ECCE3 /* Foundation.framework in Frameworks */,
@@ -291,6 +201,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D601921018AFDF1300255256 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D601920D18AFDF0C00255256 /* DemoViewController.h */,
+				D601920E18AFDF0C00255256 /* DemoViewController.m */,
+				D601921118AFDF6F00255256 /* DemoContentViewController.h */,
+				D601921218AFDF6F00255256 /* DemoContentViewController.m */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
 		D60B4CAE14D7A888001ECCE3 = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +224,7 @@
 		D60B4CBC14D7A888001ECCE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D63E445718AB2DA500A13883 /* QuartzCore.framework */,
 				D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */,
 				D60B4CBD14D7A888001ECCE3 /* UIKit.framework */,
 				D60B4CBF14D7A888001ECCE3 /* Foundation.framework */,
@@ -314,12 +236,17 @@
 		D60B4CC314D7A888001ECCE3 /* FitBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				D696191B18A6AC8B002FE7C2 /* AppDelegate */,
 				D6C2CA65170E6C4C00BA02DA /* MainViewControllers */,
+				D625E85818B00D5600FFE96D /* New Workout Mode */,
 				D6C2CA68170E6C8800BA02DA /* WorkoutModeControllers */,
+				D696191118A6A066002FE7C2 /* Settings Controllers */,
+				D696191A18A6A9C4002FE7C2 /* Utilities */,
 				D67825D614E583B600C00BD4 /* Components */,
-				D67825D814E583FC00C00BD4 /* CoreData */,
+				D67825D814E583FC00C00BD4 /* CoreData Model */,
 				D67825D714E583E600C00BD4 /* Storyboards */,
 				D60B4CC414D7A888001ECCE3 /* Supporting Files */,
+				D601921018AFDF1300255256 /* Demo */,
 			);
 			name = FitBuddy;
 			path = GymBuddy;
@@ -328,12 +255,10 @@
 		D60B4CC414D7A888001ECCE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D67E166E18B31C97001E9257 /* icon-small.png */,
+				D67E166F18B31C97001E9257 /* icon-big.png */,
 				D6C2CB09170E6D5300BA02DA /* en.lproj */,
-				D6C2CAEE170E6CF100BA02DA /* Demo */,
-				D6C2CA75170E6CD300BA02DA /* Images */,
 				D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */,
-				D67D7CE6170E708300E12E96 /* icon-big.png */,
-				D67D7CE7170E708300E12E96 /* icon-small.png */,
 				D6C2CB04170E6D2500BA02DA /* FitBuddy-Info.plist */,
 				D6C2CB05170E6D2500BA02DA /* FitBuddy-Prefix.pch */,
 				D6C2CB06170E6D2500BA02DA /* main.m */,
@@ -342,24 +267,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D625E85818B00D5600FFE96D /* New Workout Mode */ = {
+			isa = PBXGroup;
+			children = (
+				D625E86518B00ED900FFE96D /* WorkoutModeParentController2.h */,
+				D625E86618B00ED900FFE96D /* WorkoutModeParentController2.m */,
+				D625E86718B00ED900FFE96D /* WorkoutModeViewController2.h */,
+				D625E86818B00ED900FFE96D /* WorkoutModeViewController2.m */,
+			);
+			name = "New Workout Mode";
+			path = ../FitBuddy/WorkoutModeControllers;
+			sourceTree = "<group>";
+		};
+		D63E444218AB29BF00A13883 /* JBChartView */ = {
+			isa = PBXGroup;
+			children = (
+				D63E444E18AB2CA300A13883 /* JBBarChartView.h */,
+				D63E444F18AB2CA300A13883 /* JBBarChartView.m */,
+				D63E445018AB2CA300A13883 /* JBChartView.h */,
+				D63E445118AB2CA300A13883 /* JBChartView.m */,
+				D63E445218AB2CA300A13883 /* JBLineChartView.h */,
+				D63E445318AB2CA300A13883 /* JBLineChartView.m */,
+			);
+			name = JBChartView;
+			path = Classes;
+			sourceTree = SOURCE_ROOT;
+		};
 		D67825D614E583B600C00BD4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D6C2CA0E170E6BB400BA02DA /* CoreDataHelper.h */,
-				D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */,
+				D63E444218AB29BF00A13883 /* JBChartView */,
+				D6C0AF0118A34990004F599E /* SwitchCell.h */,
+				D6C0AF0218A34990004F599E /* SwitchCell.m */,
 				D6C2CA10170E6BB400BA02DA /* CoreDataTableController.h */,
 				D6C2CA11170E6BB400BA02DA /* CoreDataTableController.m */,
 				D6C2CA12170E6BB400BA02DA /* CoreDataTableViewController.h */,
 				D6C2CA13170E6BB400BA02DA /* CoreDataTableViewController.m */,
-				D6C2CA14170E6BB400BA02DA /* GymBuddyAppDelegate.h */,
-				D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */,
-				D6C2CA16170E6BB400BA02DA /* GymBuddyMacros.h */,
-				D6C2CA17170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.h */,
-				D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */,
-				D6C2CA19170E6BB400BA02DA /* SugueCustomViewController.h */,
-				D6C2CA1A170E6BB400BA02DA /* SugueCustomViewController.m */,
-				D6C2CA1B170E6BB400BA02DA /* UICheckboxButton.h */,
-				D6C2CA1C170E6BB400BA02DA /* UICheckboxButton.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -367,33 +310,80 @@
 		D67825D714E583E600C00BD4 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				D6FF1D141870B50A004A1D2A /* Images.xcassets */,
+				D6CBFE0A18B0A435001119E1 /* Screenshots.xcassets */,
+				D601921418AFE01600255256 /* Demo.xcassets */,
 				D6C2CA45170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard */,
+				D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */,
+				D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		D67825D814E583FC00C00BD4 /* CoreData */ = {
+		D67825D814E583FC00C00BD4 /* CoreData Model */ = {
 			isa = PBXGroup;
 			children = (
 				D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */,
+				D67E165C18B2C7BE001E9257 /* Workout.h */,
+				D67E165D18B2C7BE001E9257 /* Workout.m */,
+				D67E166B18B2C7BE001E9257 /* ResistanceHistory.h */,
+				D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */,
+				D67E166818B2C7BE001E9257 /* CardioHistory.h */,
+				D67E166918B2C7BE001E9257 /* CardioHistory.m */,
+				D67E166518B2C7BE001E9257 /* Exercise.h */,
+				D67E166618B2C7BE001E9257 /* Exercise.m */,
+				D67E166218B2C7BE001E9257 /* CardioExercise.h */,
+				D67E166318B2C7BE001E9257 /* CardioExercise.m */,
+				D67E165F18B2C7BE001E9257 /* ResistanceExercise.h */,
+				D67E166018B2C7BE001E9257 /* ResistanceExercise.m */,
+				D67E165918B2C7BE001E9257 /* LogbookEntry.h */,
+				D67E165A18B2C7BE001E9257 /* LogbookEntry.m */,
+				D67E165618B2C7BE001E9257 /* WorkoutSequence.h */,
+				D67E165718B2C7BE001E9257 /* WorkoutSequence.m */,
+				D6C2CA2A170E6BDA00BA02DA /* LogbookEntry+TDate.h */,
+				D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */,
 				D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */,
 				D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */,
 				D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */,
 				D6C2CA39170E6C0100BA02DA /* GymBuddyMappingModel1.3.xcmappingmodel */,
-				D6C2CA24170E6BDA00BA02DA /* CardioExercise.h */,
-				D6C2CA25170E6BDA00BA02DA /* CardioExercise.m */,
-				D6C2CA26170E6BDA00BA02DA /* Exercise.h */,
-				D6C2CA27170E6BDA00BA02DA /* Exercise.m */,
-				D6C2CA28170E6BDA00BA02DA /* LogbookEntry.h */,
-				D6C2CA29170E6BDA00BA02DA /* LogbookEntry.m */,
-				D6C2CA2A170E6BDA00BA02DA /* LogbookEntry+TDate.h */,
-				D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */,
-				D6C2CA2C170E6BDA00BA02DA /* ResistanceExercise.h */,
-				D6C2CA2D170E6BDA00BA02DA /* ResistanceExercise.m */,
-				D6C2CA2E170E6BDA00BA02DA /* Workout.h */,
-				D6C2CA2F170E6BDA00BA02DA /* Workout.m */,
 			);
-			name = CoreData;
+			name = "CoreData Model";
+			sourceTree = "<group>";
+		};
+		D696191118A6A066002FE7C2 /* Settings Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D6C2CA55170E6C4000BA02DA /* SettingsIncrementViewController.h */,
+				D6C2CA56170E6C4000BA02DA /* SettingsIncrementViewController.m */,
+				D6C2CA57170E6C4000BA02DA /* SettingsViewController.h */,
+				D6C2CA58170E6C4000BA02DA /* SettingsViewController.m */,
+			);
+			name = "Settings Controllers";
+			sourceTree = "<group>";
+		};
+		D696191A18A6A9C4002FE7C2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D6C2CA16170E6BB400BA02DA /* FitBuddyMacros.h */,
+				D63E446A18ACF49700A13883 /* BarChartDataSource.h */,
+				D63E446B18ACF49700A13883 /* BarChartDataSource.m */,
+				D6C2CA0E170E6BB400BA02DA /* CoreDataHelper.h */,
+				D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */,
+				D696191318A6A793002FE7C2 /* FitBuddyArchive.h */,
+				D696191418A6A793002FE7C2 /* FitBuddyArchive.m */,
+				D6C2CA17170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.h */,
+				D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		D696191B18A6AC8B002FE7C2 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D6C2CA14170E6BB400BA02DA /* GymBuddyAppDelegate.h */,
+				D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 		D6C2CA65170E6C4C00BA02DA /* MainViewControllers */ = {
@@ -413,12 +403,6 @@
 				D6C2CA52170E6C4000BA02DA /* LogbookViewController.m */,
 				D6C2CA53170E6C4000BA02DA /* NotesEditorViewController.h */,
 				D6C2CA54170E6C4000BA02DA /* NotesEditorViewController.m */,
-				D6C2CA55170E6C4000BA02DA /* SettingsIncrementViewController.h */,
-				D6C2CA56170E6C4000BA02DA /* SettingsIncrementViewController.m */,
-				D6C2CA57170E6C4000BA02DA /* SettingsViewController.h */,
-				D6C2CA58170E6C4000BA02DA /* SettingsViewController.m */,
-				D6C2CA59170E6C4000BA02DA /* WorkoutAddViewController.h */,
-				D6C2CA5A170E6C4000BA02DA /* WorkoutAddViewController.m */,
 			);
 			name = MainViewControllers;
 			sourceTree = "<group>";
@@ -432,98 +416,13 @@
 				D6C2CA6C170E6C8800BA02DA /* WorkoutModeViewController.m */,
 				D6C2CA6D170E6C8800BA02DA /* WorkoutSummaryViewController.h */,
 				D6C2CA6E170E6C8800BA02DA /* WorkoutSummaryViewController.m */,
+				D6C2CA59170E6C4000BA02DA /* WorkoutAddViewController.h */,
+				D6C2CA5A170E6C4000BA02DA /* WorkoutAddViewController.m */,
 				D6C2CA6F170E6C8800BA02DA /* WorkoutViewController.h */,
 				D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */,
 			);
 			name = WorkoutModeControllers;
 			path = FitBuddy/WorkoutModeControllers;
-			sourceTree = SOURCE_ROOT;
-		};
-		D6C2CA75170E6CD300BA02DA /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				D6C2CA76170E6CD300BA02DA /* background-chrome-bottom.png */,
-				D6C2CA77170E6CD300BA02DA /* background-chrome.png */,
-				D6C2CA78170E6CD300BA02DA /* background-normal.png */,
-				D6C2CA79170E6CD300BA02DA /* bg-chrome-cardio.png */,
-				D6C2CA7A170E6CD300BA02DA /* bg-chrome-workout.png */,
-				D6C2CA7B170E6CD300BA02DA /* black.png */,
-				D6C2CA7C170E6CD300BA02DA /* button-buddy.png */,
-				D6C2CA7D170E6CD300BA02DA /* check-transparent.png */,
-				D6C2CA7E170E6CD300BA02DA /* check-white.png */,
-				D6C2CA7F170E6CD300BA02DA /* checked.png */,
-				D6C2CA80170E6CD300BA02DA /* clear.png */,
-				D6C2CA81170E6CD300BA02DA /* exercises.png */,
-				D6C2CA82170E6CD300BA02DA /* gb-background-chrome.png */,
-				D6C2CA83170E6CD300BA02DA /* gb-background-long.png */,
-				D6C2CA84170E6CD300BA02DA /* gb-background-ui2.png */,
-				D6C2CA85170E6CD300BA02DA /* gb-background.png */,
-				D6C2CA86170E6CD300BA02DA /* gb-button-big.png */,
-				D6C2CA87170E6CD300BA02DA /* gb-button-dark-big.png */,
-				D6C2CA88170E6CD300BA02DA /* gb-button-dark.png */,
-				D6C2CA89170E6CD300BA02DA /* gb-button.png */,
-				D6C2CA8A170E6CD300BA02DA /* gb-cell.png */,
-				D6C2CA8B170E6CD300BA02DA /* gb-green-plus.png */,
-				D6C2CA8C170E6CD300BA02DA /* gb-green.png */,
-				D6C2CA8D170E6CD300BA02DA /* gb-nostatus.png */,
-				D6C2CA8E170E6CD300BA02DA /* gb-orange.png */,
-				D6C2CA8F170E6CD300BA02DA /* gb-red.png */,
-				D6C2CA90170E6CD300BA02DA /* gb-textfield.png */,
-				D6C2CA91170E6CD300BA02DA /* gb-title.png */,
-				D6C2CA92170E6CD300BA02DA /* gb-titlebar-1.png */,
-				D6C2CA93170E6CD300BA02DA /* gb-titlebar-chrome.png */,
-				D6C2CA94170E6CD300BA02DA /* gb-titlebar.png */,
-				D6C2CA95170E6CD300BA02DA /* gb-undo.png */,
-				D6C2CA96170E6CD300BA02DA /* icon-5757.png */,
-				D6C2CA97170E6CD300BA02DA /* icon-big.png */,
-				D6C2CA98170E6CD300BA02DA /* icon-small.png */,
-				D6C2CA99170E6CD300BA02DA /* icon.png */,
-				D6C2CA9A170E6CD300BA02DA /* icon2.png */,
-				D6C2CA9B170E6CD300BA02DA /* instructions-background.png */,
-				D6C2CA9C170E6CD300BA02DA /* instructions-justwords.png */,
-				D6C2CA9D170E6CD300BA02DA /* logbook.png */,
-				D6C2CA9E170E6CD300BA02DA /* red.png */,
-				D6C2CA9F170E6CD300BA02DA /* run.png */,
-				D6C2CAA0170E6CD300BA02DA /* sm-checked.png */,
-				D6C2CAA1170E6CD300BA02DA /* sm-unchecked.png */,
-				D6C2CAA2170E6CD300BA02DA /* success.png */,
-				D6C2CAA3170E6CD300BA02DA /* tb-chrome-cardio.png */,
-				D6C2CAA4170E6CD300BA02DA /* tb-chrome-workout.png */,
-				D6C2CAA5170E6CD300BA02DA /* titlebar-chrome.png */,
-				D6C2CAA6170E6CD300BA02DA /* titlebar.png */,
-				D6C2CAA7170E6CD300BA02DA /* unchecked.png */,
-				D6C2CAA8170E6CD300BA02DA /* unworkout.png */,
-				D6C2CAA9170E6CD300BA02DA /* workout-navbar@2x.png */,
-				D6C2CAAA170E6CD300BA02DA /* workout-transparent.png */,
-				D6C2CAAB170E6CD300BA02DA /* workout.png */,
-				D6C2CAAC170E6CD300BA02DA /* workoutbar-run.png */,
-				D6C2CAAD170E6CD300BA02DA /* workoutbar-run@2x.png */,
-				D6C2CAAE170E6CD300BA02DA /* workoutbar.png */,
-				D6C2CAAF170E6CD300BA02DA /* workoutbar@2x.png */,
-				D6C2CAB0170E6CD300BA02DA /* workoutnavbar.png */,
-				D6C2CAB1170E6CD300BA02DA /* x.png */,
-			);
-			name = Images;
-			path = FitBuddy/Images;
-			sourceTree = SOURCE_ROOT;
-		};
-		D6C2CAEE170E6CF100BA02DA /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				D6C2CAEF170E6CF100BA02DA /* demo1.png */,
-				D6C2CAF0170E6CF100BA02DA /* demo2.png */,
-				D6C2CAF1170E6CF100BA02DA /* demo3.png */,
-				D6C2CAF2170E6CF100BA02DA /* demo4.png */,
-				D6C2CAF3170E6CF100BA02DA /* demo5.png */,
-				D6C2CAF4170E6CF100BA02DA /* demo6.png */,
-				D6C2CAF5170E6CF100BA02DA /* demo7.png */,
-				D6C2CAF6170E6CF100BA02DA /* demo8.png */,
-				D6C2CAF7170E6CF100BA02DA /* demo9.png */,
-				D6C2CAF8170E6CF100BA02DA /* DemoView.h */,
-				D6C2CAF9170E6CF100BA02DA /* DemoView.m */,
-			);
-			name = Demo;
-			path = FitBuddy/Demo;
 			sourceTree = SOURCE_ROOT;
 		};
 		D6C2CB09170E6D5300BA02DA /* en.lproj */ = {
@@ -561,8 +460,18 @@
 		D60B4CB014D7A888001ECCE3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = jneyer.com;
+				TargetAttributes = {
+					D60B4CB814D7A888001ECCE3 = {
+						DevelopmentTeam = MK3WE6JNT9;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = D60B4CB314D7A888001ECCE3 /* Build configuration list for PBXProject "FitBuddy" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -586,81 +495,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D67E167118B31C97001E9257 /* icon-big.png in Resources */,
 				D6C2CA46170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard in Resources */,
-				D6C2CAB2170E6CD300BA02DA /* background-chrome-bottom.png in Resources */,
-				D6C2CAB3170E6CD300BA02DA /* background-chrome.png in Resources */,
-				D6C2CAB4170E6CD300BA02DA /* background-normal.png in Resources */,
-				D6C2CAB5170E6CD300BA02DA /* bg-chrome-cardio.png in Resources */,
-				D6C2CAB6170E6CD300BA02DA /* bg-chrome-workout.png in Resources */,
-				D6C2CAB7170E6CD300BA02DA /* black.png in Resources */,
-				D6C2CAB8170E6CD300BA02DA /* button-buddy.png in Resources */,
-				D6C2CAB9170E6CD300BA02DA /* check-transparent.png in Resources */,
-				D6C2CABA170E6CD300BA02DA /* check-white.png in Resources */,
-				D6C2CABB170E6CD300BA02DA /* checked.png in Resources */,
-				D6C2CABC170E6CD300BA02DA /* clear.png in Resources */,
-				D6C2CABD170E6CD300BA02DA /* exercises.png in Resources */,
-				D6C2CABE170E6CD300BA02DA /* gb-background-chrome.png in Resources */,
-				D6C2CABF170E6CD300BA02DA /* gb-background-long.png in Resources */,
-				D6C2CAC0170E6CD300BA02DA /* gb-background-ui2.png in Resources */,
-				D6C2CAC1170E6CD300BA02DA /* gb-background.png in Resources */,
-				D6C2CAC2170E6CD300BA02DA /* gb-button-big.png in Resources */,
-				D6C2CAC3170E6CD300BA02DA /* gb-button-dark-big.png in Resources */,
-				D6C2CAC4170E6CD300BA02DA /* gb-button-dark.png in Resources */,
-				D6C2CAC5170E6CD300BA02DA /* gb-button.png in Resources */,
-				D6C2CAC6170E6CD300BA02DA /* gb-cell.png in Resources */,
-				D6C2CAC7170E6CD300BA02DA /* gb-green-plus.png in Resources */,
-				D6C2CAC8170E6CD300BA02DA /* gb-green.png in Resources */,
-				D6C2CAC9170E6CD300BA02DA /* gb-nostatus.png in Resources */,
-				D6C2CACA170E6CD300BA02DA /* gb-orange.png in Resources */,
-				D6C2CACB170E6CD300BA02DA /* gb-red.png in Resources */,
-				D6C2CACC170E6CD300BA02DA /* gb-textfield.png in Resources */,
-				D6C2CACD170E6CD300BA02DA /* gb-title.png in Resources */,
-				D6C2CACE170E6CD300BA02DA /* gb-titlebar-1.png in Resources */,
-				D6C2CACF170E6CD300BA02DA /* gb-titlebar-chrome.png in Resources */,
-				D6C2CAD0170E6CD300BA02DA /* gb-titlebar.png in Resources */,
-				D6C2CAD1170E6CD300BA02DA /* gb-undo.png in Resources */,
-				D6C2CAD2170E6CD300BA02DA /* icon-5757.png in Resources */,
-				D6C2CAD3170E6CD300BA02DA /* icon-big.png in Resources */,
-				D6C2CAD4170E6CD300BA02DA /* icon-small.png in Resources */,
-				D6C2CAD5170E6CD300BA02DA /* icon.png in Resources */,
-				D6C2CAD6170E6CD300BA02DA /* icon2.png in Resources */,
-				D6C2CAD7170E6CD300BA02DA /* instructions-background.png in Resources */,
-				D6C2CAD8170E6CD300BA02DA /* instructions-justwords.png in Resources */,
-				D6C2CAD9170E6CD300BA02DA /* logbook.png in Resources */,
-				D6C2CADA170E6CD300BA02DA /* red.png in Resources */,
-				D6C2CADB170E6CD300BA02DA /* run.png in Resources */,
-				D6C2CADC170E6CD300BA02DA /* sm-checked.png in Resources */,
-				D6C2CADD170E6CD300BA02DA /* sm-unchecked.png in Resources */,
-				D6C2CADE170E6CD300BA02DA /* success.png in Resources */,
-				D6C2CADF170E6CD300BA02DA /* tb-chrome-cardio.png in Resources */,
-				D6C2CAE0170E6CD300BA02DA /* tb-chrome-workout.png in Resources */,
-				D6C2CAE1170E6CD300BA02DA /* titlebar-chrome.png in Resources */,
-				D6C2CAE2170E6CD300BA02DA /* titlebar.png in Resources */,
-				D6C2CAE3170E6CD300BA02DA /* unchecked.png in Resources */,
-				D6C2CAE4170E6CD300BA02DA /* unworkout.png in Resources */,
-				D6C2CAE5170E6CD300BA02DA /* workout-navbar@2x.png in Resources */,
-				D6C2CAE6170E6CD300BA02DA /* workout-transparent.png in Resources */,
-				D6C2CAE7170E6CD300BA02DA /* workout.png in Resources */,
-				D6C2CAE8170E6CD300BA02DA /* workoutbar-run.png in Resources */,
-				D6C2CAE9170E6CD300BA02DA /* workoutbar-run@2x.png in Resources */,
-				D6C2CAEA170E6CD300BA02DA /* workoutbar.png in Resources */,
-				D6C2CAEB170E6CD300BA02DA /* workoutbar@2x.png in Resources */,
-				D6C2CAEC170E6CD300BA02DA /* workoutnavbar.png in Resources */,
-				D6C2CAED170E6CD300BA02DA /* x.png in Resources */,
-				D6C2CAFA170E6CF100BA02DA /* demo1.png in Resources */,
-				D6C2CAFB170E6CF100BA02DA /* demo2.png in Resources */,
-				D6C2CAFC170E6CF100BA02DA /* demo3.png in Resources */,
-				D6C2CAFD170E6CF100BA02DA /* demo4.png in Resources */,
-				D6C2CAFE170E6CF100BA02DA /* demo5.png in Resources */,
-				D6C2CAFF170E6CF100BA02DA /* demo6.png in Resources */,
-				D6C2CB00170E6CF100BA02DA /* demo7.png in Resources */,
-				D6C2CB01170E6CF100BA02DA /* demo8.png in Resources */,
-				D6C2CB02170E6CF100BA02DA /* demo9.png in Resources */,
-				D6C2CB07170E6D2500BA02DA /* FitBuddy-Info.plist in Resources */,
+				D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */,
+				D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */,
 				D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */,
+				D601921518AFE01600255256 /* Demo.xcassets in Resources */,
+				D67E167018B31C97001E9257 /* icon-small.png in Resources */,
 				D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */,
-				D67D7CE9170E708300E12E96 /* icon-big.png in Resources */,
-				D67D7CEA170E708300E12E96 /* icon-small.png in Resources */,
+				D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,40 +514,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */,
+				D625E86E18B00EF900FFE96D /* WorkoutModeViewController2.m in Sources */,
+				D67E165E18B2C7BE001E9257 /* Workout.m in Sources */,
 				D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */,
+				D63E445618AB2CA300A13883 /* JBLineChartView.m in Sources */,
 				D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */,
+				D601921318AFDF6F00255256 /* DemoContentViewController.m in Sources */,
 				D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */,
+				D63E445518AB2CA300A13883 /* JBChartView.m in Sources */,
 				D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */,
 				D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */,
-				D6C2CA22170E6BB400BA02DA /* SugueCustomViewController.m in Sources */,
-				D6C2CA23170E6BB400BA02DA /* UICheckboxButton.m in Sources */,
-				D6C2CA30170E6BDA00BA02DA /* CardioExercise.m in Sources */,
-				D6C2CA31170E6BDA00BA02DA /* Exercise.m in Sources */,
-				D6C2CA32170E6BDA00BA02DA /* LogbookEntry.m in Sources */,
 				D6C2CA33170E6BDA00BA02DA /* LogbookEntry+TDate.m in Sources */,
-				D6C2CA34170E6BDA00BA02DA /* ResistanceExercise.m in Sources */,
-				D6C2CA35170E6BDA00BA02DA /* Workout.m in Sources */,
 				D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */,
 				D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */,
 				D6C2CA42170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */,
 				D6C2CA43170E6C0100BA02DA /* GymBuddyMappingModel1.3.xcmappingmodel in Sources */,
+				D67E166718B2C7BE001E9257 /* Exercise.m in Sources */,
 				D6C2CA5B170E6C4000BA02DA /* ExerciseAddViewController.m in Sources */,
 				D6C2CA5C170E6C4000BA02DA /* ExerciseControlController.m in Sources */,
+				D63E445418AB2CA300A13883 /* JBBarChartView.m in Sources */,
 				D6C2CA5D170E6C4000BA02DA /* ExerciseEditViewController.m in Sources */,
+				D67E166118B2C7BE001E9257 /* ResistanceExercise.m in Sources */,
+				D67E166418B2C7BE001E9257 /* CardioExercise.m in Sources */,
 				D6C2CA5E170E6C4000BA02DA /* ExerciseListTableViewController.m in Sources */,
+				D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */,
 				D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */,
 				D6C2CA60170E6C4000BA02DA /* LogbookViewController.m in Sources */,
+				D67E166A18B2C7BE001E9257 /* CardioHistory.m in Sources */,
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
 				D6C2CA62170E6C4000BA02DA /* SettingsIncrementViewController.m in Sources */,
 				D6C2CA63170E6C4000BA02DA /* SettingsViewController.m in Sources */,
 				D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */,
 				D6C2CA71170E6C8800BA02DA /* WorkoutModeParentController.m in Sources */,
+				D601920F18AFDF0C00255256 /* DemoViewController.m in Sources */,
+				D67E165B18B2C7BE001E9257 /* LogbookEntry.m in Sources */,
+				D67E166D18B2C7BE001E9257 /* ResistanceHistory.m in Sources */,
 				D6C2CA72170E6C8800BA02DA /* WorkoutModeViewController.m in Sources */,
 				D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */,
+				D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */,
 				D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */,
-				D6C2CB03170E6CF100BA02DA /* DemoView.m in Sources */,
+				D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */,
 				D6C2CB08170E6D2500BA02DA /* main.m in Sources */,
 				D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */,
+				D67E165818B2C7BE001E9257 /* WorkoutSequence.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,8 +579,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
@@ -740,10 +598,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "B277DEB2-5CBB-4FD4-8B5C-B99C15A75D1E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -754,15 +617,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -776,15 +648,20 @@
 		D60B4CDB14D7A888001ECCE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FitBuddy/FitBuddy-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "FitBuddy/FitBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D399D8BD-8ADC-4E60-AF4D-1E63B87CBF62";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -792,15 +669,20 @@
 		D60B4CDC14D7A888001ECCE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FitBuddy/FitBuddy-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "FitBuddy/FitBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D399D8BD-8ADC-4E60-AF4D-1E63B87CBF62";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -809,15 +691,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -831,15 +722,20 @@
 		D6CF078B14FA995C004AC44D /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FitBuddy/FitBuddy-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "FitBuddy/FitBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D399D8BD-8ADC-4E60-AF4D-1E63B87CBF62";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Distribution;
@@ -873,13 +769,20 @@
 		D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D67E15FD18B2A3E4001E9257 /* GymBuddyModel1.4.4.xcdatamodel */,
+				D687065C18B165740078187D /* GymBuddyModel1.4.3.xcdatamodel */,
+				D67E161618B2A4EE001E9257 /* GymBuddyModel1.4.5.xcdatamodel */,
+				D687067018B291740078187D /* GymBuddyModel1.4.4.xcdatamodel */,
+				D611806D18B10C9200786DBF /* GymBuddyModel1.4.2.xcdatamodel */,
+				D63E446918AC994600A13883 /* GymBuddyModel1.4.1.xcdatamodel */,
+				D63E445918AC662000A13883 /* GymBuddyModel1. 4.xcdatamodel */,
 				D67D7CF4170E75DC00E12E96 /* GymBuddyModel0.0.xcdatamodel */,
 				D67D7CF5170E75DC00E12E96 /* GymBuddyModel1.0.xcdatamodel */,
 				D67D7CF6170E75DC00E12E96 /* GymBuddyModel1.1.xcdatamodel */,
 				D67D7CF7170E75DC00E12E96 /* GymBuddyModel1.2.xcdatamodel */,
 				D67D7CF8170E75DC00E12E96 /* GymBuddyModel1.3.xcdatamodel */,
 			);
-			currentVersion = D67D7CF8170E75DC00E12E96 /* GymBuddyModel1.3.xcdatamodel */;
+			currentVersion = D687065C18B165740078187D /* GymBuddyModel1.4.3.xcdatamodel */;
 			path = GymBuddyModel.xcdatamodeld;
 			sourceTree = SOURCE_ROOT;
 			versionGroupType = wrapper.xcdatamodel;

@@ -9,15 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableController.h"
 
-#import "GymBuddyMacros.h"
-
 @interface WorkoutViewController : CoreDataTableController
 
 // Outlets
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
-@property (strong, nonatomic) UIManagedDocument *document;
+@property (strong, nonatomic) NSManagedObjectContext *context;
 @property BOOL edit;
 
 -(void) enableButtons: (BOOL) enable;

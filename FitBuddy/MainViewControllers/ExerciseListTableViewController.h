@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
 
-#import "GymBuddyMacros.h"
-
 @interface ExerciseListTableViewController : CoreDataTableViewController
 
 @property (strong, nonatomic) UIManagedDocument *document;

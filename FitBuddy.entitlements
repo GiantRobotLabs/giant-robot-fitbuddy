@@ -8,9 +8,5 @@
 	</array>
 	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
 	<string>$(TeamIdentifierPrefix)com.giantrobotapps.FitBuddy</string>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>$(AppIdentifierPrefix)com.giantrobotapps.FitBuddy</string>
-	</array>
 </dict>
 </plist>

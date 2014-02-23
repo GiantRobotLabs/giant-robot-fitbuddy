@@ -7,10 +7,10 @@
 //
 
 #import "WorkoutSummaryViewController.h"
-#import "GymBuddyMacros.h"
 #import "LogbookEntry.h"
 #import "Workout.h"
 #import "CoreDataHelper.h"
+#import "GymBuddyAppDelegate.h"
 
 @implementation WorkoutSummaryViewController
 @synthesize navigationBar;
@@ -57,7 +57,9 @@ NSFetchedResultsController *frc;
     return cardioScore;
 }
 
--(LogbookEntry *) fetchOldLogbookEntry: (Workout *)workout: (NSDate *)priorToDate: (NSString *)exercise
+-(LogbookEntry *)fetchOldLogbookEntry: (Workout *) workout
+                                     priorToDate:(NSDate *) priorToDate
+                                     exercise:(NSString *)exercise
 {
     LogbookEntry *oldEntry = nil;
     
@@ -67,7 +69,7 @@ NSFetchedResultsController *frc;
                          workout, exercise, priorToDate, [NSNumber numberWithBool:YES]];
 
     frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                              managedObjectContext:[CoreDataHelper getActiveManagedObjectContext]
+                                              managedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext
                                                 sectionNameKeyPath:nil 
                                                          cacheName:nil];
     
@@ -104,11 +106,11 @@ NSFetchedResultsController *frc;
     
     // Total Resistance = Sum of (Weight * Sets * Reps) for each complete logbook
     // Total Distance = Sum of (Pace * Time || Distance) for each complete logbook
-    for (entry in self.logbookEntries)
+    for (entry in [self.logbookEntries allValues])
     {
-        if (entry.completed == [NSNumber numberWithInt:1])
+        if (entry && entry.completed)
         {
-            LogbookEntry *oldLogbook = [self fetchOldLogbookEntry:entry.workout :entry.date :entry.exercise_name];
+            LogbookEntry *oldLogbook = [self fetchOldLogbookEntry:entry.workout priorToDate:entry.date exercise:entry.exercise_name];
             
             strength += [self calculateWorkoutScore:entry];
             strengthOld += [self calculateWorkoutScore:oldLogbook];
@@ -152,10 +154,17 @@ NSFetchedResultsController *frc;
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     // Visual stuff
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:TITLEBAR_IMAGE] forBarMetrics:UIBarMetricsDefault];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE_LONG]];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
     [self setForm];
+;
+}
+
+-(void) viewDidAppear:(BOOL)animated
+
+{
+    
 }
 
 - (void)viewDidUnload {

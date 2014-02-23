@@ -12,8 +12,6 @@
 #import "CoreDataTableViewController.h"
 #import "ExerciseControlController.h"
 
-#import "GymBuddyMacros.h"
-
 @interface ExerciseEditViewController : ExerciseControlController
 
 @property (weak, nonatomic) IBOutlet UITextField *nameLabel;

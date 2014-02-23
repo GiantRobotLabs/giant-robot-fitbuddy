@@ -7,13 +7,18 @@
 //
 
 #import "ExerciseAddViewController.h"
-#import "CoreDataHelper.h"
+#import "GymBuddyAppDelegate.h"
 #import "Exercise.h"
 
 @implementation ExerciseAddViewController
 
 @synthesize addExerciseField = _addExerciseField;
 @synthesize exerciseTypeToggle = _exerciseTypeToggle;
+
+-(void) viewDidLoad
+{
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+}
 
 -(void) viewDidAppear:(BOOL)animated
 {
@@ -28,31 +33,33 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    self.exerciseTypeToggle.backgroundColor = [UIColor clearColor];
-    self.exerciseTypeToggle.tintColor = GYMBUDDY_BROWN;
+   
 }
 
 -(void) createExercise
 {
     if (![self.addExerciseField.text isEqualToString:@""]) 
     {
-        Exercise *exercise = nil;
-        
+        NSManagedObjectContext *context = [[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext];
+        NSManagedObject *newExercise;
+
         if (self.exerciseTypeToggle.selectedSegmentIndex == 0)
         {
-            exercise = (Exercise *)[NSEntityDescription insertNewObjectForEntityForName:RESISTANCE_EXERCISE_TABLE 
-                                                     inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
+            newExercise = (Exercise *)[NSEntityDescription insertNewObjectForEntityForName:RESISTANCE_EXERCISE_TABLE inManagedObjectContext:context];
             
         }
         else
         {
-            exercise = (Exercise *)[NSEntityDescription insertNewObjectForEntityForName:CARDIO_EXERCISE_TABLE 
-                                                                 inManagedObjectContext:[CoreDataHelper getActiveManagedObjectContext]];
+            newExercise = (Exercise *)[NSEntityDescription insertNewObjectForEntityForName:CARDIO_EXERCISE_TABLE inManagedObjectContext:context];
             
         }
         
-         exercise.name = self.addExerciseField.text;
+        [newExercise setValue:self.addExerciseField.text forKey:@"name"];
+        self.addExerciseField.text = @"";
+        
+        NSError *error;
+        [context save:&error];
+        if (DEBUG) NSLog(@"Exercise created");
     }
 }
 

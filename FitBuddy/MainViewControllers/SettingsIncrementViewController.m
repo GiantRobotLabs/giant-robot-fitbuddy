@@ -7,10 +7,14 @@
 //
 
 #import "SettingsIncrementViewController.h"
-#import "GymBuddyMacros.h"
 #import "CoreDataHelper.h"
+#import "GymBuddyAppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation SettingsIncrementViewController
+{
+    UIActivityIndicatorView* activityIndicatorView;
+}
 
 @synthesize defaults = _defaults;
 @synthesize defaultsKey = _key;
@@ -18,69 +22,94 @@
 -(void) setDefaultsKey:(NSString *)defaultsKey
 {
     _key = defaultsKey;
-     self.navigationItem.title = self.defaultsKey;
 }
 
--(void) loadTableFromDefaults
-{
-    UITableViewCell *cell;
-    NSString *value = [self.defaults stringForKey:self.defaultsKey];
+- (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [self.pickerValues count];
+}
 
-    for (cell in [self.tableView visibleCells])
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return self.pickerValues[row];
+    
+}
+
+-(void) loadPickerFromDefaults
+{
+    NSString *value = [self.defaults stringForKey:self.defaultsKey];
+    if (value)
     {
-        UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
-        
-        if ([value isEqualToString:cellLabel.text])
-        {
-            UIImageView *checkmark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:GB_CHECK_WHITE]];
-            cell.accessoryView = checkmark;
-        }
-        else
-        {
-            cell.accessoryView = nil;
-        }
+        NSInteger index = [self.pickerValues indexOfObject:value];
+        [self.picker selectRow:index inComponent:0 animated:YES];
     }
+    else
+    {
+        [self.picker selectRow:0 inComponent:0 animated:YES];
+    }
+    
+    [self.picker reloadComponent:0];
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    // Visual stuff    
-    self.tableView.backgroundView = [[UIView alloc] initWithFrame:self.tableView.bounds];
-    self.tableView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:BACKGROUND_IMAGE]];
-    
     self.defaults = [NSUserDefaults standardUserDefaults];
-    
-    [self loadTableFromDefaults];
+    [self loadPickerFromDefaults];
+    [self.spinnerTitle setText:self.defaultsKey];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void) viewDidAppear:(BOOL)animated
 {
-    UILabel *label = (UILabel *)[[tableView cellForRowAtIndexPath:indexPath] viewWithTag:100];
     
-    if (![[self.defaults objectForKey:self.defaultsKey] isEqualToString: label.text])
+}
+
+-(void) viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
+}
+
+
+-(void) confirmChange:(id)sender {
+    
+    NSInteger index = [self.picker selectedRowInComponent:0];
+    NSString *value = self.pickerValues[index];
+    
+    if ([self.defaultsKey isEqualToString:kEXPORTDBKEY])
     {
-        [self.defaults setObject:label.text forKey:self.defaultsKey];
+        [self handleExportToggle: value];
+        [self exit];
+    }
+    
+    
+    if (![[self.defaults objectForKey:self.defaultsKey] isEqualToString: value])
+    {
+        [self.defaults setObject:value forKey:self.defaultsKey];
         
-        if ([self.defaultsKey isEqualToString:@"Use iCloud"])
+        if ([self.defaultsKey isEqualToString:kUSEICLOUDKEY])
         {
-            [CoreDataHelper resetDatabaseConnection];
-            [self handleiCloudToggle:label.text];
+            [self handleiCloudToggle:value];
         }
         else
         {
             [self exit];
         }
     }
-    else 
+    else
     {
         [self exit];
     }
 }
 
+
+#pragma mark - iCloud Handler
 - (void) handleiCloudToggle: (NSString *) value
-{ 
-    if ([value isEqualToString:@"Yes"])
+{
+    if ([value isEqualToString:kYES])
     {
         if ([[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil] == nil)
         {
@@ -93,9 +122,10 @@
             [alert show];
             
             [self.defaults setObject:@"No" forKey:self.defaultsKey];
+            [self loadPickerFromDefaults];
             
         }
-        else if ([CoreDataHelper checkiCloudExists])
+        else if ([self iCloudExists])
         {
             UIAlertView *alert = [[UIAlertView alloc]
                                   initWithTitle: @"Switching to iCloud"
@@ -105,21 +135,14 @@
                                   otherButtonTitles:@"Replace", nil];
             [alert show];
         }
-        else 
+        else
         {
-            if ([CoreDataHelper copyLocaltoiCloud] == YES)
-            {
-                [self exit];  
-            }
+            [self migrateLocalToiCloudWithRecovery:YES];
         }
     }
-    else if ([value isEqualToString:@"No"])
+    else if ([value isEqualToString:kNO])
     {
-        //Copy iCloud to local database
-        if ([CoreDataHelper copyiCloudtoLocal] == YES)
-        {
-            [self exit];   
-        }
+        [self migrateiCloudToLocal];
     }
 }
 
@@ -128,23 +151,141 @@
     if (button_index == 0)
     {
         NSLog (@"Recover");
-        // Nothing to do here
-        [self exit];
+        [self migrateLocalToiCloudWithRecovery:YES];
     }
     else if (button_index == 1)
     {
         NSLog(@"Replace");
-        // Copy local database to iCloud
-        if ([CoreDataHelper copyLocaltoiCloud] == YES)
-        {
-            [self exit]; 
-        }
+        
+        [self migrateLocalToiCloudWithRecovery:NO];
     }
 }
 
+-(BOOL) migrateLocalToiCloudWithRecovery: (BOOL) recover
+{
+    
+    NSError *err;
+    NSDictionary *options = [CoreDataHelper defaultStoreOptionsForCloud:YES];
+    
+    [self waitForiCloudResponse];
+    
+    NSPersistentStore *oldstore = [[GymBuddyAppDelegate sharedAppDelegate]. persistentStoreCoordinator.persistentStores lastObject];
+    
+    if (recover)
+    {
+        NSPersistentStore *newStore = [[GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[GymBuddyAppDelegate theLocalStore] options:options error:&err];
+        
+        [[[GymBuddyAppDelegate sharedAppDelegate] persistentStoreCoordinator] removePersistentStore:oldstore error:&err];
+        
+        if (err)
+        {
+            NSLog(@"Failed to replace Cloud store with Local store: %@", err);
+            
+            return FALSE;
+        }
+    }
+    else
+    {
+        [[GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[GymBuddyAppDelegate theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
+        
+        if (err)
+        {
+            NSLog(@"Failed to migrate Local to iCloud store: %@", err);
+            return FALSE;
+        }
+    }
+    
+    return TRUE;
+}
+
+-(BOOL) migrateiCloudToLocal
+{
+    NSError *err;
+    NSDictionary *options = [CoreDataHelper defaultStoreOptionsForCloud:NO];
+    
+    [self waitForiCloudResponse];
+    
+    NSPersistentStore *oldstore = [[GymBuddyAppDelegate sharedAppDelegate]. persistentStoreCoordinator.persistentStores lastObject];
+    
+    [CoreDataHelper moveLocalStoreToBackup];
+    
+    NSPersistentStoreCoordinator *psc = [GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator;
+    
+   NSPersistentStore *newStore = [[GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[GymBuddyAppDelegate theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
+    
+    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[GymBuddyAppDelegate theLocalStore] options:options error:&err];
+    
+    if (err)
+    {
+        NSLog(@"Failed to migrate iCloud to local store: %@", err);
+        return FALSE;
+    }
+    
+    [self exit];
+    return TRUE;
+}
+
+-(BOOL) iCloudExists
+{
+    //TODO: determine if icloud exists
+   
+    return FALSE;
+}
+
+#pragma mark - Export Options
+- (void) handleExportToggle: (NSString *) exportType
+{
+    [CoreDataHelper exportDatabaseTo:exportType];
+}
+
+- (UIActivityIndicatorView *)showActivityIndicatorOnView:(UIView*)aView
+{
+    CGSize viewSize = aView.bounds.size;
+    
+    // create new dialog box view and components
+    activityIndicatorView = [[UIActivityIndicatorView alloc]
+                                                      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    // other size? change it
+    activityIndicatorView.bounds = CGRectMake(0, 0, 65, 65);
+    activityIndicatorView.hidesWhenStopped = YES;
+    activityIndicatorView.alpha = 0.7f;
+    activityIndicatorView.backgroundColor = kCOLOR_GRAY_t;
+    activityIndicatorView.layer.cornerRadius = 10.0f;
+    
+    // display it in the center of your view
+    activityIndicatorView.center = CGPointMake(viewSize.width / 2.0, viewSize.height / 2.0);
+    
+    [aView addSubview:activityIndicatorView];
+    
+    [activityIndicatorView startAnimating];
+    
+    return activityIndicatorView;
+}
+
+- (void) waitForiCloudResponse
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDidRespond:) name:kUBIQUITYCHANGED object:[GymBuddyAppDelegate sharedAppDelegate]];
+    [self showActivityIndicatorOnView:self.tabBarController.view.superview];
+    [[[UIApplication sharedApplication] keyWindow] setUserInteractionEnabled:FALSE];
+}
+
+- (void) cloudDidRespond: (id) sender
+{
+    NSLog(@"response from icloud");
+    
+    [activityIndicatorView stopAnimating];
+    [[[UIApplication sharedApplication] keyWindow] setUserInteractionEnabled:TRUE];
+    activityIndicatorView = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [self exit];
+}
+
+#pragma mark - Exit
 - (void) exit
 {
-    [self loadTableFromDefaults];
+    [self.defaults synchronize];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
