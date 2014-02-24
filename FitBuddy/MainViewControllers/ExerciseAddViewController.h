@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Workout.h"
 
 @interface ExerciseAddViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *addExerciseField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *exerciseTypeToggle;
+
+@property (strong, nonatomic) NSMutableArray *exerciseArray;
+@property (nonatomic, strong) NSMutableOrderedSet *workoutSet;
 
 @end

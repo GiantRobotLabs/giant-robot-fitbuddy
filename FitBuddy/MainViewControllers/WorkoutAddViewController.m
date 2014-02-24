@@ -121,6 +121,8 @@
                                                object:nil];
     
     [self.tableView setEditing:YES];
+    
+    [self.tableView reloadData];
 }
 
 - (void) workoutNameTextFieldFinished:(UITextField *)sender {
@@ -284,7 +286,7 @@
     
     [self.tableView reloadData];
     
-    NSLog(@"Exercise: %@ added to Workout: %@ Count: %d", exercise.name, self.workout.workout_name, self.workout.exercises.count);
+    NSLog(@"Exercise: %@ added to Workout: %@ Count: %lu", exercise.name, self.workout.workout_name, (unsigned long)self.workout.exercises.count);
     
 }
 
@@ -376,6 +378,16 @@
     }
     
     return proposedDestinationIndexPath;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Add Exercise Segue"])
+    {
+        [segue.destinationViewController performSelector:@selector(setExerciseArray:) withObject:assignedExercises];
+        [segue.destinationViewController performSelector:@selector(setWorkoutSet:) withObject:self.self.workoutSet];
+    }
+    
 }
 
 

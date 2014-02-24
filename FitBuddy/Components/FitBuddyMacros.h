@@ -124,7 +124,7 @@
 #endif
 
 // DEMO SETTINGS
-#define kDEMO_PAGE_TITLES   @[@"Tap Add to start setting up a workout.", @"Set a name for the workout and tap Add to add more exercies.", @"Use the toggle to mark as cardio (pace/distance) or resistance.", @"Use the switches to add exercies to your workout.", @"Select your workout and tap Start to begin.", @"Swipe through your workout and tap the Log button to record activity.", @"Tap Finish to complete the workout and go to the stats page.", @"When you're finished, the Logbook tab gives you a quick rundown of your efforts." ];
+#define kDEMO_PAGE_TITLES   @[@"Tap Add to start setting up a workout.", @"Set a name for the workout and tap Add to add more exercies.", @"Use the toggle to mark as cardio (pace/distance) or resistance.", @"Use the switches to add exercies to your workout. Drag to reorder.", @"Select your workout and tap Start to begin.", @"Swipe through your workout and tap the Log button to record activity.", @"Tap Finish to complete the workout and go to the stats page.", @"When you're finished, the Logbook tab gives you a quick rundown of your efforts." ];
 #define kDEMO_PAGE_IMAGES   @[@"page1", @"page2", @"page3", @"page4", @"page5", @"page6", @"page7", @"page8"];
 
 
