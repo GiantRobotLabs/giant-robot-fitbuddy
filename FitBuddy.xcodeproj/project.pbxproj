@@ -47,7 +47,6 @@
 		D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */; };
 		D6C2CA42170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */; };
 		D6C2CA43170E6C0100BA02DA /* GymBuddyMappingModel1.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA39170E6C0100BA02DA /* GymBuddyMappingModel1.3.xcmappingmodel */; };
-		D6C2CA46170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CA45170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard */; };
 		D6C2CA5B170E6C4000BA02DA /* ExerciseAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA48170E6C4000BA02DA /* ExerciseAddViewController.m */; };
 		D6C2CA5C170E6C4000BA02DA /* ExerciseControlController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA4A170E6C4000BA02DA /* ExerciseControlController.m */; };
 		D6C2CA5D170E6C4000BA02DA /* ExerciseEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA4C170E6C4000BA02DA /* ExerciseEditViewController.m */; };
@@ -144,7 +143,6 @@
 		D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.1.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.1.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.2.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.2.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		D6C2CA39170E6C0100BA02DA /* GymBuddyMappingModel1.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.3.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.3.xcmappingmodel; sourceTree = SOURCE_ROOT; };
-		D6C2CA45170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard_iPhone.storyboard; path = FitBuddy/Storyboards/MainStoryboard_iPhone.storyboard; sourceTree = SOURCE_ROOT; };
 		D6C2CA47170E6C4000BA02DA /* ExerciseAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseAddViewController.h; path = FitBuddy/MainViewControllers/ExerciseAddViewController.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA48170E6C4000BA02DA /* ExerciseAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseAddViewController.m; path = FitBuddy/MainViewControllers/ExerciseAddViewController.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA49170E6C4000BA02DA /* ExerciseControlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseControlController.h; path = FitBuddy/MainViewControllers/ExerciseControlController.h; sourceTree = SOURCE_ROOT; };
@@ -305,7 +303,6 @@
 			children = (
 				D6FF1D141870B50A004A1D2A /* Images.xcassets */,
 				D601921418AFE01600255256 /* Demo.xcassets */,
-				D6C2CA45170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard */,
 				D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */,
 				D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */,
 			);
@@ -484,7 +481,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D67E167118B31C97001E9257 /* icon-big.png in Resources */,
-				D6C2CA46170E6C1800BA02DA /* MainStoryboard_iPhone.storyboard in Resources */,
 				D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */,
 				D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */,
 				D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */,

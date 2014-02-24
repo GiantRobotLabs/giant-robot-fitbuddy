@@ -28,6 +28,7 @@
 #define CARDIO_HISTORY      @"CardioHistory"
 #define RESISTANCE_LOGBOOK  @"ResistanceLogbook"
 #define CARDIO_LOGBOOK      @"CardioLogbook"
+#define WORKOUT_SEQUENCE    @"WorkoutSequence"
 
 
 // DEFAULTS KEYS

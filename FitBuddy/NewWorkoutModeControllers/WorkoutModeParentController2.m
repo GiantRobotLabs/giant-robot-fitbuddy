@@ -25,6 +25,7 @@
 @implementation WorkoutModeParentController2
 
 @synthesize workout = _workout;
+@synthesize exerciseArray = _exerciseArray;
 
 @synthesize pageControl = _pageControl;
 @synthesize progressBar = _progressBar;
@@ -36,10 +37,38 @@
 @synthesize skippedEntries = _skippedEntries;
 @synthesize logbookEntries = _logbookEntries;
 
+- (void) loadExerciseArray
+{
+    NSManagedObjectContext *context = [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WORKOUT_SEQUENCE];
+        
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"workout == %@", self.workout];
+    [request setPredicate:predicate];
+        
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"sequence" ascending:YES]];
+        
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+        
+    [frc performFetch:nil];
+        
+    NSArray *workoutSequence = [[NSMutableArray alloc] initWithArray:[frc fetchedObjects]];
+        
+    self.exerciseArray = [[NSMutableArray alloc] init];
+        
+    for (WorkoutSequence *wo in workoutSequence)
+    {
+        [self.exerciseArray addObject:wo.exercise];
+    }
+    
+}
+
+
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
+    
+    [self loadExerciseArray];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -56,7 +85,7 @@
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
     
-    [self.pageControl setNumberOfPages:self.workout.exercises.count];
+    [self.pageControl setNumberOfPages:self.exerciseArray.count];
     [self.pageControl setCurrentPage:0];
     [self.progressBar setProgress:0];
     
@@ -123,14 +152,14 @@
 #pragma mark - UIPageViewDelegate
 - (WorkoutModeViewController2 *)viewControllerAtIndex:(NSUInteger)index
 {
-    if (([self.workout.exercises count] == 0) || (index >= [self.workout.exercises count])) {
+    if (([self.exerciseArray count] == 0) || (index >= [self.exerciseArray count])) {
         return nil;
     }
     
     // Create a new view controller and pass suitable data.
     WorkoutModeViewController2 *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WorkoutContentViewController"];
    
-    [pageContentViewController initialSetupOfFormWithExercise: self.workout.exercises[index] andLogbook:[self.logbookEntries objectForKey:[NSNumber numberWithInteger:index]] forWorkout:self.workout];
+    [pageContentViewController initialSetupOfFormWithExercise: self.exerciseArray[index] andLogbook:[self.logbookEntries objectForKey:[NSNumber numberWithInteger:index]] forWorkout:self.workout];
 
     [pageContentViewController setPageIndex:index];
     
@@ -180,7 +209,7 @@
     }
     
     index++;
-    if (index == [self.workout.exercises count]) {
+    if (index == [self.exerciseArray count]) {
         return nil;
     }
     return [self viewControllerAtIndex:index];
@@ -188,7 +217,7 @@
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
-    return [self.workout.exercises count];
+    return [self.exerciseArray count];
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
@@ -228,7 +257,7 @@
         [self.progressBar setProgressTintColor: GYMBUDDY_GREEN];
         butColor = GYMBUDDY_GREEN;
     }
-    else if (self.skippedEntries.count == self.workout.exercises.count)
+    else if (self.skippedEntries.count == self.exerciseArray.count)
     {
         [self.progressBar setProgressTintColor: GYMBUDDY_RED];
  
@@ -250,7 +279,7 @@
                              else return NO;
                          }];
     
-    float prog = count.count*1.0 / self.workout.exercises.count*1.0;
+    float prog = count.count*1.0 / self.exerciseArray.count*1.0;
     self.progressBar.progress = prog;
     
     
