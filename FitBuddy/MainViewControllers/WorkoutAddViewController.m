@@ -72,7 +72,11 @@
     
     for (WorkoutSequence *wo in workoutSequence)
     {
-        [assignedExercises addObject:wo.exercise];
+        if (![assignedExercises containsObject:wo.exercise])
+        {
+            [assignedExercises addObject:wo.exercise];
+            [self.workoutSet addObject: wo.exercise];
+        }
     }
     
     if ([assignedExercises count] == 0)
@@ -123,6 +127,9 @@
     [self.tableView setEditing:YES];
     
     [self.tableView reloadData];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataChanged) name:kUBIQUITYCHANGED  object:[GymBuddyAppDelegate sharedAppDelegate]];
+
 }
 
 - (void) workoutNameTextFieldFinished:(UITextField *)sender {
@@ -142,6 +149,8 @@
 
 - (void) viewWillDisappear:(BOOL)animated
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     if (![self.workoutNameTextField.text isEqualToString:self.workout.workout_name])
     {
         [self textFieldDidEndEditing:self.workoutNameTextField];
@@ -195,6 +204,8 @@
     }
     
     if (DEBUG) NSLog(@"Workout %@ created", self.workout.workout_name);
+    
+    [super viewWillDisappear:animated];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -229,16 +240,17 @@
     {
         exercise = [assignedExercises objectAtIndex:indexPath.row];
         cell.showsReorderControl = YES;
+        [self.workoutSet addObject:exercise];
     }
     else
     {
         exercise = [unassignedExercises objectAtIndex:indexPath.row];
         cell.showsReorderControl = NO;
+        [self.workoutSet removeObject:exercise];
     }
     
     label.text = exercise.name;
     [checkbox setOn:[self.workoutSet containsObject:exercise]];
-    //checkbox.checked = [self.workoutSet containsObject:exercise];
     
     NSEntityDescription *desc = exercise.entity;
     if ([desc.name isEqualToString: @"CardioExercise"])
@@ -274,14 +286,21 @@
     {
         [self.workoutSet addObject:exercise];
         [unassignedExercises removeObject:exercise];
-        [assignedExercises addObject:exercise];
+        
+        if (![assignedExercises containsObject:exercise])
+        {
+            [assignedExercises addObject:exercise];
+        }
     }
     else
     {
-        [self.workout mutableOrderedSetValueForKey:@"exercises"];
         [self.workoutSet removeObject:exercise];
-        [unassignedExercises addObject:exercise];
         [assignedExercises removeObject:exercise];
+        
+        if (![unassignedExercises containsObject:exercise])
+        {
+            [unassignedExercises addObject:exercise];
+        }
     }
     
     [self.tableView reloadData];
@@ -388,6 +407,13 @@
         [segue.destinationViewController performSelector:@selector(setWorkoutSet:) withObject:self.self.workoutSet];
     }
     
+}
+
+-(void) handleDataChanged
+{
+    self.workoutSet = [self.workout mutableOrderedSetValueForKey:@"exercises"];
+
+    [self setupFetchedResultsController];
 }
 
 
