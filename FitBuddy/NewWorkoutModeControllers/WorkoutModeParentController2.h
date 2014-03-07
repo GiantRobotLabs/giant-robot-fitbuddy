@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Workout.h"
+#import "WorkoutSequence.h"
 #import "Exercise.h"
 #import "WorkoutModeViewController2.h"
 
@@ -23,6 +24,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *logitButton;
 @property (weak, nonatomic) IBOutlet UIView *workoutControlPanel;
 
+@property (nonatomic, strong) NSMutableArray *exerciseArray;
 @property (nonatomic,strong) Workout *workout;
 
 @property (nonatomic, strong) NSMutableDictionary *logbookEntries;

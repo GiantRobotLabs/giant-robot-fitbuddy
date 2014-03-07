@@ -60,6 +60,16 @@
         NSError *error;
         [context save:&error];
         if (DEBUG) NSLog(@"Exercise created");
+        
+        if (self.exerciseArray)
+        {
+            [self.exerciseArray addObject:newExercise];
+        }
+        
+        if (self.workoutSet)
+        {
+            [self.workoutSet addObject:newExercise];
+        }
     }
 }
 

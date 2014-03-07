@@ -148,7 +148,7 @@ NSFetchedResultsController *frc;
 -(void) setForm
 {
     self.completedValue.text = [NSString stringWithFormat:@"%1.0f%%", ([self.finalProgress floatValue] * 100)];
-    self.numExercisesValue.text = [NSString stringWithFormat:@"%d", (self.logbookEntries.count - self.skippedEntries.count)];
+    self.numExercisesValue.text = [NSString stringWithFormat:@"%lu", (self.logbookEntries.count - self.skippedEntries.count)];
     [self setLogbookScores];
 }
 

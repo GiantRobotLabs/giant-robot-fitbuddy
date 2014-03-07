@@ -7,7 +7,7 @@
 //
 
 #import "WorkoutViewController.h"
-#import "WorkoutModeViewController.h"
+#import "WorkoutModeParentController2.h"
 #import "CoreDataHelper.h"
 #import "Workout.h"
 #import "GymBuddyAppDelegate.h"
@@ -21,16 +21,13 @@
 @synthesize edit = _edit;
 
 #pragma mark CoreData
-@synthesize context = _context;
 
 #pragma mark -
 #pragma mark Initialization
 
 -(void) setupFetchedResultsController
 {
-    self.context = [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
-    [self setupFetchedResultsControllerWithContext:self.context];
-    
+    [self setupFetchedResultsControllerWithContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
 }
 
 -(void) setupFetchedResultsControllerWithContext: (NSManagedObjectContext *) context
@@ -153,8 +150,8 @@
             cell.editing = YES;
             Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
             
-            [self.context deleteObject:workout];
-            [[GymBuddyAppDelegate sharedAppDelegate] saveContext];
+            [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext deleteObject:workout];
+            [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext save:nil];
         }
         
         [self enableButtons:NO];
@@ -224,13 +221,13 @@
     {
         NSLog(@"In add workout segue");
         workout = [NSEntityDescription insertNewObjectForEntityForName:WORKOUT_TABLE
-                                                inManagedObjectContext:self.context];
+                                                inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
     }
     else if ([segue.identifier isEqualToString:START_WORKOUT_SEGUE])
     {
         NSLog(@"In start workout segue");
         workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [((WorkoutModeViewController *)[segue.destinationViewController topViewController]) initialSetupOfFormWithWorkout: workout];
+        [((WorkoutModeParentController2 *)[segue.destinationViewController topViewController]) setWorkout:workout];
     }
     else
     {

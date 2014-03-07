@@ -105,6 +105,18 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UILabel *cellLabel = (UILabel *)[cell viewWithTag:100];
+    
+    if ([cellLabel.text hasSuffix:@"Getting started"])
+    {
+        [self performSegueWithIdentifier:@"Segue to Demo" sender:self];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
 - (NSArray *) addPickerValue:(NSMutableArray *)array value:(NSString *) value
 {
     if (![array containsObject:value]){

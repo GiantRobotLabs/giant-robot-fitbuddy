@@ -11,7 +11,7 @@
 #import "Workout.h"
 #import "Exercise.h"
 
-@interface WorkoutAddViewController : CoreDataTableViewController <UITextFieldDelegate>
+@interface WorkoutAddViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *workoutNameTextField;
 

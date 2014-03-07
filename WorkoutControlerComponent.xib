@@ -565,7 +565,7 @@
         </view>
     </objects>
     <resources>
-        <image name="gb-undo" width="70" height="70"/>
+        <image name="gb-undo" width="98" height="98"/>
         <image name="start-button" width="292" height="292"/>
     </resources>
 </document>
