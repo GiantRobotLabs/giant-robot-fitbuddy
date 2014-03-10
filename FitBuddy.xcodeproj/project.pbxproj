@@ -20,6 +20,23 @@
 		D63E445618AB2CA300A13883 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E445318AB2CA300A13883 /* JBLineChartView.m */; };
 		D63E445818AB2DA500A13883 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63E445718AB2DA500A13883 /* QuartzCore.framework */; };
 		D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E446B18ACF49700A13883 /* BarChartDataSource.m */; };
+		D65525BC18CC561A00AF55A6 /* FSConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525B518CC561A00AF55A6 /* FSConverter.m */; };
+		D65525BD18CC561A00AF55A6 /* FSVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525B718CC561A00AF55A6 /* FSVenue.m */; };
+		D65525BE18CC561A00AF55A6 /* GymPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525B918CC561A00AF55A6 /* GymPassViewController.m */; };
+		D65525BF18CC561A00AF55A6 /* NearbyVenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525BB18CC561A00AF55A6 /* NearbyVenuesViewController.m */; };
+		D655260618CC568B00AF55A6 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = D65525F618CC568B00AF55A6 /* CHANGELOG.md */; };
+		D655260718CC568B00AF55A6 /* Foursquare2.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525F818CC568B00AF55A6 /* Foursquare2.m */; };
+		D655260818CC568B00AF55A6 /* FSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525FA18CC568B00AF55A6 /* FSKeychain.m */; };
+		D655260918CC568B00AF55A6 /* FSOAuthNoAppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525FC18CC568B00AF55A6 /* FSOAuthNoAppStore.m */; };
+		D655260A18CC568B00AF55A6 /* FSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525FE18CC568B00AF55A6 /* FSOperation.m */; };
+		D655260B18CC568B00AF55A6 /* FSWebLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = D655260018CC568B00AF55A6 /* FSWebLogin.m */; };
+		D655260C18CC568B00AF55A6 /* FSWebLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = D655260118CC568B00AF55A6 /* FSWebLogin.xib */; };
+		D655260D18CC568B00AF55A6 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = D655260218CC568B00AF55A6 /* pin.png */; };
+		D655260E18CC568B00AF55A6 /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D655260318CC568B00AF55A6 /* pin@2x.png */; };
+		D655260F18CC568B00AF55A6 /* poweredByFoursquare_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = D655260418CC568B00AF55A6 /* poweredByFoursquare_gray.png */; };
+		D655261018CC568B00AF55A6 /* poweredByFoursquare_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D655260518CC568B00AF55A6 /* poweredByFoursquare_gray@2x.png */; };
+		D655261218CC5BC900AF55A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655261118CC5BC900AF55A6 /* CoreLocation.framework */; };
+		D655261418CC5BFB00AF55A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655261318CC5BFB00AF55A6 /* Security.framework */; };
 		D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */; };
 		D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */; };
 		D67E165818B2C7BE001E9257 /* WorkoutSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E165718B2C7BE001E9257 /* WorkoutSequence.m */; };
@@ -33,7 +50,9 @@
 		D67E167018B31C97001E9257 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166E18B31C97001E9257 /* icon-small.png */; };
 		D67E167118B31C97001E9257 /* icon-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166F18B31C97001E9257 /* icon-big.png */; };
 		D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = D696191418A6A793002FE7C2 /* FitBuddyArchive.m */; };
+		D6A5124818CC5157002FDF5F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A5124718CC5157002FDF5F /* MapKit.framework */; };
 		D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */; };
+		D6BC798B18CAAFB4000CEAFB /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6BC798A18CAAFB4000CEAFB /* PassKit.framework */; };
 		D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */; };
 		D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AF0218A34990004F599E /* SwitchCell.m */; };
 		D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C26B2A14F15A710068DEA5 /* libz.dylib */; };
@@ -76,6 +95,7 @@
 		D60B4CC114D7A888001ECCE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D611806D18B10C9200786DBF /* GymBuddyModel1.4.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.2.xcdatamodel; sourceTree = "<group>"; };
 		D6135CD3151027D30055F337 /* FitBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D623E71C18CD89E800F1DA21 /* FoursquareConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoursquareConstants.h; sourceTree = SOURCE_ROOT; };
 		D625E86518B00ED900FFE96D /* WorkoutModeParentController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutModeParentController2.h; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeParentController2.h; sourceTree = SOURCE_ROOT; };
 		D625E86618B00ED900FFE96D /* WorkoutModeParentController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutModeParentController2.m; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeParentController2.m; sourceTree = SOURCE_ROOT; };
 		D625E86718B00ED900FFE96D /* WorkoutModeViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutModeViewController2.h; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeViewController2.h; sourceTree = SOURCE_ROOT; };
@@ -91,6 +111,33 @@
 		D63E446918AC994600A13883 /* GymBuddyModel1.4.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.1.xcdatamodel; sourceTree = "<group>"; };
 		D63E446A18ACF49700A13883 /* BarChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarChartDataSource.h; path = FitBuddy/CoreData/BarChartDataSource.h; sourceTree = SOURCE_ROOT; };
 		D63E446B18ACF49700A13883 /* BarChartDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarChartDataSource.m; path = FitBuddy/CoreData/BarChartDataSource.m; sourceTree = SOURCE_ROOT; };
+		D65525B318CC561A00AF55A6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = SOURCE_ROOT; };
+		D65525B418CC561A00AF55A6 /* FSConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSConverter.h; sourceTree = SOURCE_ROOT; };
+		D65525B518CC561A00AF55A6 /* FSConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSConverter.m; sourceTree = SOURCE_ROOT; };
+		D65525B618CC561A00AF55A6 /* FSVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVenue.h; sourceTree = SOURCE_ROOT; };
+		D65525B718CC561A00AF55A6 /* FSVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenue.m; sourceTree = SOURCE_ROOT; };
+		D65525B818CC561A00AF55A6 /* GymPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GymPassViewController.h; sourceTree = SOURCE_ROOT; };
+		D65525B918CC561A00AF55A6 /* GymPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GymPassViewController.m; sourceTree = SOURCE_ROOT; };
+		D65525BA18CC561A00AF55A6 /* NearbyVenuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyVenuesViewController.h; sourceTree = SOURCE_ROOT; };
+		D65525BB18CC561A00AF55A6 /* NearbyVenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyVenuesViewController.m; sourceTree = SOURCE_ROOT; };
+		D65525F618CC568B00AF55A6 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
+		D65525F718CC568B00AF55A6 /* Foursquare2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foursquare2.h; sourceTree = SOURCE_ROOT; };
+		D65525F818CC568B00AF55A6 /* Foursquare2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Foursquare2.m; sourceTree = SOURCE_ROOT; };
+		D65525F918CC568B00AF55A6 /* FSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSKeychain.h; sourceTree = SOURCE_ROOT; };
+		D65525FA18CC568B00AF55A6 /* FSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSKeychain.m; sourceTree = SOURCE_ROOT; };
+		D65525FB18CC568B00AF55A6 /* FSOAuthNoAppStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSOAuthNoAppStore.h; sourceTree = SOURCE_ROOT; };
+		D65525FC18CC568B00AF55A6 /* FSOAuthNoAppStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSOAuthNoAppStore.m; sourceTree = SOURCE_ROOT; };
+		D65525FD18CC568B00AF55A6 /* FSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSOperation.h; sourceTree = SOURCE_ROOT; };
+		D65525FE18CC568B00AF55A6 /* FSOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSOperation.m; sourceTree = SOURCE_ROOT; };
+		D65525FF18CC568B00AF55A6 /* FSWebLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSWebLogin.h; sourceTree = SOURCE_ROOT; };
+		D655260018CC568B00AF55A6 /* FSWebLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSWebLogin.m; sourceTree = SOURCE_ROOT; };
+		D655260118CC568B00AF55A6 /* FSWebLogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSWebLogin.xib; sourceTree = SOURCE_ROOT; };
+		D655260218CC568B00AF55A6 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = SOURCE_ROOT; };
+		D655260318CC568B00AF55A6 /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = SOURCE_ROOT; };
+		D655260418CC568B00AF55A6 /* poweredByFoursquare_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poweredByFoursquare_gray.png; sourceTree = SOURCE_ROOT; };
+		D655260518CC568B00AF55A6 /* poweredByFoursquare_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "poweredByFoursquare_gray@2x.png"; sourceTree = SOURCE_ROOT; };
+		D655261118CC5BC900AF55A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D655261318CC5BFB00AF55A6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FitBuddy.entitlements; sourceTree = SOURCE_ROOT; };
 		D67D7CF4170E75DC00E12E96 /* GymBuddyModel0.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel0.0.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF5170E75DC00E12E96 /* GymBuddyModel1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.0.xcdatamodel; sourceTree = "<group>"; };
@@ -121,7 +168,9 @@
 		D687067018B291740078187D /* GymBuddyModel1.4.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.4.xcdatamodel; sourceTree = "<group>"; };
 		D696191318A6A793002FE7C2 /* FitBuddyArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FitBuddyArchive.h; path = FitBuddy/CoreData/FitBuddyArchive.h; sourceTree = SOURCE_ROOT; };
 		D696191418A6A793002FE7C2 /* FitBuddyArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FitBuddyArchive.m; path = FitBuddy/CoreData/FitBuddyArchive.m; sourceTree = SOURCE_ROOT; };
+		D6A5124718CC5157002FDF5F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-Autolayout.storyboard"; sourceTree = SOURCE_ROOT; };
+		D6BC798A18CAAFB4000CEAFB /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutControlerComponent.xib; sourceTree = SOURCE_ROOT; };
 		D6C0AF0118A34990004F599E /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = SOURCE_ROOT; };
 		D6C0AF0218A34990004F599E /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = SOURCE_ROOT; };
@@ -182,10 +231,14 @@
 			files = (
 				D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */,
 				D63E445818AB2DA500A13883 /* QuartzCore.framework in Frameworks */,
+				D6A5124818CC5157002FDF5F /* MapKit.framework in Frameworks */,
+				D655261218CC5BC900AF55A6 /* CoreLocation.framework in Frameworks */,
 				D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */,
 				D60B4CBE14D7A888001ECCE3 /* UIKit.framework in Frameworks */,
 				D60B4CC014D7A888001ECCE3 /* Foundation.framework in Frameworks */,
 				D60B4CC214D7A888001ECCE3 /* CoreGraphics.framework in Frameworks */,
+				D6BC798B18CAAFB4000CEAFB /* PassKit.framework in Frameworks */,
+				D655261418CC5BFB00AF55A6 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +268,10 @@
 		D60B4CBC14D7A888001ECCE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D655261318CC5BFB00AF55A6 /* Security.framework */,
+				D655261118CC5BC900AF55A6 /* CoreLocation.framework */,
+				D6A5124718CC5157002FDF5F /* MapKit.framework */,
+				D6BC798A18CAAFB4000CEAFB /* PassKit.framework */,
 				D63E445718AB2DA500A13883 /* QuartzCore.framework */,
 				D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */,
 				D60B4CBD14D7A888001ECCE3 /* UIKit.framework */,
@@ -227,6 +284,7 @@
 		D60B4CC314D7A888001ECCE3 /* FitBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				D65525B218CC55E500AF55A6 /* GymPass */,
 				D696191B18A6AC8B002FE7C2 /* AppDelegate */,
 				D6C2CA65170E6C4C00BA02DA /* MainViewControllers */,
 				D625E85818B00D5600FFE96D /* New Workout Mode */,
@@ -283,6 +341,48 @@
 			name = JBChartView;
 			path = Classes;
 			sourceTree = SOURCE_ROOT;
+		};
+		D655259618CC55DB00AF55A6 /* Foursquare2 */ = {
+			isa = PBXGroup;
+			children = (
+				D65525F618CC568B00AF55A6 /* CHANGELOG.md */,
+				D65525F718CC568B00AF55A6 /* Foursquare2.h */,
+				D65525F818CC568B00AF55A6 /* Foursquare2.m */,
+				D65525F918CC568B00AF55A6 /* FSKeychain.h */,
+				D65525FA18CC568B00AF55A6 /* FSKeychain.m */,
+				D65525FB18CC568B00AF55A6 /* FSOAuthNoAppStore.h */,
+				D65525FC18CC568B00AF55A6 /* FSOAuthNoAppStore.m */,
+				D65525FD18CC568B00AF55A6 /* FSOperation.h */,
+				D65525FE18CC568B00AF55A6 /* FSOperation.m */,
+				D65525FF18CC568B00AF55A6 /* FSWebLogin.h */,
+				D655260018CC568B00AF55A6 /* FSWebLogin.m */,
+				D655260118CC568B00AF55A6 /* FSWebLogin.xib */,
+				D655260218CC568B00AF55A6 /* pin.png */,
+				D655260318CC568B00AF55A6 /* pin@2x.png */,
+				D655260418CC568B00AF55A6 /* poweredByFoursquare_gray.png */,
+				D655260518CC568B00AF55A6 /* poweredByFoursquare_gray@2x.png */,
+			);
+			name = Foursquare2;
+			path = "../../giant-robot-gympass/Foursquare2";
+			sourceTree = "<group>";
+		};
+		D65525B218CC55E500AF55A6 /* GymPass */ = {
+			isa = PBXGroup;
+			children = (
+				D655259618CC55DB00AF55A6 /* Foursquare2 */,
+				D65525B318CC561A00AF55A6 /* Constants.h */,
+				D623E71C18CD89E800F1DA21 /* FoursquareConstants.h */,
+				D65525B418CC561A00AF55A6 /* FSConverter.h */,
+				D65525B518CC561A00AF55A6 /* FSConverter.m */,
+				D65525B618CC561A00AF55A6 /* FSVenue.h */,
+				D65525B718CC561A00AF55A6 /* FSVenue.m */,
+				D65525B818CC561A00AF55A6 /* GymPassViewController.h */,
+				D65525B918CC561A00AF55A6 /* GymPassViewController.m */,
+				D65525BA18CC561A00AF55A6 /* NearbyVenuesViewController.h */,
+				D65525BB18CC561A00AF55A6 /* NearbyVenuesViewController.m */,
+			);
+			name = GymPass;
+			sourceTree = "<group>";
 		};
 		D67825D614E583B600C00BD4 /* Components */ = {
 			isa = PBXGroup;
@@ -454,6 +554,12 @@
 							com.apple.Keychain = {
 								enabled = 0;
 							};
+							com.apple.Passbook = {
+								enabled = 1;
+							};
+							com.apple.iOS = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -482,11 +588,17 @@
 			files = (
 				D67E167118B31C97001E9257 /* icon-big.png in Resources */,
 				D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */,
+				D655260F18CC568B00AF55A6 /* poweredByFoursquare_gray.png in Resources */,
+				D655260E18CC568B00AF55A6 /* pin@2x.png in Resources */,
 				D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */,
 				D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */,
 				D601921518AFE01600255256 /* Demo.xcassets in Resources */,
+				D655260C18CC568B00AF55A6 /* FSWebLogin.xib in Resources */,
 				D67E167018B31C97001E9257 /* icon-small.png in Resources */,
+				D655260D18CC568B00AF55A6 /* pin.png in Resources */,
+				D655261018CC568B00AF55A6 /* poweredByFoursquare_gray@2x.png in Resources */,
 				D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */,
+				D655260618CC568B00AF55A6 /* CHANGELOG.md in Resources */,
 				D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +623,8 @@
 				D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */,
 				D6C2CA33170E6BDA00BA02DA /* LogbookEntry+TDate.m in Sources */,
 				D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */,
+				D65525BF18CC561A00AF55A6 /* NearbyVenuesViewController.m in Sources */,
+				D65525BD18CC561A00AF55A6 /* FSVenue.m in Sources */,
 				D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */,
 				D6C2CA42170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */,
 				D6C2CA43170E6C0100BA02DA /* GymBuddyMappingModel1.3.xcmappingmodel in Sources */,
@@ -520,11 +634,16 @@
 				D63E445418AB2CA300A13883 /* JBBarChartView.m in Sources */,
 				D6C2CA5D170E6C4000BA02DA /* ExerciseEditViewController.m in Sources */,
 				D67E166118B2C7BE001E9257 /* ResistanceExercise.m in Sources */,
+				D655260918CC568B00AF55A6 /* FSOAuthNoAppStore.m in Sources */,
 				D67E166418B2C7BE001E9257 /* CardioExercise.m in Sources */,
+				D65525BC18CC561A00AF55A6 /* FSConverter.m in Sources */,
 				D6C2CA5E170E6C4000BA02DA /* ExerciseListTableViewController.m in Sources */,
+				D655260A18CC568B00AF55A6 /* FSOperation.m in Sources */,
 				D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */,
 				D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */,
+				D655260718CC568B00AF55A6 /* Foursquare2.m in Sources */,
 				D6C2CA60170E6C4000BA02DA /* LogbookViewController.m in Sources */,
+				D65525BE18CC561A00AF55A6 /* GymPassViewController.m in Sources */,
 				D67E166A18B2C7BE001E9257 /* CardioHistory.m in Sources */,
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
 				D6C2CA62170E6C4000BA02DA /* SettingsIncrementViewController.m in Sources */,
@@ -537,6 +656,8 @@
 				D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */,
 				D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */,
 				D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */,
+				D655260B18CC568B00AF55A6 /* FSWebLogin.m in Sources */,
+				D655260818CC568B00AF55A6 /* FSKeychain.m in Sources */,
 				D6C2CB08170E6D2500BA02DA /* main.m in Sources */,
 				D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */,
 				D67E165818B2C7BE001E9257 /* WorkoutSequence.m in Sources */,
@@ -633,6 +754,8 @@
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -654,6 +777,8 @@
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -707,6 +832,8 @@
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

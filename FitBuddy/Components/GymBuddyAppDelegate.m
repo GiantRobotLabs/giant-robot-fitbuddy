@@ -8,6 +8,9 @@
 
 #import "GymBuddyAppDelegate.h"
 #import "CoreDataHelper.h"
+#import "Constants.h"
+#import "FoursquareConstants.h"
+#import "Foursquare2.h"
 
 @implementation GymBuddyAppDelegate
 
@@ -44,6 +47,16 @@
     [[UIPageControl appearance] setCurrentPageIndicatorTintColor:kCOLOR_RED];
     [[UIPageControl appearance] setBackgroundColor:[UIColor clearColor]];
 
+    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIColor whiteColor],NSForegroundColorAttributeName, nil];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+    
+    [Foursquare2 setupFoursquareWithClientId:kFSCLIENTID
+                                      secret:kFSCLIENTSECRET
+                                 callbackURL:kFSCALLBACKURL];
+    
+    
     return YES;
 }
 							

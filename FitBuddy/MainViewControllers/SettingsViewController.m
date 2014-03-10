@@ -101,6 +101,7 @@
             [self addPickerValue:pickerValues value: defaultLabel.text];
             [setPicker setArgument:&pickerValues atIndex:2];
             [setPicker invoke];
+            
         }
     }
 }
