@@ -11,7 +11,6 @@
 #import "CoreDataHelper.h"
 #import "Workout.h"
 #import "GymBuddyAppDelegate.h"
-#import <PassKit/PassKit.h>
 
 @implementation WorkoutViewController 
 
@@ -77,23 +76,22 @@
     [self enableButtons:NO];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[GymBuddyAppDelegate sharedAppDelegate]];
+   
+    /*
+    NSArray *vcArray = [self.tabBarController viewControllers];
+    NSMutableArray *newArray = [[self.tabBarController viewControllers] mutableCopy];
     
-    
-    if (![PKPassLibrary isPassLibraryAvailable])
+    for (UIViewController *vc in vcArray)
     {
-        NSArray *vcArray = [self.tabBarController viewControllers];
-        NSMutableArray *newArray = [[self.tabBarController viewControllers] mutableCopy];
-        
-        for (UIViewController *vc in vcArray)
+        if ([vc.tabBarItem.title isEqualToString:@"GymPass"])
         {
-            if ([vc.tabBarItem.title isEqualToString:@"GymPass"])
-            {
-                [newArray removeObject:vc];
-            }
+            [newArray removeObject:vc];
         }
-        
-        [self.tabBarController setViewControllers:newArray];
     }
+    
+    [self.tabBarController setViewControllers:newArray];
+     */
+
     
     [super viewWillAppear:animated];
     

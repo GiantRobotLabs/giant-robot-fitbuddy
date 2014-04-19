@@ -6,13 +6,16 @@
 //  Copyright (c) 2014 jneyer.com. All rights reserved.
 //
 
+#import "GymBuddyAppDelegate.h"
 #import "GymPassViewController.h"
 #import "Constants.h"
-#import <PassKit/PassKit.h>
+#import "FoursquareConstants.h"
+
+#import "ShowPassViewController.h"
 
 @interface GymPassViewController ()
 {
- 
+    BOOL loaded;
 }
 
 @end
@@ -33,6 +36,8 @@
     [super viewDidLoad];
 	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
     [self.makeAPassButton setBackgroundColor:kCOLOR_RED];
+    [self.makeAPassButton setTitleColor:kCOLOR_LTGRAY forState:UIControlStateHighlighted];
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
@@ -44,29 +49,17 @@
     self.memberNumberField.returnKeyType = UIReturnKeyDone;
     self.locationNameField.returnKeyType = UIReturnKeyDone;
     
-    if (![PKPassLibrary isPassLibraryAvailable]) {
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Pass Library Error" message:@"The Pass Library is not available." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alertView show];
-    }
-    PKPassLibrary *passLib = [[PKPassLibrary alloc] init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    NSString *name = [defaults objectForKey:kDEFAULTS_NAME];
+    NSString *uid = [defaults objectForKey:kDEFAULTS_ID];
+    NSString *locname = [defaults objectForKey:kDEFAULTS_LOCNAME];
     
-    PKPass *pass = [passLib passWithPassTypeIdentifier:@"pass.com.giantrobotlabs.fitbuddy" serialNumber:@"000000001"];
+    [self.memberNameField setText:name];
+    [self.memberNumberField setText:uid];
+    [self.locationNameField setText:locname];
     
-    if (pass)
-    {
-        [self.memberNameField setText:[pass localizedValueForFieldKey:@"member"]];
-        [self.memberNumberField setText:[pass localizedValueForFieldKey:@"memberId"]];
-        [self.locationNameField setText:[pass localizedValueForFieldKey:@"membership"]];
-        
-        [self.makeAPassButton setTitle:@"Update Gym Pass" forState:UIControlStateNormal];
-        
-    }
-    else
-    {
-        [self.makeAPassButton setTitle:@"Add Gym Pass" forState:UIControlStateNormal];
-
-    }
+    [self.makeAPassButton setTitle:@"Show Gym Pass" forState:UIControlStateNormal];
     
     if (self.venue)
     {
@@ -75,31 +68,54 @@
     
     [self.locationTable reloadData];
     
+    [[GymBuddyAppDelegate sharedAppDelegate] setGymPassViewController:self];
+    
+    if ([self validateFields])
+    {
+        loaded = YES;
+        [self showPass:YES];
+    }
+    
 }
 
 -(IBAction)textFieldEditingDidEnd:(id)sender
 {
     UITextField *theField = (UITextField*)sender;
     // do whatever you want with this text field
+    [self saveDefaults];
+    
     [theField resignFirstResponder];
+}
+
+- (void) saveDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.memberNameField.text forKey:kDEFAULTS_NAME];
+    [defaults setObject:self.memberNumberField.text forKey:kDEFAULTS_ID];
+    [defaults setObject:self.locationNameField.text forKey:kDEFAULTS_LOCNAME];
+    [defaults synchronize];
+}
+
+- (BOOL) validateFields
+{
+    return ([self.memberNameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length > 0 && [self.memberNumberField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length > 0 && [self.locationNameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length > 0);
 }
 
 - (IBAction)makePassButtonClicked:(id)sender
 {
-    NSLog(@"Preparing Gym Pass for: Name:%@, Id:%@, Venue:%@, Addr:%@, Lat:%@, Lon:%@",
-          self.memberNameField.text,
-          self.memberNumberField.text,
-          self.locationNameField.text,
-          self.venue.location.address,
-          [NSNumber numberWithDouble: self.venue.location.coordinate.latitude],
-          [NSNumber numberWithDouble: self.venue.location.coordinate.longitude]);
+    [self saveDefaults];
     
-    if (self.memberNumberField.text && self.memberNumberField.text && self.locationNameField.text)
+    if (DEBUG) NSLog(@"Preparing Gym Pass for: Name:%@, Id:%@, Venue:%@, Addr:%@, Lat:%@, Lon:%@",
+                     self.memberNameField.text,
+                     self.memberNumberField.text,
+                     self.locationNameField.text,
+                     self.venue.location.address,
+                     [NSNumber numberWithDouble: self.venue.location.coordinate.latitude],
+                     [NSNumber numberWithDouble: self.venue.location.coordinate.longitude]);
+    
+    if ([self validateFields])
     {
-        NSString *service = @"https://sinatra-evilsushi.rhcloud.com/passbook";
-        NSString *name = self.memberNameField.text;
-        NSString *memberId = self.memberNumberField.text;
-        NSString *locName = self.locationNameField.text;
+        
         NSString *address = @"No address";
         NSNumber *lat = [NSNumber numberWithDouble:0.0];
         NSNumber *lon = [NSNumber numberWithDouble:0.0];
@@ -118,81 +134,42 @@
             
         }
         
-        NSString *serviceString = [NSString stringWithFormat:@"%@?memberName=%@&memberId=%@&locationName=%@&locationAddress=%@&locationLat=%@&locationLon=%@", service, name, memberId, locName, address, lat, lon];
-        
-        NSURL *serviceURL = [NSURL URLWithString:[serviceString stringByAddingPercentEscapesUsingEncoding:
-                                                  NSASCIIStringEncoding]];
-        
-        UIActivityIndicatorView *activityView = [self showActivityIndicatorOnView:self.view];
-        NSData *data = [NSData dataWithContentsOfURL:serviceURL];
-        [activityView stopAnimating];
-        
-        [self showPass:data];
+        [self showPass:YES];
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Missing information" message:@"You must complete the form fields to generate a pass." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No information entered" message:@"Please provide your name, ID, and location name to generate a Gym Pass." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }
- 
+    
 }
 
-- (void) showPass: (NSData *) data
+- (void) showPass: (BOOL) animated
 {
-    NSError *err;
-    if (nil != data)
+    if (animated)
     {
-        PKPass *pass = [[PKPass alloc] initWithData:data error:&err];
-        
-        
-        
-        if (err)
-        {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[err localizedDescription] delegate:nil cancelButtonTitle:@"OK"otherButtonTitles:nil];
-            [alertView show];
-        }
-        else
-        {
-            PKAddPassesViewController *pkvc = [[PKAddPassesViewController alloc] initWithPass:pass];
-            
-            [self presentViewController:pkvc
-                               animated:YES
-                             completion:nil                 ];
-        }
+        [self performSegueWithIdentifier:@"ShowGymPass" sender:self];
     }
-
-}
-
-- (UIActivityIndicatorView *)showActivityIndicatorOnView:(UIView*)aView
-{
-    CGSize viewSize = aView.bounds.size;
-    
-    // create new dialog box view and components
-    UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc]
-                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    
-    // other size? change it
-    activityIndicatorView.bounds = CGRectMake(0, 0, 65, 65);
-    activityIndicatorView.hidesWhenStopped = YES;
-    activityIndicatorView.alpha = 0.7f;
-    activityIndicatorView.backgroundColor = kCOLOR_GRAY_t;
-    activityIndicatorView.layer.cornerRadius = 10.0f;
-    
-    // display it in the center of your view
-    activityIndicatorView.center = CGPointMake(viewSize.width / 2.0, viewSize.height / 2.0);
-    [activityIndicatorView setHidesWhenStopped:YES];
-    
-    [aView addSubview:activityIndicatorView];
-    
-    [activityIndicatorView startAnimating];
-    
-    return activityIndicatorView;
+    else
+    {
+        [self performSegueWithIdentifier:@"ShowGymPassNoAnimation" sender:self];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [segue.destinationViewController setValue:self.locationNameField.text forKey:@"searchString"];
-    [segue.destinationViewController setValue:self forKey:@"parent"];
+    if ([segue.identifier hasPrefix:@"ShowGymPass"])
+    {
+        ShowPassViewController *passViewController = (ShowPassViewController *)segue.destinationViewController;
+        [passViewController setMemberId:self.memberNumberField.text];
+        [passViewController setMemberName:self.memberNameField.text];
+        [passViewController setVenueName:self.locationNameField.text];
+    }
+    else
+    {
+        [segue.destinationViewController setValue:self.locationNameField.text forKey:@"searchString"];
+        [segue.destinationViewController setValue:self forKey:@"parent"];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -209,7 +186,7 @@
     UILabel *addressLabel = cell.detailTextLabel;
     
     [cell setSelectionStyle: UITableViewCellSelectionStyleNone];
-
+    
     if (self.venue)
     {
         [venueLabel setText:self.venue.name];
@@ -218,8 +195,8 @@
     }
     else
     {
-        [venueLabel setText:@"No Location"];
-        [addressLabel setText:@""];
+        [venueLabel setText:@"Gym Search"];
+        [addressLabel setText:@"Tap to search for gym location name."];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
     
@@ -278,6 +255,11 @@
 {
     [self performSegueWithIdentifier:@"showMapSeque" sender:self];
     
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[GymBuddyAppDelegate sharedAppDelegate] setGymPassViewController:nil];
 }
 
 @end

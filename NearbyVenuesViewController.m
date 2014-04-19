@@ -30,9 +30,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self.navigationController.navigationBar setTintColor: [UIColor whiteColor]];
-
+    
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.delegate = self;
@@ -149,7 +149,7 @@
 - (void)userDidSelectVenue {
     
     [self.mapView setCenterCoordinate:self.selected.location.coordinate animated:YES];
-
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -186,13 +186,18 @@
 -(void) locationSelected
 {
     [self.parent setValue:self.selected forKey:@"venue"];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.selected.name forKey:kDEFAULTS_LOCNAME];
+    [defaults synchronize];
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 60.0;
-
+    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

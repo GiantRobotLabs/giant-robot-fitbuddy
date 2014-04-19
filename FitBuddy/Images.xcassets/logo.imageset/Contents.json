@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "x.png"
+      "filename" : "logo.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "x@2x.png"
+      "filename" : "logo@2x.png"
     }
   ],
   "info" : {

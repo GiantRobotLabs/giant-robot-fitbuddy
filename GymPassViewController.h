@@ -22,4 +22,6 @@
 - (IBAction)makePassButtonClicked:(id)sender;
 - (IBAction)textFieldEditingDidEnd:(id)sender;
 
+- (void) showPass: (BOOL) animated;
+
 @end

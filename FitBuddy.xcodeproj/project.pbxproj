@@ -52,7 +52,6 @@
 		D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = D696191418A6A793002FE7C2 /* FitBuddyArchive.m */; };
 		D6A5124818CC5157002FDF5F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A5124718CC5157002FDF5F /* MapKit.framework */; };
 		D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */; };
-		D6BC798B18CAAFB4000CEAFB /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6BC798A18CAAFB4000CEAFB /* PassKit.framework */; };
 		D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */; };
 		D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AF0218A34990004F599E /* SwitchCell.m */; };
 		D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C26B2A14F15A710068DEA5 /* libz.dylib */; };
@@ -80,6 +79,26 @@
 		D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */; };
 		D6C2CB08170E6D2500BA02DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CB06170E6D2500BA02DA /* main.m */; };
 		D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CB0A170E6D5300BA02DA /* InfoPlist.strings */; };
+		D6C49F511901FAB7001A8E41 /* ShowPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F501901FAB7001A8E41 /* ShowPassViewController.m */; };
+		D6C49F761901FD2D001A8E41 /* RSCode128Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F541901FD2D001A8E41 /* RSCode128Generator.m */; };
+		D6C49F771901FD2D001A8E41 /* RSCode39Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F561901FD2D001A8E41 /* RSCode39Generator.m */; };
+		D6C49F781901FD2D001A8E41 /* RSCode39Mod43Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F581901FD2D001A8E41 /* RSCode39Mod43Generator.m */; };
+		D6C49F791901FD2D001A8E41 /* RSCode93Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F5A1901FD2D001A8E41 /* RSCode93Generator.m */; };
+		D6C49F7A1901FD2D001A8E41 /* RSCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F5D1901FD2D001A8E41 /* RSCodeGenerator.m */; };
+		D6C49F7B1901FD2D001A8E41 /* RSCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F5F1901FD2D001A8E41 /* RSCodeView.m */; };
+		D6C49F7C1901FD2D001A8E41 /* RSCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F611901FD2D001A8E41 /* RSCornersView.m */; };
+		D6C49F7D1901FD2D001A8E41 /* RSEAN13Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F631901FD2D001A8E41 /* RSEAN13Generator.m */; };
+		D6C49F7E1901FD2D001A8E41 /* RSEAN8Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F651901FD2D001A8E41 /* RSEAN8Generator.m */; };
+		D6C49F7F1901FD2D001A8E41 /* RSEANGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F671901FD2D001A8E41 /* RSEANGenerator.m */; };
+		D6C49F801901FD2D001A8E41 /* RSExtendedCode39Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F691901FD2D001A8E41 /* RSExtendedCode39Generator.m */; };
+		D6C49F811901FD2D001A8E41 /* RSISBN13Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F6B1901FD2D001A8E41 /* RSISBN13Generator.m */; };
+		D6C49F821901FD2D001A8E41 /* RSISSN13Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F6D1901FD2D001A8E41 /* RSISSN13Generator.m */; };
+		D6C49F831901FD2D001A8E41 /* RSITF14Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F6F1901FD2D001A8E41 /* RSITF14Generator.m */; };
+		D6C49F841901FD2D001A8E41 /* RSScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F711901FD2D001A8E41 /* RSScannerViewController.m */; };
+		D6C49F851901FD2D001A8E41 /* RSUnifiedCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F731901FD2D001A8E41 /* RSUnifiedCodeGenerator.m */; };
+		D6C49F861901FD2D001A8E41 /* RSUPCEGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F751901FD2D001A8E41 /* RSUPCEGenerator.m */; };
+		D6C49F881901FECC001A8E41 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C49F871901FECC001A8E41 /* AVFoundation.framework */; };
+		D6C49F8A1901FF68001A8E41 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C49F891901FF68001A8E41 /* CoreImage.framework */; };
 		D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
 		D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FF1D141870B50A004A1D2A /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -220,6 +239,45 @@
 		D6C2CB05170E6D2500BA02DA /* FitBuddy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FitBuddy-Prefix.pch"; path = "FitBuddy/FitBuddy-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D6C2CB06170E6D2500BA02DA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FitBuddy/main.m; sourceTree = SOURCE_ROOT; };
 		D6C2CB0B170E6D5300BA02DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		D6C49F4F1901FAB7001A8E41 /* ShowPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPassViewController.h; sourceTree = SOURCE_ROOT; };
+		D6C49F501901FAB7001A8E41 /* ShowPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPassViewController.m; sourceTree = SOURCE_ROOT; };
+		D6C49F531901FD2D001A8E41 /* RSCode128Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCode128Generator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F541901FD2D001A8E41 /* RSCode128Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCode128Generator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F551901FD2D001A8E41 /* RSCode39Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCode39Generator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F561901FD2D001A8E41 /* RSCode39Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCode39Generator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F571901FD2D001A8E41 /* RSCode39Mod43Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCode39Mod43Generator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F581901FD2D001A8E41 /* RSCode39Mod43Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCode39Mod43Generator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F591901FD2D001A8E41 /* RSCode93Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCode93Generator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F5A1901FD2D001A8E41 /* RSCode93Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCode93Generator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F5B1901FD2D001A8E41 /* RSCodeGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCodeGen.h; sourceTree = SOURCE_ROOT; };
+		D6C49F5C1901FD2D001A8E41 /* RSCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCodeGenerator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F5D1901FD2D001A8E41 /* RSCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCodeGenerator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F5E1901FD2D001A8E41 /* RSCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCodeView.h; sourceTree = SOURCE_ROOT; };
+		D6C49F5F1901FD2D001A8E41 /* RSCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCodeView.m; sourceTree = SOURCE_ROOT; };
+		D6C49F601901FD2D001A8E41 /* RSCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCornersView.h; sourceTree = SOURCE_ROOT; };
+		D6C49F611901FD2D001A8E41 /* RSCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCornersView.m; sourceTree = SOURCE_ROOT; };
+		D6C49F621901FD2D001A8E41 /* RSEAN13Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSEAN13Generator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F631901FD2D001A8E41 /* RSEAN13Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSEAN13Generator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F641901FD2D001A8E41 /* RSEAN8Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSEAN8Generator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F651901FD2D001A8E41 /* RSEAN8Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSEAN8Generator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F661901FD2D001A8E41 /* RSEANGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSEANGenerator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F671901FD2D001A8E41 /* RSEANGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSEANGenerator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F681901FD2D001A8E41 /* RSExtendedCode39Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSExtendedCode39Generator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F691901FD2D001A8E41 /* RSExtendedCode39Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSExtendedCode39Generator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F6A1901FD2D001A8E41 /* RSISBN13Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSISBN13Generator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F6B1901FD2D001A8E41 /* RSISBN13Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSISBN13Generator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F6C1901FD2D001A8E41 /* RSISSN13Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSISSN13Generator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F6D1901FD2D001A8E41 /* RSISSN13Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSISSN13Generator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F6E1901FD2D001A8E41 /* RSITF14Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSITF14Generator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F6F1901FD2D001A8E41 /* RSITF14Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSITF14Generator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F701901FD2D001A8E41 /* RSScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSScannerViewController.h; sourceTree = SOURCE_ROOT; };
+		D6C49F711901FD2D001A8E41 /* RSScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSScannerViewController.m; sourceTree = SOURCE_ROOT; };
+		D6C49F721901FD2D001A8E41 /* RSUnifiedCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSUnifiedCodeGenerator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F731901FD2D001A8E41 /* RSUnifiedCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSUnifiedCodeGenerator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F741901FD2D001A8E41 /* RSUPCEGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSUPCEGenerator.h; sourceTree = SOURCE_ROOT; };
+		D6C49F751901FD2D001A8E41 /* RSUPCEGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSUPCEGenerator.m; sourceTree = SOURCE_ROOT; };
+		D6C49F871901FECC001A8E41 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D6C49F891901FF68001A8E41 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D6FF1D141870B50A004A1D2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FitBuddy/Images.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -231,13 +289,14 @@
 			files = (
 				D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */,
 				D63E445818AB2DA500A13883 /* QuartzCore.framework in Frameworks */,
+				D60B4CC214D7A888001ECCE3 /* CoreGraphics.framework in Frameworks */,
+				D6C49F8A1901FF68001A8E41 /* CoreImage.framework in Frameworks */,
+				D6C49F881901FECC001A8E41 /* AVFoundation.framework in Frameworks */,
 				D6A5124818CC5157002FDF5F /* MapKit.framework in Frameworks */,
 				D655261218CC5BC900AF55A6 /* CoreLocation.framework in Frameworks */,
 				D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */,
 				D60B4CBE14D7A888001ECCE3 /* UIKit.framework in Frameworks */,
 				D60B4CC014D7A888001ECCE3 /* Foundation.framework in Frameworks */,
-				D60B4CC214D7A888001ECCE3 /* CoreGraphics.framework in Frameworks */,
-				D6BC798B18CAAFB4000CEAFB /* PassKit.framework in Frameworks */,
 				D655261418CC5BFB00AF55A6 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +327,8 @@
 		D60B4CBC14D7A888001ECCE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6C49F891901FF68001A8E41 /* CoreImage.framework */,
+				D6C49F871901FECC001A8E41 /* AVFoundation.framework */,
 				D655261318CC5BFB00AF55A6 /* Security.framework */,
 				D655261118CC5BC900AF55A6 /* CoreLocation.framework */,
 				D6A5124718CC5157002FDF5F /* MapKit.framework */,
@@ -369,6 +430,7 @@
 		D65525B218CC55E500AF55A6 /* GymPass */ = {
 			isa = PBXGroup;
 			children = (
+				D6C49F521901FD0A001A8E41 /* RSBarcodes */,
 				D655259618CC55DB00AF55A6 /* Foursquare2 */,
 				D65525B318CC561A00AF55A6 /* Constants.h */,
 				D623E71C18CD89E800F1DA21 /* FoursquareConstants.h */,
@@ -378,6 +440,8 @@
 				D65525B718CC561A00AF55A6 /* FSVenue.m */,
 				D65525B818CC561A00AF55A6 /* GymPassViewController.h */,
 				D65525B918CC561A00AF55A6 /* GymPassViewController.m */,
+				D6C49F4F1901FAB7001A8E41 /* ShowPassViewController.h */,
+				D6C49F501901FAB7001A8E41 /* ShowPassViewController.m */,
 				D65525BA18CC561A00AF55A6 /* NearbyVenuesViewController.h */,
 				D65525BB18CC561A00AF55A6 /* NearbyVenuesViewController.m */,
 			);
@@ -519,6 +583,48 @@
 			path = FitBuddy/en.lproj;
 			sourceTree = SOURCE_ROOT;
 		};
+		D6C49F521901FD0A001A8E41 /* RSBarcodes */ = {
+			isa = PBXGroup;
+			children = (
+				D6C49F531901FD2D001A8E41 /* RSCode128Generator.h */,
+				D6C49F541901FD2D001A8E41 /* RSCode128Generator.m */,
+				D6C49F551901FD2D001A8E41 /* RSCode39Generator.h */,
+				D6C49F561901FD2D001A8E41 /* RSCode39Generator.m */,
+				D6C49F571901FD2D001A8E41 /* RSCode39Mod43Generator.h */,
+				D6C49F581901FD2D001A8E41 /* RSCode39Mod43Generator.m */,
+				D6C49F591901FD2D001A8E41 /* RSCode93Generator.h */,
+				D6C49F5A1901FD2D001A8E41 /* RSCode93Generator.m */,
+				D6C49F5B1901FD2D001A8E41 /* RSCodeGen.h */,
+				D6C49F5C1901FD2D001A8E41 /* RSCodeGenerator.h */,
+				D6C49F5D1901FD2D001A8E41 /* RSCodeGenerator.m */,
+				D6C49F5E1901FD2D001A8E41 /* RSCodeView.h */,
+				D6C49F5F1901FD2D001A8E41 /* RSCodeView.m */,
+				D6C49F601901FD2D001A8E41 /* RSCornersView.h */,
+				D6C49F611901FD2D001A8E41 /* RSCornersView.m */,
+				D6C49F621901FD2D001A8E41 /* RSEAN13Generator.h */,
+				D6C49F631901FD2D001A8E41 /* RSEAN13Generator.m */,
+				D6C49F641901FD2D001A8E41 /* RSEAN8Generator.h */,
+				D6C49F651901FD2D001A8E41 /* RSEAN8Generator.m */,
+				D6C49F661901FD2D001A8E41 /* RSEANGenerator.h */,
+				D6C49F671901FD2D001A8E41 /* RSEANGenerator.m */,
+				D6C49F681901FD2D001A8E41 /* RSExtendedCode39Generator.h */,
+				D6C49F691901FD2D001A8E41 /* RSExtendedCode39Generator.m */,
+				D6C49F6A1901FD2D001A8E41 /* RSISBN13Generator.h */,
+				D6C49F6B1901FD2D001A8E41 /* RSISBN13Generator.m */,
+				D6C49F6C1901FD2D001A8E41 /* RSISSN13Generator.h */,
+				D6C49F6D1901FD2D001A8E41 /* RSISSN13Generator.m */,
+				D6C49F6E1901FD2D001A8E41 /* RSITF14Generator.h */,
+				D6C49F6F1901FD2D001A8E41 /* RSITF14Generator.m */,
+				D6C49F701901FD2D001A8E41 /* RSScannerViewController.h */,
+				D6C49F711901FD2D001A8E41 /* RSScannerViewController.m */,
+				D6C49F721901FD2D001A8E41 /* RSUnifiedCodeGenerator.h */,
+				D6C49F731901FD2D001A8E41 /* RSUnifiedCodeGenerator.m */,
+				D6C49F741901FD2D001A8E41 /* RSUPCEGenerator.h */,
+				D6C49F751901FD2D001A8E41 /* RSUPCEGenerator.m */,
+			);
+			name = RSBarcodes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -545,7 +651,7 @@
 		D60B4CB014D7A888001ECCE3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = jneyer.com;
 				TargetAttributes = {
 					D60B4CB814D7A888001ECCE3 = {
@@ -555,7 +661,7 @@
 								enabled = 0;
 							};
 							com.apple.Passbook = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.iOS = {
 								enabled = 1;
@@ -616,29 +722,38 @@
 				D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */,
 				D63E445618AB2CA300A13883 /* JBLineChartView.m in Sources */,
 				D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */,
+				D6C49F7A1901FD2D001A8E41 /* RSCodeGenerator.m in Sources */,
 				D601921318AFDF6F00255256 /* DemoContentViewController.m in Sources */,
 				D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */,
 				D63E445518AB2CA300A13883 /* JBChartView.m in Sources */,
+				D6C49F811901FD2D001A8E41 /* RSISBN13Generator.m in Sources */,
 				D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */,
 				D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */,
+				D6C49F7C1901FD2D001A8E41 /* RSCornersView.m in Sources */,
+				D6C49F851901FD2D001A8E41 /* RSUnifiedCodeGenerator.m in Sources */,
 				D6C2CA33170E6BDA00BA02DA /* LogbookEntry+TDate.m in Sources */,
 				D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */,
 				D65525BF18CC561A00AF55A6 /* NearbyVenuesViewController.m in Sources */,
+				D6C49F511901FAB7001A8E41 /* ShowPassViewController.m in Sources */,
 				D65525BD18CC561A00AF55A6 /* FSVenue.m in Sources */,
 				D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */,
 				D6C2CA42170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */,
 				D6C2CA43170E6C0100BA02DA /* GymBuddyMappingModel1.3.xcmappingmodel in Sources */,
+				D6C49F7D1901FD2D001A8E41 /* RSEAN13Generator.m in Sources */,
 				D67E166718B2C7BE001E9257 /* Exercise.m in Sources */,
 				D6C2CA5B170E6C4000BA02DA /* ExerciseAddViewController.m in Sources */,
 				D6C2CA5C170E6C4000BA02DA /* ExerciseControlController.m in Sources */,
 				D63E445418AB2CA300A13883 /* JBBarChartView.m in Sources */,
 				D6C2CA5D170E6C4000BA02DA /* ExerciseEditViewController.m in Sources */,
 				D67E166118B2C7BE001E9257 /* ResistanceExercise.m in Sources */,
+				D6C49F7B1901FD2D001A8E41 /* RSCodeView.m in Sources */,
 				D655260918CC568B00AF55A6 /* FSOAuthNoAppStore.m in Sources */,
 				D67E166418B2C7BE001E9257 /* CardioExercise.m in Sources */,
 				D65525BC18CC561A00AF55A6 /* FSConverter.m in Sources */,
 				D6C2CA5E170E6C4000BA02DA /* ExerciseListTableViewController.m in Sources */,
+				D6C49F821901FD2D001A8E41 /* RSISSN13Generator.m in Sources */,
 				D655260A18CC568B00AF55A6 /* FSOperation.m in Sources */,
+				D6C49F761901FD2D001A8E41 /* RSCode128Generator.m in Sources */,
 				D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */,
 				D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */,
 				D655260718CC568B00AF55A6 /* Foursquare2.m in Sources */,
@@ -651,12 +766,21 @@
 				D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */,
 				D601920F18AFDF0C00255256 /* DemoViewController.m in Sources */,
 				D67E165B18B2C7BE001E9257 /* LogbookEntry.m in Sources */,
+				D6C49F861901FD2D001A8E41 /* RSUPCEGenerator.m in Sources */,
+				D6C49F781901FD2D001A8E41 /* RSCode39Mod43Generator.m in Sources */,
 				D67E166D18B2C7BE001E9257 /* ResistanceHistory.m in Sources */,
 				D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */,
 				D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */,
 				D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */,
+				D6C49F771901FD2D001A8E41 /* RSCode39Generator.m in Sources */,
+				D6C49F831901FD2D001A8E41 /* RSITF14Generator.m in Sources */,
+				D6C49F791901FD2D001A8E41 /* RSCode93Generator.m in Sources */,
+				D6C49F7E1901FD2D001A8E41 /* RSEAN8Generator.m in Sources */,
 				D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */,
 				D655260B18CC568B00AF55A6 /* FSWebLogin.m in Sources */,
+				D6C49F7F1901FD2D001A8E41 /* RSEANGenerator.m in Sources */,
+				D6C49F801901FD2D001A8E41 /* RSExtendedCode39Generator.m in Sources */,
+				D6C49F841901FD2D001A8E41 /* RSScannerViewController.m in Sources */,
 				D655260818CC568B00AF55A6 /* FSKeychain.m in Sources */,
 				D6C2CB08170E6D2500BA02DA /* main.m in Sources */,
 				D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */,
@@ -751,7 +875,6 @@
 		D60B4CDB14D7A888001ECCE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -774,7 +897,6 @@
 		D60B4CDC14D7A888001ECCE3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -829,7 +951,6 @@
 		D6CF078B14FA995C004AC44D /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
