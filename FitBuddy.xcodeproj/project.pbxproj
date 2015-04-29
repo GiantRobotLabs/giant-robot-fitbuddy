@@ -552,11 +552,11 @@
 		D6D32F7C1AED6BD60057F00B /* swift */ = {
 			isa = PBXGroup;
 			children = (
-				D6B088A61AF127DD00962EDB /* utilities */,
-				D6D32FB51AF04EBE0057F00B /* coredata */,
 				D6D32F7A1AED6B020057F00B /* AppDelegate.swift */,
 				D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */,
 				D6D32F7F1AED70890057F00B /* FBConstants.swift */,
+				D6B088A61AF127DD00962EDB /* utilities */,
+				D6D32FB51AF04EBE0057F00B /* coredata */,
 			);
 			name = swift;
 			sourceTree = "<group>";
