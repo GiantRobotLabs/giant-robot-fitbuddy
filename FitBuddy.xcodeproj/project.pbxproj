@@ -58,7 +58,6 @@
 		D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA13170E6BB400BA02DA /* CoreDataTableViewController.m */; };
 		D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */; };
 		D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */; };
-		D6C2CA33170E6BDA00BA02DA /* LogbookEntry+TDate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */; };
 		D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */; };
 		D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */; };
 		D6C2CA42170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */; };
@@ -205,8 +204,6 @@
 		D6C2CA16170E6BB400BA02DA /* FitBuddyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FitBuddyMacros.h; path = FitBuddy/Components/FitBuddyMacros.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA17170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+CocoaDevUsersAdditions.h"; path = "FitBuddy/Components/NSData+CocoaDevUsersAdditions.h"; sourceTree = SOURCE_ROOT; };
 		D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+CocoaDevUsersAdditions.m"; path = "FitBuddy/Components/NSData+CocoaDevUsersAdditions.m"; sourceTree = SOURCE_ROOT; };
-		D6C2CA2A170E6BDA00BA02DA /* LogbookEntry+TDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LogbookEntry+TDate.h"; path = "FitBuddy/CoreData/LogbookEntry+TDate.h"; sourceTree = SOURCE_ROOT; };
-		D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LogbookEntry+TDate.m"; path = "FitBuddy/CoreData/LogbookEntry+TDate.m"; sourceTree = SOURCE_ROOT; };
 		D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.0.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.0.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.1.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.1.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = GymBuddyMappingModel1.2.xcmappingmodel; path = FitBuddy/CoreData/GymBuddyMappingModel1.2.xcmappingmodel; sourceTree = SOURCE_ROOT; };
@@ -459,8 +456,6 @@
 			isa = PBXGroup;
 			children = (
 				D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */,
-				D6C2CA2A170E6BDA00BA02DA /* LogbookEntry+TDate.h */,
-				D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */,
 				D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */,
 				D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */,
 				D6C2CA38170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel */,
@@ -758,7 +753,6 @@
 				D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */,
 				D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */,
 				D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */,
-				D6C2CA33170E6BDA00BA02DA /* LogbookEntry+TDate.m in Sources */,
 				D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */,
 				D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */,
 				D6C2CA42170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */,
