@@ -8,9 +8,6 @@
 
 #import "GymBuddyAppDelegate.h"
 #import "CoreDataHelper.h"
-#import "Constants.h"
-#import "FoursquareConstants.h"
-#import "Foursquare2.h"
 
 @implementation GymBuddyAppDelegate
 
@@ -52,10 +49,6 @@
     
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     
-    [Foursquare2 setupFoursquareWithClientId:kFSCLIENTID
-                                      secret:kFSCLIENTSECRET
-                                 callbackURL:kFSCALLBACKURL];
-    
     
     return YES;
 }
@@ -76,11 +69,6 @@
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     
-    if (self.gymPassViewController)
-    {
-        [self.gymPassViewController showPass:YES];
-        
-    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

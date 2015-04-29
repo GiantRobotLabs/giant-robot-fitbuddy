@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "FitBuddyMacros.h"
-#import "GymPassViewController.h"
 
 @interface GymBuddyAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,8 +16,6 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
-@property GymPassViewController *gymPassViewController;
 
 + (GymBuddyAppDelegate *)sharedAppDelegate;
 + (NSURL *) theLocalStore;

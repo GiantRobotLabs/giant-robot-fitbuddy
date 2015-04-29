@@ -13,40 +13,29 @@
 		D60B4CBE14D7A888001ECCE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60B4CBD14D7A888001ECCE3 /* UIKit.framework */; };
 		D60B4CC014D7A888001ECCE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60B4CBF14D7A888001ECCE3 /* Foundation.framework */; };
 		D60B4CC214D7A888001ECCE3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60B4CC114D7A888001ECCE3 /* CoreGraphics.framework */; };
+		D61D49BE1AED205B00868F45 /* WorkoutStartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D49BD1AED205B00868F45 /* WorkoutStartController.swift */; };
+		D61D49C01AED270900868F45 /* WorkoutSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D49BF1AED270900868F45 /* WorkoutSelectorController.swift */; };
+		D61D49C21AED331E00868F45 /* WorkoutCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D49C11AED331E00868F45 /* WorkoutCellType.swift */; };
 		D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D625E86618B00ED900FFE96D /* WorkoutModeParentController2.m */; };
 		D625E86E18B00EF900FFE96D /* WorkoutModeViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D625E86818B00ED900FFE96D /* WorkoutModeViewController2.m */; };
-		D63E445418AB2CA300A13883 /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E444F18AB2CA300A13883 /* JBBarChartView.m */; };
-		D63E445518AB2CA300A13883 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E445118AB2CA300A13883 /* JBChartView.m */; };
-		D63E445618AB2CA300A13883 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E445318AB2CA300A13883 /* JBLineChartView.m */; };
+		D632C3231AEC59C600D1A69A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D632C3221AEC59C600D1A69A /* HealthKit.framework */; };
+		D632C32E1AEC5A0400D1A69A /* WorkoutInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D632C32D1AEC5A0400D1A69A /* WorkoutInterfaceController.swift */; };
+		D632C3301AEC5A0400D1A69A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D632C32F1AEC5A0400D1A69A /* NotificationController.swift */; };
+		D632C3321AEC5A0400D1A69A /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D632C3311AEC5A0400D1A69A /* GlanceController.swift */; };
+		D632C3341AEC5A0400D1A69A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D632C3331AEC5A0400D1A69A /* Images.xcassets */; };
+		D632C3381AEC5A0500D1A69A /* FitBuddy WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = D632C3371AEC5A0500D1A69A /* FitBuddy WatchKit App.app */; };
+		D632C3401AEC5A0500D1A69A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D632C33E1AEC5A0500D1A69A /* Interface.storyboard */; };
+		D632C3421AEC5A0500D1A69A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D632C3411AEC5A0500D1A69A /* Images.xcassets */; };
+		D632C3451AEC5A0500D1A69A /* FitBuddy WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D632C3281AEC5A0400D1A69A /* FitBuddy WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D632C3561AEC6E7400D1A69A /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D632C3511AEC6E7400D1A69A /* JBBarChartView.m */; };
+		D632C3571AEC6E7400D1A69A /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D632C3531AEC6E7400D1A69A /* JBChartView.m */; };
+		D632C3581AEC6E7400D1A69A /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D632C3551AEC6E7400D1A69A /* JBLineChartView.m */; };
 		D63E445818AB2DA500A13883 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63E445718AB2DA500A13883 /* QuartzCore.framework */; };
 		D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E446B18ACF49700A13883 /* BarChartDataSource.m */; };
-		D65525BC18CC561A00AF55A6 /* FSConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525B518CC561A00AF55A6 /* FSConverter.m */; };
-		D65525BD18CC561A00AF55A6 /* FSVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525B718CC561A00AF55A6 /* FSVenue.m */; };
-		D65525BE18CC561A00AF55A6 /* GymPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525B918CC561A00AF55A6 /* GymPassViewController.m */; };
-		D65525BF18CC561A00AF55A6 /* NearbyVenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525BB18CC561A00AF55A6 /* NearbyVenuesViewController.m */; };
-		D655260618CC568B00AF55A6 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = D65525F618CC568B00AF55A6 /* CHANGELOG.md */; };
-		D655260718CC568B00AF55A6 /* Foursquare2.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525F818CC568B00AF55A6 /* Foursquare2.m */; };
-		D655260818CC568B00AF55A6 /* FSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525FA18CC568B00AF55A6 /* FSKeychain.m */; };
-		D655260918CC568B00AF55A6 /* FSOAuthNoAppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525FC18CC568B00AF55A6 /* FSOAuthNoAppStore.m */; };
-		D655260A18CC568B00AF55A6 /* FSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D65525FE18CC568B00AF55A6 /* FSOperation.m */; };
-		D655260B18CC568B00AF55A6 /* FSWebLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = D655260018CC568B00AF55A6 /* FSWebLogin.m */; };
-		D655260C18CC568B00AF55A6 /* FSWebLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = D655260118CC568B00AF55A6 /* FSWebLogin.xib */; };
-		D655260D18CC568B00AF55A6 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = D655260218CC568B00AF55A6 /* pin.png */; };
-		D655260E18CC568B00AF55A6 /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D655260318CC568B00AF55A6 /* pin@2x.png */; };
-		D655260F18CC568B00AF55A6 /* poweredByFoursquare_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = D655260418CC568B00AF55A6 /* poweredByFoursquare_gray.png */; };
-		D655261018CC568B00AF55A6 /* poweredByFoursquare_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D655260518CC568B00AF55A6 /* poweredByFoursquare_gray@2x.png */; };
 		D655261218CC5BC900AF55A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655261118CC5BC900AF55A6 /* CoreLocation.framework */; };
 		D655261418CC5BFB00AF55A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655261318CC5BFB00AF55A6 /* Security.framework */; };
 		D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */; };
 		D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */; };
-		D67E165818B2C7BE001E9257 /* WorkoutSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E165718B2C7BE001E9257 /* WorkoutSequence.m */; };
-		D67E165B18B2C7BE001E9257 /* LogbookEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E165A18B2C7BE001E9257 /* LogbookEntry.m */; };
-		D67E165E18B2C7BE001E9257 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E165D18B2C7BE001E9257 /* Workout.m */; };
-		D67E166118B2C7BE001E9257 /* ResistanceExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166018B2C7BE001E9257 /* ResistanceExercise.m */; };
-		D67E166418B2C7BE001E9257 /* CardioExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166318B2C7BE001E9257 /* CardioExercise.m */; };
-		D67E166718B2C7BE001E9257 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166618B2C7BE001E9257 /* Exercise.m */; };
-		D67E166A18B2C7BE001E9257 /* CardioHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166918B2C7BE001E9257 /* CardioHistory.m */; };
-		D67E166D18B2C7BE001E9257 /* ResistanceHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */; };
 		D67E167018B31C97001E9257 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166E18B31C97001E9257 /* icon-small.png */; };
 		D67E167118B31C97001E9257 /* icon-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166F18B31C97001E9257 /* icon-big.png */; };
 		D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = D696191418A6A793002FE7C2 /* FitBuddyArchive.m */; };
@@ -77,31 +66,58 @@
 		D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA5A170E6C4000BA02DA /* WorkoutAddViewController.m */; };
 		D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA6E170E6C8800BA02DA /* WorkoutSummaryViewController.m */; };
 		D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */; };
-		D6C2CB08170E6D2500BA02DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CB06170E6D2500BA02DA /* main.m */; };
 		D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CB0A170E6D5300BA02DA /* InfoPlist.strings */; };
-		D6C49F511901FAB7001A8E41 /* ShowPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F501901FAB7001A8E41 /* ShowPassViewController.m */; };
-		D6C49F761901FD2D001A8E41 /* RSCode128Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F541901FD2D001A8E41 /* RSCode128Generator.m */; };
-		D6C49F771901FD2D001A8E41 /* RSCode39Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F561901FD2D001A8E41 /* RSCode39Generator.m */; };
-		D6C49F781901FD2D001A8E41 /* RSCode39Mod43Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F581901FD2D001A8E41 /* RSCode39Mod43Generator.m */; };
-		D6C49F791901FD2D001A8E41 /* RSCode93Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F5A1901FD2D001A8E41 /* RSCode93Generator.m */; };
-		D6C49F7A1901FD2D001A8E41 /* RSCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F5D1901FD2D001A8E41 /* RSCodeGenerator.m */; };
-		D6C49F7B1901FD2D001A8E41 /* RSCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F5F1901FD2D001A8E41 /* RSCodeView.m */; };
-		D6C49F7C1901FD2D001A8E41 /* RSCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F611901FD2D001A8E41 /* RSCornersView.m */; };
-		D6C49F7D1901FD2D001A8E41 /* RSEAN13Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F631901FD2D001A8E41 /* RSEAN13Generator.m */; };
-		D6C49F7E1901FD2D001A8E41 /* RSEAN8Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F651901FD2D001A8E41 /* RSEAN8Generator.m */; };
-		D6C49F7F1901FD2D001A8E41 /* RSEANGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F671901FD2D001A8E41 /* RSEANGenerator.m */; };
-		D6C49F801901FD2D001A8E41 /* RSExtendedCode39Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F691901FD2D001A8E41 /* RSExtendedCode39Generator.m */; };
-		D6C49F811901FD2D001A8E41 /* RSISBN13Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F6B1901FD2D001A8E41 /* RSISBN13Generator.m */; };
-		D6C49F821901FD2D001A8E41 /* RSISSN13Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F6D1901FD2D001A8E41 /* RSISSN13Generator.m */; };
-		D6C49F831901FD2D001A8E41 /* RSITF14Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F6F1901FD2D001A8E41 /* RSITF14Generator.m */; };
-		D6C49F841901FD2D001A8E41 /* RSScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F711901FD2D001A8E41 /* RSScannerViewController.m */; };
-		D6C49F851901FD2D001A8E41 /* RSUnifiedCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F731901FD2D001A8E41 /* RSUnifiedCodeGenerator.m */; };
-		D6C49F861901FD2D001A8E41 /* RSUPCEGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C49F751901FD2D001A8E41 /* RSUPCEGenerator.m */; };
 		D6C49F881901FECC001A8E41 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C49F871901FECC001A8E41 /* AVFoundation.framework */; };
 		D6C49F8A1901FF68001A8E41 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C49F891901FF68001A8E41 /* CoreImage.framework */; };
 		D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
+		D6D32F791AED3C020057F00B /* DataConector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F781AED3C020057F00B /* DataConector.swift */; };
+		D6D32F7B1AED6B020057F00B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7A1AED6B020057F00B /* AppDelegate.swift */; };
+		D6D32F7E1AED6C580057F00B /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */; };
+		D6D32F801AED70890057F00B /* FBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7F1AED70890057F00B /* FBConstants.swift */; };
+		D6D32FB31AF04C900057F00B /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D32FB21AF04C900057F00B /* WatchKit.framework */; };
+		D6D32FB41AF04C960057F00B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
+		D6EFE5E71AF06BE0007CDB05 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D632C3221AEC59C600D1A69A /* HealthKit.framework */; };
+		D6EFE6121AF06F05007CDB05 /* CardioExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EFE6031AF06F05007CDB05 /* CardioExercise.m */; };
+		D6EFE6131AF06F05007CDB05 /* CardioHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EFE6051AF06F05007CDB05 /* CardioHistory.m */; };
+		D6EFE6141AF06F05007CDB05 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EFE6071AF06F05007CDB05 /* Exercise.m */; };
+		D6EFE6151AF06F05007CDB05 /* LogbookEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EFE6091AF06F05007CDB05 /* LogbookEntry.m */; };
+		D6EFE6161AF06F05007CDB05 /* ResistanceExercise.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EFE60B1AF06F05007CDB05 /* ResistanceExercise.m */; };
+		D6EFE6171AF06F05007CDB05 /* ResistanceHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EFE60D1AF06F05007CDB05 /* ResistanceHistory.m */; };
+		D6EFE6181AF06F05007CDB05 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EFE60F1AF06F05007CDB05 /* Workout.m */; };
+		D6EFE6191AF06F05007CDB05 /* WorkoutSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EFE6111AF06F05007CDB05 /* WorkoutSequence.m */; };
 		D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FF1D141870B50A004A1D2A /* Images.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D632C3391AEC5A0500D1A69A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D60B4CB014D7A888001ECCE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D632C3361AEC5A0500D1A69A;
+			remoteInfo = "FitBuddy WatchKit App";
+		};
+		D632C3431AEC5A0500D1A69A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D60B4CB014D7A888001ECCE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D632C3271AEC5A0400D1A69A;
+			remoteInfo = "FitBuddy WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D632C34E1AEC5A0600D1A69A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D632C3451AEC5A0500D1A69A /* FitBuddy WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D601920D18AFDF0C00255256 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoViewController.h; path = Demo/DemoViewController.h; sourceTree = SOURCE_ROOT; };
@@ -114,47 +130,36 @@
 		D60B4CC114D7A888001ECCE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D611806D18B10C9200786DBF /* GymBuddyModel1.4.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.2.xcdatamodel; sourceTree = "<group>"; };
 		D6135CD3151027D30055F337 /* FitBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D623E71C18CD89E800F1DA21 /* FoursquareConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoursquareConstants.h; sourceTree = SOURCE_ROOT; };
+		D61D49BD1AED205B00868F45 /* WorkoutStartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStartController.swift; sourceTree = "<group>"; };
+		D61D49BF1AED270900868F45 /* WorkoutSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSelectorController.swift; sourceTree = "<group>"; };
+		D61D49C11AED331E00868F45 /* WorkoutCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutCellType.swift; sourceTree = "<group>"; };
 		D625E86518B00ED900FFE96D /* WorkoutModeParentController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutModeParentController2.h; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeParentController2.h; sourceTree = SOURCE_ROOT; };
 		D625E86618B00ED900FFE96D /* WorkoutModeParentController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutModeParentController2.m; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeParentController2.m; sourceTree = SOURCE_ROOT; };
 		D625E86718B00ED900FFE96D /* WorkoutModeViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutModeViewController2.h; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeViewController2.h; sourceTree = SOURCE_ROOT; };
 		D625E86818B00ED900FFE96D /* WorkoutModeViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutModeViewController2.m; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeViewController2.m; sourceTree = SOURCE_ROOT; };
-		D63E444E18AB2CA300A13883 /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = SOURCE_ROOT; };
-		D63E444F18AB2CA300A13883 /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = SOURCE_ROOT; };
-		D63E445018AB2CA300A13883 /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = SOURCE_ROOT; };
-		D63E445118AB2CA300A13883 /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = SOURCE_ROOT; };
-		D63E445218AB2CA300A13883 /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = SOURCE_ROOT; };
-		D63E445318AB2CA300A13883 /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = SOURCE_ROOT; };
+		D632C3221AEC59C600D1A69A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		D632C3281AEC5A0400D1A69A /* FitBuddy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FitBuddy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D632C32B1AEC5A0400D1A69A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D632C32C1AEC5A0400D1A69A /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		D632C32D1AEC5A0400D1A69A /* WorkoutInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutInterfaceController.swift; sourceTree = "<group>"; };
+		D632C32F1AEC5A0400D1A69A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		D632C3311AEC5A0400D1A69A /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		D632C3331AEC5A0400D1A69A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D632C3371AEC5A0500D1A69A /* FitBuddy WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FitBuddy WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D632C33D1AEC5A0500D1A69A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D632C33F1AEC5A0500D1A69A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		D632C3411AEC5A0500D1A69A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D632C3501AEC6E7400D1A69A /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
+		D632C3511AEC6E7400D1A69A /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = "<group>"; };
+		D632C3521AEC6E7400D1A69A /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = "<group>"; };
+		D632C3531AEC6E7400D1A69A /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = "<group>"; };
+		D632C3541AEC6E7400D1A69A /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = "<group>"; };
+		D632C3551AEC6E7400D1A69A /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
 		D63E445718AB2DA500A13883 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D63E445918AC662000A13883 /* GymBuddyModel1. 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GymBuddyModel1. 4.xcdatamodel"; sourceTree = "<group>"; };
 		D63E446918AC994600A13883 /* GymBuddyModel1.4.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.1.xcdatamodel; sourceTree = "<group>"; };
 		D63E446A18ACF49700A13883 /* BarChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarChartDataSource.h; path = FitBuddy/CoreData/BarChartDataSource.h; sourceTree = SOURCE_ROOT; };
 		D63E446B18ACF49700A13883 /* BarChartDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarChartDataSource.m; path = FitBuddy/CoreData/BarChartDataSource.m; sourceTree = SOURCE_ROOT; };
-		D65525B318CC561A00AF55A6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = SOURCE_ROOT; };
-		D65525B418CC561A00AF55A6 /* FSConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSConverter.h; sourceTree = SOURCE_ROOT; };
-		D65525B518CC561A00AF55A6 /* FSConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSConverter.m; sourceTree = SOURCE_ROOT; };
-		D65525B618CC561A00AF55A6 /* FSVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVenue.h; sourceTree = SOURCE_ROOT; };
-		D65525B718CC561A00AF55A6 /* FSVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenue.m; sourceTree = SOURCE_ROOT; };
-		D65525B818CC561A00AF55A6 /* GymPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GymPassViewController.h; sourceTree = SOURCE_ROOT; };
-		D65525B918CC561A00AF55A6 /* GymPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GymPassViewController.m; sourceTree = SOURCE_ROOT; };
-		D65525BA18CC561A00AF55A6 /* NearbyVenuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyVenuesViewController.h; sourceTree = SOURCE_ROOT; };
-		D65525BB18CC561A00AF55A6 /* NearbyVenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyVenuesViewController.m; sourceTree = SOURCE_ROOT; };
-		D65525F618CC568B00AF55A6 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
-		D65525F718CC568B00AF55A6 /* Foursquare2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foursquare2.h; sourceTree = SOURCE_ROOT; };
-		D65525F818CC568B00AF55A6 /* Foursquare2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Foursquare2.m; sourceTree = SOURCE_ROOT; };
-		D65525F918CC568B00AF55A6 /* FSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSKeychain.h; sourceTree = SOURCE_ROOT; };
-		D65525FA18CC568B00AF55A6 /* FSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSKeychain.m; sourceTree = SOURCE_ROOT; };
-		D65525FB18CC568B00AF55A6 /* FSOAuthNoAppStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSOAuthNoAppStore.h; sourceTree = SOURCE_ROOT; };
-		D65525FC18CC568B00AF55A6 /* FSOAuthNoAppStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSOAuthNoAppStore.m; sourceTree = SOURCE_ROOT; };
-		D65525FD18CC568B00AF55A6 /* FSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSOperation.h; sourceTree = SOURCE_ROOT; };
-		D65525FE18CC568B00AF55A6 /* FSOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSOperation.m; sourceTree = SOURCE_ROOT; };
-		D65525FF18CC568B00AF55A6 /* FSWebLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSWebLogin.h; sourceTree = SOURCE_ROOT; };
-		D655260018CC568B00AF55A6 /* FSWebLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSWebLogin.m; sourceTree = SOURCE_ROOT; };
-		D655260118CC568B00AF55A6 /* FSWebLogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSWebLogin.xib; sourceTree = SOURCE_ROOT; };
-		D655260218CC568B00AF55A6 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = SOURCE_ROOT; };
-		D655260318CC568B00AF55A6 /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = SOURCE_ROOT; };
-		D655260418CC568B00AF55A6 /* poweredByFoursquare_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poweredByFoursquare_gray.png; sourceTree = SOURCE_ROOT; };
-		D655260518CC568B00AF55A6 /* poweredByFoursquare_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "poweredByFoursquare_gray@2x.png"; sourceTree = SOURCE_ROOT; };
 		D655261118CC5BC900AF55A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D655261318CC5BFB00AF55A6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FitBuddy.entitlements; sourceTree = SOURCE_ROOT; };
@@ -165,22 +170,6 @@
 		D67D7CF8170E75DC00E12E96 /* GymBuddyModel1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.3.xcdatamodel; sourceTree = "<group>"; };
 		D67E15FD18B2A3E4001E9257 /* GymBuddyModel1.4.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.4.xcdatamodel; sourceTree = "<group>"; };
 		D67E161618B2A4EE001E9257 /* GymBuddyModel1.4.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.5.xcdatamodel; sourceTree = "<group>"; };
-		D67E165618B2C7BE001E9257 /* WorkoutSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutSequence.h; path = FitBuddy/CoreData/WorkoutSequence.h; sourceTree = SOURCE_ROOT; };
-		D67E165718B2C7BE001E9257 /* WorkoutSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutSequence.m; path = FitBuddy/CoreData/WorkoutSequence.m; sourceTree = SOURCE_ROOT; };
-		D67E165918B2C7BE001E9257 /* LogbookEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogbookEntry.h; path = FitBuddy/CoreData/LogbookEntry.h; sourceTree = SOURCE_ROOT; };
-		D67E165A18B2C7BE001E9257 /* LogbookEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogbookEntry.m; path = FitBuddy/CoreData/LogbookEntry.m; sourceTree = SOURCE_ROOT; };
-		D67E165C18B2C7BE001E9257 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = FitBuddy/CoreData/Workout.h; sourceTree = SOURCE_ROOT; };
-		D67E165D18B2C7BE001E9257 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = FitBuddy/CoreData/Workout.m; sourceTree = SOURCE_ROOT; };
-		D67E165F18B2C7BE001E9257 /* ResistanceExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceExercise.h; path = FitBuddy/CoreData/ResistanceExercise.h; sourceTree = SOURCE_ROOT; };
-		D67E166018B2C7BE001E9257 /* ResistanceExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceExercise.m; path = FitBuddy/CoreData/ResistanceExercise.m; sourceTree = SOURCE_ROOT; };
-		D67E166218B2C7BE001E9257 /* CardioExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioExercise.h; path = FitBuddy/CoreData/CardioExercise.h; sourceTree = SOURCE_ROOT; };
-		D67E166318B2C7BE001E9257 /* CardioExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioExercise.m; path = FitBuddy/CoreData/CardioExercise.m; sourceTree = SOURCE_ROOT; };
-		D67E166518B2C7BE001E9257 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = FitBuddy/CoreData/Exercise.h; sourceTree = SOURCE_ROOT; };
-		D67E166618B2C7BE001E9257 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = FitBuddy/CoreData/Exercise.m; sourceTree = SOURCE_ROOT; };
-		D67E166818B2C7BE001E9257 /* CardioHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioHistory.h; path = FitBuddy/CoreData/CardioHistory.h; sourceTree = SOURCE_ROOT; };
-		D67E166918B2C7BE001E9257 /* CardioHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioHistory.m; path = FitBuddy/CoreData/CardioHistory.m; sourceTree = SOURCE_ROOT; };
-		D67E166B18B2C7BE001E9257 /* ResistanceHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceHistory.h; path = FitBuddy/CoreData/ResistanceHistory.h; sourceTree = SOURCE_ROOT; };
-		D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceHistory.m; path = FitBuddy/CoreData/ResistanceHistory.m; sourceTree = SOURCE_ROOT; };
 		D67E166E18B31C97001E9257 /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = SOURCE_ROOT; };
 		D67E166F18B31C97001E9257 /* icon-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-big.png"; sourceTree = SOURCE_ROOT; };
 		D687065C18B165740078187D /* GymBuddyModel1.4.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.3.xcdatamodel; sourceTree = "<group>"; };
@@ -237,48 +226,33 @@
 		D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutViewController.m; sourceTree = "<group>"; };
 		D6C2CB04170E6D2500BA02DA /* FitBuddy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FitBuddy-Info.plist"; path = "FitBuddy/FitBuddy-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D6C2CB05170E6D2500BA02DA /* FitBuddy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FitBuddy-Prefix.pch"; path = "FitBuddy/FitBuddy-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		D6C2CB06170E6D2500BA02DA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FitBuddy/main.m; sourceTree = SOURCE_ROOT; };
 		D6C2CB0B170E6D5300BA02DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		D6C49F4F1901FAB7001A8E41 /* ShowPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPassViewController.h; sourceTree = SOURCE_ROOT; };
-		D6C49F501901FAB7001A8E41 /* ShowPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPassViewController.m; sourceTree = SOURCE_ROOT; };
-		D6C49F531901FD2D001A8E41 /* RSCode128Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCode128Generator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F541901FD2D001A8E41 /* RSCode128Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCode128Generator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F551901FD2D001A8E41 /* RSCode39Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCode39Generator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F561901FD2D001A8E41 /* RSCode39Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCode39Generator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F571901FD2D001A8E41 /* RSCode39Mod43Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCode39Mod43Generator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F581901FD2D001A8E41 /* RSCode39Mod43Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCode39Mod43Generator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F591901FD2D001A8E41 /* RSCode93Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCode93Generator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F5A1901FD2D001A8E41 /* RSCode93Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCode93Generator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F5B1901FD2D001A8E41 /* RSCodeGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCodeGen.h; sourceTree = SOURCE_ROOT; };
-		D6C49F5C1901FD2D001A8E41 /* RSCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCodeGenerator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F5D1901FD2D001A8E41 /* RSCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCodeGenerator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F5E1901FD2D001A8E41 /* RSCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCodeView.h; sourceTree = SOURCE_ROOT; };
-		D6C49F5F1901FD2D001A8E41 /* RSCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCodeView.m; sourceTree = SOURCE_ROOT; };
-		D6C49F601901FD2D001A8E41 /* RSCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCornersView.h; sourceTree = SOURCE_ROOT; };
-		D6C49F611901FD2D001A8E41 /* RSCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCornersView.m; sourceTree = SOURCE_ROOT; };
-		D6C49F621901FD2D001A8E41 /* RSEAN13Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSEAN13Generator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F631901FD2D001A8E41 /* RSEAN13Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSEAN13Generator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F641901FD2D001A8E41 /* RSEAN8Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSEAN8Generator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F651901FD2D001A8E41 /* RSEAN8Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSEAN8Generator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F661901FD2D001A8E41 /* RSEANGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSEANGenerator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F671901FD2D001A8E41 /* RSEANGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSEANGenerator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F681901FD2D001A8E41 /* RSExtendedCode39Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSExtendedCode39Generator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F691901FD2D001A8E41 /* RSExtendedCode39Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSExtendedCode39Generator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F6A1901FD2D001A8E41 /* RSISBN13Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSISBN13Generator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F6B1901FD2D001A8E41 /* RSISBN13Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSISBN13Generator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F6C1901FD2D001A8E41 /* RSISSN13Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSISSN13Generator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F6D1901FD2D001A8E41 /* RSISSN13Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSISSN13Generator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F6E1901FD2D001A8E41 /* RSITF14Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSITF14Generator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F6F1901FD2D001A8E41 /* RSITF14Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSITF14Generator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F701901FD2D001A8E41 /* RSScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSScannerViewController.h; sourceTree = SOURCE_ROOT; };
-		D6C49F711901FD2D001A8E41 /* RSScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSScannerViewController.m; sourceTree = SOURCE_ROOT; };
-		D6C49F721901FD2D001A8E41 /* RSUnifiedCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSUnifiedCodeGenerator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F731901FD2D001A8E41 /* RSUnifiedCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSUnifiedCodeGenerator.m; sourceTree = SOURCE_ROOT; };
-		D6C49F741901FD2D001A8E41 /* RSUPCEGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSUPCEGenerator.h; sourceTree = SOURCE_ROOT; };
-		D6C49F751901FD2D001A8E41 /* RSUPCEGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSUPCEGenerator.m; sourceTree = SOURCE_ROOT; };
 		D6C49F871901FECC001A8E41 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D6C49F891901FF68001A8E41 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D6D32F771AED3C010057F00B /* FitBuddy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitBuddy-Bridging-Header.h"; sourceTree = "<group>"; };
+		D6D32F781AED3C020057F00B /* DataConector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConector.swift; sourceTree = SOURCE_ROOT; };
+		D6D32F7A1AED6B020057F00B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = SOURCE_ROOT; };
+		D6D32F7F1AED70890057F00B /* FBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBConstants.swift; sourceTree = SOURCE_ROOT; };
+		D6D32FB21AF04C900057F00B /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
+		D6EFE5E61AF0554F007CDB05 /* FitBuddy WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "FitBuddy WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		D6EFE6021AF06F05007CDB05 /* CardioExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioExercise.h; path = FitBuddy/CoreData/CardioExercise.h; sourceTree = SOURCE_ROOT; };
+		D6EFE6031AF06F05007CDB05 /* CardioExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioExercise.m; path = FitBuddy/CoreData/CardioExercise.m; sourceTree = SOURCE_ROOT; };
+		D6EFE6041AF06F05007CDB05 /* CardioHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardioHistory.h; path = FitBuddy/CoreData/CardioHistory.h; sourceTree = SOURCE_ROOT; };
+		D6EFE6051AF06F05007CDB05 /* CardioHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardioHistory.m; path = FitBuddy/CoreData/CardioHistory.m; sourceTree = SOURCE_ROOT; };
+		D6EFE6061AF06F05007CDB05 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = FitBuddy/CoreData/Exercise.h; sourceTree = SOURCE_ROOT; };
+		D6EFE6071AF06F05007CDB05 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = FitBuddy/CoreData/Exercise.m; sourceTree = SOURCE_ROOT; };
+		D6EFE6081AF06F05007CDB05 /* LogbookEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogbookEntry.h; path = FitBuddy/CoreData/LogbookEntry.h; sourceTree = SOURCE_ROOT; };
+		D6EFE6091AF06F05007CDB05 /* LogbookEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogbookEntry.m; path = FitBuddy/CoreData/LogbookEntry.m; sourceTree = SOURCE_ROOT; };
+		D6EFE60A1AF06F05007CDB05 /* ResistanceExercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceExercise.h; path = FitBuddy/CoreData/ResistanceExercise.h; sourceTree = SOURCE_ROOT; };
+		D6EFE60B1AF06F05007CDB05 /* ResistanceExercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceExercise.m; path = FitBuddy/CoreData/ResistanceExercise.m; sourceTree = SOURCE_ROOT; };
+		D6EFE60C1AF06F05007CDB05 /* ResistanceHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResistanceHistory.h; path = FitBuddy/CoreData/ResistanceHistory.h; sourceTree = SOURCE_ROOT; };
+		D6EFE60D1AF06F05007CDB05 /* ResistanceHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResistanceHistory.m; path = FitBuddy/CoreData/ResistanceHistory.m; sourceTree = SOURCE_ROOT; };
+		D6EFE60E1AF06F05007CDB05 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = FitBuddy/CoreData/Workout.h; sourceTree = SOURCE_ROOT; };
+		D6EFE60F1AF06F05007CDB05 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = FitBuddy/CoreData/Workout.m; sourceTree = SOURCE_ROOT; };
+		D6EFE6101AF06F05007CDB05 /* WorkoutSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutSequence.h; path = FitBuddy/CoreData/WorkoutSequence.h; sourceTree = SOURCE_ROOT; };
+		D6EFE6111AF06F05007CDB05 /* WorkoutSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutSequence.m; path = FitBuddy/CoreData/WorkoutSequence.m; sourceTree = SOURCE_ROOT; };
 		D6FF1D141870B50A004A1D2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FitBuddy/Images.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -296,8 +270,19 @@
 				D655261218CC5BC900AF55A6 /* CoreLocation.framework in Frameworks */,
 				D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */,
 				D60B4CBE14D7A888001ECCE3 /* UIKit.framework in Frameworks */,
+				D632C3231AEC59C600D1A69A /* HealthKit.framework in Frameworks */,
 				D60B4CC014D7A888001ECCE3 /* Foundation.framework in Frameworks */,
 				D655261418CC5BFB00AF55A6 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D632C3251AEC5A0400D1A69A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6EFE5E71AF06BE0007CDB05 /* HealthKit.framework in Frameworks */,
+				D6D32FB41AF04C960057F00B /* CoreData.framework in Frameworks */,
+				D6D32FB31AF04C900057F00B /* WatchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,14 +304,20 @@
 			isa = PBXGroup;
 			children = (
 				D60B4CC314D7A888001ECCE3 /* FitBuddy */,
+				D632C3291AEC5A0400D1A69A /* FitBuddy WatchKit Extension */,
+				D632C33B1AEC5A0500D1A69A /* FitBuddy WatchKit App */,
 				D60B4CBC14D7A888001ECCE3 /* Frameworks */,
 				D6135CD3151027D30055F337 /* FitBuddy.app */,
+				D632C3281AEC5A0400D1A69A /* FitBuddy WatchKit Extension.appex */,
+				D632C3371AEC5A0500D1A69A /* FitBuddy WatchKit App.app */,
 			);
 			sourceTree = "<group>";
 		};
 		D60B4CBC14D7A888001ECCE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6D32FB21AF04C900057F00B /* WatchKit.framework */,
+				D632C3221AEC59C600D1A69A /* HealthKit.framework */,
 				D6C49F891901FF68001A8E41 /* CoreImage.framework */,
 				D6C49F871901FECC001A8E41 /* AVFoundation.framework */,
 				D655261318CC5BFB00AF55A6 /* Security.framework */,
@@ -345,7 +336,7 @@
 		D60B4CC314D7A888001ECCE3 /* FitBuddy */ = {
 			isa = PBXGroup;
 			children = (
-				D65525B218CC55E500AF55A6 /* GymPass */,
+				D6D32F7C1AED6BD60057F00B /* swift */,
 				D696191B18A6AC8B002FE7C2 /* AppDelegate */,
 				D6C2CA65170E6C4C00BA02DA /* MainViewControllers */,
 				D625E85818B00D5600FFE96D /* New Workout Mode */,
@@ -371,7 +362,6 @@
 				D67D7CE5170E708300E12E96 /* FitBuddy.entitlements */,
 				D6C2CB04170E6D2500BA02DA /* FitBuddy-Info.plist */,
 				D6C2CB05170E6D2500BA02DA /* FitBuddy-Prefix.pch */,
-				D6C2CB06170E6D2500BA02DA /* main.m */,
 				D6C26B2A14F15A710068DEA5 /* libz.dylib */,
 			);
 			name = "Supporting Files";
@@ -389,69 +379,66 @@
 			path = ../FitBuddy/WorkoutModeControllers;
 			sourceTree = "<group>";
 		};
-		D63E444218AB29BF00A13883 /* JBChartView */ = {
+		D632C3291AEC5A0400D1A69A /* FitBuddy WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D63E444E18AB2CA300A13883 /* JBBarChartView.h */,
-				D63E444F18AB2CA300A13883 /* JBBarChartView.m */,
-				D63E445018AB2CA300A13883 /* JBChartView.h */,
-				D63E445118AB2CA300A13883 /* JBChartView.m */,
-				D63E445218AB2CA300A13883 /* JBLineChartView.h */,
-				D63E445318AB2CA300A13883 /* JBLineChartView.m */,
+				D6EFE5E61AF0554F007CDB05 /* FitBuddy WatchKit Extension.entitlements */,
+				D632C32F1AEC5A0400D1A69A /* NotificationController.swift */,
+				D632C3311AEC5A0400D1A69A /* GlanceController.swift */,
+				D632C3331AEC5A0400D1A69A /* Images.xcassets */,
+				D632C32A1AEC5A0400D1A69A /* Supporting Files */,
+				D632C32D1AEC5A0400D1A69A /* WorkoutInterfaceController.swift */,
+				D61D49BD1AED205B00868F45 /* WorkoutStartController.swift */,
+				D61D49BF1AED270900868F45 /* WorkoutSelectorController.swift */,
+				D61D49C11AED331E00868F45 /* WorkoutCellType.swift */,
 			);
-			name = JBChartView;
-			path = Classes;
+			path = "FitBuddy WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		D632C32A1AEC5A0400D1A69A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D632C32B1AEC5A0400D1A69A /* Info.plist */,
+				D632C32C1AEC5A0400D1A69A /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D632C33B1AEC5A0500D1A69A /* FitBuddy WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				D632C33E1AEC5A0500D1A69A /* Interface.storyboard */,
+				D632C3411AEC5A0500D1A69A /* Images.xcassets */,
+				D632C33C1AEC5A0500D1A69A /* Supporting Files */,
+			);
+			path = "FitBuddy WatchKit App";
+			sourceTree = "<group>";
+		};
+		D632C33C1AEC5A0500D1A69A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D632C33D1AEC5A0500D1A69A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D632C34F1AEC6E7400D1A69A /* JBChartView */ = {
+			isa = PBXGroup;
+			children = (
+				D632C3501AEC6E7400D1A69A /* JBBarChartView.h */,
+				D632C3511AEC6E7400D1A69A /* JBBarChartView.m */,
+				D632C3521AEC6E7400D1A69A /* JBChartView.h */,
+				D632C3531AEC6E7400D1A69A /* JBChartView.m */,
+				D632C3541AEC6E7400D1A69A /* JBLineChartView.h */,
+				D632C3551AEC6E7400D1A69A /* JBLineChartView.m */,
+			);
+			path = JBChartView;
 			sourceTree = SOURCE_ROOT;
-		};
-		D655259618CC55DB00AF55A6 /* Foursquare2 */ = {
-			isa = PBXGroup;
-			children = (
-				D65525F618CC568B00AF55A6 /* CHANGELOG.md */,
-				D65525F718CC568B00AF55A6 /* Foursquare2.h */,
-				D65525F818CC568B00AF55A6 /* Foursquare2.m */,
-				D65525F918CC568B00AF55A6 /* FSKeychain.h */,
-				D65525FA18CC568B00AF55A6 /* FSKeychain.m */,
-				D65525FB18CC568B00AF55A6 /* FSOAuthNoAppStore.h */,
-				D65525FC18CC568B00AF55A6 /* FSOAuthNoAppStore.m */,
-				D65525FD18CC568B00AF55A6 /* FSOperation.h */,
-				D65525FE18CC568B00AF55A6 /* FSOperation.m */,
-				D65525FF18CC568B00AF55A6 /* FSWebLogin.h */,
-				D655260018CC568B00AF55A6 /* FSWebLogin.m */,
-				D655260118CC568B00AF55A6 /* FSWebLogin.xib */,
-				D655260218CC568B00AF55A6 /* pin.png */,
-				D655260318CC568B00AF55A6 /* pin@2x.png */,
-				D655260418CC568B00AF55A6 /* poweredByFoursquare_gray.png */,
-				D655260518CC568B00AF55A6 /* poweredByFoursquare_gray@2x.png */,
-			);
-			name = Foursquare2;
-			path = "../../giant-robot-gympass/Foursquare2";
-			sourceTree = "<group>";
-		};
-		D65525B218CC55E500AF55A6 /* GymPass */ = {
-			isa = PBXGroup;
-			children = (
-				D6C49F521901FD0A001A8E41 /* RSBarcodes */,
-				D655259618CC55DB00AF55A6 /* Foursquare2 */,
-				D65525B318CC561A00AF55A6 /* Constants.h */,
-				D623E71C18CD89E800F1DA21 /* FoursquareConstants.h */,
-				D65525B418CC561A00AF55A6 /* FSConverter.h */,
-				D65525B518CC561A00AF55A6 /* FSConverter.m */,
-				D65525B618CC561A00AF55A6 /* FSVenue.h */,
-				D65525B718CC561A00AF55A6 /* FSVenue.m */,
-				D65525B818CC561A00AF55A6 /* GymPassViewController.h */,
-				D65525B918CC561A00AF55A6 /* GymPassViewController.m */,
-				D6C49F4F1901FAB7001A8E41 /* ShowPassViewController.h */,
-				D6C49F501901FAB7001A8E41 /* ShowPassViewController.m */,
-				D65525BA18CC561A00AF55A6 /* NearbyVenuesViewController.h */,
-				D65525BB18CC561A00AF55A6 /* NearbyVenuesViewController.m */,
-			);
-			name = GymPass;
-			sourceTree = "<group>";
 		};
 		D67825D614E583B600C00BD4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D63E444218AB29BF00A13883 /* JBChartView */,
+				D632C34F1AEC6E7400D1A69A /* JBChartView */,
 				D6C0AF0118A34990004F599E /* SwitchCell.h */,
 				D6C0AF0218A34990004F599E /* SwitchCell.m */,
 				D6C2CA10170E6BB400BA02DA /* CoreDataTableController.h */,
@@ -476,23 +463,23 @@
 		D67825D814E583FC00C00BD4 /* CoreData Model */ = {
 			isa = PBXGroup;
 			children = (
+				D6EFE6021AF06F05007CDB05 /* CardioExercise.h */,
+				D6EFE6031AF06F05007CDB05 /* CardioExercise.m */,
+				D6EFE6041AF06F05007CDB05 /* CardioHistory.h */,
+				D6EFE6051AF06F05007CDB05 /* CardioHistory.m */,
+				D6EFE6061AF06F05007CDB05 /* Exercise.h */,
+				D6EFE6071AF06F05007CDB05 /* Exercise.m */,
+				D6EFE6081AF06F05007CDB05 /* LogbookEntry.h */,
+				D6EFE6091AF06F05007CDB05 /* LogbookEntry.m */,
+				D6EFE60A1AF06F05007CDB05 /* ResistanceExercise.h */,
+				D6EFE60B1AF06F05007CDB05 /* ResistanceExercise.m */,
+				D6EFE60C1AF06F05007CDB05 /* ResistanceHistory.h */,
+				D6EFE60D1AF06F05007CDB05 /* ResistanceHistory.m */,
+				D6EFE60E1AF06F05007CDB05 /* Workout.h */,
+				D6EFE60F1AF06F05007CDB05 /* Workout.m */,
+				D6EFE6101AF06F05007CDB05 /* WorkoutSequence.h */,
+				D6EFE6111AF06F05007CDB05 /* WorkoutSequence.m */,
 				D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */,
-				D67E165C18B2C7BE001E9257 /* Workout.h */,
-				D67E165D18B2C7BE001E9257 /* Workout.m */,
-				D67E166B18B2C7BE001E9257 /* ResistanceHistory.h */,
-				D67E166C18B2C7BE001E9257 /* ResistanceHistory.m */,
-				D67E166818B2C7BE001E9257 /* CardioHistory.h */,
-				D67E166918B2C7BE001E9257 /* CardioHistory.m */,
-				D67E166518B2C7BE001E9257 /* Exercise.h */,
-				D67E166618B2C7BE001E9257 /* Exercise.m */,
-				D67E166218B2C7BE001E9257 /* CardioExercise.h */,
-				D67E166318B2C7BE001E9257 /* CardioExercise.m */,
-				D67E165F18B2C7BE001E9257 /* ResistanceExercise.h */,
-				D67E166018B2C7BE001E9257 /* ResistanceExercise.m */,
-				D67E165918B2C7BE001E9257 /* LogbookEntry.h */,
-				D67E165A18B2C7BE001E9257 /* LogbookEntry.m */,
-				D67E165618B2C7BE001E9257 /* WorkoutSequence.h */,
-				D67E165718B2C7BE001E9257 /* WorkoutSequence.m */,
 				D6C2CA2A170E6BDA00BA02DA /* LogbookEntry+TDate.h */,
 				D6C2CA2B170E6BDA00BA02DA /* LogbookEntry+TDate.m */,
 				D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */,
@@ -533,6 +520,7 @@
 		D696191B18A6AC8B002FE7C2 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				D6D32F771AED3C010057F00B /* FitBuddy-Bridging-Header.h */,
 				D6C2CA14170E6BB400BA02DA /* GymBuddyAppDelegate.h */,
 				D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */,
 			);
@@ -583,46 +571,23 @@
 			path = FitBuddy/en.lproj;
 			sourceTree = SOURCE_ROOT;
 		};
-		D6C49F521901FD0A001A8E41 /* RSBarcodes */ = {
+		D6D32F7C1AED6BD60057F00B /* swift */ = {
 			isa = PBXGroup;
 			children = (
-				D6C49F531901FD2D001A8E41 /* RSCode128Generator.h */,
-				D6C49F541901FD2D001A8E41 /* RSCode128Generator.m */,
-				D6C49F551901FD2D001A8E41 /* RSCode39Generator.h */,
-				D6C49F561901FD2D001A8E41 /* RSCode39Generator.m */,
-				D6C49F571901FD2D001A8E41 /* RSCode39Mod43Generator.h */,
-				D6C49F581901FD2D001A8E41 /* RSCode39Mod43Generator.m */,
-				D6C49F591901FD2D001A8E41 /* RSCode93Generator.h */,
-				D6C49F5A1901FD2D001A8E41 /* RSCode93Generator.m */,
-				D6C49F5B1901FD2D001A8E41 /* RSCodeGen.h */,
-				D6C49F5C1901FD2D001A8E41 /* RSCodeGenerator.h */,
-				D6C49F5D1901FD2D001A8E41 /* RSCodeGenerator.m */,
-				D6C49F5E1901FD2D001A8E41 /* RSCodeView.h */,
-				D6C49F5F1901FD2D001A8E41 /* RSCodeView.m */,
-				D6C49F601901FD2D001A8E41 /* RSCornersView.h */,
-				D6C49F611901FD2D001A8E41 /* RSCornersView.m */,
-				D6C49F621901FD2D001A8E41 /* RSEAN13Generator.h */,
-				D6C49F631901FD2D001A8E41 /* RSEAN13Generator.m */,
-				D6C49F641901FD2D001A8E41 /* RSEAN8Generator.h */,
-				D6C49F651901FD2D001A8E41 /* RSEAN8Generator.m */,
-				D6C49F661901FD2D001A8E41 /* RSEANGenerator.h */,
-				D6C49F671901FD2D001A8E41 /* RSEANGenerator.m */,
-				D6C49F681901FD2D001A8E41 /* RSExtendedCode39Generator.h */,
-				D6C49F691901FD2D001A8E41 /* RSExtendedCode39Generator.m */,
-				D6C49F6A1901FD2D001A8E41 /* RSISBN13Generator.h */,
-				D6C49F6B1901FD2D001A8E41 /* RSISBN13Generator.m */,
-				D6C49F6C1901FD2D001A8E41 /* RSISSN13Generator.h */,
-				D6C49F6D1901FD2D001A8E41 /* RSISSN13Generator.m */,
-				D6C49F6E1901FD2D001A8E41 /* RSITF14Generator.h */,
-				D6C49F6F1901FD2D001A8E41 /* RSITF14Generator.m */,
-				D6C49F701901FD2D001A8E41 /* RSScannerViewController.h */,
-				D6C49F711901FD2D001A8E41 /* RSScannerViewController.m */,
-				D6C49F721901FD2D001A8E41 /* RSUnifiedCodeGenerator.h */,
-				D6C49F731901FD2D001A8E41 /* RSUnifiedCodeGenerator.m */,
-				D6C49F741901FD2D001A8E41 /* RSUPCEGenerator.h */,
-				D6C49F751901FD2D001A8E41 /* RSUPCEGenerator.m */,
+				D6D32FB51AF04EBE0057F00B /* coredata */,
+				D6D32F7A1AED6B020057F00B /* AppDelegate.swift */,
+				D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */,
+				D6D32F7F1AED70890057F00B /* FBConstants.swift */,
+				D6D32F781AED3C020057F00B /* DataConector.swift */,
 			);
-			name = RSBarcodes;
+			name = swift;
+			sourceTree = "<group>";
+		};
+		D6D32FB51AF04EBE0057F00B /* coredata */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = coredata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -635,15 +600,50 @@
 				D60B4CB514D7A888001ECCE3 /* Sources */,
 				D60B4CB614D7A888001ECCE3 /* Frameworks */,
 				D60B4CB714D7A888001ECCE3 /* Resources */,
+				D632C34E1AEC5A0600D1A69A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D632C3441AEC5A0500D1A69A /* PBXTargetDependency */,
 			);
 			name = FitBuddy;
 			productName = GymBuddy;
 			productReference = D6135CD3151027D30055F337 /* FitBuddy.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D632C3271AEC5A0400D1A69A /* FitBuddy WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D632C34A1AEC5A0600D1A69A /* Build configuration list for PBXNativeTarget "FitBuddy WatchKit Extension" */;
+			buildPhases = (
+				D632C3241AEC5A0400D1A69A /* Sources */,
+				D632C3251AEC5A0400D1A69A /* Frameworks */,
+				D632C3261AEC5A0400D1A69A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D632C33A1AEC5A0500D1A69A /* PBXTargetDependency */,
+			);
+			name = "FitBuddy WatchKit Extension";
+			productName = "FitBuddy WatchKit Extension";
+			productReference = D632C3281AEC5A0400D1A69A /* FitBuddy WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		D632C3361AEC5A0500D1A69A /* FitBuddy WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D632C3461AEC5A0600D1A69A /* Build configuration list for PBXNativeTarget "FitBuddy WatchKit App" */;
+			buildPhases = (
+				D632C3351AEC5A0500D1A69A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FitBuddy WatchKit App";
+			productName = "FitBuddy WatchKit App";
+			productReference = D632C3371AEC5A0500D1A69A /* FitBuddy WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
 		};
 /* End PBXNativeTarget section */
 
@@ -651,13 +651,22 @@
 		D60B4CB014D7A888001ECCE3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = jneyer.com;
 				TargetAttributes = {
 					D60B4CB814D7A888001ECCE3 = {
 						DevelopmentTeam = MK3WE6JNT9;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
 							com.apple.Passbook = {
@@ -668,6 +677,25 @@
 							};
 						};
 					};
+					D632C3271AEC5A0400D1A69A = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = MK3WE6JNT9;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					D632C3361AEC5A0500D1A69A = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = MK3WE6JNT9;
+					};
 				};
 			};
 			buildConfigurationList = D60B4CB314D7A888001ECCE3 /* Build configuration list for PBXProject "FitBuddy" */;
@@ -676,6 +704,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = D60B4CAE14D7A888001ECCE3;
 			productRefGroup = D60B4CAE14D7A888001ECCE3;
@@ -683,6 +712,8 @@
 			projectRoot = "";
 			targets = (
 				D60B4CB814D7A888001ECCE3 /* FitBuddy */,
+				D632C3271AEC5A0400D1A69A /* FitBuddy WatchKit Extension */,
+				D632C3361AEC5A0500D1A69A /* FitBuddy WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -694,18 +725,30 @@
 			files = (
 				D67E167118B31C97001E9257 /* icon-big.png in Resources */,
 				D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */,
-				D655260F18CC568B00AF55A6 /* poweredByFoursquare_gray.png in Resources */,
-				D655260E18CC568B00AF55A6 /* pin@2x.png in Resources */,
 				D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */,
 				D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */,
 				D601921518AFE01600255256 /* Demo.xcassets in Resources */,
-				D655260C18CC568B00AF55A6 /* FSWebLogin.xib in Resources */,
 				D67E167018B31C97001E9257 /* icon-small.png in Resources */,
-				D655260D18CC568B00AF55A6 /* pin.png in Resources */,
-				D655261018CC568B00AF55A6 /* poweredByFoursquare_gray@2x.png in Resources */,
 				D67D7CE8170E708300E12E96 /* FitBuddy.entitlements in Resources */,
-				D655260618CC568B00AF55A6 /* CHANGELOG.md in Resources */,
 				D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D632C3261AEC5A0400D1A69A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D632C3341AEC5A0400D1A69A /* Images.xcassets in Resources */,
+				D632C3381AEC5A0500D1A69A /* FitBuddy WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D632C3351AEC5A0500D1A69A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D632C3401AEC5A0500D1A69A /* Interface.storyboard in Resources */,
+				D632C3421AEC5A0500D1A69A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,81 +759,91 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D32F7B1AED6B020057F00B /* AppDelegate.swift in Sources */,
 				D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */,
+				D632C3561AEC6E7400D1A69A /* JBBarChartView.m in Sources */,
+				D6EFE6121AF06F05007CDB05 /* CardioExercise.m in Sources */,
 				D625E86E18B00EF900FFE96D /* WorkoutModeViewController2.m in Sources */,
-				D67E165E18B2C7BE001E9257 /* Workout.m in Sources */,
 				D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */,
-				D63E445618AB2CA300A13883 /* JBLineChartView.m in Sources */,
 				D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */,
-				D6C49F7A1901FD2D001A8E41 /* RSCodeGenerator.m in Sources */,
 				D601921318AFDF6F00255256 /* DemoContentViewController.m in Sources */,
 				D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */,
-				D63E445518AB2CA300A13883 /* JBChartView.m in Sources */,
-				D6C49F811901FD2D001A8E41 /* RSISBN13Generator.m in Sources */,
 				D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */,
 				D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */,
-				D6C49F7C1901FD2D001A8E41 /* RSCornersView.m in Sources */,
-				D6C49F851901FD2D001A8E41 /* RSUnifiedCodeGenerator.m in Sources */,
 				D6C2CA33170E6BDA00BA02DA /* LogbookEntry+TDate.m in Sources */,
 				D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */,
-				D65525BF18CC561A00AF55A6 /* NearbyVenuesViewController.m in Sources */,
-				D6C49F511901FAB7001A8E41 /* ShowPassViewController.m in Sources */,
-				D65525BD18CC561A00AF55A6 /* FSVenue.m in Sources */,
 				D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */,
+				D6EFE6161AF06F05007CDB05 /* ResistanceExercise.m in Sources */,
 				D6C2CA42170E6C0100BA02DA /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */,
 				D6C2CA43170E6C0100BA02DA /* GymBuddyMappingModel1.3.xcmappingmodel in Sources */,
-				D6C49F7D1901FD2D001A8E41 /* RSEAN13Generator.m in Sources */,
-				D67E166718B2C7BE001E9257 /* Exercise.m in Sources */,
 				D6C2CA5B170E6C4000BA02DA /* ExerciseAddViewController.m in Sources */,
 				D6C2CA5C170E6C4000BA02DA /* ExerciseControlController.m in Sources */,
-				D63E445418AB2CA300A13883 /* JBBarChartView.m in Sources */,
 				D6C2CA5D170E6C4000BA02DA /* ExerciseEditViewController.m in Sources */,
-				D67E166118B2C7BE001E9257 /* ResistanceExercise.m in Sources */,
-				D6C49F7B1901FD2D001A8E41 /* RSCodeView.m in Sources */,
-				D655260918CC568B00AF55A6 /* FSOAuthNoAppStore.m in Sources */,
-				D67E166418B2C7BE001E9257 /* CardioExercise.m in Sources */,
-				D65525BC18CC561A00AF55A6 /* FSConverter.m in Sources */,
 				D6C2CA5E170E6C4000BA02DA /* ExerciseListTableViewController.m in Sources */,
-				D6C49F821901FD2D001A8E41 /* RSISSN13Generator.m in Sources */,
-				D655260A18CC568B00AF55A6 /* FSOperation.m in Sources */,
-				D6C49F761901FD2D001A8E41 /* RSCode128Generator.m in Sources */,
 				D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */,
+				D6EFE6141AF06F05007CDB05 /* Exercise.m in Sources */,
 				D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */,
-				D655260718CC568B00AF55A6 /* Foursquare2.m in Sources */,
 				D6C2CA60170E6C4000BA02DA /* LogbookViewController.m in Sources */,
-				D65525BE18CC561A00AF55A6 /* GymPassViewController.m in Sources */,
-				D67E166A18B2C7BE001E9257 /* CardioHistory.m in Sources */,
+				D6EFE6171AF06F05007CDB05 /* ResistanceHistory.m in Sources */,
+				D6D32F791AED3C020057F00B /* DataConector.swift in Sources */,
+				D6D32F7E1AED6C580057F00B /* WorkoutViewController.swift in Sources */,
+				D6EFE6151AF06F05007CDB05 /* LogbookEntry.m in Sources */,
+				D6D32F801AED70890057F00B /* FBConstants.swift in Sources */,
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
 				D6C2CA62170E6C4000BA02DA /* SettingsIncrementViewController.m in Sources */,
 				D6C2CA63170E6C4000BA02DA /* SettingsViewController.m in Sources */,
 				D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */,
+				D6EFE6131AF06F05007CDB05 /* CardioHistory.m in Sources */,
 				D601920F18AFDF0C00255256 /* DemoViewController.m in Sources */,
-				D67E165B18B2C7BE001E9257 /* LogbookEntry.m in Sources */,
-				D6C49F861901FD2D001A8E41 /* RSUPCEGenerator.m in Sources */,
-				D6C49F781901FD2D001A8E41 /* RSCode39Mod43Generator.m in Sources */,
-				D67E166D18B2C7BE001E9257 /* ResistanceHistory.m in Sources */,
+				D632C3571AEC6E7400D1A69A /* JBChartView.m in Sources */,
 				D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */,
 				D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */,
 				D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */,
-				D6C49F771901FD2D001A8E41 /* RSCode39Generator.m in Sources */,
-				D6C49F831901FD2D001A8E41 /* RSITF14Generator.m in Sources */,
-				D6C49F791901FD2D001A8E41 /* RSCode93Generator.m in Sources */,
-				D6C49F7E1901FD2D001A8E41 /* RSEAN8Generator.m in Sources */,
+				D632C3581AEC6E7400D1A69A /* JBLineChartView.m in Sources */,
 				D696191518A6A793002FE7C2 /* FitBuddyArchive.m in Sources */,
-				D655260B18CC568B00AF55A6 /* FSWebLogin.m in Sources */,
-				D6C49F7F1901FD2D001A8E41 /* RSEANGenerator.m in Sources */,
-				D6C49F801901FD2D001A8E41 /* RSExtendedCode39Generator.m in Sources */,
-				D6C49F841901FD2D001A8E41 /* RSScannerViewController.m in Sources */,
-				D655260818CC568B00AF55A6 /* FSKeychain.m in Sources */,
-				D6C2CB08170E6D2500BA02DA /* main.m in Sources */,
 				D67D7CF9170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld in Sources */,
-				D67E165818B2C7BE001E9257 /* WorkoutSequence.m in Sources */,
+				D6EFE6181AF06F05007CDB05 /* Workout.m in Sources */,
+				D6EFE6191AF06F05007CDB05 /* WorkoutSequence.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D632C3241AEC5A0400D1A69A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D61D49C01AED270900868F45 /* WorkoutSelectorController.swift in Sources */,
+				D632C3301AEC5A0400D1A69A /* NotificationController.swift in Sources */,
+				D61D49C21AED331E00868F45 /* WorkoutCellType.swift in Sources */,
+				D632C32E1AEC5A0400D1A69A /* WorkoutInterfaceController.swift in Sources */,
+				D61D49BE1AED205B00868F45 /* WorkoutStartController.swift in Sources */,
+				D632C3321AEC5A0400D1A69A /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D632C33A1AEC5A0500D1A69A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D632C3361AEC5A0500D1A69A /* FitBuddy WatchKit App */;
+			targetProxy = D632C3391AEC5A0500D1A69A /* PBXContainerItemProxy */;
+		};
+		D632C3441AEC5A0500D1A69A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D632C3271AEC5A0400D1A69A /* FitBuddy WatchKit Extension */;
+			targetProxy = D632C3431AEC5A0500D1A69A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		D632C33E1AEC5A0500D1A69A /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D632C33F1AEC5A0500D1A69A /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		D6C2CB0A170E6D5300BA02DA /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -812,12 +865,15 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -832,9 +888,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "B277DEB2-5CBB-4FD4-8B5C-B99C15A75D1E";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -850,11 +906,14 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -863,9 +922,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "B277DEB2-5CBB-4FD4-8B5C-B99C15A75D1E";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -879,16 +938,20 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FitBuddy/FitBuddy-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FitBuddy/FitBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitBuddy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -901,20 +964,202 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FitBuddy/FitBuddy-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FitBuddy/FitBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitBuddy-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
+		};
+		D632C3471AEC5A0600D1A69A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IBSC_MODULE = FitBuddy_WatchKit_Extension;
+				INFOPLIST_FILE = "FitBuddy WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D632C3481AEC5A0600D1A69A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IBSC_MODULE = FitBuddy_WatchKit_Extension;
+				INFOPLIST_FILE = "FitBuddy WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D632C3491AEC5A0600D1A69A /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IBSC_MODULE = FitBuddy_WatchKit_Extension;
+				INFOPLIST_FILE = "FitBuddy WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Distribution;
+		};
+		D632C34B1AEC5A0600D1A69A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "FitBuddy WatchKit Extension/FitBuddy WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "FitBuddy WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D632C34C1AEC5A0600D1A69A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "FitBuddy WatchKit Extension/FitBuddy WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "FitBuddy WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D632C34D1AEC5A0600D1A69A /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "FitBuddy WatchKit Extension/FitBuddy WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "FitBuddy WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Distribution;
 		};
 		D6CF078A14FA995C004AC44D /* Distribution */ = {
 			isa = XCBuildConfiguration;
@@ -926,11 +1171,14 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -939,9 +1187,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "B277DEB2-5CBB-4FD4-8B5C-B99C15A75D1E";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -955,16 +1203,19 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FitBuddy/FitBuddy-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FitBuddy/FitBuddy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FitBuddy-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -989,6 +1240,26 @@
 				D60B4CDB14D7A888001ECCE3 /* Debug */,
 				D60B4CDC14D7A888001ECCE3 /* Release */,
 				D6CF078B14FA995C004AC44D /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D632C3461AEC5A0600D1A69A /* Build configuration list for PBXNativeTarget "FitBuddy WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D632C3471AEC5A0600D1A69A /* Debug */,
+				D632C3481AEC5A0600D1A69A /* Release */,
+				D632C3491AEC5A0600D1A69A /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D632C34A1AEC5A0600D1A69A /* Build configuration list for PBXNativeTarget "FitBuddy WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D632C34B1AEC5A0600D1A69A /* Debug */,
+				D632C34C1AEC5A0600D1A69A /* Release */,
+				D632C34D1AEC5A0600D1A69A /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

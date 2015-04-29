@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aFO-RK-CRU">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--Glance Interface Controller-->
+        <scene sceneID="BOz-TT-tkC">
+            <objects>
+                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="FitBuddy_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group alignment="left" id="t8f-Gd-c4y"/>
+                        <group alignment="left" id="uCw-4Q-Ouw"/>
+                    </items>
+                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="235" y="672"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="XkS-y5-khE"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
+                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="235" y="1001"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="KIl-fV-djm">
+            <objects>
+                <controller id="gdX-wl-uQE" customClass="NotificationController" customModule="FitBuddy_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="1001"/>
+        </scene>
+        <!--WorkoutStartController-->
+        <scene sceneID="cki-9u-sqi">
+            <objects>
+                <controller identifier="WorkoutStartController" title="FitBuddy" id="aFO-RK-CRU" userLabel="WorkoutStartController" customClass="WorkoutStartController" customModule="FitBuddy_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="0.20000000000000001" alignment="left" id="ixH-er-dKr">
+                            <items>
+                                <imageView alignment="center" image="logo" id="Tm6-ck-gKO"/>
+                            </items>
+                        </group>
+                        <group width="1" widthAdjustment="-4" height="0.30000000000000016" alignment="center" layout="vertical" id="fKW-ra-vQD">
+                            <items>
+                                <table alignment="center" verticalAlignment="center" id="8mR-nb-pvp">
+                                    <items>
+                                        <tableRow identifier="WorkoutCellType" id="le0-8c-hjN" customClass="WorkoutCellType" customModule="FitBuddy_WatchKit_Extension">
+                                            <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="q9b-oz-mxz">
+                                                <items>
+                                                    <label width="1" alignment="left" text="workout title" id="50q-Pn-HND">
+                                                        <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                                    </label>
+                                                    <label width="1" alignment="left" text="workout date" id="Bqp-td-7Ev">
+                                                        <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                                    </label>
+                                                </items>
+                                                <connections>
+                                                    <segue destination="yqn-vm-Ws3" kind="push" identifier="SelectWorkoutSegue" id="q1c-4F-sdg"/>
+                                                </connections>
+                                            </group>
+                                            <connections>
+                                                <outlet property="cellSubtitle" destination="Bqp-td-7Ev" id="K5v-MY-YNL"/>
+                                                <outlet property="cellTitle" destination="50q-Pn-HND" id="1eg-Ds-DtB"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                </table>
+                            </items>
+                        </group>
+                        <group width="1" height="0.5" alignment="left" verticalAlignment="bottom" id="MMf-yF-a7i">
+                            <items>
+                                <button width="60" height="60" alignment="center" verticalAlignment="center" title="Start" backgroundImage="red--watch-button" id="tJK-up-TAu">
+                                    <color key="backgroundColor" red="0.87058823529999996" green="0.043137254899999998" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="startButonClicked" destination="aFO-RK-CRU" id="xaG-1H-p59"/>
+                                        <segue destination="ygS-nR-I7z" kind="modal" id="oWF-u7-t0T"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="4" bottom="4"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="workoutListView" destination="8mR-nb-pvp" id="6rD-Lu-w9W"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-181" y="283"/>
+        </scene>
+        <!--Workouts-->
+        <scene sceneID="br2-Cg-WJV">
+            <objects>
+                <controller identifier="WorkoutSelectorController" title="Workouts" id="yqn-vm-Ws3" customClass="WorkoutSelectorController" customModule="FitBuddy_WatchKit_Extension">
+                    <items>
+                        <group alignment="left" layout="vertical" id="IJ9-Ez-N2d">
+                            <items>
+                                <table alignment="left" id="eeW-fR-UYi">
+                                    <items>
+                                        <tableRow identifier="WorkoutCellType" id="hn1-H1-eSf" customClass="WorkoutCellType" customModule="FitBuddy_WatchKit_Extension">
+                                            <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="z7c-ne-e2K">
+                                                <items>
+                                                    <label width="1" alignment="left" text="title" id="v6B-gb-hZr">
+                                                        <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                                    </label>
+                                                    <label width="1" alignment="left" text="date" id="fLR-9F-4Ru">
+                                                        <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <connections>
+                                                <outlet property="cellSubtitle" destination="fLR-9F-4Ru" id="rQz-OQ-gf8"/>
+                                                <outlet property="cellTitle" destination="v6B-gb-hZr" id="uJd-xo-wuf"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                </table>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="workoutTable" destination="eeW-fR-UYi" id="zyA-eo-jC3"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="71" y="95"/>
+        </scene>
+        <!--WorkoutController-->
+        <scene sceneID="V5t-iW-Kni">
+            <objects>
+                <controller identifier="WorkoutInterfaceController" title="FitBuddy" id="ygS-nR-I7z" userLabel="WorkoutController" customClass="WorkoutInterfaceController" customModule="FitBuddy_WatchKit_Extension">
+                    <items>
+                        <button width="1" height="30" alignment="left" title="&lt;&lt; Previous" id="dea-34-Giz">
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <connections>
+                                <action selector="previousButtonPressed" destination="ygS-nR-I7z" id="IuK-nE-60a"/>
+                            </connections>
+                        </button>
+                        <group width="1" alignment="left" layout="vertical" id="bLq-lp-2z4">
+                            <items>
+                                <label width="1" alignment="left" text="Exercise Name" textAlignment="center" id="Pka-VE-SPT">
+                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                </label>
+                                <label width="1" alignment="left" text="Exercise Details" textAlignment="center" id="am0-gI-cfC">
+                                    <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                </label>
+                            </items>
+                            <edgeInsets key="margins" left="3" right="3" top="0.0" bottom="0.0"/>
+                        </group>
+                        <group width="0.90000000000000002" widthAdjustment="-5" alignment="center" id="ggt-aF-QvI">
+                            <items>
+                                <button width="0.50000000000000011" widthAdjustment="-3" height="50" alignment="left" verticalAlignment="center" title="Skip" id="2oK-zC-cMe">
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                    <connections>
+                                        <action selector="skipButtonPressed" destination="ygS-nR-I7z" id="B0O-zl-aad"/>
+                                    </connections>
+                                </button>
+                                <button width="0.50000000000000011" widthAdjustment="-3" height="50" alignment="right" verticalAlignment="center" title="Log" id="f5L-sj-k4P">
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                    <connections>
+                                        <action selector="logButtonPressed" destination="ygS-nR-I7z" id="Xrj-AX-7Dg"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="4" bottom="4"/>
+                        </group>
+                        <button width="1" height="30" alignment="left" title="Next &gt;&gt;" id="AYO-g7-y9w">
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="nextButtonPressed" destination="ygS-nR-I7z" id="57Q-ns-L3r"/>
+                            </connections>
+                        </button>
+                        <separator alignment="center" id="ric-Ir-D9y"/>
+                        <group width="1" alignment="left" id="L5J-TG-oSe">
+                            <items>
+                                <label width="0.5" alignment="left" verticalAlignment="center" text="Weight" textAlignment="left" numberOfLines="0" id="HF2-jl-6sw"/>
+                                <label width="0.5" alignment="left" text="999.99" textAlignment="right" id="42q-PS-Exz"/>
+                            </items>
+                            <edgeInsets key="margins" left="5" right="5" top="5" bottom="0.0"/>
+                        </group>
+                        <slider width="1" alignment="left" minimum="-5" maximum="5" steps="10" id="Tgl-De-msP">
+                            <color key="color" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeSlot1:" destination="ygS-nR-I7z" id="Wer-Pf-ttC"/>
+                            </connections>
+                        </slider>
+                        <group width="1" alignment="left" id="dYa-xh-A5d">
+                            <items>
+                                <label width="0.5" alignment="left" verticalAlignment="center" text="Reps" textAlignment="left" numberOfLines="0" id="4KW-aK-GkZ"/>
+                                <label width="0.5" alignment="left" text="999.99" textAlignment="right" id="pP0-UG-w9Z"/>
+                            </items>
+                            <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
+                        </group>
+                        <slider width="1" alignment="left" minimum="-5" maximum="5" steps="10" id="Iam-YV-SVQ">
+                            <color key="color" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeSlot2:" destination="ygS-nR-I7z" id="yup-v1-4S1"/>
+                            </connections>
+                        </slider>
+                        <group width="1" alignment="left" id="VGa-WU-cQL">
+                            <items>
+                                <label width="0.5" alignment="left" verticalAlignment="center" text="Sets" textAlignment="left" numberOfLines="0" id="VmV-S4-HkO"/>
+                                <label width="0.5" alignment="left" text="999.99" textAlignment="right" id="yIC-KK-WdF"/>
+                            </items>
+                            <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
+                        </group>
+                        <slider width="1" alignment="left" minimum="-5" maximum="5" steps="10" id="YSY-XH-sTh">
+                            <color key="color" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeSlot3:" destination="ygS-nR-I7z" id="92S-l8-zyA"/>
+                            </connections>
+                        </slider>
+                    </items>
+                    <connections>
+                        <outlet property="exerciseDescriptionLabel" destination="am0-gI-cfC" id="BQe-nr-wyA"/>
+                        <outlet property="exerciseNameLabel" destination="Pka-VE-SPT" id="Gn4-Mp-AaN"/>
+                        <outlet property="logButton" destination="f5L-sj-k4P" id="lvA-3C-C9G"/>
+                        <outlet property="nextButton" destination="AYO-g7-y9w" id="FAf-8R-hFa"/>
+                        <outlet property="previousButton" destination="dea-34-Giz" id="QUm-OX-8lh"/>
+                        <outlet property="skipButton" destination="2oK-zC-cMe" id="tCD-Ab-EHk"/>
+                        <outlet property="slot1Label" destination="HF2-jl-6sw" id="Tec-GC-Arz"/>
+                        <outlet property="slot1Slider" destination="Tgl-De-msP" id="oIO-pG-bha"/>
+                        <outlet property="slot1Value" destination="42q-PS-Exz" id="2eV-l4-sDa"/>
+                        <outlet property="slot2Label" destination="4KW-aK-GkZ" id="Lid-tF-WKP"/>
+                        <outlet property="slot2Slider" destination="Iam-YV-SVQ" id="Ie7-Md-oKV"/>
+                        <outlet property="slot2Value" destination="pP0-UG-w9Z" id="Kd9-Yn-1ID"/>
+                        <outlet property="slot3Label" destination="VmV-S4-HkO" id="kjA-Ea-EVG"/>
+                        <outlet property="slot3Slider" destination="YSY-XH-sTh" id="J9r-xe-k4V"/>
+                        <outlet property="slot3Value" destination="yIC-KK-WdF" id="rgB-MJ-jZ3"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="257" y="283"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.87058823529999996" green="0.043137254899999998" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+</document>

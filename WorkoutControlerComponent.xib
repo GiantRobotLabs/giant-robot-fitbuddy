@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,18 +12,15 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67S-On-7Bx">
                     <rect key="frame" x="0.0" y="0.0" width="70" height="100"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" text="2.5" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="VZT-we-WrA">
                             <rect key="frame" x="0.0" y="29" width="70" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="21" text="+/-" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y4S-07-m3Y">
                             <rect key="frame" x="0.0" y="0.0" width="70" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
@@ -37,7 +34,6 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eX3-a0-i74" userLabel="Reset Button">
                     <rect key="frame" x="0.0" y="305" width="40" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="D6C-w0-j5D"/>
                         <constraint firstAttribute="height" constant="40" id="cQQ-vy-yDo"/>
@@ -60,6 +56,7 @@
                 <constraint firstAttribute="trailing" secondItem="67S-On-7Bx" secondAttribute="trailing" id="fpY-j7-7Nm"/>
                 <constraint firstItem="eX3-a0-i74" firstAttribute="leading" secondItem="gCR-MB-K93" secondAttribute="leading" id="qmG-BS-mHn"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="hFt-91-TeI">
@@ -68,17 +65,14 @@
             <subviews>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="8GY-Ha-LpL">
                     <rect key="frame" x="0.0" y="0.0" width="70" height="100"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" placeholderIntrinsicWidth="72" placeholderIntrinsicHeight="18" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="mqw-g8-pT2">
                             <rect key="frame" x="-1" y="4" width="72" height="18"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZYR-VP-JmU">
                             <rect key="frame" x="0.0" y="30" width="70" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -87,17 +81,14 @@
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="kMm-15-6al">
                     <rect key="frame" x="0.0" y="123" width="70" height="100"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="18" text="Reps" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="gxo-rP-olg">
                             <rect key="frame" x="0.0" y="4" width="70" height="18"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="BvM-Yw-hVl">
                             <rect key="frame" x="0.0" y="30" width="70" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -106,17 +97,14 @@
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="CDn-JQ-7TA">
                     <rect key="frame" x="0.0" y="245" width="70" height="100"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="20" text="Sets" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3OZ-2U-Wub">
                             <rect key="frame" x="0.0" y="2" width="70" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ocz-m6-QD3">
                             <rect key="frame" x="0.0" y="30" width="70" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -125,11 +113,9 @@
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="XcS-sW-B6A">
                     <rect key="frame" x="83" y="0.0" width="70" height="100"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgX-21-fyV">
                             <rect key="frame" x="0.0" y="15" width="70" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                             <state key="normal" title="-" backgroundImage="start-button">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -144,11 +130,9 @@
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="J07-YM-a1k">
                     <rect key="frame" x="83" y="123" width="70" height="100"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUp-Kr-g2X">
                             <rect key="frame" x="0.0" y="15" width="70" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                             <state key="normal" title="-" backgroundImage="start-button">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,11 +147,9 @@
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="wEt-yJ-QCB">
                     <rect key="frame" x="83" y="245" width="70" height="100"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iR-YH-u4r">
                             <rect key="frame" x="0.0" y="15" width="70" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                             <state key="normal" title="-" backgroundImage="start-button">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -182,11 +164,9 @@
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="2gE-ga-rsQ">
                     <rect key="frame" x="165" y="0.0" width="70" height="100"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hmw-KR-BRu">
                             <rect key="frame" x="0.0" y="15" width="70" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                             <state key="normal" title="+" backgroundImage="start-button">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -201,11 +181,9 @@
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="as3-Yo-tms">
                     <rect key="frame" x="165" y="123" width="70" height="100"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oS-Kp-ljM">
                             <rect key="frame" x="0.0" y="15" width="70" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                             <state key="normal" title="+" backgroundImage="start-button">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -220,11 +198,9 @@
                 </view>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="uVn-P1-SGy">
                     <rect key="frame" x="165" y="245" width="70" height="100"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="70" placeholderIntrinsicHeight="70" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FC5-Oc-ljW">
                             <rect key="frame" x="0.0" y="15" width="70" height="70"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                             <state key="normal" title="+" backgroundImage="start-button">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -261,6 +237,7 @@
                 <constraint firstAttribute="centerX" secondItem="J07-YM-a1k" secondAttribute="centerX" id="nhf-tx-UHE"/>
                 <constraint firstItem="8GY-Ha-LpL" firstAttribute="leading" secondItem="hFt-91-TeI" secondAttribute="leading" id="vTM-eM-h4Q"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="0tI-sb-1Fp">
@@ -269,11 +246,9 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sd8-xP-ZOW">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fWt-Te-hKn">
                     <rect key="frame" x="0.0" y="193" width="320" height="375"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                 </tableView>
@@ -289,7 +264,7 @@
                 <constraint firstItem="fWt-Te-hKn" firstAttribute="leading" secondItem="0tI-sb-1Fp" secondAttribute="leading" id="hKb-SM-erD"/>
                 <constraint firstItem="Sd8-xP-ZOW" firstAttribute="leading" secondItem="0tI-sb-1Fp" secondAttribute="leading" id="x6S-ES-j3v"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="hU8-bE-txn">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -297,62 +272,50 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qql-mL-B3z">
                     <rect key="frame" x="236" y="20" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ca8-c6-vw9">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ca8-c6-vw9">
                     <rect key="frame" x="236" y="199" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voP-f1-pM9">
                     <rect key="frame" x="164" y="20" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boX-zl-WSj">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="boX-zl-WSj">
                     <rect key="frame" x="164" y="199" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ooe-oE-kxC">
                     <rect key="frame" x="92" y="20" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toV-MY-BiL">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toV-MY-BiL">
                     <rect key="frame" x="92" y="199" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJf-Sn-u2P">
                     <rect key="frame" x="236" y="377" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eT0-Ic-e4a">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eT0-Ic-e4a">
                     <rect key="frame" x="164" y="378" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tG-0b-VQB">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tG-0b-VQB">
                     <rect key="frame" x="92" y="378" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9p-QB-iuc">
                     <rect key="frame" x="20" y="20" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zkq-Up-och">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkq-Up-och">
                     <rect key="frame" x="20" y="199" width="64" height="171"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hw-jK-Ale">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0hw-jK-Ale">
                     <rect key="frame" x="20" y="378" width="64" height="170"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
@@ -423,7 +386,7 @@
                 <constraint firstItem="ca8-c6-vw9" firstAttribute="height" secondItem="voP-f1-pM9" secondAttribute="height" id="yRC-KN-Tvr"/>
                 <constraint firstItem="ca8-c6-vw9" firstAttribute="width" secondItem="eT0-Ic-e4a" secondAttribute="width" id="yTP-tN-mO9"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="sAT-Lz-Tr0" userLabel="4x3 Grid (10 pad)">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -431,62 +394,50 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXR-Af-nGz">
                     <rect key="frame" x="241" y="10" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5jD-Up-qss">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5jD-Up-qss">
                     <rect key="frame" x="241" y="195" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxs-zD-r6y">
                     <rect key="frame" x="164" y="10" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHv-eH-CNT">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zHv-eH-CNT">
                     <rect key="frame" x="164" y="195" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kT-w0-uYk">
                     <rect key="frame" x="87" y="10" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZM-GT-tf5">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZM-GT-tf5">
                     <rect key="frame" x="87" y="195" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igU-qb-ajF">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igU-qb-ajF">
                     <rect key="frame" x="241" y="380" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4L-0S-ZO8">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z4L-0S-ZO8">
                     <rect key="frame" x="164" y="380" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewT-5X-bMZ">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewT-5X-bMZ">
                     <rect key="frame" x="87" y="380" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4O-mw-h4C">
                     <rect key="frame" x="10" y="10" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6L-Uq-kAu">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6L-Uq-kAu">
                     <rect key="frame" x="10" y="195" width="69" height="177"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaW-Y1-RP9">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaW-Y1-RP9">
                     <rect key="frame" x="10" y="380" width="69" height="178"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
@@ -561,11 +512,16 @@
                 <constraint firstItem="igU-qb-ajF" firstAttribute="leading" secondItem="Z4L-0S-ZO8" secondAttribute="trailing" constant="8" id="zo6-dL-XO2"/>
                 <constraint firstItem="igU-qb-ajF" firstAttribute="bottom" secondItem="Z4L-0S-ZO8" secondAttribute="bottom" id="zsy-aP-ayv"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
     <resources>
         <image name="gb-undo" width="98" height="98"/>
         <image name="start-button" width="292" height="292"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

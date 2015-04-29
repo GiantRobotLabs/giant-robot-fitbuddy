@@ -192,8 +192,7 @@
 }
 
 #pragma mark = JBBarChartViewDataSource delegate
-- (NSInteger)numberOfBarsInBarChartView:(JBBarChartView *)barChartView
-{
+- (NSUInteger)numberOfBarsInBarChartView:(JBBarChartView *)barChartView {
     return 30;
 }
 
@@ -203,7 +202,7 @@
 }
 
 
-- (NSInteger)barPaddingForBarChartView:(JBBarChartView *)barChartView
+- (CGFloat)barPaddingForBarChartView:(JBBarChartView *)barChartView
 {
     return 1;
 }
@@ -215,7 +214,7 @@
     return barView;
 }
 
-- (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSInteger)index
+- (CGFloat)barChartView:(JBBarChartView *)barChartView heightForBarViewAtIndex:(NSUInteger)index
 {
     
     double interval = -1 * ([self numberOfSetItems] - index - 1);
