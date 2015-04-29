@@ -7,12 +7,10 @@
 //
 
 import Foundation
+import CoreData
 
-
-
-
-
-
-
-
-
+class DataConnector: NSObject {
+    
+    
+    
+}

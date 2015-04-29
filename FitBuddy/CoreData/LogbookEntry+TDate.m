@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 jneyer.com. All rights reserved.
 //
 
+#import "FitBuddy-Swift.h"
 #import "LogbookEntry+TDate.h"
 
 @implementation LogbookEntry (TDate)

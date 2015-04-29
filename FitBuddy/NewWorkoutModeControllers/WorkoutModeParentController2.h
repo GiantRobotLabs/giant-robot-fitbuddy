@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Workout.h"
-#import "WorkoutSequence.h"
-#import "Exercise.h"
+
 #import "WorkoutModeViewController2.h"
 
 @interface WorkoutModeParentController2 : UIViewController <UIPageViewControllerDataSource>

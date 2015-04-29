@@ -9,8 +9,7 @@
 #import "ExerciseEditViewController.h"
 #import "GymBuddyAppDelegate.h"
 #import "CoreDataHelper.h"
-#import "CardioExercise.h"
-#import "ResistanceExercise.h"
+#import "FitBuddy-Swift.h"
 
 @implementation ExerciseEditViewController
 

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Workout.h"
 
 @interface ExerciseAddViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *addExerciseField;

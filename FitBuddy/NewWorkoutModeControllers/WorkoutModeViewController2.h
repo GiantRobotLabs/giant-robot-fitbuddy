@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ExerciseControlController.h"
-#import "LogbookEntry.h"
-#import "Workout.h"
+
+#import "FitBuddy-Swift.h"
 
 @interface WorkoutModeViewController2 : ExerciseControlController
 

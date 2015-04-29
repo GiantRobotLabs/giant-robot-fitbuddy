@@ -8,14 +8,14 @@
 //
 
 #import "LogbookViewController.h"
-#import "LogbookEntry.h"
-#import "Workout.h"
 #import "GymBuddyAppDelegate.h"
 #import "CoreDataHelper.h"
 #import "FitBuddyMacros.h"
 #import "BarChartDataSource.h"
 #import "JBChartView.h"
 #import "FitBuddyMacros.h"
+
+#import "FitBuddy-Swift.h"
 
 @implementation LogbookViewController
 {

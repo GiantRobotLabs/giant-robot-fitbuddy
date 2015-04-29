@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LogbookEntry+TDate.h"
+
+#import "FitBuddy-Swift.h"
 
 @interface LogbookEntryViewController : UIViewController
 

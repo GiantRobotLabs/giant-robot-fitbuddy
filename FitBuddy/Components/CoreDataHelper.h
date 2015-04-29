@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#import "FitBuddy=Swift.h"
+
 @interface CoreDataHelper : NSObject
 + (BOOL) copyiCloudtoLocal;
 + (BOOL) migrateDataToSqlite;

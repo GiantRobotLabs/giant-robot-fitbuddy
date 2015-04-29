@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Exercise.h"
+
+#import "FitBuddy-Swift.h"
 
 @interface NotesEditorViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;

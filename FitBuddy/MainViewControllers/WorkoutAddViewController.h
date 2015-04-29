@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
-#import "Workout.h"
-#import "Exercise.h"
+
+#import "FitBuddy-Swift.h"
 
 @interface WorkoutAddViewController : UITableViewController <UITextFieldDelegate>
 

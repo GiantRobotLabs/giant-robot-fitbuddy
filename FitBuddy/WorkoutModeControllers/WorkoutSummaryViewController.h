@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LogbookEntry.h"
+
+#import "FitBuddy-Swift.h"
 
 @interface WorkoutSummaryViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;

@@ -8,7 +8,7 @@
 
 #import "ExerciseAddViewController.h"
 #import "GymBuddyAppDelegate.h"
-#import "Exercise.h"
+#import "FitBuddy-Swift.h"
 
 @implementation ExerciseAddViewController
 

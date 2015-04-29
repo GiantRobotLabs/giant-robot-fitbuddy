@@ -7,9 +7,9 @@
 //
 
 #import "ExerciseControlController.h"
-#import "CardioExercise.h"
-#import "ResistanceExercise.h"
 #import "CoreDataTableViewController.h"
+
+#import "FitBuddy-Swift.h"
 
 @interface ExerciseControlController ()
 {

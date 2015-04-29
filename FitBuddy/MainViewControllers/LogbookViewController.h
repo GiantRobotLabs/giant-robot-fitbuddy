@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataTableController.h"
-#import "LogbookEntry.h"
 #import "JBChartView.h"
 #import "JBBarChartView.h"
+
+#import "FitBuddy-Swift.h"
 
 @interface LogbookViewController : CoreDataTableController
 

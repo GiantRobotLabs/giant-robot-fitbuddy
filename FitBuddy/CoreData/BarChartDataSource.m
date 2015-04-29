@@ -9,9 +9,8 @@
 #import "BarChartDataSource.h"
 #import "GymBuddyAppDelegate.h"
 #import <CoreData/CoreData.h>
-#import "ResistanceHistory.h"
-#import "CardioHistory.h"
-#import "LogbookEntry+TDate.h"
+
+#import "FitBuddy-Swift.h"
 
 @implementation BarChartDataSource
 

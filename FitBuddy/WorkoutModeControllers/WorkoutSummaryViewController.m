@@ -7,10 +7,10 @@
 //
 
 #import "WorkoutSummaryViewController.h"
-#import "LogbookEntry.h"
-#import "Workout.h"
 #import "CoreDataHelper.h"
 #import "GymBuddyAppDelegate.h"
+
+
 
 @implementation WorkoutSummaryViewController
 @synthesize navigationBar;

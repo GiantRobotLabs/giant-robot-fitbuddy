@@ -8,9 +8,9 @@
 
 #import "WorkoutModeViewController2.h"
 #import "CoreDataHelper.h"
-#import "CardioExercise.h"
-#import "ResistanceExercise.h"
 #import "GymBuddyAppDelegate.h"
+
+#import "FitBuddy-Swift.h"
 
 @implementation WorkoutModeViewController2
 

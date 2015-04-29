@@ -7,9 +7,10 @@
 //
 
 #import "ExerciseListTableViewController.h"
-#import "Exercise.h"
 #import "CoreDataHelper.h"
 #import "GymBuddyAppDelegate.h"
+
+#import "FitBuddy-Swift.h"
 
 @implementation ExerciseListTableViewController
 

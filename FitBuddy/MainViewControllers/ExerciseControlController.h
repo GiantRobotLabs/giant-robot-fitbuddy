@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Exercise.h"
+#import "FitBuddy-Swift.h"
 
 @interface ExerciseControlController : UIViewController
 
