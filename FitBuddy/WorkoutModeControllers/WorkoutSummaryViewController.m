@@ -8,7 +8,7 @@
 
 #import "WorkoutSummaryViewController.h"
 #import "CoreDataHelper.h"
-#import "GymBuddyAppDelegate.h"
+#import "FitBuddyMacros.h"
 
 
 

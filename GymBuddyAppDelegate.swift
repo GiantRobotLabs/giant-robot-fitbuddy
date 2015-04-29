@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class GymBuddyAppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return (paths[0] as! NSURL).URLByAppendingPathComponent("Database").URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
     }
     
-    static func sharedAppDelegate() -> AppDelegate {
-        return UIApplication.sharedApplication().delegate as! AppDelegate;
+    static func sharedAppDelegate() -> GymBuddyAppDelegate {
+        return UIApplication.sharedApplication().delegate as! GymBuddyAppDelegate;
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let paths = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         let dbDirURL = (paths[0] as! NSURL).URLByAppendingPathComponent("Database")
-        let storeURL = AppDelegate.theLocalStore
+        let storeURL = GymBuddyAppDelegate.theLocalStore
         
         if (!NSFileManager.defaultManager().fileExistsAtPath(dbDirURL.path!))
         {

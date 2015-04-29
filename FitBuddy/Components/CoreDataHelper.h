@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-#import "FitBuddy=Swift.h"
+#import "FitBuddyMacros.h"
 
 @interface CoreDataHelper : NSObject
 + (BOOL) copyiCloudtoLocal;

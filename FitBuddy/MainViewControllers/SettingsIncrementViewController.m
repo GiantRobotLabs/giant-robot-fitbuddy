@@ -8,8 +8,10 @@
 
 #import "SettingsIncrementViewController.h"
 #import "CoreDataHelper.h"
-#import "GymBuddyAppDelegate.h"
+#import "FitBuddyMacros.h"
 #import <QuartzCore/QuartzCore.h>
+
+#import "FitBuddy-Swift.h"
 
 @implementation SettingsIncrementViewController
 {

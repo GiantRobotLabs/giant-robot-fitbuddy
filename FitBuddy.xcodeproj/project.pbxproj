@@ -56,7 +56,6 @@
 		D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */; };
 		D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA11170E6BB400BA02DA /* CoreDataTableController.m */; };
 		D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA13170E6BB400BA02DA /* CoreDataTableViewController.m */; };
-		D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */; };
 		D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */; };
 		D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */; };
 		D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA37170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel */; };
@@ -79,7 +78,7 @@
 		D6C49F8A1901FF68001A8E41 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C49F891901FF68001A8E41 /* CoreImage.framework */; };
 		D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
 		D6D32F791AED3C020057F00B /* DataConector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F781AED3C020057F00B /* DataConector.swift */; };
-		D6D32F7B1AED6B020057F00B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7A1AED6B020057F00B /* AppDelegate.swift */; };
+		D6D32F7B1AED6B020057F00B /* GymBuddyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7A1AED6B020057F00B /* GymBuddyAppDelegate.swift */; };
 		D6D32F7E1AED6C580057F00B /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */; };
 		D6D32F801AED70890057F00B /* FBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7F1AED70890057F00B /* FBConstants.swift */; };
 		D6D32FB31AF04C900057F00B /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D32FB21AF04C900057F00B /* WatchKit.framework */; };
@@ -185,7 +184,6 @@
 		D6B0889D1AF1073200962EDB /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = FitBuddy/CoreData/Exercise.swift; sourceTree = SOURCE_ROOT; };
 		D6B0889F1AF1073200962EDB /* WorkoutSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutSequence.swift; path = FitBuddy/CoreData/WorkoutSequence.swift; sourceTree = SOURCE_ROOT; };
 		D6B088A11AF1073200962EDB /* CardioHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardioHistory.swift; path = FitBuddy/CoreData/CardioHistory.swift; sourceTree = SOURCE_ROOT; };
-		D6B088A31AF10A8E00962EDB /* FitBuddy=Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FitBuddy=Swift.h"; sourceTree = SOURCE_ROOT; };
 		D6B088A41AF1144900962EDB /* LogbookEntry_TDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogbookEntry_TDate.swift; sourceTree = SOURCE_ROOT; };
 		D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-Autolayout.storyboard"; sourceTree = SOURCE_ROOT; };
 		D6BC798A18CAAFB4000CEAFB /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
@@ -199,8 +197,6 @@
 		D6C2CA11170E6BB400BA02DA /* CoreDataTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataTableController.m; path = FitBuddy/Components/CoreDataTableController.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA12170E6BB400BA02DA /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataTableViewController.h; path = FitBuddy/Components/CoreDataTableViewController.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA13170E6BB400BA02DA /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataTableViewController.m; path = FitBuddy/Components/CoreDataTableViewController.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA14170E6BB400BA02DA /* GymBuddyAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GymBuddyAppDelegate.h; path = FitBuddy/Components/GymBuddyAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GymBuddyAppDelegate.m; path = FitBuddy/Components/GymBuddyAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA16170E6BB400BA02DA /* FitBuddyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FitBuddyMacros.h; path = FitBuddy/Components/FitBuddyMacros.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA17170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+CocoaDevUsersAdditions.h"; path = "FitBuddy/Components/NSData+CocoaDevUsersAdditions.h"; sourceTree = SOURCE_ROOT; };
 		D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+CocoaDevUsersAdditions.m"; path = "FitBuddy/Components/NSData+CocoaDevUsersAdditions.m"; sourceTree = SOURCE_ROOT; };
@@ -240,7 +236,7 @@
 		D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D6D32F771AED3C010057F00B /* FitBuddy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitBuddy-Bridging-Header.h"; sourceTree = "<group>"; };
 		D6D32F781AED3C020057F00B /* DataConector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConector.swift; sourceTree = SOURCE_ROOT; };
-		D6D32F7A1AED6B020057F00B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		D6D32F7A1AED6B020057F00B /* GymBuddyAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymBuddyAppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = SOURCE_ROOT; };
 		D6D32F7F1AED70890057F00B /* FBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBConstants.swift; sourceTree = SOURCE_ROOT; };
 		D6D32FB21AF04C900057F00B /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
@@ -494,10 +490,7 @@
 		D696191B18A6AC8B002FE7C2 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				D6B088A31AF10A8E00962EDB /* FitBuddy=Swift.h */,
 				D6D32F771AED3C010057F00B /* FitBuddy-Bridging-Header.h */,
-				D6C2CA14170E6BB400BA02DA /* GymBuddyAppDelegate.h */,
-				D6C2CA15170E6BB400BA02DA /* GymBuddyAppDelegate.m */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -550,7 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				D6D32FB51AF04EBE0057F00B /* coredata */,
-				D6D32F7A1AED6B020057F00B /* AppDelegate.swift */,
+				D6D32F7A1AED6B020057F00B /* GymBuddyAppDelegate.swift */,
 				D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */,
 				D6D32F7F1AED70890057F00B /* FBConstants.swift */,
 			);
@@ -743,7 +736,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6D32F7B1AED6B020057F00B /* AppDelegate.swift in Sources */,
+				D6D32F7B1AED6B020057F00B /* GymBuddyAppDelegate.swift in Sources */,
 				D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */,
 				D632C3561AEC6E7400D1A69A /* JBBarChartView.m in Sources */,
 				D625E86E18B00EF900FFE96D /* WorkoutModeViewController2.m in Sources */,
@@ -751,7 +744,6 @@
 				D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */,
 				D601921318AFDF6F00255256 /* DemoContentViewController.m in Sources */,
 				D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */,
-				D6C2CA20170E6BB400BA02DA /* GymBuddyAppDelegate.m in Sources */,
 				D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */,
 				D6C2CA40170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */,
 				D6C2CA41170E6C0100BA02DA /* GymBuddyMappingModel1.1.xcmappingmodel in Sources */,
@@ -854,6 +846,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -873,6 +866,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MODULE_NAME = FitBuddy;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -895,6 +889,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -907,6 +902,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MODULE_NAME = FitBuddy;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1160,6 +1156,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1172,6 +1169,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MODULE_NAME = FitBuddy;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

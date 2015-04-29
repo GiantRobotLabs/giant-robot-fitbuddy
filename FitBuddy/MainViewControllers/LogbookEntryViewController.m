@@ -8,7 +8,7 @@
 
 #import "LogbookEntryViewController.h"
 #import "CoreDataHelper.h"
-#import "GymBuddyAppDelegate.h"
+#import "FitBuddyMacros.h"
 
 @implementation LogbookEntryViewController
 

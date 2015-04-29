@@ -8,9 +8,10 @@
 
 #import <CoreData/CoreData.h>
 #import "FitBuddyArchive.h"
-#import "GymBuddyAppDelegate.h"
 #import "NSData+CocoaDevUsersAdditions.h"
 #import "CoreDataHelper.h"
+
+#import "FitBuddy-Swift.h"
 
 @implementation FitBuddyArchive
 {

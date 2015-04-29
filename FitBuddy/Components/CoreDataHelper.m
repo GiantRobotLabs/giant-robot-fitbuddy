@@ -7,8 +7,11 @@
 //
 
 #import "CoreDataHelper.h"
-#import "GymBuddyAppDelegate.h"
 #import "FitBuddyArchive.h"
+
+#import "FitBuddyMacros.h"
+
+#import "FitBuddy-Swift.h"
 
 @implementation CoreDataHelper
 
@@ -47,7 +50,7 @@
 + (BOOL) moveLocalStoreToBackup
 {
     BOOL rtn = NO;
-    
+
     NSURL *appDocsUrl = [[[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory] URLByAppendingPathComponent:@"Database"];
     NSURL *backupDocsUrl = [appDocsUrl URLByAppendingPathComponent:@"backup"];
     

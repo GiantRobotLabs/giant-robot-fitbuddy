@@ -8,7 +8,6 @@
 //
 
 #import "LogbookViewController.h"
-#import "GymBuddyAppDelegate.h"
 #import "CoreDataHelper.h"
 #import "FitBuddyMacros.h"
 #import "BarChartDataSource.h"
@@ -139,7 +138,7 @@
     // Add the data to the cell
     LogbookEntry *logbookEntry = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [entries addObject:logbookEntry];
-    
+
     exerciseLabel.text = logbookEntry.exercise_name;
     workoutLabel.text = logbookEntry.workout_name;
     

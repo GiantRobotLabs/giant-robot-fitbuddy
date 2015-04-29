@@ -8,7 +8,7 @@
 
 #import "WorkoutAddViewController.h"
 #import "SwitchCell.h"
-#import "GymBuddyAppDelegate.h"
+#import "FitBuddyMacros.h"
 
 #import "FitBuddy-Swift.h"
 

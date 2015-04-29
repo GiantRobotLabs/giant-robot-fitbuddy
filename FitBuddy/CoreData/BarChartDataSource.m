@@ -7,7 +7,7 @@
 //
 
 #import "BarChartDataSource.h"
-#import "GymBuddyAppDelegate.h"
+#import "FitBuddyMacros.h"
 #import <CoreData/CoreData.h>
 
 #import "FitBuddy-Swift.h"
@@ -65,7 +65,6 @@
     if (DEBUG) NSLog(@"Clear chart history");
     [self clearTable: RESISTANCE_HISTORY];
     [self clearTable:CARDIO_HISTORY];
-    
     
     if (DEBUG) NSLog(@"Rebuild history");
     NSFetchRequest *request = [[[GymBuddyAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:RESISTANCE_LOGBOOK ] copy];

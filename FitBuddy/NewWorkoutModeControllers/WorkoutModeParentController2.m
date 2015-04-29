@@ -9,7 +9,6 @@
 #import "WorkoutModeParentController2.h"
 #import "WorkoutModeViewController2.h"
 #import "FitBuddyMacros.h"
-#import "GymBuddyAppDelegate.h"
 
 @interface WorkoutModeParentController2 ()
 {
