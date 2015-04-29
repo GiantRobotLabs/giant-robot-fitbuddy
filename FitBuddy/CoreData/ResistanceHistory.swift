@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc
+@objc (ResistanceHistory)
 class ResistanceHistory: NSManagedObject {
 
     @NSManaged var comp: NSNumber

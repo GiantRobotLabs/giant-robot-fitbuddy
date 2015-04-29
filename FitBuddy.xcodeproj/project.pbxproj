@@ -48,7 +48,8 @@
 		D6B0889E1AF1073200962EDB /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B0889D1AF1073200962EDB /* Exercise.swift */; };
 		D6B088A01AF1073200962EDB /* WorkoutSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B0889F1AF1073200962EDB /* WorkoutSequence.swift */; };
 		D6B088A21AF1073200962EDB /* CardioHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B088A11AF1073200962EDB /* CardioHistory.swift */; };
-		D6B088A51AF1144900962EDB /* LogbookEntry_TDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B088A41AF1144900962EDB /* LogbookEntry_TDate.swift */; };
+		D6B088A51AF1144900962EDB /* LogbookEntry+TDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B088A41AF1144900962EDB /* LogbookEntry+TDate.swift */; };
+		D6B088A81AF1280800962EDB /* NSData+GZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B088A71AF1280800962EDB /* NSData+GZIP.swift */; };
 		D6B59828187078340077C3D0 /* MainStoryboard-Autolayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */; };
 		D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */; };
 		D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AF0218A34990004F599E /* SwitchCell.m */; };
@@ -78,7 +79,7 @@
 		D6C49F8A1901FF68001A8E41 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C49F891901FF68001A8E41 /* CoreImage.framework */; };
 		D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
 		D6D32F791AED3C020057F00B /* DataConector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F781AED3C020057F00B /* DataConector.swift */; };
-		D6D32F7B1AED6B020057F00B /* GymBuddyAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7A1AED6B020057F00B /* GymBuddyAppDelegate.swift */; };
+		D6D32F7B1AED6B020057F00B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7A1AED6B020057F00B /* AppDelegate.swift */; };
 		D6D32F7E1AED6C580057F00B /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */; };
 		D6D32F801AED70890057F00B /* FBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7F1AED70890057F00B /* FBConstants.swift */; };
 		D6D32FB31AF04C900057F00B /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D32FB21AF04C900057F00B /* WatchKit.framework */; };
@@ -184,7 +185,8 @@
 		D6B0889D1AF1073200962EDB /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = FitBuddy/CoreData/Exercise.swift; sourceTree = SOURCE_ROOT; };
 		D6B0889F1AF1073200962EDB /* WorkoutSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutSequence.swift; path = FitBuddy/CoreData/WorkoutSequence.swift; sourceTree = SOURCE_ROOT; };
 		D6B088A11AF1073200962EDB /* CardioHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardioHistory.swift; path = FitBuddy/CoreData/CardioHistory.swift; sourceTree = SOURCE_ROOT; };
-		D6B088A41AF1144900962EDB /* LogbookEntry_TDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogbookEntry_TDate.swift; sourceTree = SOURCE_ROOT; };
+		D6B088A41AF1144900962EDB /* LogbookEntry+TDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LogbookEntry+TDate.swift"; sourceTree = SOURCE_ROOT; };
+		D6B088A71AF1280800962EDB /* NSData+GZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+GZIP.swift"; sourceTree = SOURCE_ROOT; };
 		D6B59827187078340077C3D0 /* MainStoryboard-Autolayout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "MainStoryboard-Autolayout.storyboard"; sourceTree = SOURCE_ROOT; };
 		D6BC798A18CAAFB4000CEAFB /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutControlerComponent.xib; sourceTree = SOURCE_ROOT; };
@@ -236,7 +238,7 @@
 		D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D6D32F771AED3C010057F00B /* FitBuddy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitBuddy-Bridging-Header.h"; sourceTree = "<group>"; };
 		D6D32F781AED3C020057F00B /* DataConector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConector.swift; sourceTree = SOURCE_ROOT; };
-		D6D32F7A1AED6B020057F00B /* GymBuddyAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymBuddyAppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		D6D32F7A1AED6B020057F00B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = SOURCE_ROOT; };
 		D6D32F7F1AED70890057F00B /* FBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBConstants.swift; sourceTree = SOURCE_ROOT; };
 		D6D32FB21AF04C900057F00B /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
@@ -495,6 +497,14 @@
 			name = AppDelegate;
 			sourceTree = "<group>";
 		};
+		D6B088A61AF127DD00962EDB /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D6B088A71AF1280800962EDB /* NSData+GZIP.swift */,
+			);
+			name = utilities;
+			sourceTree = "<group>";
+		};
 		D6C2CA65170E6C4C00BA02DA /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,8 +552,9 @@
 		D6D32F7C1AED6BD60057F00B /* swift */ = {
 			isa = PBXGroup;
 			children = (
+				D6B088A61AF127DD00962EDB /* utilities */,
 				D6D32FB51AF04EBE0057F00B /* coredata */,
-				D6D32F7A1AED6B020057F00B /* GymBuddyAppDelegate.swift */,
+				D6D32F7A1AED6B020057F00B /* AppDelegate.swift */,
 				D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */,
 				D6D32F7F1AED70890057F00B /* FBConstants.swift */,
 			);
@@ -562,7 +573,7 @@
 				D6B088971AF1073200962EDB /* Workout.swift */,
 				D6B088951AF1073200962EDB /* CardioExercise.swift */,
 				D6B088931AF1073100962EDB /* LogbookEntry.swift */,
-				D6B088A41AF1144900962EDB /* LogbookEntry_TDate.swift */,
+				D6B088A41AF1144900962EDB /* LogbookEntry+TDate.swift */,
 			);
 			name = coredata;
 			sourceTree = "<group>";
@@ -736,11 +747,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6D32F7B1AED6B020057F00B /* GymBuddyAppDelegate.swift in Sources */,
+				D6D32F7B1AED6B020057F00B /* AppDelegate.swift in Sources */,
 				D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */,
 				D632C3561AEC6E7400D1A69A /* JBBarChartView.m in Sources */,
 				D625E86E18B00EF900FFE96D /* WorkoutModeViewController2.m in Sources */,
 				D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */,
+				D6B088A81AF1280800962EDB /* NSData+GZIP.swift in Sources */,
 				D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */,
 				D601921318AFDF6F00255256 /* DemoContentViewController.m in Sources */,
 				D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */,
@@ -773,7 +785,7 @@
 				D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */,
 				D6B088A21AF1073200962EDB /* CardioHistory.swift in Sources */,
 				D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */,
-				D6B088A51AF1144900962EDB /* LogbookEntry_TDate.swift in Sources */,
+				D6B088A51AF1144900962EDB /* LogbookEntry+TDate.swift in Sources */,
 				D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */,
 				D6B088941AF1073100962EDB /* LogbookEntry.swift in Sources */,
 				D632C3581AEC6E7400D1A69A /* JBLineChartView.m in Sources */,

@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc
+@objc (CardioExercise)
 class CardioExercise: Exercise {
 
     @NSManaged var distance: String

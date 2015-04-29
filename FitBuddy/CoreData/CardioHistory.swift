@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc
+@objc (CardioHistory)
 class CardioHistory: NSManagedObject {
 
     @NSManaged var comp: NSNumber

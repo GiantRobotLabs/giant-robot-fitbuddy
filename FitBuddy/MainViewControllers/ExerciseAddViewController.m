@@ -41,7 +41,7 @@
 {
     if (![self.addExerciseField.text isEqualToString:@""]) 
     {
-        NSManagedObjectContext *context = [[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext];
+        NSManagedObjectContext *context = [[AppDelegate sharedAppDelegate] managedObjectContext];
         NSManagedObject *newExercise;
 
         if (self.exerciseTypeToggle.selectedSegmentIndex == 0)

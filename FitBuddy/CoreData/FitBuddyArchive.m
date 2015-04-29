@@ -32,7 +32,7 @@
 - (BOOL)exportToDiskWithForce:(BOOL)force {
 
     // Figure out destination name (in public docs dir)    
-    NSURL *documentsDirectory = [GymBuddyAppDelegate sharedAppDelegate].applicationDocumentsDirectory;
+    NSURL *documentsDirectory = [AppDelegate sharedAppDelegate].applicationDocumentsDirectory;
     NSString *exportName = [self getExportFileName];
     NSURL *exportPath = [documentsDirectory URLByAppendingPathComponent:exportName];
     
@@ -40,7 +40,7 @@
 
     NSDictionary *options = [CoreDataHelper defaultStoreOptionsForCloud:NO];
     
-    NSPersistentStoreCoordinator *psc = [[GymBuddyAppDelegate sharedAppDelegate] persistentStoreCoordinator];
+    NSPersistentStoreCoordinator *psc = [[AppDelegate sharedAppDelegate] persistentStoreCoordinator];
     
     NSPersistentStore *ps = [[psc persistentStores] lastObject];
     

@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc
+@objc (ResistanceExercise)
 class ResistanceExercise: Exercise {
 
     @NSManaged var reps: String

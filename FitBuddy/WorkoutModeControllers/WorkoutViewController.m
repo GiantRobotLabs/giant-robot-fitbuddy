@@ -26,7 +26,7 @@
 
 -(void) setupFetchedResultsController
 {
-    [self setupFetchedResultsControllerWithContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
+    [self setupFetchedResultsControllerWithContext:[AppDelegate sharedAppDelegate].managedObjectContext];
 }
 
 -(void) setupFetchedResultsControllerWithContext: (NSManagedObjectContext *) context
@@ -74,7 +74,7 @@
     [self.startButton setBackgroundImage:[UIImage imageNamed:kSTART] forState:UIControlStateNormal];
     [self enableButtons:NO];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[GymBuddyAppDelegate sharedAppDelegate]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[AppDelegate sharedAppDelegate]];
    
     /*
     NSArray *vcArray = [self.tabBarController viewControllers];
@@ -165,8 +165,8 @@
             cell.editing = YES;
             Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
             
-            [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext deleteObject:workout];
-            [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext save:nil];
+            [[AppDelegate sharedAppDelegate].managedObjectContext deleteObject:workout];
+            [[AppDelegate sharedAppDelegate].managedObjectContext save:nil];
         }
         
         [self enableButtons:NO];
@@ -236,7 +236,7 @@
     {
         NSLog(@"In add workout segue");
         workout = [NSEntityDescription insertNewObjectForEntityForName:WORKOUT_TABLE
-                                                inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
+                                                inManagedObjectContext:[AppDelegate sharedAppDelegate].managedObjectContext];
     }
     else if ([segue.identifier isEqualToString:START_WORKOUT_SEGUE])
     {

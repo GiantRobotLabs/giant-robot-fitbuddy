@@ -67,11 +67,11 @@
     [self clearTable:CARDIO_HISTORY];
     
     if (DEBUG) NSLog(@"Rebuild history");
-    NSFetchRequest *request = [[[GymBuddyAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:RESISTANCE_LOGBOOK ] copy];
+    NSFetchRequest *request = [[[AppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:RESISTANCE_LOGBOOK ] copy];
     
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
     
-    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:[[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext]sectionNameKeyPath:@"date_t" cacheName:nil];
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:[[AppDelegate sharedAppDelegate] managedObjectContext]sectionNameKeyPath:@"date_t" cacheName:nil];
     
     NSError *error;
     [frc performFetch:&error];
@@ -84,11 +84,11 @@
     }
     
     
-    request = [[[GymBuddyAppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:CARDIO_LOGBOOK] copy];
+    request = [[[AppDelegate sharedAppDelegate].managedObjectModel fetchRequestTemplateForName:CARDIO_LOGBOOK] copy];
     
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
     
-    frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:[[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext]sectionNameKeyPath:@"date_t" cacheName:nil];
+    frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:[[AppDelegate sharedAppDelegate] managedObjectContext]sectionNameKeyPath:@"date_t" cacheName:nil];
     
     error = nil;
     [frc performFetch:&error];
@@ -107,7 +107,7 @@
 
 -(void) buildResistanceArray:(NSArray *) entries
 {
-    ResistanceHistory *currentObject = (ResistanceHistory *)[NSEntityDescription insertNewObjectForEntityForName:RESISTANCE_HISTORY inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
+    ResistanceHistory *currentObject = (ResistanceHistory *)[NSEntityDescription insertNewObjectForEntityForName:RESISTANCE_HISTORY inManagedObjectContext:[AppDelegate sharedAppDelegate].managedObjectContext];
     
     for (id object in entries)
     {
@@ -115,8 +115,7 @@
 
         double score = [currentObject.score doubleValue] + ([entry.weight doubleValue] * [entry.reps intValue] * [entry.sets intValue]);
         double compare = [currentObject.score doubleValue] - [[[self.resistanceDataSource objectForKey:currentObject.date]  valueForKey:@"score"] doubleValue];
-        
-        NSNumber *nscore = [[NSNumber alloc] initWithDouble:score];
+                NSNumber *nscore = [[NSNumber alloc] initWithDouble:score];
         NSDate *entryDate = (NSDate *)[entry valueForKey:@"date_t"];
         NSNumber *ncomp = [[NSNumber alloc] initWithDouble:compare];
         
@@ -130,7 +129,7 @@
         {
             NSLog(@"Adding new resistance history for: %@ %f", entryDate , score);
             
-            currentObject = (ResistanceHistory *)[NSEntityDescription insertNewObjectForEntityForName:RESISTANCE_HISTORY inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
+            currentObject = (ResistanceHistory *)[NSEntityDescription insertNewObjectForEntityForName:RESISTANCE_HISTORY inManagedObjectContext:[AppDelegate sharedAppDelegate].managedObjectContext];
             
         }
         
@@ -139,7 +138,7 @@
 
 -(void) buildCardioArray:(NSArray *) entries
 {
-    CardioHistory *currentObject = (CardioHistory *)[NSEntityDescription insertNewObjectForEntityForName:CARDIO_HISTORY inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
+    CardioHistory *currentObject = (CardioHistory *)[NSEntityDescription insertNewObjectForEntityForName:CARDIO_HISTORY inManagedObjectContext:[AppDelegate sharedAppDelegate].managedObjectContext];
     
     for (id object in entries)
     {
@@ -161,7 +160,7 @@
             [self.cardioDataSource setObject:currentObject forKey:currentObject.date];
             NSLog(@"Adding cardio history for: %@ %f", entryDate , score);
             
-            currentObject = (CardioHistory *)[NSEntityDescription insertNewObjectForEntityForName:CARDIO_HISTORY inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
+            currentObject = (CardioHistory *)[NSEntityDescription insertNewObjectForEntityForName:CARDIO_HISTORY inManagedObjectContext:[AppDelegate sharedAppDelegate].managedObjectContext];
             
         }
         
@@ -170,7 +169,7 @@
 
 - (void) clearTable: (NSString *)table
 {
-    NSManagedObjectContext *context = [[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext];
+    NSManagedObjectContext *context = [[AppDelegate sharedAppDelegate] managedObjectContext];
     
     NSFetchRequest * allRecs = [[NSFetchRequest alloc] init];
     [allRecs setEntity:[NSEntityDescription entityForName:table inManagedObjectContext:context]];

@@ -9,12 +9,12 @@
 import Foundation
 import CoreData
 
-@objc
+@objc (LogbookEntry)
 class LogbookEntry: NSManagedObject {
 
     @NSManaged var completed: NSNumber
     @NSManaged var date: NSDate
-    @NSManaged var date_t: NSDate
+    //@NSManaged var date_t: NSDate
     @NSManaged var distance: String
     @NSManaged var duration: String
     @NSManaged var exercise_name: String
@@ -25,5 +25,15 @@ class LogbookEntry: NSManagedObject {
     @NSManaged var weight: String
     @NSManaged var workout_name: String
     @NSManaged var workout: Workout
+    
+    lazy var date_t : NSDate = {
+        
+        let format: NSDateFormatter = NSDateFormatter.new()
+        format.dateFormat = "dd MMM yyyy"
+        
+        let dateOnly = format.stringFromDate(self.valueForKey("date") as! NSDate)
+        return format.dateFromString(dateOnly)!
+        
+    }()
 
 }

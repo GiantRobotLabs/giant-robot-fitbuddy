@@ -38,7 +38,7 @@
 
 - (void) loadExerciseArray
 {
-    NSManagedObjectContext *context = [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
+    NSManagedObjectContext *context = [AppDelegate sharedAppDelegate].managedObjectContext;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WORKOUT_SEQUENCE];
         
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"workout == %@", self.workout];
@@ -363,7 +363,7 @@
         
         for (LogbookEntry *lbe in array)
         {
-            [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext deleteObject:lbe];
+            [[AppDelegate sharedAppDelegate].managedObjectContext deleteObject:lbe];
         }
         
         NSSet *keys = [self.logbookEntries keysOfEntriesPassingTest:

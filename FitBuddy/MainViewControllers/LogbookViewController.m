@@ -46,8 +46,8 @@
     request.predicate = [NSPredicate predicateWithFormat:@"completed = %@", [NSNumber numberWithBool:YES]];
 
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                                                        managedObjectContext: [[GymBuddyAppDelegate sharedAppDelegate]managedObjectContext]
-                                                                          sectionNameKeyPath:@"date_t" 
+                                                                        managedObjectContext: [[AppDelegate sharedAppDelegate]managedObjectContext]
+                                                                          sectionNameKeyPath:@"date_t"
                                                                                    cacheName:nil];
     
     
@@ -199,7 +199,7 @@
             //Update the cell or model 
             cell.editing = YES;
             LogbookEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext deleteObject:entry];
+            [[AppDelegate sharedAppDelegate].managedObjectContext deleteObject:entry];
         }
     }    
 }

@@ -11,11 +11,12 @@ import Foundation
 
 extension LogbookEntry {
     
-    func getDate_t() -> NSDate {
+    class var date_t : NSDate {
     
         let format: NSDateFormatter = NSDateFormatter.new()
         format.dateFormat = "dd MMM yyyy"
-        let dateOnly = format.stringFromDate(self.date)
+        
+        let dateOnly = format.stringFromDate(self.valueForKey("date") as! NSDate)
         return format.dateFromString(dateOnly)!
  
     }

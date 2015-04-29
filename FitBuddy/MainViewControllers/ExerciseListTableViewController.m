@@ -19,7 +19,7 @@
 
 -(void) setupFetchedResultsController
 {
-    NSManagedObjectContext *context = [[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext];
+    NSManagedObjectContext *context = [[AppDelegate sharedAppDelegate] managedObjectContext];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
@@ -33,7 +33,7 @@
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kFITBUDDY]];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[GymBuddyAppDelegate sharedAppDelegate]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[AppDelegate sharedAppDelegate]];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -123,7 +123,7 @@
             //Update the cell or model 
             cell.editing = YES;
             Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
-            [[[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext] deleteObject:exercise];
+            [[[AppDelegate sharedAppDelegate] managedObjectContext] deleteObject:exercise];
         }
     }    
 }

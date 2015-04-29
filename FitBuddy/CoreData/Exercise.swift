@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc
+@objc (Exercise)
 class Exercise: NSManagedObject {
 
     //@NSManaged var deleted: NSNumber

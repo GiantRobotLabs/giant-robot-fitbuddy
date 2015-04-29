@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc
+@objc (WorkoutSequence)
 class WorkoutSequence: NSManagedObject {
 
     @NSManaged var sequence: NSNumber

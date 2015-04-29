@@ -51,7 +51,7 @@
 {
     BOOL rtn = NO;
 
-    NSURL *appDocsUrl = [[[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory] URLByAppendingPathComponent:@"Database"];
+    NSURL *appDocsUrl = [[[AppDelegate sharedAppDelegate] applicationDocumentsDirectory] URLByAppendingPathComponent:@"Database"];
     NSURL *backupDocsUrl = [appDocsUrl URLByAppendingPathComponent:@"backup"];
     
     NSError *err;
@@ -89,7 +89,7 @@
     BOOL rtn = NO;
     
     NSURL *iCloudUrl = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-    NSURL *appDocsUrl = [[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory];
+    NSURL *appDocsUrl = [[AppDelegate sharedAppDelegate] applicationDocumentsDirectory];
     
     NSError *err;
     [[NSFileManager defaultManager] removeItemAtURL:[appDocsUrl URLByAppendingPathComponent:kDATABASE1_0] error:&err];
@@ -110,7 +110,7 @@
 {
     
     NSError *err;
-    NSURL *appDocsUrl = [[GymBuddyAppDelegate sharedAppDelegate] applicationDocumentsDirectory];
+    NSURL *appDocsUrl = [[AppDelegate sharedAppDelegate] applicationDocumentsDirectory];
     
     NSURL *oldDbStorePath = [appDocsUrl URLByAppendingPathComponent:kDATABASE1_0];
     NSURL *oldSqlFilePath = [oldDbStorePath URLByAppendingPathComponent:@"/StoreContent/persistentStore"];
@@ -133,7 +133,7 @@
     
     // Start migrating
      NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-    NSPersistentStoreCoordinator *psc = [GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator;
+    NSPersistentStoreCoordinator *psc = [AppDelegate sharedAppDelegate].persistentStoreCoordinator;
     NSPersistentStore *oldStore = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:oldSqlFilePath options:options error:&err];
     
    if (oldStore)

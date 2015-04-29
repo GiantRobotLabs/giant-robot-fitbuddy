@@ -117,7 +117,7 @@
 -(LogbookEntry *)initializeLogbookEntry
 {
     LogbookEntry *newEntry = [NSEntityDescription insertNewObjectForEntityForName:LOGBOOK_TABLE
-                                                inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
+                                                inManagedObjectContext:[AppDelegate sharedAppDelegate].managedObjectContext];
     
     if (DEBUG) NSLog(@"Added a new logbook entry for Exercise %@", self.exercise.name);
     

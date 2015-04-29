@@ -69,7 +69,7 @@ NSFetchedResultsController *frc;
                          workout, exercise, priorToDate, [NSNumber numberWithBool:YES]];
 
     frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
-                                              managedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext
+                                              managedObjectContext:[AppDelegate sharedAppDelegate].managedObjectContext
                                                 sectionNameKeyPath:nil 
                                                          cacheName:nil];
     

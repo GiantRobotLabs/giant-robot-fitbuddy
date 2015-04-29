@@ -23,7 +23,7 @@
         request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
         request.predicate = [NSPredicate predicateWithFormat:@"name = %@", self.exercise.name];
         
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:[[GymBuddyAppDelegate sharedAppDelegate] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:[[AppDelegate sharedAppDelegate] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
 }
 
 - (void) loadFormDataFromExerciseObject
@@ -39,7 +39,7 @@
     [super setExerciseFromForm];
     
     NSError *error;
-    [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext save:&error];
+    [[AppDelegate sharedAppDelegate].managedObjectContext save:&error];
     
     if (DEBUG) NSLog(@"Updating exercise %@", self.exercise.name);
     

@@ -171,13 +171,13 @@
     
     [self waitForiCloudResponse];
     
-    NSPersistentStore *oldstore = [[GymBuddyAppDelegate sharedAppDelegate]. persistentStoreCoordinator.persistentStores lastObject];
+    NSPersistentStore *oldstore = [[AppDelegate sharedAppDelegate]. persistentStoreCoordinator.persistentStores lastObject];
     
     if (recover)
     {
-        NSPersistentStore *newStore = [[GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[GymBuddyAppDelegate theLocalStore] options:options error:&err];
+        NSPersistentStore *newStore = [[AppDelegate sharedAppDelegate].persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[AppDelegate theLocalStore] options:options error:&err];
         
-        [[[GymBuddyAppDelegate sharedAppDelegate] persistentStoreCoordinator] removePersistentStore:oldstore error:&err];
+        [[[AppDelegate sharedAppDelegate] persistentStoreCoordinator] removePersistentStore:oldstore error:&err];
         
         if (err)
         {
@@ -188,7 +188,7 @@
     }
     else
     {
-        [[GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[GymBuddyAppDelegate theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
+        [[AppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[AppDelegate theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
         
         if (err)
         {
@@ -207,15 +207,15 @@
     
     [self waitForiCloudResponse];
     
-    NSPersistentStore *oldstore = [[GymBuddyAppDelegate sharedAppDelegate]. persistentStoreCoordinator.persistentStores lastObject];
+    NSPersistentStore *oldstore = [[AppDelegate sharedAppDelegate]. persistentStoreCoordinator.persistentStores lastObject];
     
     [CoreDataHelper moveLocalStoreToBackup];
     
-    NSPersistentStoreCoordinator *psc = [GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator;
+    NSPersistentStoreCoordinator *psc = [AppDelegate sharedAppDelegate].persistentStoreCoordinator;
     
-   NSPersistentStore *newStore = [[GymBuddyAppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[GymBuddyAppDelegate theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
+   NSPersistentStore *newStore = [[AppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[AppDelegate theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
     
-    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[GymBuddyAppDelegate theLocalStore] options:options error:&err];
+    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[AppDelegate theLocalStore] options:options error:&err];
     
     if (err)
     {
@@ -267,7 +267,7 @@
 
 - (void) waitForiCloudResponse
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDidRespond:) name:kUBIQUITYCHANGED object:[GymBuddyAppDelegate sharedAppDelegate]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDidRespond:) name:kUBIQUITYCHANGED object:[AppDelegate sharedAppDelegate]];
     [self showActivityIndicatorOnView:self.tabBarController.view.superview];
     [[[UIApplication sharedApplication] keyWindow] setUserInteractionEnabled:FALSE];
 }

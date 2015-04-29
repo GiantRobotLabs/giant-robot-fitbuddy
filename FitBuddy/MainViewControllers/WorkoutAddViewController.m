@@ -36,7 +36,7 @@
 
 -(void) createTableDataArray
 {
-    NSManagedObjectContext *context = [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
+    NSManagedObjectContext *context = [AppDelegate sharedAppDelegate].managedObjectContext;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:EXERCISE_TABLE];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
@@ -55,7 +55,7 @@
 
 -(void) createWorkoutSequenceArray
 {
-    NSManagedObjectContext *context = [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
+    NSManagedObjectContext *context = [AppDelegate sharedAppDelegate].managedObjectContext;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WORKOUT_SEQUENCE];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"workout == %@", self.workout];
@@ -129,7 +129,7 @@
     
     [self.tableView reloadData];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataChanged) name:kUBIQUITYCHANGED  object:[GymBuddyAppDelegate sharedAppDelegate]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataChanged) name:kUBIQUITYCHANGED  object:[AppDelegate sharedAppDelegate]];
 
 }
 
@@ -144,7 +144,7 @@
 - (IBAction)addWorkout:(UITextField *)sender {
     self.workout.workout_name = sender.text;
     
-    [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext save:nil];
+    [[AppDelegate sharedAppDelegate].managedObjectContext save:nil];
     NSLog(@"Workout saved %@", sender.text);
 }
 
@@ -165,7 +165,7 @@
     }
     
     
-    NSManagedObjectContext *context = [GymBuddyAppDelegate sharedAppDelegate].managedObjectContext;
+    NSManagedObjectContext *context = [AppDelegate sharedAppDelegate].managedObjectContext;
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:WORKOUT_SEQUENCE];
     
@@ -181,7 +181,7 @@
     
     for (WorkoutSequence *ws in [frc fetchedObjects])
     {
-        [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext deleteObject:ws];
+        [[AppDelegate sharedAppDelegate].managedObjectContext deleteObject:ws];
     }
     
     // Rebuild the workout sequence
@@ -189,7 +189,7 @@
     {
         WorkoutSequence *newWos = [NSEntityDescription
                                         insertNewObjectForEntityForName:@"WorkoutSequence"
-                                        inManagedObjectContext:[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext];
+                                        inManagedObjectContext:[AppDelegate sharedAppDelegate].managedObjectContext];
         
         newWos.workout = self.workout;
         newWos.exercise = exercise;
@@ -197,7 +197,7 @@
     }
     
     NSError *err;
-    [[GymBuddyAppDelegate sharedAppDelegate].managedObjectContext save:&err];
+    [[AppDelegate sharedAppDelegate].managedObjectContext save:&err];
     
     if (err)
     {
