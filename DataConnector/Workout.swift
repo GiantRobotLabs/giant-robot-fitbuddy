@@ -7,21 +7,22 @@
 //
 
 import Foundation
-import CoreData
 import Realm
 
-class Workout_r : RLMObject {
+class Workout : RLMObject {
     
-    dynamic var workout_name = ""
-    dynamic var display  : NSNumber = 0
+    dynamic var workout_name : String?
+    dynamic var display  : NSNumber?
     dynamic var last_workout : NSDate?
-    dynamic var exercises : NSOrderedSet?
-    dynamic var logbookEntries: NSOrderedSet?
-  
-    dynamic var data : Workout?
+    dynamic var exercises : [Exercise]?
+    dynamic var logbookEntries: [LogbookEntry]?
     
+    func setNSData (workout : NSDictionary) {
+        
+    }
+/*
     func setNSData (workout: Workout) {
-    
+        
         self.workout_name = workout.workout_name
         self.display = workout.display
         self.last_workout = workout.last_workout
@@ -40,4 +41,5 @@ class Workout_r : RLMObject {
         data!.logbookEntries = self.logbookEntries!
         
     }
+*/
 }
