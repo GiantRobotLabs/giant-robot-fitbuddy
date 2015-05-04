@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         
+        DataConnector().setupSharedData()
         
         return true
     }
@@ -248,8 +249,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSLog("watch button clicked");
         
         let alert = UIAlertView(title: "Watch button clicked", message: "You just touched the watch", delegate: nil, cancelButtonTitle: "OK")
-        alert.show();
+        
         
     }
+    
     
 }
