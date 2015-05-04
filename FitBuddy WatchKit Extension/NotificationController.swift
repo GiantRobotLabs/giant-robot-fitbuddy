@@ -9,7 +9,6 @@
 import WatchKit
 import Foundation
 
-
 class NotificationController: WKUserNotificationInterfaceController {
 
     override init() {
@@ -25,6 +24,7 @@ class NotificationController: WKUserNotificationInterfaceController {
     }
 
     override func didDeactivate() {
+        
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }

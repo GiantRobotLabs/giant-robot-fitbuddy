@@ -40,6 +40,9 @@ struct FBConstants {
     static let kEXPORTEXT = ".gbz"
     static let kUBIQUITYCONTAINER = "MK3WE6JNT9.com.giantrobotapps.FitBuddy"
     
+    static let kGROUPPATH = "group.com.giantrobotapps.FitBuddy"
+    static let kREALMDB = "db.realm"
+    
     static let EXERCISE_TABLE = "Exercise"
     static let WORKOUT_TABLE = "Workout"
     static let LOGBOOK_TABLE = "LogbookEntry"
