@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "FitBuddy-Swift.h"
 
+@import FitBuddyModel;
+
 @interface ExerciseControlController : UIViewController
 
 // Outlets

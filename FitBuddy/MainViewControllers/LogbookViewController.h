@@ -13,6 +13,8 @@
 
 #import "FitBuddy-Swift.h"
 
+@import FitBuddyModel;
+
 @interface LogbookViewController : CoreDataTableController
 
 @property (nonatomic, strong) LogbookEntry *logbookEntry;

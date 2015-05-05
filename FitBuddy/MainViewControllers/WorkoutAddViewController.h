@@ -11,6 +11,8 @@
 
 #import "FitBuddy-Swift.h"
 
+@import FitBuddyModel;
+
 @interface WorkoutAddViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *workoutNameTextField;

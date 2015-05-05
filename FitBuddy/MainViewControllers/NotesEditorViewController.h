@@ -10,6 +10,8 @@
 
 #import "FitBuddy-Swift.h"
 
+@import FitBuddyModel;
+
 @interface NotesEditorViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 

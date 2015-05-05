@@ -133,3 +133,5 @@
 #define kDEFAULT_BOOLEAN_OPTIONS @[@"Yes", @"No"]
 #define kDEFAULT_EXPORT_TYPES @[@"iTunes"]
 
+@import FitBuddyModel;
+@import FitBuddyCommon;

@@ -1,15 +1,15 @@
 //
-//  CoreDataConnectorTests.swift
-//  CoreDataConnectorTests
+//  FitBuddyModelTests.swift
+//  FitBuddyModelTests
 //
-//  Created by John Neyer on 5/4/15.
+//  Created by John Neyer on 5/5/15.
 //  Copyright (c) 2015 jneyer.com. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class CoreDataConnectorTests: XCTestCase {
+class FitBuddyModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

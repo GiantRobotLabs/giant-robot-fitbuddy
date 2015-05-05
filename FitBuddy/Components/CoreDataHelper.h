@@ -11,6 +11,8 @@
 
 #import "FitBuddyMacros.h"
 
+@import FitBuddyModel;
+
 @interface CoreDataHelper : NSObject
 + (BOOL) copyiCloudtoLocal;
 + (BOOL) migrateDataToSqlite;

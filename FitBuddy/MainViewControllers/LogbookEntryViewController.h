@@ -10,6 +10,8 @@
 
 #import "FitBuddy-Swift.h"
 
+@import FitBuddyModel;
+
 @interface LogbookEntryViewController : UIViewController
 
 @property (nonatomic, strong) LogbookEntry *logbookEntry; 

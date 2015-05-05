@@ -10,6 +10,8 @@
 
 #import "FitBuddy-Swift.h"
 
+@import FitBuddyModel;
+
 @interface WorkoutSummaryViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 

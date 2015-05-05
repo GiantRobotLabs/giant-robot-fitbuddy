@@ -10,6 +10,8 @@
 #import "CoreDataHelper.h"
 #import "FitBuddyMacros.h"
 
+@import FitBuddyModel;
+
 @implementation LogbookEntryViewController
 
 @synthesize logbookEntry = _logbookEntry;

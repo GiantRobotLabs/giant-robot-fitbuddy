@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 import RealmData
+import FitBuddyCommon
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         
-        DataConnector().setupSharedData()
+        //DataConnector().setupSharedData()
         
         return true
     }
@@ -88,8 +89,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("GymBuddyModel", withExtension: "momd")!
+        
+        let modelBundle = NSBundle(identifier: "com.giantrobotlabs.FitBuddy.FitBuddyModel")
+        
+        let modelURL = modelBundle!.URLForResource("GymBuddyModel", withExtension: "momd")!
+        
         return NSManagedObjectModel(contentsOfURL: modelURL)!
+        
         }()
     
     
