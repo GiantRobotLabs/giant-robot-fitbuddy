@@ -175,7 +175,7 @@
     
     if (recover)
     {
-        NSPersistentStore *newStore = [[AppDelegate sharedAppDelegate].persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[AppDelegate theLocalStore] options:options error:&err];
+        NSPersistentStore *newStore = [[AppDelegate sharedAppDelegate].persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[[AppDelegate sharedAppDelegate] theLocalStore] options:options error:&err];
         
         [[[AppDelegate sharedAppDelegate] persistentStoreCoordinator] removePersistentStore:oldstore error:&err];
         
@@ -188,7 +188,7 @@
     }
     else
     {
-        [[AppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[AppDelegate theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
+        [[AppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[[AppDelegate sharedAppDelegate] theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
         
         if (err)
         {
@@ -213,9 +213,9 @@
     
     NSPersistentStoreCoordinator *psc = [AppDelegate sharedAppDelegate].persistentStoreCoordinator;
     
-   NSPersistentStore *newStore = [[AppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[AppDelegate theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
+   NSPersistentStore *newStore = [[AppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[[AppDelegate sharedAppDelegate] theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
     
-    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[AppDelegate theLocalStore] options:options error:&err];
+    [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[[AppDelegate sharedAppDelegate] theLocalStore] options:options error:&err];
     
     if (err)
     {

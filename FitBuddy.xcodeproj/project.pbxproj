@@ -34,7 +34,6 @@
 		D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E446B18ACF49700A13883 /* BarChartDataSource.m */; };
 		D6454F8A1AF7ACA4008291A8 /* RealmData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6454F7F1AF7ACA4008291A8 /* RealmData.framework */; };
 		D6454F931AF7ACA4008291A8 /* DataConnectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6454F921AF7ACA4008291A8 /* DataConnectorTests.swift */; };
-		D6454F961AF7ACA4008291A8 /* RealmData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6454F7F1AF7ACA4008291A8 /* RealmData.framework */; };
 		D6454F971AF7ACA4008291A8 /* RealmData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D6454F7F1AF7ACA4008291A8 /* RealmData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D6454FA21AF7AD6D008291A8 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6454FA11AF7AD6D008291A8 /* Workout.swift */; };
 		D6454FA41AF7ADB4008291A8 /* DataConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6454FA31AF7ADB4008291A8 /* DataConnector.swift */; };
@@ -51,7 +50,6 @@
 		D6454FB81AF7AFD3008291A8 /* ResistanceExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6454FB71AF7AFD3008291A8 /* ResistanceExercise.swift */; };
 		D655261218CC5BC900AF55A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655261118CC5BC900AF55A6 /* CoreLocation.framework */; };
 		D655261418CC5BFB00AF55A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655261318CC5BFB00AF55A6 /* Security.framework */; };
-		D666BE0C1AF928FC00256911 /* FitBuddyCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68790721AF927AF00D8E6DE /* FitBuddyCommon.framework */; };
 		D666BE0D1AF929CF00256911 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
 		D666BE0E1AF929E100256911 /* GymBuddyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */; };
 		D666BE0F1AF929F100256911 /* GymBuddyMappingModel1.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA36170E6C0100BA02DA /* GymBuddyMappingModel1.0.xcmappingmodel */; };
@@ -101,17 +99,15 @@
 		D6C2CB0C170E6D5300BA02DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6C2CB0A170E6D5300BA02DA /* InfoPlist.strings */; };
 		D6C49F881901FECC001A8E41 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C49F871901FECC001A8E41 /* AVFoundation.framework */; };
 		D6C49F8A1901FF68001A8E41 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C49F891901FF68001A8E41 /* CoreImage.framework */; };
+		D6CE06661AF9A302008CF9BD /* CoreDataConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE06641AF9974F008CF9BD /* CoreDataConnection.swift */; };
+		D6CE06671AF9A374008CF9BD /* FitBuddyCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68790721AF927AF00D8E6DE /* FitBuddyCommon.framework */; };
 		D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
 		D6D32F7B1AED6B020057F00B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7A1AED6B020057F00B /* AppDelegate.swift */; };
 		D6D32F7E1AED6C580057F00B /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */; };
 		D6D32FB31AF04C900057F00B /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D32FB21AF04C900057F00B /* WatchKit.framework */; };
-		D6D32FB41AF04C960057F00B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
 		D6DA9A091AF6FA480009E2B6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA9A081AF6FA480009E2B6 /* Realm.framework */; };
-		D6DA9A0A1AF6FA480009E2B6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA9A081AF6FA480009E2B6 /* Realm.framework */; };
 		D6DA9A0C1AF6FA550009E2B6 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DA9A0B1AF6FA550009E2B6 /* RLMSupport.swift */; };
-		D6DA9A0D1AF6FA550009E2B6 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DA9A0B1AF6FA550009E2B6 /* RLMSupport.swift */; };
 		D6DA9A0F1AF6FA740009E2B6 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA9A0E1AF6FA740009E2B6 /* libc++.dylib */; };
-		D6DA9A101AF6FA800009E2B6 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA9A0E1AF6FA740009E2B6 /* libc++.dylib */; };
 		D6DC0D431AF8FC6D00988D65 /* FitBuddyModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D6DC0D421AF8FC6D00988D65 /* FitBuddyModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6DC0D491AF8FC6D00988D65 /* FitBuddyModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DC0D3E1AF8FC6D00988D65 /* FitBuddyModel.framework */; };
 		D6DC0D521AF8FC6E00988D65 /* FitBuddyModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DC0D511AF8FC6E00988D65 /* FitBuddyModelTests.swift */; };
@@ -357,6 +353,7 @@
 		D6C2CB0B170E6D5300BA02DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		D6C49F871901FECC001A8E41 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D6C49F891901FF68001A8E41 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		D6CE06641AF9974F008CF9BD /* CoreDataConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConnection.swift; sourceTree = "<group>"; };
 		D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D6D32F771AED3C010057F00B /* FitBuddy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FitBuddy-Bridging-Header.h"; sourceTree = "<group>"; };
 		D6D32F7A1AED6B020057F00B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -369,7 +366,7 @@
 		D6DC0D3E1AF8FC6D00988D65 /* FitBuddyModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FitBuddyModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6DC0D411AF8FC6D00988D65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6DC0D421AF8FC6D00988D65 /* FitBuddyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FitBuddyModel.h; sourceTree = "<group>"; };
-		D6DC0D481AF8FC6D00988D65 /* FBModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FBModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6DC0D481AF8FC6D00988D65 /* FitBuddyModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitBuddyModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6DC0D501AF8FC6E00988D65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6DC0D511AF8FC6E00988D65 /* FitBuddyModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitBuddyModelTests.swift; sourceTree = "<group>"; };
 		D6DC0D611AF8FD8300988D65 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -395,7 +392,6 @@
 				D63E445818AB2DA500A13883 /* QuartzCore.framework in Frameworks */,
 				D60B4CC214D7A888001ECCE3 /* CoreGraphics.framework in Frameworks */,
 				D6C49F8A1901FF68001A8E41 /* CoreImage.framework in Frameworks */,
-				D6454F961AF7ACA4008291A8 /* RealmData.framework in Frameworks */,
 				D6C49F881901FECC001A8E41 /* AVFoundation.framework in Frameworks */,
 				D6A5124818CC5157002FDF5F /* MapKit.framework in Frameworks */,
 				D655261218CC5BC900AF55A6 /* CoreLocation.framework in Frameworks */,
@@ -413,11 +409,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6DA9A101AF6FA800009E2B6 /* libc++.dylib in Frameworks */,
-				D666BE0C1AF928FC00256911 /* FitBuddyCommon.framework in Frameworks */,
-				D6DA9A0A1AF6FA480009E2B6 /* Realm.framework in Frameworks */,
 				D6EFE5E71AF06BE0007CDB05 /* HealthKit.framework in Frameworks */,
-				D6D32FB41AF04C960057F00B /* CoreData.framework in Frameworks */,
 				D6D32FB31AF04C900057F00B /* WatchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +451,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6CE06671AF9A374008CF9BD /* FitBuddyCommon.framework in Frameworks */,
 				D666BE0D1AF929CF00256911 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,7 +492,7 @@
 				D6454F7F1AF7ACA4008291A8 /* RealmData.framework */,
 				D6454F891AF7ACA4008291A8 /* RealmDataTests.xctest */,
 				D6DC0D3E1AF8FC6D00988D65 /* FitBuddyModel.framework */,
-				D6DC0D481AF8FC6D00988D65 /* FBModelTests.xctest */,
+				D6DC0D481AF8FC6D00988D65 /* FitBuddyModelTests.xctest */,
 				D68790721AF927AF00D8E6DE /* FitBuddyCommon.framework */,
 				D687907C1AF927B000D8E6DE /* FitBuddyCommonTests.xctest */,
 			);
@@ -899,6 +892,7 @@
 				D6DC0D651AF8FD8400988D65 /* ResistanceHistory.swift */,
 				D6DC0D631AF8FD8400988D65 /* Exercise.swift */,
 				D6DC0D611AF8FD8300988D65 /* Workout.swift */,
+				D6CE06641AF9974F008CF9BD /* CoreDataConnection.swift */,
 				D6DC0D401AF8FC6D00988D65 /* Supporting Files */,
 			);
 			name = src;
@@ -1146,7 +1140,7 @@
 			);
 			name = FitBuddyModelTests;
 			productName = FitBuddyModelTests;
-			productReference = D6DC0D481AF8FC6D00988D65 /* FBModelTests.xctest */;
+			productReference = D6DC0D481AF8FC6D00988D65 /* FitBuddyModelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1162,7 +1156,7 @@
 						DevelopmentTeam = MK3WE6JNT9;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -1186,7 +1180,7 @@
 						DevelopmentTeam = MK3WE6JNT9;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -1375,7 +1369,6 @@
 				D61D49C01AED270900868F45 /* WorkoutSelectorController.swift in Sources */,
 				D632C3301AEC5A0400D1A69A /* NotificationController.swift in Sources */,
 				D61D49C21AED331E00868F45 /* WorkoutCellType.swift in Sources */,
-				D6DA9A0D1AF6FA550009E2B6 /* RLMSupport.swift in Sources */,
 				D632C32E1AEC5A0400D1A69A /* WorkoutInterfaceController.swift in Sources */,
 				D61D49BE1AED205B00868F45 /* WorkoutStartController.swift in Sources */,
 				D632C3321AEC5A0400D1A69A /* GlanceController.swift in Sources */,
@@ -1439,6 +1432,7 @@
 				D666BE121AF929F100256911 /* GymBuddyMappingModel1.3.xcmappingmodel in Sources */,
 				D666BE161AF92A0700256911 /* LogbookEntry.swift in Sources */,
 				D666BE131AF92A0700256911 /* CardioHistory.swift in Sources */,
+				D6CE06661AF9A302008CF9BD /* CoreDataConnection.swift in Sources */,
 				D666BE111AF929F100256911 /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1622,8 +1616,8 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1652,8 +1646,8 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1682,7 +1676,7 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Neyer (5L4GBSJYMU)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1714,7 +1708,7 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Neyer (5L4GBSJYMU)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1744,7 +1738,7 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Neyer (5L4GBSJYMU)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1774,8 +1768,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = "FitBuddy WatchKit Extension/FitBuddy WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1811,8 +1805,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = "FitBuddy WatchKit Extension/FitBuddy WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1845,8 +1839,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = "FitBuddy WatchKit Extension/FitBuddy WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2283,8 +2277,8 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FitBuddy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Neyer (5L4GBSJYMU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Neyer (5L4GBSJYMU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
