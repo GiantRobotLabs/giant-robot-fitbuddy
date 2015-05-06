@@ -1,8 +1,8 @@
 //
-//  GlanceController.swift
+//  InterfaceController.swift
 //  FitBuddy WatchKit Extension
 //
-//  Created by john.neyer on 4/25/15.
+//  Created by John Neyer on 5/6/15.
 //  Copyright (c) 2015 jneyer.com. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 
 
-class GlanceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController {
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
