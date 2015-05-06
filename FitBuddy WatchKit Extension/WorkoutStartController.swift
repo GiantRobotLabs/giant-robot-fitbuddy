@@ -8,6 +8,7 @@
 
 import Foundation
 import WatchKit
+import FitBuddyModel
 
 class WorkoutStartController: WKInterfaceController {
     
@@ -22,6 +23,18 @@ class WorkoutStartController: WKInterfaceController {
         // Configure interface objects here.
         
         workoutListView.insertRowsAtIndexes(NSIndexSet(indexesInRange: NSMakeRange(0, 1)), withRowType: "WorkoutCellType");
+        let row = workoutListView.rowControllerAtIndex(0) as! WorkoutCellType
+        let workout = CoreDataConnection().getAllWorkouts()
+        
+        if workout.count > 0 {
+            row.cellTitle.setText(workout[0].workout_name)
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+            let subtitle = dateFormatter.stringFromDate(workout[0].last_workout)
+            row.cellSubtitle.setText(subtitle)
+
+        }
         
     }
     

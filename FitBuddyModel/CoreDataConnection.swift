@@ -54,8 +54,8 @@ public class CoreDataConnection : NSObject {
     
     lazy public var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
                 
-        let paths = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        let dbDirURL = (paths[0] as! NSURL).URLByAppendingPathComponent("Database")
+        let path = self.applicationDocumentsDirectory
+        let dbDirURL = path.URLByAppendingPathComponent("Database")
         let storeURL = self.theLocalStore
         
         if (!NSFileManager.defaultManager().fileExistsAtPath(dbDirURL.path!))
@@ -130,5 +130,72 @@ public class CoreDataConnection : NSObject {
         }
     }
     
+    public func getAllWorkouts() -> [Workout] {
+        
+        // Create a new fetch request using the LogItem entity
+        let fetchRequest = NSFetchRequest(entityName: FBConstants.WORKOUT_TABLE)
+
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        if let fetchResults = self.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Workout] {
+            return fetchResults
+        }
+        else {
+            return []
+        }
+    }
     
+    public func getWorkoutSequence (workout: Workout) -> [WorkoutSequence] {
+        
+        // Create a new fetch request using the LogItem entity
+        let fetchRequest = NSFetchRequest(entityName: FBConstants.WORKOUT_SEQUENCE)
+        
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [WorkoutSequence] {
+            return fetchResults
+        }
+        
+        return []
+    }
+    
+    lazy public var sharedContainerPath : NSURL = {
+        
+        let fm = NSFileManager.defaultManager()
+        return fm.containerURLForSecurityApplicationGroupIdentifier(FBConstants.kGROUPPATH)!
+        
+        }()
+    
+    
+    public func configureGroupContainter () -> Bool {
+        
+        let groupDBDir = self.sharedContainerPath.URLByAppendingPathComponent("Database")
+        let groupDBPath = groupDBDir.URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
+        
+        let appDBDir = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Database")
+        let appDBPath = appDBDir.URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
+        
+        if !(NSFileManager.defaultManager().fileExistsAtPath(groupDBPath.path!)) {
+            
+            var error: NSError? = nil
+            NSFileManager.defaultManager().createDirectoryAtPath(groupDBPath.path!, withIntermediateDirectories: true, attributes: nil, error: &error)
+            
+            let directoryEnumerator = NSFileManager.defaultManager().enumeratorAtPath(appDBDir.path!)
+            
+            while let file = directoryEnumerator?.nextObject() as? String {
+                
+                if let fileUrl = NSURL(fileURLWithPath: file) {
+                   NSFileManager.defaultManager().moveItemAtPath(appDBDir.URLByAppendingPathComponent(file).path!, toPath: groupDBDir.URLByAppendingPathComponent(fileUrl.lastPathComponent!).path!, error: &error)
+                }
+                
+            }
+            
+            if error != nil {
+                NSLog("Unable to move database: %@", error!)
+            }
+        }
+        
+        self.applicationDocumentsDirectory = sharedContainerPath
+        self.theLocalStore = groupDBPath
+    
+        return true
+    }
 }

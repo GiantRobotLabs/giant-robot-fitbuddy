@@ -13,6 +13,9 @@
 
 #import "FitBuddy-Swift.h"
 
+@import FitBuddyCommon;
+@import FitBuddyModel;
+
 @implementation CoreDataHelper
 
 
