@@ -33,4 +33,17 @@ public class FitBuddyUtils {
     
     }
     
+    public static func twoDecimalFormat(number: NSNumber?) -> String? {
+        
+        if number != nil {
+            
+            let numberFormat = NSNumberFormatter()
+            
+            return numberFormat.stringFromNumber(number!)
+            
+        }
+        
+        return nil
+    }
+    
 }

@@ -40,7 +40,9 @@ class WorkoutInterfaceController: WKInterfaceController {
     
     @IBOutlet weak var slot3Slider: WKInterfaceSlider!
     
-    var exerciseName: NSString = "";
+    var exerciseName: NSString = ""
+    
+    var cardio = false
     
     var slot1: NSNumber = 0.0
     var slot2: NSNumber = 0.0
@@ -111,6 +113,11 @@ class WorkoutInterfaceController: WKInterfaceController {
         slot1New = slot1.floatValue + cvalue;
         slot1Value.setText(slot1New.stringValue);
         
+        if cardio {
+            slot3New = slot1New.floatValue * slot2New.floatValue
+            slot3Value.setText(slot3New.stringValue)
+        }
+        
         changeSliderColor(slot1Slider, value: value);
         updateExerciseDescription()
     }
@@ -145,6 +152,11 @@ class WorkoutInterfaceController: WKInterfaceController {
         slot3New = slot3.floatValue + cvalue;
         slot3Value.setText(slot3New.stringValue);
         
+        if cardio {
+            slot1New = slot3New.floatValue / slot2New.floatValue
+            slot1Value.setText(slot1New.stringValue)
+        }
+
         changeSliderColor(slot3Slider, value: value);
         updateExerciseDescription()
     }
@@ -261,9 +273,9 @@ class WorkoutInterfaceController: WKInterfaceController {
             slot2New = (obj.duration as NSString).floatValue
             slot3New = (obj.distance as NSString).floatValue
             
-            slot1Text = "pace";
+            slot1Text = "pace";  //distance/duration
             slot2Text = "duration";
-            slot3Text = "distance";
+            slot3Text = "distance"; //pace * duration
             
             slot1Increment = (FitBuddyUtils.getSharedUserDefaults()?.objectForKey(FBConstants.kCARDIOINCKEY) as! NSString).floatValue
             slot2Increment = 1
