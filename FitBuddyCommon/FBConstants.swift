@@ -72,5 +72,11 @@ public struct FBConstants {
     public static let kCHECKBOXTOGGLED = "CheckboxToggled"
     public static let kUBIQUITYCHANGED = "UbiquityChangedLocalStore"
     
+    public static let WKGREEN = UIColor.greenColor();
+    public static let WKORANGE =  UIColor.orangeColor();
+    public static let WKGRAY =  UIColor.lightGrayColor();
+    
+    public static let kRESISTANCEINCKEY = "Resistance Increment"
+    public static let kCARDIOINCKEY = "Cardo Increment"
     
 }

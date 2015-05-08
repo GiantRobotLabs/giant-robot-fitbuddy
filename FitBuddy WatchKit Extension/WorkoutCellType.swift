@@ -8,12 +8,36 @@
 
 import Foundation
 import WatchKit
+import FitBuddyModel
 
 
 class WorkoutCellType: NSObject {
     
     @IBOutlet weak var cellTitle: WKInterfaceLabel!
     @IBOutlet weak var cellSubtitle: WKInterfaceLabel!
+    
+    var nsData: Workout?
+    
+    func setNSData(workout: Workout) {
+        
+        nsData = workout
+        
+        if nsData != nil {
+            cellTitle.setText(workout.workout_name)
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+            
+            var workoutDateString = "never"
+            
+            if let lastWorkout = workout.last_workout {
+                workoutDateString = dateFormatter.stringFromDate(lastWorkout)
+            }
+            
+            cellSubtitle.setText("Last workout: " + workoutDateString)
+        }
+        
+    }
     
 }
 

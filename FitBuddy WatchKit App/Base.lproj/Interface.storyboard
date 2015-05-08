@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aFO-RK-CRU">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aFO-RK-CRU">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
@@ -58,20 +58,19 @@
                                         <tableRow identifier="WorkoutCellType" id="le0-8c-hjN" customClass="WorkoutCellType" customModule="FitBuddy_WatchKit_Extension">
                                             <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="q9b-oz-mxz">
                                                 <items>
-                                                    <label width="1" alignment="left" text="&lt;no workouts&gt;" textAlignment="center" id="50q-Pn-HND">
+                                                    <label width="1" alignment="left" text="no workouts" textAlignment="center" id="50q-Pn-HND">
                                                         <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                                     </label>
-                                                    <label width="1" alignment="left" text=" " textAlignment="center" id="Bqp-td-7Ev">
-                                                        <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                                    <label width="1" alignment="left" text="date" textAlignment="center" id="Bqp-td-7Ev">
+                                                        <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="font" type="italicSystem" pointSize="12"/>
                                                     </label>
                                                 </items>
-                                                <connections>
-                                                    <segue destination="yqn-vm-Ws3" kind="push" identifier="SelectWorkoutSegue" id="q1c-4F-sdg"/>
-                                                </connections>
                                             </group>
                                             <connections>
                                                 <outlet property="cellSubtitle" destination="Bqp-td-7Ev" id="K5v-MY-YNL"/>
                                                 <outlet property="cellTitle" destination="50q-Pn-HND" id="1eg-Ds-DtB"/>
+                                                <segue destination="yqn-vm-Ws3" kind="push" identifier="SelectWorkoutSegue" id="V4k-wx-YTA"/>
                                             </connections>
                                         </tableRow>
                                     </items>
@@ -84,7 +83,6 @@
                                     <color key="backgroundColor" red="0.87058823529999996" green="0.043137254899999998" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="startButonClicked" destination="aFO-RK-CRU" id="xaG-1H-p59"/>
-                                        <segue destination="ygS-nR-I7z" kind="modal" id="oWF-u7-t0T"/>
                                     </connections>
                                 </button>
                             </items>
@@ -96,7 +94,30 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-181" y="283"/>
+            <point key="canvasLocation" x="-178" y="-56"/>
+        </scene>
+        <!--AlertController-->
+        <scene sceneID="L9s-Yy-2SS">
+            <objects>
+                <controller identifier="AlertController" hidesWhenLoading="NO" id="i8Z-Nc-Vsd" customClass="AlertViewController" customModule="FitBuddy_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="OK" id="Pf0-eR-y37">
+                            <connections>
+                                <action selector="okButtonClicked" destination="i8Z-Nc-Vsd" id="w0L-8h-a3g"/>
+                            </connections>
+                        </button>
+                        <label alignment="left" text="title" numberOfLines="2" id="2aX-qx-YcU">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label alignment="left" verticalAlignment="center" text="message" numberOfLines="5" id="bNX-D0-r8E"/>
+                    </items>
+                    <connections>
+                        <outlet property="alertTextLabel" destination="bNX-D0-r8E" id="HhH-lt-4kc"/>
+                        <outlet property="alertTextTitle" destination="2aX-qx-YcU" id="Odn-B9-mDZ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-181" y="171"/>
         </scene>
         <!--Workouts-->
         <scene sceneID="br2-Cg-WJV">
@@ -114,7 +135,8 @@
                                                         <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                                     </label>
                                                     <label width="1" alignment="left" text="date" id="fLR-9F-4Ru">
-                                                        <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="font" type="italicSystem" pointSize="12"/>
                                                     </label>
                                                 </items>
                                             </group>
@@ -133,12 +155,12 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="71" y="95"/>
+            <point key="canvasLocation" x="76" y="-56"/>
         </scene>
-        <!--WorkoutController-->
+        <!--Finish-->
         <scene sceneID="V5t-iW-Kni">
             <objects>
-                <controller identifier="WorkoutInterfaceController" title="FitBuddy" id="ygS-nR-I7z" userLabel="WorkoutController" customClass="WorkoutInterfaceController" customModule="FitBuddy_WatchKit_Extension">
+                <controller identifier="WorkoutController" title="Finish" id="ygS-nR-I7z" customClass="WorkoutInterfaceController" customModule="FitBuddy_WatchKit_Extension">
                     <items>
                         <button width="1" height="30" alignment="left" title="&lt;&lt; Previous" id="dea-34-Giz">
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -243,7 +265,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="257" y="283"/>
+            <point key="canvasLocation" x="76" y="283"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.87058823529999996" green="0.043137254899999998" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>

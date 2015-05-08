@@ -267,7 +267,7 @@
 
 - (void) waitForiCloudResponse
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDidRespond:) name:kUBIQUITYCHANGED object:[AppDelegate sharedAppDelegate]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDidRespond:) name:kUBIQUITYCHANGED object:[AppDelegate sharedAppDelegate].coreDataConnection];
     [self showActivityIndicatorOnView:self.tabBarController.view.superview];
     [[[UIApplication sharedApplication] keyWindow] setUserInteractionEnabled:FALSE];
 }
@@ -288,6 +288,7 @@
 - (void) exit
 {
     [self.defaults synchronize];
+    [[AppDelegate sharedAppDelegate] syncSharedDefaults];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

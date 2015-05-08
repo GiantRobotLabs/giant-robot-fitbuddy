@@ -18,7 +18,7 @@ public class LogbookEntry: NSManagedObject {
     @NSManaged public var distance: String
     @NSManaged public var duration: String
     @NSManaged public var exercise_name: String
-    @NSManaged public var notes: String
+    @NSManaged public var notes: String?
     @NSManaged public var pace: String
     @NSManaged public var reps: String
     @NSManaged public var sets: String

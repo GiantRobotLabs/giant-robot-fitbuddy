@@ -129,7 +129,7 @@
     
     [self.tableView reloadData];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataChanged) name:kUBIQUITYCHANGED  object:[AppDelegate sharedAppDelegate]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDataChanged) name:kUBIQUITYCHANGED  object:[AppDelegate sharedAppDelegate].coreDataConnection];
 
 }
 

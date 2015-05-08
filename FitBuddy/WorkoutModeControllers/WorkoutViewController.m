@@ -74,7 +74,7 @@
     [self.startButton setBackgroundImage:[UIImage imageNamed:kSTART] forState:UIControlStateNormal];
     [self enableButtons:NO];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[AppDelegate sharedAppDelegate]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFetchedResultsController) name:kUBIQUITYCHANGED object:[AppDelegate sharedAppDelegate].coreDataConnection];
    
     /*
     NSArray *vcArray = [self.tabBarController viewControllers];

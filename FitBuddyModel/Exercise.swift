@@ -14,7 +14,7 @@ public class Exercise: NSManagedObject {
 
     // @NSManaged var deleted: NSNumber
     @NSManaged public var name: String
-    @NSManaged public var notes: String
+    @NSManaged public var notes: String?
     @NSManaged public var sequence: NSNumber
     @NSManaged public var workouts: NSOrderedSet
 

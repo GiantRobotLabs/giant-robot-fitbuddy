@@ -17,6 +17,15 @@ public class CoreDataConnection : NSObject {
         
     }
     
+    public init(groupContext: Bool) {
+        
+        super.init()
+        
+        if groupContext {
+            self.setGroupContext()
+        }
+    }
+    
     lazy public var theLocalStore: NSURL = {
         
         let paths = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
@@ -48,6 +57,7 @@ public class CoreDataConnection : NSObject {
         }
         var managedObjectContext = NSManagedObjectContext()
         managedObjectContext.persistentStoreCoordinator = coordinator
+        managedObjectContext.mergePolicy = NSMergePolicy(mergeType: NSMergePolicyType.MergeByPropertyObjectTrumpMergePolicyType);
         return managedObjectContext
         }()
 
@@ -134,27 +144,68 @@ public class CoreDataConnection : NSObject {
         
         // Create a new fetch request using the LogItem entity
         let fetchRequest = NSFetchRequest(entityName: FBConstants.WORKOUT_TABLE)
-
+        let sortDescriptor = NSSortDescriptor(key: "last_workout", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
         // Execute the fetch request, and cast the results to an array of LogItem objects
         if let fetchResults = self.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Workout] {
             return fetchResults
         }
-        else {
-            return []
-        }
+        
+        return []
     }
     
     public func getWorkoutSequence (workout: Workout) -> [WorkoutSequence] {
-        
-        // Create a new fetch request using the LogItem entity
+     
         let fetchRequest = NSFetchRequest(entityName: FBConstants.WORKOUT_SEQUENCE)
+        fetchRequest.predicate = NSPredicate(format: "workout == %@", argumentArray: [workout])
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sequence", ascending: true)]
         
-        // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [WorkoutSequence] {
+        if let fetchResults = self.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [WorkoutSequence] {
             return fetchResults
         }
         
         return []
+    }
+    
+    public func newLogbookEntryFromWorkoutSequence (workoutSequence: WorkoutSequence) -> LogbookEntry {
+        
+        let newEntry = NSEntityDescription.insertNewObjectForEntityForName(FBConstants.LOGBOOK_TABLE, inManagedObjectContext: self.managedObjectContext!) as! LogbookEntry
+        
+        newEntry.workout = workoutSequence.workout
+        newEntry.workout_name = workoutSequence.workout.workout_name
+        newEntry.date = NSDate()
+        newEntry.exercise_name = workoutSequence.exercise.name
+        newEntry.notes = workoutSequence.exercise.notes
+        newEntry.completed = true
+        
+        if workoutSequence.exercise is ResistanceExercise {
+            
+            let exercise = workoutSequence.exercise as! ResistanceExercise
+            newEntry.weight = exercise.weight
+            newEntry.sets = exercise.sets
+            newEntry.reps = exercise.reps
+        }
+        
+        if workoutSequence.exercise is CardioExercise {
+            
+            let exercise = workoutSequence.exercise as! CardioExercise
+            newEntry.pace = exercise.pace
+            newEntry.distance = exercise.distance
+            newEntry.duration = exercise.duration
+        }
+        
+        return newEntry;
+
+    }
+    
+    public func deleteDataObject (nsManagedObject: NSManagedObject) {
+        
+        self.managedObjectContext?.deleteObject(nsManagedObject)
+        saveContext()
+        
+        NSLog("Deleted managed object");
+
     }
     
     lazy public var sharedContainerPath : NSURL = {
@@ -176,16 +227,21 @@ public class CoreDataConnection : NSObject {
         if !(NSFileManager.defaultManager().fileExistsAtPath(groupDBPath.path!)) {
             
             var error: NSError? = nil
-            NSFileManager.defaultManager().createDirectoryAtPath(groupDBPath.path!, withIntermediateDirectories: true, attributes: nil, error: &error)
+            
+            NSFileManager.defaultManager().createDirectoryAtPath(groupDBDir.path!, withIntermediateDirectories: true, attributes: nil, error: &error)
             
             let directoryEnumerator = NSFileManager.defaultManager().enumeratorAtPath(appDBDir.path!)
             
             while let file = directoryEnumerator?.nextObject() as? String {
                 
                 if let fileUrl = NSURL(fileURLWithPath: file) {
-                   NSFileManager.defaultManager().moveItemAtPath(appDBDir.URLByAppendingPathComponent(file).path!, toPath: groupDBDir.URLByAppendingPathComponent(fileUrl.lastPathComponent!).path!, error: &error)
+                    
+                    if NSFileManager.defaultManager().copyItemAtPath(appDBDir.URLByAppendingPathComponent(file).path!, toPath: groupDBDir.URLByAppendingPathComponent(fileUrl.lastPathComponent!).path!, error: &error) {
+                    
+                        NSFileManager.defaultManager().removeItemAtPath(appDBDir.URLByAppendingPathComponent(file).path!, error: &error)
+                        
+                    }
                 }
-                
             }
             
             if error != nil {
@@ -197,5 +253,74 @@ public class CoreDataConnection : NSObject {
         self.theLocalStore = groupDBPath
     
         return true
+    }
+    
+    public func setGroupContext () {
+        
+        let fm = NSFileManager.defaultManager()
+        let groupPath = fm.containerURLForSecurityApplicationGroupIdentifier(FBConstants.kGROUPPATH)!
+        
+        let groupDBDir = groupPath.URLByAppendingPathComponent("Database")
+        let groupDBPath = groupDBDir.URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
+        self.applicationDocumentsDirectory = sharedContainerPath
+        self.theLocalStore = groupDBPath
+
+    }
+    
+    
+    public func storeWillChangeHandler(sender: AnyObject) {
+        
+        if ((self.managedObjectContext) != nil) {
+            if (FBConstants.DEBUG) {
+                NSLog("Saving context prior to change.")
+            }
+            
+            var error: NSError? = nil
+            self.managedObjectContext!.save(&error)
+            self.managedObjectContext!.reset();
+            
+            if (error != nil) {
+                NSLog("Error occured while saving context during prepare: %@", error!)
+            }
+            
+        }
+        
+    }
+    
+    public func storeDidChangeHandler (sender: AnyObject) {
+        
+        if (self.managedObjectContext != nil)  {
+            
+            var error: NSError? = nil
+            self.managedObjectContext!.save(&error)
+            
+            if (error != nil) {
+                NSLog("Error occured while saving context on change: %@", error!)
+            }
+            
+            if (FBConstants.DEBUG) {
+                NSLog("Store did change. Notify listeners");
+            }
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(FBConstants.kUBIQUITYCHANGED, object: self)
+            
+        }
+        
+        
+    }
+    
+    public func storeDidImportHandler(sender: AnyObject) {
+        
+        if (self.managedObjectContext != nil) {
+            
+            var error: NSError? = nil
+            
+            if (FBConstants.DEBUG) {
+                NSLog("Store did change on import. Notify listeners")
+            }
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(FBConstants.kUBIQUITYCHANGED, object: self)
+        }
+        
     }
 }

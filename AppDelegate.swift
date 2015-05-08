@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
         self.coreDataConnection.checkUpgradePath(CoreDataHelper.migrateDataToSqlite())
-        //self.coreDataConnection.configureGroupContainter()
+        self.coreDataConnection.configureGroupContainter()
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         UINavigationBar.appearance().setBackgroundImage(UIImage(named: FBConstants.kTITLEBAR), forBarMetrics: UIBarMetrics.Default)
@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // Override point for customization after application launch.
+        self.syncSharedDefaults()
         
         return true
     }
@@ -107,62 +108,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return coreDataConnection.checkUpgradePath(upgradeFlag)
     }
     
-    
-    func storeWillChangeHandler(sender: AnyObject) {
+    func syncSharedDefaults() {
         
-        if ((self.managedObjectContext) != nil) {
-            if (FBConstants.DEBUG) {
-                NSLog("Saving context prior to change.")
-            }
-            
-            var error: NSError? = nil
-            self.managedObjectContext!.save(&error)
-            self.managedObjectContext!.reset();
-            
-            if (error != nil) {
-                NSLog("Error occured while saving context during prepare: %@", error!)
-            }
-            
+        if let resistance = NSUserDefaults.standardUserDefaults().stringForKey(FBConstants.kRESISTANCEINCKEY) {
+            FitBuddyUtils.getSharedUserDefaults()?.setObject(resistance, forKey: FBConstants.kRESISTANCEINCKEY)
         }
+        else {
+            FitBuddyUtils.getSharedUserDefaults()?.setObject("2.5", forKey: FBConstants.kRESISTANCEINCKEY)
+        }
+        
+        if let cardio = NSUserDefaults.standardUserDefaults().stringForKey(FBConstants.kCARDIOINCKEY) {
+            FitBuddyUtils.getSharedUserDefaults()?.setObject(cardio, forKey: FBConstants.kCARDIOINCKEY)
+        }
+        else {
+            FitBuddyUtils.getSharedUserDefaults()?.setObject("0.5", forKey: FBConstants.kCARDIOINCKEY)
+        }
+            
+        FitBuddyUtils.getSharedUserDefaults()?.synchronize()
         
     }
     
-    func storeDidChangeHandler (sender: AnyObject) {
-        
-        if (self.managedObjectContext != nil)  {
-            
-            var error: NSError? = nil
-            self.managedObjectContext!.save(&error)
-            
-            if (error != nil) {
-                NSLog("Error occured while saving context on change: %@", error!)
-            }
-            
-            if (FBConstants.DEBUG) {
-                NSLog("Store did change. Notify listeners");
-            }
-            
-            NSNotificationCenter.defaultCenter().postNotificationName(FBConstants.kUBIQUITYCHANGED, object: self)
-            
-        }
-        
-        
-    }
-    
-    func storeDidImportHandler(sender: AnyObject) {
-        
-        if (self.managedObjectContext != nil) {
-            
-            var error: NSError? = nil
-            
-            if (FBConstants.DEBUG) {
-                NSLog("Store did change on import. Notify listeners")
-            }
-            
-            NSNotificationCenter.defaultCenter().postNotificationName(FBConstants.kUBIQUITYCHANGED, object: self)
-        }
-
-    }
 
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
         

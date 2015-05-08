@@ -17,6 +17,10 @@
 		<string>MK3WE6JNT9.com.giantrobotapps.FitBuddy</string>
 	</array>
 	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
-	<string>MK3WE6JNT9.com.giantrobotapps.FitBuddy</string>
+	<string>$(TeamIdentifierPrefix)$(CFBundleIdentifier)</string>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.giantrobotapps.FitBuddy</string>
+	</array>
 </dict>
 </plist>
