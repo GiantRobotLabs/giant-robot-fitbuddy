@@ -8,8 +8,9 @@
 
 #import "WorkoutViewController.h"
 #import "WorkoutModeParentController2.h"
-#import "CoreDataHelper.h"
 #import "FitBuddyMacros.h"
+
+#import "FitBuddy-Swift.h"
 
 @implementation WorkoutViewController 
 
@@ -121,33 +122,7 @@
     Workout *workout = [self.fetchedResultsController objectAtIndexPath:indexPath];
     label.text = workout.workout_name;
     
-    NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"dd MMM yyyy"];
-    
-    if (workout.last_workout)
-    {
-        dateLabel.text = [format stringFromDate: workout.last_workout];
-    }
-    else
-    {
-        if (workout.logbookEntries.count == 0)
-        {
-            dateLabel.text = @"never";
-        }
-        else
-        {
-            // Old last date
-            NSSortDescriptor *sortDescriptor;
-            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date"
-                                                         ascending:NO];
-            NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-            NSArray *sortedArray = [workout.logbookEntries sortedArrayUsingDescriptors:sortDescriptors];
-            
-            NSDate *lastDate =  ((LogbookEntry *)sortedArray[0]).date;
-            dateLabel.text = [format stringFromDate: lastDate];
-            workout.last_workout = lastDate;
-        }
-    }
+    dateLabel.text = [[AppDelegate sharedAppDelegate].modelManager getLastWorkoutDate:workout withFormat:@"dd MMM YYYY"];
     
     return cell;
 }

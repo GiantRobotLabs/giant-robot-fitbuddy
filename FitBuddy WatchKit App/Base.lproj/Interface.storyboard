@@ -79,7 +79,7 @@
                         </group>
                         <group width="1" height="0.5" alignment="left" verticalAlignment="bottom" id="MMf-yF-a7i">
                             <items>
-                                <button width="60" height="60" alignment="center" verticalAlignment="center" title="Start" backgroundImage="red--watch-button" id="tJK-up-TAu">
+                                <button width="60" height="60" alignment="center" verticalAlignment="center" title="Start" backgroundImage="red-watch-button" id="tJK-up-TAu">
                                     <color key="backgroundColor" red="0.87058823529999996" green="0.043137254899999998" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="startButonClicked" destination="aFO-RK-CRU" id="xaG-1H-p59"/>
@@ -90,6 +90,7 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="startButton" destination="tJK-up-TAu" id="mi2-nT-xH7"/>
                         <outlet property="workoutListView" destination="8mR-nb-pvp" id="6rD-Lu-w9W"/>
                     </connections>
                 </controller>
@@ -213,7 +214,7 @@
                             </items>
                             <edgeInsets key="margins" left="5" right="5" top="5" bottom="0.0"/>
                         </group>
-                        <slider width="1" alignment="left" minimum="-5" maximum="5" steps="10" id="Tgl-De-msP">
+                        <slider width="1" alignment="left" minimum="-10" maximum="10" steps="20" id="Tgl-De-msP">
                             <color key="color" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="changeSlot1:" destination="ygS-nR-I7z" id="Wer-Pf-ttC"/>
@@ -226,7 +227,7 @@
                             </items>
                             <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
                         </group>
-                        <slider width="1" alignment="left" minimum="-5" maximum="5" steps="10" id="Iam-YV-SVQ">
+                        <slider width="1" alignment="left" minimum="-10" maximum="10" steps="20" id="Iam-YV-SVQ">
                             <color key="color" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="changeSlot2:" destination="ygS-nR-I7z" id="yup-v1-4S1"/>
@@ -239,7 +240,7 @@
                             </items>
                             <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
                         </group>
-                        <slider width="1" alignment="left" minimum="-5" maximum="5" steps="10" id="YSY-XH-sTh">
+                        <slider width="1" alignment="left" minimum="-10" maximum="10" steps="20" id="YSY-XH-sTh">
                             <color key="color" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="changeSlot3:" destination="ygS-nR-I7z" id="92S-l8-zyA"/>

@@ -14,14 +14,28 @@ import FitBuddyCommon
 class WorkoutStartController: WKInterfaceController {
     
     @IBOutlet weak var workoutListView: WKInterfaceTable!
-    
+    @IBOutlet weak var startButton: WKInterfaceButton!
     
     var selectedWorkout : Workout?
     var workoutArray: [Workout]?
     
-     static let coreDataConnection: CoreDataConnection = {
-        return CoreDataConnection(groupContext: true)
-    }()
+      static let coreDataConnection: CoreDataConnection = {
+        let conn = CoreDataConnection()
+        
+        if FitBuddyUtils.isCloudOn() || CoreDataHelper2.coreDataUbiquityURL() != nil {
+            conn.setUbiquityContext()
+        }
+        else {
+            conn.setGroupContext()
+        }
+        
+        return conn
+        }()
+    
+    static let modelManager : ModelManager = {
+        let mm = CoreDataModelManager(connection: WorkoutStartController.coreDataConnection)
+        return mm
+        }()
 
     func initView () {
         
@@ -29,16 +43,16 @@ class WorkoutStartController: WKInterfaceController {
         if selectedWorkout != nil {
             row.setNSData(selectedWorkout!)
         }
-        
     }
        
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
+        WorkoutStartController.coreDataConnection.setUbiquityContext()
         workoutListView.insertRowsAtIndexes(NSIndexSet(indexesInRange: NSMakeRange(0, 1)), withRowType: "WorkoutCellType");
 
         let row = workoutListView.rowControllerAtIndex(0) as! WorkoutCellType
-        workoutArray = WorkoutStartController.coreDataConnection.getAllWorkouts()
+        workoutArray = WorkoutStartController.modelManager.getAllWorkouts()
         
         
         if let woContext = context as! Workout? {
@@ -49,6 +63,19 @@ class WorkoutStartController: WKInterfaceController {
         }
     }
     
+    func setStartButtonState() {
+        if selectedWorkout != nil {
+            startButton.setEnabled(true)
+            startButton.setTitle("Start")
+            startButton.setBackgroundImageNamed("red-watch-button")
+        }
+        else {
+            startButton.setEnabled(false)
+            startButton.setTitle(nil)
+            startButton.setBackgroundImageNamed("gray-watch-button")
+        }
+    }
+    
     override func contextForSegueWithIdentifier(segueIdentifier: String) -> AnyObject? {
         
         var context : AnyObject?
@@ -56,7 +83,6 @@ class WorkoutStartController: WKInterfaceController {
         if segueIdentifier == "SelectWorkoutSegue" {
             context = self
         }
-        
         return context
     }
     
@@ -72,9 +98,9 @@ class WorkoutStartController: WKInterfaceController {
     }
     
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        initView();
         super.willActivate()
+        initView();
+        setStartButtonState()
     }
     
     override func didDeactivate() {
@@ -84,7 +110,7 @@ class WorkoutStartController: WKInterfaceController {
 
     @IBAction func startButonClicked() {
         
-        if selectedWorkout?.exercises.count == 0 {
+        if WorkoutStartController.modelManager.getWorkoutSequence(selectedWorkout!).count == 0 {
             
             let options = NSDictionary(objects: ["Empty workout: " +  selectedWorkout!.workout_name, "You need to add some exercises to start this workout."], forKeys: ["title", "message"])
             presentControllerWithName("AlertController", context: options)

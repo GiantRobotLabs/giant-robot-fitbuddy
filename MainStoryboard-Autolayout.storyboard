@@ -792,37 +792,8 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Backup and Sync" id="Ke0-l8-mJP">
+                            <tableViewSection headerTitle="Backup" id="Ke0-l8-mJP">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wM4-OY-Ne7">
-                                        <rect key="frame" x="0.0" y="283" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wM4-OY-Ne7" id="gDY-ys-FD1">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use iCloud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ht1-te-A4c">
-                                                    <rect key="frame" x="20" y="11" width="85" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sP-AC-NE4">
-                                                    <rect key="frame" x="243" y="11" width="44" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ht1-te-A4c" firstAttribute="leading" secondItem="gDY-ys-FD1" secondAttribute="leading" constant="20" symbolic="YES" id="1zG-Rp-VTe"/>
-                                                <constraint firstAttribute="centerY" secondItem="ht1-te-A4c" secondAttribute="centerY" id="Jex-mr-Ujw"/>
-                                                <constraint firstAttribute="trailing" secondItem="6sP-AC-NE4" secondAttribute="trailing" id="cKZ-Qs-vI0"/>
-                                                <constraint firstAttribute="centerY" secondItem="6sP-AC-NE4" secondAttribute="centerY" id="zgg-R5-XSU"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="K26-YP-rIc" kind="push" identifier="Segue to Settings" id="xqR-Rv-xf6"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yDI-tw-Vby">
                                         <rect key="frame" x="0.0" y="327" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -2896,10 +2867,10 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Nxa-0p-JwY"/>
-        <segue reference="xqR-Rv-xf6"/>
         <segue reference="QXC-2A-ydR"/>
         <segue reference="SFG-J3-dQ4"/>
         <segue reference="ZRI-Ql-6qK"/>
+        <segue reference="l6r-Rf-eJl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.61889826642335766" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -38,7 +38,6 @@
 #define kDBVERSIONKEY      @"DbVersion"
 #define kDBVERSION         @"1.4.1"
 
-#define kUSEICLOUDKEY       @"Use iCloud"
 #define kYES                @"Yes"
 #define kNO                 @"No"
 #define kEXPORTDBKEY        @"Export Database"

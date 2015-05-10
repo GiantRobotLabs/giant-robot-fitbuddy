@@ -9,6 +9,7 @@
 import Foundation
 import WatchKit
 import FitBuddyModel
+import FitBuddyCommon
 
 
 class WorkoutCellType: NSObject {
@@ -21,22 +22,20 @@ class WorkoutCellType: NSObject {
     func setNSData(workout: Workout) {
         
         nsData = workout
+        updateCell()
+    }
+    
+    func updateCell() {
         
         if nsData != nil {
-            cellTitle.setText(workout.workout_name)
+            nsData!.managedObjectContext?.refreshObject(nsData!, mergeChanges: true)
+            cellTitle.setText(nsData!.workout_name)
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
             dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
             
-            var workoutDateString = "never"
-            
-            if let lastWorkout = workout.last_workout {
-                workoutDateString = dateFormatter.stringFromDate(lastWorkout)
-            }
-            
-            cellSubtitle.setText("Last workout: " + workoutDateString)
+            cellSubtitle.setText("Last workout: " + WorkoutStartController.modelManager.getLastWorkoutDate(nsData!, withFormat: nil))
         }
-        
     }
     
 }

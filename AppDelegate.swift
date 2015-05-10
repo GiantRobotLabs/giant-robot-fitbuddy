@@ -13,6 +13,7 @@ import FitBuddyCommon
 import FitBuddyModel
 
 @UIApplicationMain
+@objc
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
@@ -23,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
-        self.coreDataConnection.checkUpgradePath(CoreDataHelper.migrateDataToSqlite())
-        self.coreDataConnection.configureGroupContainter()
-        
+        self.coreDataConnection.setGroupContext()
+        self.coreDataConnection.setUbiquityContext()
+    
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         UINavigationBar.appearance().setBackgroundImage(UIImage(named: FBConstants.kTITLEBAR), forBarMetrics: UIBarMetrics.Default)
         UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
@@ -40,8 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
-        
-        // Override point for customization after application launch.
         self.syncSharedDefaults()
         
         return true
@@ -73,9 +72,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Core Data stack
+    lazy var modelManager : ModelManager = {
+        return CoreDataModelManager(connection: self.coreDataConnection)
+        }()
     
     lazy var coreDataConnection : CoreDataConnection = {
-        return CoreDataConnection()
+        return CoreDataConnection.defaultConnection()
         }()
     
     lazy var theLocalStore: NSURL = {
@@ -98,14 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return self.coreDataConnection.managedObjectContext
         }()
     
-    // MARK: - Core Data Saving support
-    
     func saveContext () {
-        coreDataConnection.saveContext()
-    }
-    
-    func checkUpgradePath(upgradeFlag : Bool) -> Bool {
-        return coreDataConnection.checkUpgradePath(upgradeFlag)
+        self.modelManager.save()
     }
     
     func syncSharedDefaults() {
@@ -123,18 +119,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else {
             FitBuddyUtils.getSharedUserDefaults()?.setObject("0.5", forKey: FBConstants.kCARDIOINCKEY)
         }
+        
+        if let icloud = NSUserDefaults.standardUserDefaults().stringForKey(FBConstants.kUSEICLOUDKEY) {
+            FitBuddyUtils.getSharedUserDefaults()?.setObject(icloud, forKey: FBConstants.kUSEICLOUDKEY)
+        }
             
         FitBuddyUtils.getSharedUserDefaults()?.synchronize()
-        
-    }
-    
-
-    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
-        
-        NSLog("watch button clicked");
-        
-        let alert = UIAlertView(title: "Watch button clicked", message: "You just touched the watch", delegate: nil, cancelButtonTitle: "OK")
-        
         
     }
     

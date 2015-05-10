@@ -20,7 +20,7 @@ class WorkoutSelectorController: WKInterfaceController {
     
     func initView () {
         
-        workoutArray = WorkoutStartController.coreDataConnection.getAllWorkouts()
+        workoutArray = WorkoutStartController.modelManager.getAllWorkouts()
     
         workoutTable.insertRowsAtIndexes(NSIndexSet(indexesInRange: NSMakeRange(0, workoutArray!.count)), withRowType: "WorkoutCellType");
 

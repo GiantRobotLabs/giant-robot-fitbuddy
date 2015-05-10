@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public struct FBConstants {
+public class FBConstants {
     
     public static let kTITLEBAR = "titlebar"
     public static let kFITBUDDY = "fitbuddy"
@@ -39,9 +39,10 @@ public struct FBConstants {
     public static let kEXPORTNAME = "FitBuddy"
     public static let kEXPORTEXT = ".gbz"
     public static let kUBIQUITYCONTAINER = "MK3WE6JNT9.com.giantrobotapps.FitBuddy"
-    
+    public static let NSPersistentStoreUbiquitousContentNameKey = "iCloudStore"
     public static let kGROUPPATH = "group.com.giantrobotapps.FitBuddy"
     public static let kREALMDB = "db.realm"
+    public static let kUSEICLOUDKEY = "Use iCloud"
     
     public static let EXERCISE_TABLE = "Exercise"
     public static let WORKOUT_TABLE = "Workout"
@@ -62,7 +63,6 @@ public struct FBConstants {
     public static let kDBVERSIONKEY = "DbVersion"
     public static let kDBVERSION = "1.4.1"
     
-    public static let kUSEICLOUDKEY = "Use iCloud"
     public static let kYES = "Yes"
     public static let kNO = "No"
     public static let kEXPORTDBKEY = "Export Database"

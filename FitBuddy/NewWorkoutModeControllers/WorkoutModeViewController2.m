@@ -7,7 +7,6 @@
 //
 
 #import "WorkoutModeViewController2.h"
-#import "CoreDataHelper.h"
 #import "FitBuddyMacros.h"
 
 #import "FitBuddy-Swift.h"

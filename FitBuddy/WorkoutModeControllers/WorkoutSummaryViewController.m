@@ -7,10 +7,7 @@
 //
 
 #import "WorkoutSummaryViewController.h"
-#import "CoreDataHelper.h"
 #import "FitBuddyMacros.h"
-
-
 
 @implementation WorkoutSummaryViewController
 @synthesize navigationBar;

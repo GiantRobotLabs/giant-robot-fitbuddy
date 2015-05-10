@@ -12,58 +12,57 @@ import FitBuddyCommon
 
 public class CoreDataConnection : NSObject {
     
+    //The default context
+    static let defaultContext : CoreDataConnection = CoreDataConnection()
+    
     override
     public init() {
         
     }
     
+    public static func defaultConnection () -> CoreDataConnection {
+        return defaultContext
+    }
+    
     public init(groupContext: Bool) {
-        
         super.init()
-        
         if groupContext {
             self.setGroupContext()
         }
     }
     
     lazy public var theLocalStore: NSURL = {
-        
-        let paths = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return (paths[0] as! NSURL).URLByAppendingPathComponent("Database").URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
+        return CoreDataHelper2.coreDataLocalURL()
         }()
     
     
     lazy public var applicationDocumentsDirectory: NSURL = {
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return CoreDataHelper2.localDocsURL()
         }()
     
     
     lazy public var managedObjectModel: NSManagedObjectModel = {
-        
-        let modelBundle = NSBundle(identifier: "com.giantrobotlabs.FitBuddy.FitBuddyModel")
-        
-        let modelURL = modelBundle!.URLForResource("GymBuddyModel", withExtension: "momd")!
-        
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
-        
+        return NSManagedObjectModel(contentsOfURL: NSBundle(identifier: "com.giantrobotlabs.FitBuddy.FitBuddyModel")!.URLForResource("GymBuddyModel", withExtension: "momd")!)!
         }()
     
     lazy public var managedObjectContext: NSManagedObjectContext? = {
-        // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
+        
         let coordinator = self.persistentStoreCoordinator
         if coordinator == nil {
             return nil
         }
-        var managedObjectContext = NSManagedObjectContext()
+        
+        let managedObjectContext = NSManagedObjectContext()
+        
         managedObjectContext.persistentStoreCoordinator = coordinator
         managedObjectContext.mergePolicy = NSMergePolicy(mergeType: NSMergePolicyType.MergeByPropertyObjectTrumpMergePolicyType);
+        
         return managedObjectContext
         }()
 
     
     lazy public var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
-                
+       
         let path = self.applicationDocumentsDirectory
         let dbDirURL = path.URLByAppendingPathComponent("Database")
         let storeURL = self.theLocalStore
@@ -80,195 +79,154 @@ public class CoreDataConnection : NSObject {
         }
         
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let storeUrl = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Database").URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
         
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeUrl, options: nil, error: &error) == nil {
+        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.theLocalStore, options: CoreDataConnection.defaultConnection().defaultStoreOptions(nil), error: &error) == nil {
+            
             coordinator = nil
+            
             // Report any error we got.
             var dict = [String: AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
             error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
             abort()
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "storeWillChangeHandler", name:  NSPersistentStoreCoordinatorStoresWillChangeNotification, object: coordinator);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "storeDidChangeHandler" , name:  NSPersistentStoreCoordinatorStoresDidChangeNotification, object: coordinator);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "storeDidImportHandler" , name:  NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: coordinator);
+        NSNotificationCenter.defaultCenter().addObserver(CoreDataConnection.defaultConnection(), selector: "storeWillChangeHandler", name:  NSPersistentStoreCoordinatorStoresWillChangeNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(CoreDataConnection.defaultConnection(), selector: "storeDidChangeHandler" , name:  NSPersistentStoreCoordinatorStoresDidChangeNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(CoreDataConnection.defaultConnection(), selector: "storeDidImportHandler" , name:  NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: nil);
         
         return coordinator
         }()
     
     
-    public func checkUpgradePath(upgradeFlag : Bool) -> Bool {
-        
-        let versionKey = NSUserDefaults.standardUserDefaults().stringForKey(FBConstants.kAPPVERSIONKEY)
-        
-        if (versionKey != nil && versionKey != FBConstants.kAPPVERSION) {
-            if (FBConstants.DEBUG) {
-                NSLog("Migrating data for user")
-            }
-            
-            if (upgradeFlag) {
-                NSUserDefaults.standardUserDefaults().setObject(FBConstants.kAPPVERSION, forKey: FBConstants.kAPPVERSIONKEY)
-            }
-            
-            if ((NSUserDefaults.standardUserDefaults().objectForKey(FBConstants.kEXPORTDBKEY)) != nil) {
-                NSUserDefaults.standardUserDefaults().setObject("iTunes", forKey: FBConstants.kEXPORTDBKEY)
-            }
+    public func defaultStoreOptions (foriCloud: Bool?) -> [NSObject: AnyObject]? {
+    
+        var override = false
+        if let cloud = foriCloud {
+            override = cloud
         }
+        
+        if override || FitBuddyUtils.getSharedUserDefaults()!.boolForKey(FBConstants.kUSEICLOUDKEY)  {
+            return [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true, NSPersistentStoreUbiquitousContentNameKey: "iCloudStore"]
+        }
+        
+        return [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
+    }
+        
+    //Set app directory and local store to the group container. 
+    //This will move files if the group container hasn't been initialized.
+    public func setGroupContext () -> Bool {
+        
+        if !(NSFileManager.defaultManager().fileExistsAtPath(CoreDataHelper2.coreDataGroupURL().path!)) {
+            
+            let groupDBDir = CoreDataHelper2.groupDocsURL().URLByAppendingPathComponent("Database")
+            let groupDBPath = CoreDataHelper2.coreDataGroupURL()
+            
+            let appDBDir = CoreDataHelper2.localDocsURL().URLByAppendingPathComponent("Database")
+            let appDBPath = CoreDataHelper2.coreDataLocalURL()
+            
+            moveFiles(appDBDir, toDir: groupDBDir)
+        }
+        else if NSFileManager.defaultManager().fileExistsAtPath(CoreDataHelper2.coreDataLocalURL().path!) {
+            CoreDataHelper2.migrateDataStore(CoreDataHelper2.coreDataLocalURL(), sourceStoreType: CoreDataType.LOCAL, destSqliteStore: CoreDataHelper2.coreDataGroupURL(), destStoreType: CoreDataType.GROUP)
+        }
+        
+        self.applicationDocumentsDirectory = CoreDataHelper2.groupDocsURL()
+        self.theLocalStore = CoreDataHelper2.coreDataGroupURL()
+    
+        NSLog("Set up group context")
         
         return true
-        
     }
     
-    public func saveContext () {
-        if let moc = self.managedObjectContext {
-            var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-               
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
-            }
-        }
-    }
-    
-    public func getAllWorkouts() -> [Workout] {
+    public func setUbiquityContext () -> Bool {
         
-        // Create a new fetch request using the LogItem entity
-        let fetchRequest = NSFetchRequest(entityName: FBConstants.WORKOUT_TABLE)
-        let sortDescriptor = NSSortDescriptor(key: "last_workout", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = self.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Workout] {
-            return fetchResults
-        }
-        
-        return []
-    }
-    
-    public func getWorkoutSequence (workout: Workout) -> [WorkoutSequence] {
-     
-        let fetchRequest = NSFetchRequest(entityName: FBConstants.WORKOUT_SEQUENCE)
-        fetchRequest.predicate = NSPredicate(format: "workout == %@", argumentArray: [workout])
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sequence", ascending: true)]
-        
-        if let fetchResults = self.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [WorkoutSequence] {
-            return fetchResults
-        }
-        
-        return []
-    }
-    
-    public func newLogbookEntryFromWorkoutSequence (workoutSequence: WorkoutSequence) -> LogbookEntry {
-        
-        let newEntry = NSEntityDescription.insertNewObjectForEntityForName(FBConstants.LOGBOOK_TABLE, inManagedObjectContext: self.managedObjectContext!) as! LogbookEntry
-        
-        newEntry.workout = workoutSequence.workout
-        newEntry.workout_name = workoutSequence.workout.workout_name
-        newEntry.date = NSDate()
-        newEntry.exercise_name = workoutSequence.exercise.name
-        newEntry.notes = workoutSequence.exercise.notes
-        newEntry.completed = true
-        
-        if workoutSequence.exercise is ResistanceExercise {
+        if FitBuddyUtils.isCloudOn() == (CoreDataHelper2.coreDataUbiquityURL() != nil) {
+            //This is good. Cloud settings are in sync
             
-            let exercise = workoutSequence.exercise as! ResistanceExercise
-            newEntry.weight = exercise.weight
-            newEntry.sets = exercise.sets
-            newEntry.reps = exercise.reps
-        }
-        
-        if workoutSequence.exercise is CardioExercise {
-            
-            let exercise = workoutSequence.exercise as! CardioExercise
-            newEntry.pace = exercise.pace
-            newEntry.distance = exercise.distance
-            newEntry.duration = exercise.duration
-        }
-        
-        return newEntry;
 
-    }
-    
-    public func deleteDataObject (nsManagedObject: NSManagedObject) {
-        
-        self.managedObjectContext?.deleteObject(nsManagedObject)
-        saveContext()
-        
-        NSLog("Deleted managed object");
-
-    }
-    
-    lazy public var sharedContainerPath : NSURL = {
-        
-        let fm = NSFileManager.defaultManager()
-        return fm.containerURLForSecurityApplicationGroupIdentifier(FBConstants.kGROUPPATH)!
-        
-        }()
-    
-    
-    public func configureGroupContainter () -> Bool {
-        
-        let groupDBDir = self.sharedContainerPath.URLByAppendingPathComponent("Database")
-        let groupDBPath = groupDBDir.URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
-        
-        let appDBDir = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Database")
-        let appDBPath = appDBDir.URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
-        
-        if !(NSFileManager.defaultManager().fileExistsAtPath(groupDBPath.path!)) {
-            
-            var error: NSError? = nil
-            
-            NSFileManager.defaultManager().createDirectoryAtPath(groupDBDir.path!, withIntermediateDirectories: true, attributes: nil, error: &error)
-            
-            let directoryEnumerator = NSFileManager.defaultManager().enumeratorAtPath(appDBDir.path!)
-            
-            while let file = directoryEnumerator?.nextObject() as? String {
+            if FitBuddyUtils.isCloudOn() {
                 
-                if let fileUrl = NSURL(fileURLWithPath: file) {
-                    
-                    if NSFileManager.defaultManager().copyItemAtPath(appDBDir.URLByAppendingPathComponent(file).path!, toPath: groupDBDir.URLByAppendingPathComponent(fileUrl.lastPathComponent!).path!, error: &error) {
-                    
-                        NSFileManager.defaultManager().removeItemAtPath(appDBDir.URLByAppendingPathComponent(file).path!, error: &error)
-                        
-                    }
-                }
-            }
+                NSLog("Migrating data to group and turning iCloud off for now.")
+                
+                CoreDataHelper2.migrateDataStore(CoreDataHelper2.coreDataLocalURL(), sourceStoreType: CoreDataType.ICLOUD, destSqliteStore: CoreDataHelper2.coreDataGroupURL(), destStoreType: CoreDataType.GROUP)
+                
+                self.applicationDocumentsDirectory = CoreDataHelper2.groupDocsURL()
+                self.theLocalStore = CoreDataHelper2.coreDataGroupURL()
+                FitBuddyUtils.setCloudOn(false)
             
-            if error != nil {
-                NSLog("Unable to move database: %@", error!)
-            }
-        }
+            /*
+                self.applicationDocumentsDirectory = CoreDataHelper2.localDocsURL()
+                self.theLocalStore = CoreDataHelper2.coreDataLocalURL()
+            */
+            }            
         
-        self.applicationDocumentsDirectory = sharedContainerPath
-        self.theLocalStore = groupDBPath
-    
+        } else if FitBuddyUtils.isCloudOn() && (CoreDataHelper2.coreDataUbiquityURL() == nil) {
+            //This means someone turned off iCloud. Need to rebuild the database and remove ubiquity keys
+            NSLog("%@ %@", FitBuddyUtils.isCloudOn(), (CoreDataHelper2.coreDataUbiquityURL() == nil))
+            
+            CoreDataHelper2.migrateDataStore(CoreDataHelper2.coreDataLocalURL(), sourceStoreType: CoreDataType.ICLOUD, destSqliteStore: CoreDataHelper2.coreDataGroupURL(), destStoreType: CoreDataType.GROUP)
+            
+            FitBuddyUtils.setCloudOn(false)
+            
+        } else if CoreDataHelper2.coreDataUbiquityURL() != nil && !FitBuddyUtils.isCloudOn() {
+            //This means iCloud was just turned on. Time to migrate to ubiquity store.
+            NSLog("%@ %@", (CoreDataHelper2.coreDataUbiquityURL() != nil), (!FitBuddyUtils.isCloudOn()))
+            NSLog("Not setting up cloud sync for now. Leaving data in the group.")
+            
+            /*
+            //First make sure we're in group
+            setGroupContext()
+            
+            //Now migrate the copy
+            CoreDataHelper2.migrateDataStore(CoreDataHelper2.coreDataGroupURL(), sourceStoreType: CoreDataType.GROUP, destSqliteStore: CoreDataHelper2.coreDataUbiquityURL()!, destStoreType: CoreDataType.ICLOUD)
+            */
+        }
+
         return true
     }
     
-    public func setGroupContext () {
+    func moveFiles(fromDir: NSURL, toDir: NSURL) {
         
-        let fm = NSFileManager.defaultManager()
-        let groupPath = fm.containerURLForSecurityApplicationGroupIdentifier(FBConstants.kGROUPPATH)!
+        var error: NSError? = nil
         
-        let groupDBDir = groupPath.URLByAppendingPathComponent("Database")
-        let groupDBPath = groupDBDir.URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
-        self.applicationDocumentsDirectory = sharedContainerPath
-        self.theLocalStore = groupDBPath
-
+        //Make sure the local exists for copy
+        if !NSFileManager.defaultManager().fileExistsAtPath(toDir.path!) {
+            NSFileManager.defaultManager().createDirectoryAtPath(toDir.path!, withIntermediateDirectories: true, attributes: nil, error: &error)
+        }
+        
+        let directoryEnumerator = NSFileManager.defaultManager().enumeratorAtPath(fromDir.path!)
+        
+        while let file = directoryEnumerator?.nextObject() as? String {
+            
+            if let fileUrl = NSURL(fileURLWithPath: file) {
+                
+                if NSFileManager.defaultManager().copyItemAtPath(fromDir.URLByAppendingPathComponent(file).path!, toPath: toDir.URLByAppendingPathComponent(fileUrl.lastPathComponent!).path!, error: &error) {
+                }
+                
+                NSFileManager.defaultManager().removeItemAtPath(fromDir.URLByAppendingPathComponent(file).path!, error: &error)
+            }
+        }
+        
+        if error != nil {
+            NSLog("Unable to move database to app container: %@", error!)
+        }
     }
     
-    
-    public func storeWillChangeHandler(sender: AnyObject) {
+/////
+//
+// Change handlers for the UbiquityStoreManager
+//
+    public func storeWillChangeHandler() {
         
         if ((self.managedObjectContext) != nil) {
             if (FBConstants.DEBUG) {
@@ -282,12 +240,10 @@ public class CoreDataConnection : NSObject {
             if (error != nil) {
                 NSLog("Error occured while saving context during prepare: %@", error!)
             }
-            
         }
-        
     }
     
-    public func storeDidChangeHandler (sender: AnyObject) {
+    public func storeDidChangeHandler () {
         
         if (self.managedObjectContext != nil)  {
             
@@ -303,13 +259,10 @@ public class CoreDataConnection : NSObject {
             }
             
             NSNotificationCenter.defaultCenter().postNotificationName(FBConstants.kUBIQUITYCHANGED, object: self)
-            
         }
-        
-        
     }
     
-    public func storeDidImportHandler(sender: AnyObject) {
+    public func storeDidImportHandler() {
         
         if (self.managedObjectContext != nil) {
             
@@ -321,6 +274,5 @@ public class CoreDataConnection : NSObject {
             
             NSNotificationCenter.defaultCenter().postNotificationName(FBConstants.kUBIQUITYCHANGED, object: self)
         }
-        
     }
 }

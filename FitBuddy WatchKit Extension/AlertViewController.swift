@@ -21,8 +21,8 @@ class AlertViewController: WKInterfaceController {
     
         if let options = context as? NSDictionary {
             
-            alertTextTitle.setText(options.objectForKey("title") as! String)
-            alertTextLabel.setText(options.objectForKey("message")as! String)
+            alertTextTitle.setText((options.objectForKey("title") as! String))
+            alertTextLabel.setText((options.objectForKey("message") as! String))
         }
     }
     

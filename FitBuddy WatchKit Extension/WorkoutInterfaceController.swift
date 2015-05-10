@@ -82,7 +82,7 @@ class WorkoutInterfaceController: WKInterfaceController {
     override func willActivate() {
         
         // This method is called when watch view controller is about to be visible to user
-        workoutSequence = WorkoutStartController.coreDataConnection.getWorkoutSequence(currentWorkout!)
+        workoutSequence = WorkoutStartController.modelManager.getWorkoutSequence(currentWorkout!)
         
         logs = [LogbookEntry?](count:workoutSequence!.count, repeatedValue: nil)
         skipped = [Bool?](count:workoutSequence!.count, repeatedValue: nil)
@@ -94,7 +94,7 @@ class WorkoutInterfaceController: WKInterfaceController {
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         
-        WorkoutStartController.coreDataConnection.saveContext()
+        WorkoutStartController.modelManager.save()
         
         WKInterfaceController.openParentApplication(["orderNumber": ""] , reply: { (reply, error) -> Void in});
         super.didDeactivate()
@@ -114,9 +114,11 @@ class WorkoutInterfaceController: WKInterfaceController {
         slot1Value.setText(slot1New.stringValue);
         
         if cardio {
-            slot3New = slot1New.floatValue * slot2New.floatValue
-            slot3Value.setText(slot3New.stringValue)
+            slot3New = slot1New.floatValue * (slot2New.floatValue/60.0)
+            slot3New = FitBuddyUtils.calculateDistance(slot1New.floatValue, minutes: slot2New.floatValue)
+            slot3Value.setText(slot3New.stringValue);
         }
+
         
         changeSliderColor(slot1Slider, value: value);
         updateExerciseDescription()
@@ -135,6 +137,12 @@ class WorkoutInterfaceController: WKInterfaceController {
         slot2New = slot2.floatValue + cvalue;
         slot2Value.setText(slot2New.stringValue);
         
+        if cardio {
+            slot3New = slot1New.floatValue * (slot2New.floatValue/60.0)
+            slot3New = FitBuddyUtils.calculateDistance(slot1New.floatValue, minutes: slot2New.floatValue)
+            slot3Value.setText(slot3New.stringValue);
+        }
+        
         changeSliderColor(slot2Slider, value: value);
         updateExerciseDescription()
     }
@@ -150,11 +158,14 @@ class WorkoutInterfaceController: WKInterfaceController {
         }
         
         slot3New = slot3.floatValue + cvalue;
-        slot3Value.setText(slot3New.stringValue);
         
         if cardio {
-            slot1New = slot3New.floatValue / slot2New.floatValue
-            slot1Value.setText(slot1New.stringValue)
+            slot3Value.setText(FitBuddyUtils.twoDecimalFormat(slot3New));
+            slot2New = FitBuddyUtils.calculateMinutes(slot1New.floatValue, distance: slot3New.floatValue)
+            slot2Value.setText(slot2New.stringValue)
+        }
+        else {
+            slot3Value.setText(slot3New.stringValue);
         }
 
         changeSliderColor(slot3Slider, value: value);
@@ -164,8 +175,11 @@ class WorkoutInterfaceController: WKInterfaceController {
 
     @IBAction func skipButtonPressed() {
         
+        skipButton.setBackgroundColor(FBConstants.WKORANGE)
+        logButton.setBackgroundColor(FBConstants.WKGRAY);
+        
         if let entry = logs![currentIndex] {
-            WorkoutStartController.coreDataConnection.deleteDataObject(entry)
+            WorkoutStartController.modelManager.deleteDataObject(entry)
         }
         
         logs![currentIndex] = nil
@@ -177,13 +191,16 @@ class WorkoutInterfaceController: WKInterfaceController {
     
     @IBAction func logButtonPressed() {
         
+        logButton.setBackgroundColor(FBConstants.WKGREEN)
+        skipButton.setBackgroundColor(FBConstants.WKGRAY);
+        
         commitForm()
         
         if let entry = logs![currentIndex] {
-            WorkoutStartController.coreDataConnection.deleteDataObject(entry)
+            WorkoutStartController.modelManager.deleteDataObject(entry)
         }
         
-        logs![currentIndex] = WorkoutStartController.coreDataConnection.newLogbookEntryFromWorkoutSequence(workoutSequence![currentIndex])
+        logs![currentIndex] = WorkoutStartController.modelManager.newLogbookEntryFromWorkoutSequence(workoutSequence![currentIndex])
         skipped![currentIndex] = nil
         
         setButtonColor()
@@ -263,6 +280,8 @@ class WorkoutInterfaceController: WKInterfaceController {
             slot2Increment = 1
             slot3Increment = 1
             
+            cardio = false
+            
         }
         else if currentExercise is CardioExercise {
             let obj = currentExercise as! CardioExercise
@@ -274,12 +293,14 @@ class WorkoutInterfaceController: WKInterfaceController {
             slot3New = (obj.distance as NSString).floatValue
             
             slot1Text = "pace";  //distance/duration
-            slot2Text = "duration";
+            slot2Text = "minutes";
             slot3Text = "distance"; //pace * duration
             
             slot1Increment = (FitBuddyUtils.getSharedUserDefaults()?.objectForKey(FBConstants.kCARDIOINCKEY) as! NSString).floatValue
             slot2Increment = 1
             slot3Increment = (FitBuddyUtils.getSharedUserDefaults()?.objectForKey(FBConstants.kCARDIOINCKEY) as! NSString).floatValue
+        
+            cardio = true
         }
         
         exerciseName = currentExercise!.name

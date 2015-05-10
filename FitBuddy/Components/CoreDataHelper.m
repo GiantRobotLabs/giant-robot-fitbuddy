@@ -21,7 +21,8 @@
 
 + (NSDictionary *) defaultStoreOptions
 {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUSEICLOUDKEY] isEqualToString: kYES])
+    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Use iCloud"] isEqualToString: kYES])
     {
         return [CoreDataHelper defaultStoreOptionsForCloud:YES];
     }
@@ -127,10 +128,10 @@
     }
     
     // Check if we're on iCloud and move to local
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kUSEICLOUDKEY] isEqualToString:kYES])
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Use iCloud"] isEqualToString:kYES])
     {
         [CoreDataHelper copyiCloudtoLocal];
-        [[NSUserDefaults standardUserDefaults] setObject:kNO forKey:kUSEICLOUDKEY];
+        [[NSUserDefaults standardUserDefaults] setObject:kNO forKey:@"Use iCloud"];
         if (DEBUG) NSLog(@"Turning off iCloud prior to migration");
     }
     

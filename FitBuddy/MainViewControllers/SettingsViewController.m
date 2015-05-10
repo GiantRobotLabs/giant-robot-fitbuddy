@@ -33,11 +33,7 @@
         {
             cellDetail.text = @"0.5";
         }
-        else if ([cellLabel.text hasSuffix:@"Use iCloud"])
-        {
-            cellDetail.text = @"No";
-        }
-    }    
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,10 +80,6 @@
             
             if([label.text hasSuffix:@"Resistance Increment"]) {
                 [pickerValues addObjectsFromArray:kDEFAULT_RESISTANCE_SETTINGS];
-            }
-            
-            if ([label.text hasSuffix:@"Use iCloud"]) {
-                [pickerValues addObjectsFromArray:kDEFAULT_BOOLEAN_OPTIONS];
             }
             
             if ([label.text hasSuffix:@"Export Database"]) {
