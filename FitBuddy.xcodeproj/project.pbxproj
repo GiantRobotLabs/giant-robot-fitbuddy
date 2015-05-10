@@ -53,6 +53,7 @@
 		D6A404851AFA64B000EC5267 /* FitBuddyModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DC0D3E1AF8FC6D00988D65 /* FitBuddyModel.framework */; };
 		D6A5124818CC5157002FDF5F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A5124718CC5157002FDF5F /* MapKit.framework */; };
 		D6B088A81AF1280800962EDB /* NSData+GZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B088A71AF1280800962EDB /* NSData+GZIP.swift */; };
+		D6B0B9791AFFFA81001184D6 /* CoreDataArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B0B9771AFFF559001184D6 /* CoreDataArchive.swift */; };
 		D6B174D11AFA5043009E40D3 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B174D01AFA5043009E40D3 /* InterfaceController.swift */; };
 		D6B174D71AFA5043009E40D3 /* FitBuddy WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = D6B174D61AFA5043009E40D3 /* FitBuddy WatchKit App.app */; };
 		D6B174DF1AFA5043009E40D3 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6B174DD1AFA5043009E40D3 /* Interface.storyboard */; };
@@ -66,7 +67,6 @@
 		D6C0AE8618975566004F599E /* WorkoutControlerComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C0AE8518975566004F599E /* WorkoutControlerComponent.xib */; };
 		D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C0AF0218A34990004F599E /* SwitchCell.m */; };
 		D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C26B2A14F15A710068DEA5 /* libz.dylib */; };
-		D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */; };
 		D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA11170E6BB400BA02DA /* CoreDataTableController.m */; };
 		D6C2CA1F170E6BB400BA02DA /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA13170E6BB400BA02DA /* CoreDataTableViewController.m */; };
 		D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */; };
@@ -94,7 +94,6 @@
 		D6DC0D491AF8FC6D00988D65 /* FitBuddyModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DC0D3E1AF8FC6D00988D65 /* FitBuddyModel.framework */; };
 		D6DC0D521AF8FC6E00988D65 /* FitBuddyModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DC0D511AF8FC6E00988D65 /* FitBuddyModelTests.swift */; };
 		D6DC0D561AF8FC6E00988D65 /* FitBuddyModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D6DC0D3E1AF8FC6D00988D65 /* FitBuddyModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D6EB11C71AFDA7D90069D66C /* FitBuddyArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EB11C61AFDA7D90069D66C /* FitBuddyArchive.m */; };
 		D6EB11C91AFE54FC0069D66C /* CoreDataHelper2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB11C81AFE54FC0069D66C /* CoreDataHelper2.swift */; };
 		D6EB11CB1AFE5C710069D66C /* CoreDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB11CA1AFE5C710069D66C /* CoreDataType.swift */; };
 		D6FF1D151870B50A004A1D2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FF1D141870B50A004A1D2A /* Images.xcassets */; };
@@ -239,6 +238,7 @@
 		D68790941AF927F200D8E6DE /* FBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBConstants.swift; sourceTree = "<group>"; };
 		D6A5124718CC5157002FDF5F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D6B088A71AF1280800962EDB /* NSData+GZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+GZIP.swift"; sourceTree = SOURCE_ROOT; };
+		D6B0B9771AFFF559001184D6 /* CoreDataArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataArchive.swift; sourceTree = "<group>"; };
 		D6B174CC1AFA5043009E40D3 /* FitBuddy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FitBuddy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B174CF1AFA5043009E40D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6B174D01AFA5043009E40D3 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
@@ -256,8 +256,6 @@
 		D6C0AF0118A34990004F599E /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = SOURCE_ROOT; };
 		D6C0AF0218A34990004F599E /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = SOURCE_ROOT; };
 		D6C26B2A14F15A710068DEA5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		D6C2CA0E170E6BB400BA02DA /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = FitBuddy/Components/CoreDataHelper.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = FitBuddy/Components/CoreDataHelper.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA10170E6BB400BA02DA /* CoreDataTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataTableController.h; path = FitBuddy/Components/CoreDataTableController.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA11170E6BB400BA02DA /* CoreDataTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataTableController.m; path = FitBuddy/Components/CoreDataTableController.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA12170E6BB400BA02DA /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataTableViewController.h; path = FitBuddy/Components/CoreDataTableViewController.h; sourceTree = SOURCE_ROOT; };
@@ -319,8 +317,6 @@
 		D6DC0D6D1AF8FD8500988D65 /* WorkoutSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSequence.swift; sourceTree = "<group>"; };
 		D6DC0D6F1AF8FD8500988D65 /* CardioHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardioHistory.swift; sourceTree = "<group>"; };
 		D6E6F4411AFE8F3C00FB4BA8 /* FitBuddy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FitBuddy-Bridging-Header.h"; sourceTree = "<group>"; };
-		D6EB11C51AFDA7D90069D66C /* FitBuddyArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FitBuddyArchive.h; sourceTree = SOURCE_ROOT; };
-		D6EB11C61AFDA7D90069D66C /* FitBuddyArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FitBuddyArchive.m; sourceTree = SOURCE_ROOT; };
 		D6EB11C81AFE54FC0069D66C /* CoreDataHelper2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper2.swift; sourceTree = "<group>"; };
 		D6EB11CA1AFE5C710069D66C /* CoreDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataType.swift; sourceTree = "<group>"; };
 		D6FF1D141870B50A004A1D2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FitBuddy/Images.xcassets; sourceTree = SOURCE_ROOT; };
@@ -601,13 +597,9 @@
 		D696191A18A6A9C4002FE7C2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				D6EB11C51AFDA7D90069D66C /* FitBuddyArchive.h */,
-				D6EB11C61AFDA7D90069D66C /* FitBuddyArchive.m */,
 				D6C2CA16170E6BB400BA02DA /* FitBuddyMacros.h */,
 				D63E446A18ACF49700A13883 /* BarChartDataSource.h */,
 				D63E446B18ACF49700A13883 /* BarChartDataSource.m */,
-				D6C2CA0E170E6BB400BA02DA /* CoreDataHelper.h */,
-				D6C2CA0F170E6BB400BA02DA /* CoreDataHelper.m */,
 				D6C2CA17170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.h */,
 				D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */,
 			);
@@ -742,6 +734,7 @@
 				D6CE06641AF9974F008CF9BD /* CoreDataConnection.swift */,
 				D642DD961AFF8D2800119D97 /* ModelManager.swift */,
 				D642DD981AFF8DDA00119D97 /* CoreDataModelManager.swift */,
+				D6B0B9771AFFF559001184D6 /* CoreDataArchive.swift */,
 				D6DC0D401AF8FC6D00988D65 /* Supporting Files */,
 			);
 			name = src;
@@ -1106,7 +1099,6 @@
 				D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */,
 				D632C3561AEC6E7400D1A69A /* JBBarChartView.m in Sources */,
 				D625E86E18B00EF900FFE96D /* WorkoutModeViewController2.m in Sources */,
-				D6C2CA1D170E6BB400BA02DA /* CoreDataHelper.m in Sources */,
 				D6B088A81AF1280800962EDB /* NSData+GZIP.swift in Sources */,
 				D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */,
 				D601921318AFDF6F00255256 /* DemoContentViewController.m in Sources */,
@@ -1117,7 +1109,6 @@
 				D6C2CA5D170E6C4000BA02DA /* ExerciseEditViewController.m in Sources */,
 				D6C2CA5E170E6C4000BA02DA /* ExerciseListTableViewController.m in Sources */,
 				D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */,
-				D6EB11C71AFDA7D90069D66C /* FitBuddyArchive.m in Sources */,
 				D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */,
 				D6C2CA60170E6C4000BA02DA /* LogbookViewController.m in Sources */,
 				D6D32F7E1AED6C580057F00B /* WorkoutViewController.swift in Sources */,
@@ -1186,6 +1177,7 @@
 				D666BE131AF92A0700256911 /* CardioHistory.swift in Sources */,
 				D6CE06661AF9A302008CF9BD /* CoreDataConnection.swift in Sources */,
 				D666BE111AF929F100256911 /* GymBuddyMappingModel1.2.xcmappingmodel in Sources */,
+				D6B0B9791AFFFA81001184D6 /* CoreDataArchive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

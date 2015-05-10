@@ -127,16 +127,21 @@ public class CoreDataModelManager: NSObject, ModelManager {
             }
         }
     }
-    
-    public func exportData() -> AnyObject? {
-        NSLog("exportData for CoreDataModelManager is not implemented")
+
+    public func exportData(destination: String) -> NSURL? {
         
-        return []
+        if destination == FBConstants.kITUNES {
+            let archive = CoreDataArchive()
+            return archive.exportToDisk(true)
+        }
+        
+        NSLog("Unknown export type: %@", destination);
+        return nil;
+        
     }
     
     public func importData(reference: AnyObject?) {
         NSLog("importData for CoreDataModelManager is not implemented")
     }
-
     
 }

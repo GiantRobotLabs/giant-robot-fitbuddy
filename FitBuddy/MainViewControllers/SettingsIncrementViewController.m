@@ -7,7 +7,6 @@
 //
 
 #import "SettingsIncrementViewController.h"
-#import "CoreDataHelper.h"
 #import "FitBuddyMacros.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -102,7 +101,7 @@
 #pragma mark - Export Options
 - (void) handleExportToggle: (NSString *) exportType
 {
-    [CoreDataHelper exportDatabaseTo:exportType];
+    [[AppDelegate sharedAppDelegate].modelManager exportData:exportType];
 }
 
 - (UIActivityIndicatorView *)showActivityIndicatorOnView:(UIView*)aView

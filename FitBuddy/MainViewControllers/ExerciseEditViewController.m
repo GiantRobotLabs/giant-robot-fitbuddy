@@ -7,7 +7,6 @@
 //
 
 #import "ExerciseEditViewController.h"
-#import "CoreDataHelper.h"
 #import "FitBuddy-Swift.h"
 
 #import "FitBuddyMacros.h"

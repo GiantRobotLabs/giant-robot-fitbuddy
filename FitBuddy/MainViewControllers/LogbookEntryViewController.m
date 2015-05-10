@@ -7,7 +7,6 @@
 //
 
 #import "LogbookEntryViewController.h"
-#import "CoreDataHelper.h"
 #import "FitBuddyMacros.h"
 
 @import FitBuddyModel;

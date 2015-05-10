@@ -18,7 +18,8 @@ public protocol ModelManager {
     func deleteDataObject (nsManagedObject: NSManagedObject)
     func save ()
     
-    func exportData () -> AnyObject?
+    func exportData (destination: String) -> NSURL?
     func importData (reference: AnyObject?)
-    
+
 }
+

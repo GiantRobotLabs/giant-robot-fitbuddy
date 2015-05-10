@@ -63,8 +63,13 @@ public class CoreDataHelper2: NSObject {
         return nil
     }
     
-    //Migrate a local data store to icloud
     public static func migrateDataStore (sourceSqliteStore: NSURL, sourceStoreType: CoreDataType, destSqliteStore: NSURL, destStoreType: CoreDataType) {
+        
+        migrateDataStore(sourceSqliteStore, sourceStoreType: sourceStoreType, destSqliteStore: destSqliteStore, destStoreType: destStoreType, delete: true)
+    }
+    
+    //Migrate a local data store to new location
+    public static func migrateDataStore (sourceSqliteStore: NSURL, sourceStoreType: CoreDataType, destSqliteStore: NSURL, destStoreType: CoreDataType, delete: Bool) {
         
         let storeURL = destSqliteStore
         let seedStoreURL = sourceSqliteStore
@@ -92,7 +97,9 @@ public class CoreDataHelper2: NSObject {
             mainQueue.addOperationWithBlock({
                 //This will be called when the migration is done
                 if destStoreType == CoreDataType.GROUP {
-                    NSFileManager.defaultManager().removeItemAtPath(seedStoreURL.path!, error: &error)
+                    if delete {
+                        NSFileManager.defaultManager().removeItemAtPath(seedStoreURL.path!, error: &error)
+                    }
                 }
                 
                 FitBuddyUtils.setCloudOn(destStoreType == CoreDataType.ICLOUD)

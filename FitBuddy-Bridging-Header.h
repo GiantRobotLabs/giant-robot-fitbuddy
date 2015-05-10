@@ -4,7 +4,5 @@
 
 
 #include <zlib.h>
-#import "CoreDataHelper.h"
-#import "FitBuddyArchive.h"
 
 

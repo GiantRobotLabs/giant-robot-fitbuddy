@@ -8,11 +8,9 @@
 //
 
 #import "LogbookViewController.h"
-#import "CoreDataHelper.h"
 #import "FitBuddyMacros.h"
 #import "BarChartDataSource.h"
 #import "JBChartView.h"
-#import "FitBuddyMacros.h"
 
 #import "FitBuddy-Swift.h"
 
