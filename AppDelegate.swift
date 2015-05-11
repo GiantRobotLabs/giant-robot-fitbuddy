@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        
+        FitBuddyUtils.setCloudOn(true)
         self.coreDataConnection.setGroupContext()
         self.coreDataConnection.setUbiquityContext()
     

@@ -153,21 +153,30 @@ public class CoreDataConnection : NSObject {
         if FitBuddyUtils.isCloudOn() == (CoreDataHelper2.coreDataUbiquityURL() != nil) {
             //This is good. Cloud settings are in sync
             
-
+            let cloudurl = CoreDataHelper2.coreDataUbiquityURL()
+            
+            var error: NSError? = nil
+            
+            NSFileManager.defaultManager().removeItemAtPath(CoreDataHelper2.groupDocsURL().URLByAppendingPathComponent("Database").path!, error: &error)
+            
+            if error != nil {
+                NSLog("Error deleting directory %@", error!)
+            }
+            
             if FitBuddyUtils.isCloudOn() {
-                
+             
                 NSLog("Migrating data to group and turning iCloud off for now.")
                 
-                CoreDataHelper2.migrateDataStore(CoreDataHelper2.coreDataLocalURL(), sourceStoreType: CoreDataType.ICLOUD, destSqliteStore: CoreDataHelper2.coreDataGroupURL(), destStoreType: CoreDataType.GROUP)
+                CoreDataHelper2.migrateDataStore(cloudurl!, sourceStoreType: CoreDataType.LOCAL, destSqliteStore: CoreDataHelper2.coreDataGroupURL(), destStoreType: CoreDataType.GROUP)
                 
                 self.applicationDocumentsDirectory = CoreDataHelper2.groupDocsURL()
                 self.theLocalStore = CoreDataHelper2.coreDataGroupURL()
                 FitBuddyUtils.setCloudOn(false)
+           
             
-            /*
-                self.applicationDocumentsDirectory = CoreDataHelper2.localDocsURL()
-                self.theLocalStore = CoreDataHelper2.coreDataLocalURL()
-            */
+           //     self.applicationDocumentsDirectory = CoreDataHelper2.localDocsURL()
+           //     self.theLocalStore = CoreDataHelper2.coreDataLocalURL()
+
             }            
         
         } else if FitBuddyUtils.isCloudOn() && (CoreDataHelper2.coreDataUbiquityURL() == nil) {
