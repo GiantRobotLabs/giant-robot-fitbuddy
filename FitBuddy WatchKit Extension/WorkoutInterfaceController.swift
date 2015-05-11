@@ -276,7 +276,7 @@ class WorkoutInterfaceController: WKInterfaceController {
             slot2Text = "reps";
             slot3Text = "sets";
             
-            slot1Increment = (FitBuddyUtils.getSharedUserDefaults()?.objectForKey(FBConstants.kRESISTANCEINCKEY) as! NSString).floatValue
+            slot1Increment = (FitBuddyUtils.defaultUtils().sharedUserDefaults!.objectForKey(FBConstants.kRESISTANCEINCKEY) as! NSString).floatValue
             slot2Increment = 1
             slot3Increment = 1
             
@@ -296,9 +296,9 @@ class WorkoutInterfaceController: WKInterfaceController {
             slot2Text = "minutes";
             slot3Text = "distance"; //pace * duration
             
-            slot1Increment = (FitBuddyUtils.getSharedUserDefaults()?.objectForKey(FBConstants.kCARDIOINCKEY) as! NSString).floatValue
+            slot1Increment = (FitBuddyUtils.defaultUtils().sharedUserDefaults!.objectForKey(FBConstants.kCARDIOINCKEY) as! NSString).floatValue
             slot2Increment = 1
-            slot3Increment = (FitBuddyUtils.getSharedUserDefaults()?.objectForKey(FBConstants.kCARDIOINCKEY) as! NSString).floatValue
+            slot3Increment = (FitBuddyUtils.defaultUtils().sharedUserDefaults!.objectForKey(FBConstants.kCARDIOINCKEY) as! NSString).floatValue
         
             cardio = true
         }

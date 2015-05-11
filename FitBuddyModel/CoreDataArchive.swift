@@ -25,7 +25,7 @@ public class CoreDataArchive : NSObject {
     public func exportToDisk (force: Bool) -> NSURL? {
         
         let exportPath = CoreDataHelper2.localDocsURL().URLByAppendingPathComponent(self.exportFileName)
-        CoreDataHelper2.migrateDataStore(CoreDataConnection.defaultConnection().theLocalStore, sourceStoreType: CoreDataType.GROUP, destSqliteStore: exportPath, destStoreType: CoreDataType.LOCAL, delete: false)
+        CoreDataHelper2.migrateDataStore(CoreDataConnection.defaultConnection.theLocalStore, sourceStoreType: CoreDataType.GROUP, destSqliteStore: exportPath, destStoreType: CoreDataType.LOCAL, delete: false)
         
         return exportPath;
     }

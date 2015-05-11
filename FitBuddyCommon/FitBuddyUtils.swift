@@ -11,6 +11,16 @@ import Foundation
 @objc
 public class FitBuddyUtils {
     
+    static var me : FitBuddyUtils?
+    
+    public static func defaultUtils() -> FitBuddyUtils {
+        
+        if  me == nil {
+            me = FitBuddyUtils()
+        }
+        return me!
+    }
+    
     public static func dateFromNSDate (date: NSDate?, format: String) -> String {
         
         if date != nil {
@@ -40,11 +50,10 @@ public class FitBuddyUtils {
         return ""
     }
     
-    public static func getSharedUserDefaults() -> NSUserDefaults? {
-        
-        return NSUserDefaults(suiteName: FBConstants.kGROUPPATH)
-    
-    }
+    lazy public var sharedUserDefaults: NSUserDefaults? = {
+        let defaults = NSUserDefaults(suiteName: FBConstants.kGROUPPATH)
+        return defaults
+        }()
     
     public static func twoDecimalFormat(number: NSNumber?) -> String? {
         
@@ -92,15 +101,21 @@ public class FitBuddyUtils {
     }
     
     public static func isCloudOn() -> Bool {
-        let cloud = FitBuddyUtils.getSharedUserDefaults()!.boolForKey(FBConstants.kUSEICLOUDKEY)
-        return cloud
+        if let defaults = FitBuddyUtils.defaultUtils().sharedUserDefaults {
+            return defaults.boolForKey(FBConstants.kUSEICLOUDKEY)
+        }
+        return false
     }
     
     public static func setCloudOn(value: Bool) {
+        
         NSUserDefaults.standardUserDefaults().setBool(value, forKey: FBConstants.kUSEICLOUDKEY)
         NSUserDefaults.standardUserDefaults().synchronize()
-        FitBuddyUtils.getSharedUserDefaults()!.setBool(value, forKey: FBConstants.kUSEICLOUDKEY)
-        FitBuddyUtils.getSharedUserDefaults()!.synchronize()
+        
+        if let sharedDefaults = FitBuddyUtils.defaultUtils().sharedUserDefaults {
+            sharedDefaults.setBool(value, forKey: FBConstants.kUSEICLOUDKEY)
+            sharedDefaults.synchronize()
+        }
     }
     
 }

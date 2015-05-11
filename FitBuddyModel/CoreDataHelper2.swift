@@ -57,7 +57,10 @@ public class CoreDataHelper2: NSObject {
     }
     
     public static func coreDataUbiquityURL () -> NSURL? {
-        if NSFileManager.defaultManager().ubiquityIdentityToken != nil {
+        let token = NSFileManager.defaultManager().ubiquityIdentityToken
+        let url = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)
+        
+        if token != nil || url != nil {
             return localDocsURL().URLByAppendingPathComponent("Database").URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
         }
         return nil
@@ -75,16 +78,16 @@ public class CoreDataHelper2: NSObject {
         let seedStoreURL = sourceSqliteStore
         
         // create a new coordinator
-        let coord = NSPersistentStoreCoordinator(managedObjectModel: CoreDataConnection.defaultConnection().managedObjectModel)
+        let coord = NSPersistentStoreCoordinator(managedObjectModel: CoreDataConnection.defaultConnection.managedObjectModel)
         
         var error: NSError? = nil
         
-        var seedStoreOptions = CoreDataConnection.defaultConnection().defaultStoreOptions(sourceStoreType == CoreDataType.ICLOUD)!
+        var seedStoreOptions = CoreDataConnection.defaultConnection.defaultStoreOptions(sourceStoreType == CoreDataType.ICLOUD)!
         seedStoreOptions[NSReadOnlyPersistentStoreOption] = true
 
         let seedStore = coord.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: seedStoreURL, options: seedStoreOptions, error: &error)
         
-        let newStoreOptions = CoreDataConnection.defaultConnection().defaultStoreOptions((destStoreType == CoreDataType.ICLOUD))
+        let newStoreOptions = CoreDataConnection.defaultConnection.defaultStoreOptions((destStoreType == CoreDataType.ICLOUD))
         
         let queue = NSOperationQueue()
         

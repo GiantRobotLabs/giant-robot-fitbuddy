@@ -13,19 +13,16 @@ import FitBuddyCommon
 public class CoreDataConnection : NSObject {
     
     //The default context
-    static let defaultContext : CoreDataConnection = CoreDataConnection()
+    static public let defaultConnection : CoreDataConnection = CoreDataConnection()
     
     override
     public init() {
         
     }
     
-    public static func defaultConnection () -> CoreDataConnection {
-        return defaultContext
-    }
-    
     public init(groupContext: Bool) {
         super.init()
+        
         if groupContext {
             self.setGroupContext()
         }
@@ -45,23 +42,18 @@ public class CoreDataConnection : NSObject {
         return NSManagedObjectModel(contentsOfURL: NSBundle(identifier: "com.giantrobotlabs.FitBuddy.FitBuddyModel")!.URLForResource("GymBuddyModel", withExtension: "momd")!)!
         }()
     
-    lazy public var managedObjectContext: NSManagedObjectContext? = {
-        
-        let coordinator = self.persistentStoreCoordinator
-        if coordinator == nil {
-            return nil
-        }
+    lazy public var managedObjectContext: NSManagedObjectContext = {
         
         let managedObjectContext = NSManagedObjectContext()
         
-        managedObjectContext.persistentStoreCoordinator = coordinator
+        managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
         managedObjectContext.mergePolicy = NSMergePolicy(mergeType: NSMergePolicyType.MergeByPropertyObjectTrumpMergePolicyType);
         
         return managedObjectContext
         }()
 
     
-    lazy public var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
+    lazy public var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
        
         let path = self.applicationDocumentsDirectory
         let dbDirURL = path.URLByAppendingPathComponent("Database")
@@ -83,7 +75,9 @@ public class CoreDataConnection : NSObject {
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.theLocalStore, options: CoreDataConnection.defaultConnection().defaultStoreOptions(nil), error: &error) == nil {
+        let options = self.defaultStoreOptions(nil)
+        
+        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.theLocalStore, options: options, error: &error) == nil {
             
             coordinator = nil
             
@@ -100,22 +94,26 @@ public class CoreDataConnection : NSObject {
             abort()
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(CoreDataConnection.defaultConnection(), selector: "storeWillChangeHandler", name:  NSPersistentStoreCoordinatorStoresWillChangeNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(CoreDataConnection.defaultConnection(), selector: "storeDidChangeHandler" , name:  NSPersistentStoreCoordinatorStoresDidChangeNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(CoreDataConnection.defaultConnection(), selector: "storeDidImportHandler" , name:  NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "storeWillChangeHandler", name:  NSPersistentStoreCoordinatorStoresWillChangeNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "storeDidChangeHandler" , name:  NSPersistentStoreCoordinatorStoresDidChangeNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "storeDidImportHandler" , name:  NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: nil);
         
-        return coordinator
+        return coordinator!
         }()
     
     
     public func defaultStoreOptions (foriCloud: Bool?) -> [NSObject: AnyObject]? {
     
-        var override = false
-        if let cloud = foriCloud {
-            override = cloud
+        var icloudDefault = false
+        if let sharedDefaults = NSUserDefaults(suiteName: FBConstants.kGROUPPATH) {
+            icloudDefault = NSUserDefaults(suiteName: FBConstants.kGROUPPATH)!.boolForKey(FBConstants.kUSEICLOUDKEY)
         }
         
-        if override || FitBuddyUtils.getSharedUserDefaults()!.boolForKey(FBConstants.kUSEICLOUDKEY)  {
+        if let cloud = foriCloud {
+            icloudDefault = cloud
+        }
+        
+        if icloudDefault {
             return [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true, NSPersistentStoreUbiquitousContentNameKey: "iCloudStore"]
         }
         
@@ -154,7 +152,7 @@ public class CoreDataConnection : NSObject {
             //This is good. Cloud settings are in sync
             
             if FitBuddyUtils.isCloudOn() {
-             
+/*
                 let cloudurl = CoreDataHelper2.coreDataUbiquityURL()
                 
                 var error: NSError? = nil
@@ -206,10 +204,10 @@ public class CoreDataConnection : NSObject {
                 self.applicationDocumentsDirectory = CoreDataHelper2.groupDocsURL()
                 self.theLocalStore = CoreDataHelper2.coreDataGroupURL()
                 FitBuddyUtils.setCloudOn(false)
-           
+*/
             
-           //     self.applicationDocumentsDirectory = CoreDataHelper2.localDocsURL()
-           //     self.theLocalStore = CoreDataHelper2.coreDataLocalURL()
+                self.applicationDocumentsDirectory = CoreDataHelper2.localDocsURL()
+                self.theLocalStore = CoreDataHelper2.coreDataUbiquityURL()!
 
             }            
         
@@ -271,51 +269,49 @@ public class CoreDataConnection : NSObject {
 //
     public func storeWillChangeHandler() {
         
-        if ((self.managedObjectContext) != nil) {
-            if (FBConstants.DEBUG) {
-                NSLog("Saving context prior to change.")
-            }
-            
-            var error: NSError? = nil
-            self.managedObjectContext!.save(&error)
-            self.managedObjectContext!.reset();
-            
-            if (error != nil) {
-                NSLog("Error occured while saving context during prepare: %@", error!)
-            }
+        
+        if (FBConstants.DEBUG) {
+            NSLog("Saving context prior to change.")
         }
+        
+        var error: NSError? = nil
+        self.managedObjectContext.save(&error)
+        self.managedObjectContext.reset();
+        
+        if (error != nil) {
+            NSLog("Error occured while saving context during prepare: %@", error!)
+        }
+        
     }
     
     public func storeDidChangeHandler () {
         
-        if (self.managedObjectContext != nil)  {
-            
-            var error: NSError? = nil
-            self.managedObjectContext!.save(&error)
-            
-            if (error != nil) {
-                NSLog("Error occured while saving context on change: %@", error!)
-            }
-            
-            if (FBConstants.DEBUG) {
-                NSLog("Store did change. Notify listeners");
-            }
-            
-            NSNotificationCenter.defaultCenter().postNotificationName(FBConstants.kUBIQUITYCHANGED, object: self)
+        var error: NSError? = nil
+        self.managedObjectContext.save(&error)
+        
+        if (error != nil) {
+            NSLog("Error occured while saving context on change: %@", error!)
         }
+        
+        if (FBConstants.DEBUG) {
+            NSLog("Store did change. Notify listeners");
+        }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(FBConstants.kUBIQUITYCHANGED, object: self)
+        
     }
     
     public func storeDidImportHandler() {
         
-        if (self.managedObjectContext != nil) {
-            
-            var error: NSError? = nil
-            
-            if (FBConstants.DEBUG) {
-                NSLog("Store did change on import. Notify listeners")
-            }
-            
-            NSNotificationCenter.defaultCenter().postNotificationName(FBConstants.kUBIQUITYCHANGED, object: self)
+        
+        
+        var error: NSError? = nil
+        
+        if (FBConstants.DEBUG) {
+            NSLog("Store did change on import. Notify listeners")
         }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(FBConstants.kUBIQUITYCHANGED, object: self)
     }
+    
 }

@@ -26,7 +26,7 @@ public class CoreDataModelManager: NSObject, ModelManager {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         // Execute the fetch request, and cast the results to an array of LogItem objects
-        if let fetchResults = coreData!.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Workout] {
+        if let fetchResults = coreData!.managedObjectContext.executeFetchRequest(fetchRequest, error: nil) as? [Workout] {
             return fetchResults
         }
         
@@ -39,7 +39,7 @@ public class CoreDataModelManager: NSObject, ModelManager {
         fetchRequest.predicate = NSPredicate(format: "workout == %@", argumentArray: [workout])
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "sequence", ascending: true)]
         
-        if let fetchResults = coreData!.managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [WorkoutSequence] {
+        if let fetchResults = coreData!.managedObjectContext.executeFetchRequest(fetchRequest, error: nil) as? [WorkoutSequence] {
             return fetchResults
         }
         
@@ -48,7 +48,7 @@ public class CoreDataModelManager: NSObject, ModelManager {
     
     public func newLogbookEntryFromWorkoutSequence (workoutSequence: WorkoutSequence) -> LogbookEntry {
         
-        let newEntry = NSEntityDescription.insertNewObjectForEntityForName(FBConstants.LOGBOOK_TABLE, inManagedObjectContext: coreData!.managedObjectContext!) as! LogbookEntry
+        let newEntry = NSEntityDescription.insertNewObjectForEntityForName(FBConstants.LOGBOOK_TABLE, inManagedObjectContext: coreData!.managedObjectContext) as! LogbookEntry
         
         newEntry.workout = workoutSequence.workout
         newEntry.workout_name = workoutSequence.workout.workout_name
@@ -111,21 +111,24 @@ public class CoreDataModelManager: NSObject, ModelManager {
     
     public func deleteDataObject (nsManagedObject: NSManagedObject) {
         
-        coreData!.managedObjectContext?.deleteObject(nsManagedObject)
+        coreData!.managedObjectContext.deleteObject(nsManagedObject)
         save()
         
         NSLog("Deleted managed object");
     }
     
     public func save () {
-        if let moc = coreData!.managedObjectContext {
-            var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                abort()
-            }
+        
+        var error: NSError? = nil
+        if coreData!.managedObjectContext.hasChanges {
+            coreData!.managedObjectContext.save(&error)
         }
+        
+        if error != nil {
+            NSLog("Unresolved error \(error), \(error!.userInfo)")
+            abort()
+        }
+        
     }
 
     public func exportData(destination: String) -> NSURL? {

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        FitBuddyUtils.setCloudOn(true)
+    
         self.coreDataConnection.setGroupContext()
         self.coreDataConnection.setUbiquityContext()
     
@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }()
     
     lazy var coreDataConnection : CoreDataConnection = {
-        return CoreDataConnection.defaultConnection()
+        return CoreDataConnection.defaultConnection
         }()
     
     lazy var theLocalStore: NSURL = {
@@ -106,27 +106,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func syncSharedDefaults() {
         
-        if let resistance = NSUserDefaults.standardUserDefaults().stringForKey(FBConstants.kRESISTANCEINCKEY) {
-            FitBuddyUtils.getSharedUserDefaults()?.setObject(resistance, forKey: FBConstants.kRESISTANCEINCKEY)
-        }
-        else {
-            FitBuddyUtils.getSharedUserDefaults()?.setObject("2.5", forKey: FBConstants.kRESISTANCEINCKEY)
-        }
-        
-        if let cardio = NSUserDefaults.standardUserDefaults().stringForKey(FBConstants.kCARDIOINCKEY) {
-            FitBuddyUtils.getSharedUserDefaults()?.setObject(cardio, forKey: FBConstants.kCARDIOINCKEY)
-        }
-        else {
-            FitBuddyUtils.getSharedUserDefaults()?.setObject("0.5", forKey: FBConstants.kCARDIOINCKEY)
-        }
-        
-        if let icloud = NSUserDefaults.standardUserDefaults().stringForKey(FBConstants.kUSEICLOUDKEY) {
-            FitBuddyUtils.getSharedUserDefaults()?.setObject(icloud, forKey: FBConstants.kUSEICLOUDKEY)
-        }
+        if let shareDefaults = FitBuddyUtils.defaultUtils().sharedUserDefaults {
             
-        FitBuddyUtils.getSharedUserDefaults()?.synchronize()
-        
+            if let resistance = NSUserDefaults.standardUserDefaults().stringForKey(FBConstants.kRESISTANCEINCKEY) {
+                shareDefaults.setObject(resistance, forKey: FBConstants.kRESISTANCEINCKEY)
+            }
+            else {
+                shareDefaults.setObject("2.5", forKey: FBConstants.kRESISTANCEINCKEY)
+            }
+            
+            if let cardio = NSUserDefaults.standardUserDefaults().stringForKey(FBConstants.kCARDIOINCKEY) {
+                shareDefaults.setObject(cardio, forKey: FBConstants.kCARDIOINCKEY)
+            }
+            else {
+                shareDefaults.setObject("0.5", forKey: FBConstants.kCARDIOINCKEY)
+            }
+            
+            if let icloud = NSUserDefaults.standardUserDefaults().stringForKey(FBConstants.kUSEICLOUDKEY) {
+                shareDefaults.setObject(icloud, forKey: FBConstants.kUSEICLOUDKEY)
+            }
+            
+            shareDefaults.synchronize()
+            
+        }
+        else {
+            NSLog("Could not sync defaults")
+        }
+    
     }
-    
-    
 }

@@ -48,7 +48,6 @@ class WorkoutStartController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        WorkoutStartController.coreDataConnection.setUbiquityContext()
         workoutListView.insertRowsAtIndexes(NSIndexSet(indexesInRange: NSMakeRange(0, 1)), withRowType: "WorkoutCellType");
 
         let row = workoutListView.rowControllerAtIndex(0) as! WorkoutCellType
