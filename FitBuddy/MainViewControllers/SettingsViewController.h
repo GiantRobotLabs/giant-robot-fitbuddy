@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
 
-@interface SettingsViewController : UITableViewController
+@interface SettingsViewController1 : UITableViewController
 
 @property (nonatomic, strong) NSUserDefaults *defaults;
 

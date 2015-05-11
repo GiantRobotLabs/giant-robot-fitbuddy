@@ -42,6 +42,9 @@
 #define kNO                 @"No"
 #define kEXPORTDBKEY        @"Export Database"
 #define kITUNES             @"iTunes"
+#define kUSEICLOUDKEY       @"Use iCloud"
+#define kRESISTANCEINCKEY   @"Resistance Increment"
+#define kCARDIOINCKEY       @"Cardo Increment"
 
 // NOTIFICATIONS
 #define kCHECKBOXTOGGLED    @"CheckboxToggled"

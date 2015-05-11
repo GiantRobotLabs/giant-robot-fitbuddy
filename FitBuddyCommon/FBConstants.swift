@@ -79,4 +79,20 @@ public class FBConstants {
     public static let kRESISTANCEINCKEY = "Resistance Increment"
     public static let kCARDIOINCKEY = "Cardo Increment"
     
+    // SEGUES
+    public static let ADD_EXERCISE_SEGUE = "Add Exercise Segue"
+    public static let ADD_WORKOUT_SEGUE = "Add Workout Segue"
+    public static let START_WORKOUT_SEGUE = "Start Workout Segue"
+    public static let WORKOUT_MODE_SEGUE = "Segue To Me"
+    public static let WORKOUT_REVERSE_SEGUE = "Go Back To Me Segue"
+    public static let GO_HOME_SEGUE = "Go Home Segue"
+    public static let NOTES_SEGUE = "Segue To Notes"
+    public static let SETTINGS_SEGUE = "Segue to Settings"
+    public static let DEMO_SEGUE = "Segue to Demo"
+    
+    public static let kDEFAULT_RESISTANCE_SETTINGS = ["0.5", "1.0", "2.0", "2.5", "5.0"]
+    public static let kDEFAULT_CARDIO_SETTINGS = ["0.1", "0.2", "0.3", "0.4", "0.5", "1.0", "2.0", "2.5", "5.0"]
+    public static let kDEFAULT_BOOLEAN_OPTIONS = ["Yes", "No"]
+    public static let kDEFAULT_EXPORT_TYPES = ["iTunes"]
+    
 }

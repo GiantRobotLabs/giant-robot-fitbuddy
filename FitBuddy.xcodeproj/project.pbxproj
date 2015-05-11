@@ -10,6 +10,8 @@
 		D601920F18AFDF0C00255256 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D601920E18AFDF0C00255256 /* DemoViewController.m */; };
 		D601921318AFDF6F00255256 /* DemoContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D601921218AFDF6F00255256 /* DemoContentViewController.m */; };
 		D601921518AFE01600255256 /* Demo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D601921418AFE01600255256 /* Demo.xcassets */; };
+		D60910591B014DA2001D86C9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60910581B014DA2001D86C9 /* SettingsViewController.swift */; };
+		D609105D1B015A35001D86C9 /* SettingsIncrementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D609105C1B015A35001D86C9 /* SettingsIncrementViewController.swift */; };
 		D60AF5C41AFAED0F00D2349D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D632C3221AEC59C600D1A69A /* HealthKit.framework */; };
 		D60B4CBE14D7A888001ECCE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60B4CBD14D7A888001ECCE3 /* UIKit.framework */; };
 		D60B4CC014D7A888001ECCE3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60B4CBF14D7A888001ECCE3 /* Foundation.framework */; };
@@ -189,6 +191,8 @@
 		D601921118AFDF6F00255256 /* DemoContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoContentViewController.h; path = Demo/DemoContentViewController.h; sourceTree = SOURCE_ROOT; };
 		D601921218AFDF6F00255256 /* DemoContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoContentViewController.m; path = Demo/DemoContentViewController.m; sourceTree = SOURCE_ROOT; };
 		D601921418AFE01600255256 /* Demo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Demo.xcassets; sourceTree = SOURCE_ROOT; };
+		D60910581B014DA2001D86C9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = controllers/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
+		D609105C1B015A35001D86C9 /* SettingsIncrementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsIncrementViewController.swift; path = controllers/SettingsIncrementViewController.swift; sourceTree = SOURCE_ROOT; };
 		D60B4CBD14D7A888001ECCE3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D60B4CBF14D7A888001ECCE3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D60B4CC114D7A888001ECCE3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -712,6 +716,8 @@
 			children = (
 				D6D32F7A1AED6B020057F00B /* AppDelegate.swift */,
 				D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */,
+				D60910581B014DA2001D86C9 /* SettingsViewController.swift */,
+				D609105C1B015A35001D86C9 /* SettingsIncrementViewController.swift */,
 				D6B088A61AF127DD00962EDB /* utilities */,
 			);
 			name = "FitBuddy (Swift)";
@@ -1126,6 +1132,7 @@
 				D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */,
 				D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */,
 				D6C2CA60170E6C4000BA02DA /* LogbookViewController.m in Sources */,
+				D609105D1B015A35001D86C9 /* SettingsIncrementViewController.swift in Sources */,
 				D6D32F7E1AED6C580057F00B /* WorkoutViewController.swift in Sources */,
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
 				D6C2CA62170E6C4000BA02DA /* SettingsIncrementViewController.m in Sources */,
@@ -1133,6 +1140,7 @@
 				D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */,
 				D601920F18AFDF0C00255256 /* DemoViewController.m in Sources */,
 				D632C3571AEC6E7400D1A69A /* JBChartView.m in Sources */,
+				D60910591B014DA2001D86C9 /* SettingsViewController.swift in Sources */,
 				D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */,
 				D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */,
 				D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */,

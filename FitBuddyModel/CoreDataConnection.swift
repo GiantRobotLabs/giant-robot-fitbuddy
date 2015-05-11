@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 import FitBuddyCommon
 
+@objc
 public class CoreDataConnection : NSObject {
     
     //The default context
@@ -75,7 +76,7 @@ public class CoreDataConnection : NSObject {
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         
-        let options = self.defaultStoreOptions(nil)
+        let options = self.defaultStoreOptions()
         
         if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: self.theLocalStore, options: options, error: &error) == nil {
             
@@ -101,19 +102,19 @@ public class CoreDataConnection : NSObject {
         return coordinator!
         }()
     
-    
-    public func defaultStoreOptions (foriCloud: Bool?) -> [NSObject: AnyObject]? {
-    
+    public func defaultStoreOptions () -> [NSObject: AnyObject]? {
+        
         var icloudDefault = false
         if let sharedDefaults = NSUserDefaults(suiteName: FBConstants.kGROUPPATH) {
             icloudDefault = NSUserDefaults(suiteName: FBConstants.kGROUPPATH)!.boolForKey(FBConstants.kUSEICLOUDKEY)
         }
+    
+        return defaultStoreOptions(icloudDefault)
+    }
+    
+    public func defaultStoreOptions (foriCloud: Bool) -> [NSObject: AnyObject]? {
         
-        if let cloud = foriCloud {
-            icloudDefault = cloud
-        }
-        
-        if icloudDefault {
+        if foriCloud {
             return [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true, NSPersistentStoreUbiquitousContentNameKey: "iCloudStore"]
         }
         

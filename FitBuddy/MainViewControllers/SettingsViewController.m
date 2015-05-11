@@ -9,7 +9,7 @@
 #import "SettingsViewController.h"
 #import "FitBuddyMacros.h"
 
-@implementation SettingsViewController
+@implementation SettingsViewController1
 
 @synthesize defaults = _defaults;
 
@@ -25,14 +25,23 @@
         {
             cellDetail.text = [self.defaults stringForKey:cellLabel.text] ;
         }
-        else if ([cellLabel.text hasSuffix:@"Resistance Increment"])
+        else if ([cellLabel.text hasSuffix:kRESISTANCEINCKEY])
         {
             cellDetail.text = @"2.5";
         }
-        else if ([cellLabel.text hasSuffix:@"Cardio Increment"])
+        else if ([cellLabel.text hasSuffix:kCARDIOINCKEY])
         {
             cellDetail.text = @"0.5";
         }
+        else if ([cellLabel.text hasSuffix:kUSEICLOUDKEY])
+        {
+            cellDetail.text = @"No";
+        }
+        else if ([cellLabel.text hasSuffix:kEXPORTDBKEY])
+        {
+            cellDetail.text = @"iTunes";
+        }
+        
     }
 }
 
@@ -84,6 +93,10 @@
             
             if ([label.text hasSuffix:@"Export Database"]) {
                 [pickerValues addObjectsFromArray:kDEFAULT_EXPORT_TYPES];
+            }
+            
+            if ([label.text hasSuffix:@"Use iCloud"]) {
+                [pickerValues addObjectsFromArray:kDEFAULT_BOOLEAN_OPTIONS];
             }
             
             NSInvocation *setPicker = [NSInvocation invocationWithMethodSignature:[[segue.destinationViewController class] instanceMethodSignatureForSelector:setPickerValuesSelector]];
