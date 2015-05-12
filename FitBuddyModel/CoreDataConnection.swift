@@ -153,74 +153,20 @@ public class CoreDataConnection : NSObject {
             //This is good. Cloud settings are in sync
             
             if FitBuddyUtils.isCloudOn() {
-/*
-                let cloudurl = CoreDataHelper2.coreDataUbiquityURL()
-                
-                var error: NSError? = nil
-
-                NSFileManager.defaultManager().removeItemAtPath(CoreDataHelper2.groupDocsURL().URLByAppendingPathComponent("Database").path!, error: &error)
-                
-                if error != nil {
-                    NSLog("Error deleting directory %@", error!)
-                }
-
-                self.applicationDocumentsDirectory = CoreDataHelper2.localDocsURL()
-                self.theLocalStore = CoreDataHelper2.coreDataLocalURL()
-                
-                NSLog("Migrating data to group and turning iCloud off for now.")
-                
-                
-                let coord = self.persistentStoreCoordinator
-                
-                let storeURL = CoreDataHelper2.coreDataGroupURL()
-        
-                var seedStoreOptions = CoreDataConnection.defaultConnection().defaultStoreOptions(true)!
-                seedStoreOptions[NSReadOnlyPersistentStoreOption] = true
-                
-                let count = coord!.persistentStores.count
-                let seedStore = coord!.persistentStores.last! as! NSPersistentStore
-        
-                //let seedStore = coord!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: CoreDataHelper2.coreDataUbiquityURL(), options: seedStoreOptions, error: &error)
-                
-                let newStoreOptions = CoreDataConnection.defaultConnection().defaultStoreOptions(false)
-                
-                let queue = NSOperationQueue()
-                
-                queue.addOperationWithBlock({
-                    
-                    var blockError: NSError? = nil
-                    coord!.migratePersistentStore(seedStore, toURL: storeURL, options: newStoreOptions, withType: NSSQLiteStoreType, error: &blockError)
-                    
-                    let mainQueue = NSOperationQueue()
-                    mainQueue.addOperationWithBlock({
-                        //This will be called when the migration is done
-
-                    })
-                })
-                
-                if error != nil {
-                    NSLog("An error occured during migration %@", error!)
-                }
-                
-                self.applicationDocumentsDirectory = CoreDataHelper2.groupDocsURL()
-                self.theLocalStore = CoreDataHelper2.coreDataGroupURL()
-                FitBuddyUtils.setCloudOn(false)
-*/
-            
+                //Need to set doc locations to device for sync
                 self.applicationDocumentsDirectory = CoreDataHelper2.localDocsURL()
                 self.theLocalStore = CoreDataHelper2.coreDataUbiquityURL()!
-
-            }            
-        
-        } else if FitBuddyUtils.isCloudOn() && (CoreDataHelper2.coreDataUbiquityURL() == nil) {
+            }
+        }
+        else if FitBuddyUtils.isCloudOn() && (CoreDataHelper2.coreDataUbiquityURL() == nil) {
             //This means someone turned off iCloud. Need to rebuild the database and remove ubiquity keys
             NSLog("%@ %@", FitBuddyUtils.isCloudOn(), (CoreDataHelper2.coreDataUbiquityURL() == nil))
             
             CoreDataHelper2.migrateDataStore(CoreDataHelper2.coreDataLocalURL(), sourceStoreType: CoreDataType.ICLOUD, destSqliteStore: CoreDataHelper2.coreDataGroupURL(), destStoreType: CoreDataType.GROUP)
             
             FitBuddyUtils.setCloudOn(false)
-            
-        } else if CoreDataHelper2.coreDataUbiquityURL() != nil && !FitBuddyUtils.isCloudOn() {
+        }
+        else if CoreDataHelper2.coreDataUbiquityURL() != nil && !FitBuddyUtils.isCloudOn() {
             //This means iCloud was just turned on. Time to migrate to ubiquity store.
             NSLog("%@ %@", (CoreDataHelper2.coreDataUbiquityURL() != nil), (!FitBuddyUtils.isCloudOn()))
             NSLog("Not setting up cloud sync for now. Leaving data in the group.")

@@ -9,11 +9,15 @@
 import Foundation
 import UIKit
 import FitBuddyCommon
+import FitBuddyModel
 
 class SettingsIncrementViewController : UIViewController, UIAlertViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var settingsKey : String = ""
     var pickerValues : NSMutableArray = []
+    
+    var activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+
     
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var spinnerTitle: UILabel!
@@ -102,182 +106,137 @@ class SettingsIncrementViewController : UIViewController, UIAlertViewDelegate, U
     }
     
     func handleiCloudToggle (value: String) {
+        
         FitBuddyUtils.setCloudOn(value == "Yes" ? true : false)
+
+        if value == FBConstants.kYES
+        {
+            if CoreDataHelper2.coreDataUbiquityURL() == nil {
+                
+                let alert = UIAlertView(title: "Can't activate iCloud", message: "It doesn't look like iCloud is enabled on this device. Please go to the Settings app to make sure your iCloud account is set up and active.", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+                
+                FitBuddyUtils.setCloudOn(false)
+                FitBuddyUtils.saveDefaults()
+                self.loadPickerFromDefaults()
+            }
+            else if self.cloudExists() {
+                
+                let alert = UIAlertView(title: "Switching to iCloud", message: "It looks like there is already FitBuddy data in iCloud. Would you like to recover or replace the iCloud workout data.", delegate: self, cancelButtonTitle: "Recover", otherButtonTitles: "Replace")
+                alert.show()
+            }
+            else {
+                self.migrateLocalToiCloudWithRecovery(true)
+            }
+        }
+        else if value == FBConstants.kNO {
+            self.migrateiCloudToLocal()
+        }
+        
         self.exit()
     }
-}
-
-
-/*
-
-#pragma mark - iCloud Handler
-- (void) handleiCloudToggle: (NSString *) value
-{
     
-    [self.defaults setObject:value forKey:kUSEICLOUDKEY];
-    return;
+    func cloudExists() -> Bool {
+        //TODO: do something
+        return false
+    }
     
-    if ([value isEqualToString:kYES])
-    {
-        if ([[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil] == nil)
-        {
-            UIAlertView *alert = [[UIAlertView alloc]
-                initWithTitle: @"Can't activate iCloud"
-            message: @"It doesn't look like iCloud is enabled on this device. Please go to the Settings app to make sure your iCloud account is set up and active."
-            delegate: nil
-            cancelButtonTitle:@"OK"
-            otherButtonTitles:nil];
-            [alert show];
+    func migrateLocalToiCloudWithRecovery(recovery: Bool) -> Bool {
+        
+        if recovery {
+            NSLog("Recovering content from iCloud")
+        }
+        else {
+            NSLog("Replacing content in iCloud")
+        }
+        
+        var error : NSError? = nil
+        
+        let options = CoreDataConnection.defaultConnection.defaultStoreOptions(true)
+        waitForiCloudResponse()
+        
+        let oldstore = AppDelegate.sharedAppDelegate().persistentStoreCoordinator!.persistentStores.last as! NSPersistentStore
+        
+        if recovery {
             
-            [self.defaults setObject:@"No" forKey:self.defaultsKey];
-            [self.defaults synchronize];
-            [self loadPickerFromDefaults];
+            AppDelegate.sharedAppDelegate().persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: CoreDataHelper2.coreDataUbiquityURL()!, options: options, error: &error)
+            
+            AppDelegate.sharedAppDelegate().persistentStoreCoordinator!.removePersistentStore(oldstore, error: &error)
+            
+            if error != nil {
+                NSLog("Failed to replace Cloud store with Local store: %@", error!);
+                return false
+            }
             
         }
-        else if ([self iCloudExists])
-        {
-            UIAlertView *alert = [[UIAlertView alloc]
-                initWithTitle: @"Switching to iCloud"
-            message: @"It looks like there is already FitBuddy data in iCloud. Would you like to recover or replace the iCloud workout data."
-            delegate: self
-            cancelButtonTitle:@"Recover"
-            otherButtonTitles:@"Replace", nil];
-            [alert show];
-        }
-        else
-        {
-            [self migrateLocalToiCloudWithRecovery:YES];
-        }
-    }
-    else if ([value isEqualToString:kNO])
-    {
-        [self migrateiCloudToLocal];
-    }
-}
-
--(void)alertView:(UIAlertView *)alert_view didDismissWithButtonIndex:(NSInteger)button_index
-{
-    if (button_index == 0)
-    {
-        NSLog (@"Recover");
-        [self migrateLocalToiCloudWithRecovery:YES];
-    }
-    else if (button_index == 1)
-    {
-        NSLog(@"Replace");
-        
-        [self migrateLocalToiCloudWithRecovery:NO];
-    }
-}
-
--(BOOL) migrateLocalToiCloudWithRecovery: (BOOL) recover
-{
-    NSError *err;
-    
-    NSDictionary *options = [[CoreDataConnection defaultConnection] defaultStoreOptions:YES];
-    [self waitForiCloudResponse];
-    
-    NSPersistentStore *oldstore = [[AppDelegate sharedAppDelegate]. persistentStoreCoordinator.persistentStores lastObject];
-    
-    if (recover)
-    {
-        
-        [[[AppDelegate sharedAppDelegate] persistentStoreCoordinator] removePersistentStore:oldstore error:&err];
-        
-        if (err)
-        {
-            NSLog(@"Failed to replace Cloud store with Local store: %@", err);
+        else {
             
-            return FALSE;
+            AppDelegate.sharedAppDelegate().persistentStoreCoordinator!.migratePersistentStore(oldstore, toURL: CoreDataHelper2.coreDataUbiquityURL()!, options: options, withType: NSSQLiteStoreType, error: &error)
+            
+            if error != nil {
+                NSLog("Failed to migrate Local to iCloud store: %@", error!);
+                return false
+            }
         }
-    }
-    else
-    {
-        [[AppDelegate sharedAppDelegate].persistentStoreCoordinator migratePersistentStore:oldstore toURL:[[AppDelegate sharedAppDelegate] theLocalStore] options:options withType:NSSQLiteStoreType error:&err];
-        
-        if (err)
-        {
-            NSLog(@"Failed to migrate Local to iCloud store: %@", err);
-            return FALSE;
-        }
+        return true
     }
     
-    return TRUE;
+    func migrateiCloudToLocal ()  -> Bool {
+        
+        var error : NSError? = nil
+        
+        let options = CoreDataConnection.defaultConnection.defaultStoreOptions(false)
+        waitForiCloudResponse()
+        
+        let oldstore = AppDelegate.sharedAppDelegate().persistentStoreCoordinator!.persistentStores.last as! NSPersistentStore
+        
+        AppDelegate.sharedAppDelegate().persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: CoreDataHelper2.coreDataGroupURL(), options: options, error: &error)
+        
+        if error != nil {
+            NSLog("Failed to migrate iCloud to local store: %@", error!)
+            return false
+        }
+        
+        self.exit()
+        return true
+    }
+    
+    func waitForiCloudResponse () {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "cloudDidRespond", name: FBConstants.kUBIQUITYCHANGED, object: AppDelegate.sharedAppDelegate())
+        showActivityIndicatorOnView(self.tabBarController!.view.superview!)
+        UIApplication.sharedApplication().keyWindow?.userInteractionEnabled = false
+    }
+    
+    func cloudDidRespond (sender: AnyObject?) {
+        NSLog("Got response from iCloud")
+        activityIndicatorView.stopAnimating()
+        UIApplication.sharedApplication().keyWindow?.userInteractionEnabled = true
+        activityIndicatorView = nil
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        self.exit()
+    }
+    
+    func showActivityIndicatorOnView (aView: UIView) -> UIActivityIndicatorView {
+        
+        let viewSize = aView.bounds.size
+        
+        if activityIndicatorView == nil {
+            activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        }
+        activityIndicatorView.bounds = CGRectMake(0, 0, 65, 65)
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.alpha = 0.7
+        activityIndicatorView.backgroundColor = FBConstants.kCOLOR_GRAY_t
+        activityIndicatorView.layer.cornerRadius = 10.0
+        activityIndicatorView.center = CGPointMake(viewSize.width/2.0, viewSize.height/2.0)
+        
+        aView.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
+        
+        return activityIndicatorView
+    }
+    
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+        self.migrateLocalToiCloudWithRecovery(buttonIndex == 0)
+    }
 }
-
--(BOOL) migrateiCloudToLocal
-    {
-        NSError *err;
-        NSDictionary *options = [[CoreDataConnection defaultConnection] defaultStoreOptions:NO];
-        
-        [self waitForiCloudResponse];
-        
-        NSPersistentStore *oldstore = [[AppDelegate sharedAppDelegate]. persistentStoreCoordinator.persistentStores lastObject];
-        
-        // [CoreDataHelper moveLocalStoreToBackup];
-        
-        NSPersistentStoreCoordinator *psc = [AppDelegate sharedAppDelegate].persistentStoreCoordinator;
-        
-        [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[[AppDelegate sharedAppDelegate] theLocalStore] options:options error:&err];
-        
-        if (err)
-        {
-            NSLog(@"Failed to migrate iCloud to local store: %@", err);
-            return FALSE;
-        }
-        
-        [self exit];
-        return TRUE;
-}
-
--(BOOL) iCloudExists
-    {
-        //TODO: determine if icloud exists
-        
-        return FALSE;
-    }
-    
-    - (void) waitForiCloudResponse
-        {
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cloudDidRespond:) name:kUBIQUITYCHANGED object:[AppDelegate sharedAppDelegate]];
-            [self showActivityIndicatorOnView:self.tabBarController.view.superview];
-            [[[UIApplication sharedApplication] keyWindow] setUserInteractionEnabled:FALSE];
-        }
-        
-        - (void) cloudDidRespond: (id) sender
-{
-    NSLog(@"response from icloud");
-    
-    [activityIndicatorView stopAnimating];
-    [[[UIApplication sharedApplication] keyWindow] setUserInteractionEnabled:TRUE];
-    activityIndicatorView = nil;
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    [self exit];
-    }
-    
-    - (UIActivityIndicatorView *)showActivityIndicatorOnView:(UIView*)aView
-{
-    CGSize viewSize = aView.bounds.size;
-    
-    // create new dialog box view and components
-    activityIndicatorView = [[UIActivityIndicatorView alloc]
-        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    
-    // other size? change it
-    activityIndicatorView.bounds = CGRectMake(0, 0, 65, 65);
-    activityIndicatorView.hidesWhenStopped = YES;
-    activityIndicatorView.alpha = 0.7f;
-    activityIndicatorView.backgroundColor = kCOLOR_GRAY_t;
-    activityIndicatorView.layer.cornerRadius = 10.0f;
-    
-    // display it in the center of your view
-    activityIndicatorView.center = CGPointMake(viewSize.width / 2.0, viewSize.height / 2.0);
-    
-    [aView addSubview:activityIndicatorView];
-    
-    [activityIndicatorView startAnimating];
-    
-    return activityIndicatorView;
-}
-*/
