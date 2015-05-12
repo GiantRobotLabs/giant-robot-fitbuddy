@@ -13,7 +13,7 @@ import FitBuddyCommon
 class SettingsIncrementViewController : UIViewController, UIAlertViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var settingsKey : NSString?
-    let userDefaults = FitBuddyUtils.defaultUtils().sharedUserDefaults
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     var pickerValues : NSMutableArray = []
     
     @IBOutlet weak var picker: UIPickerView!
@@ -21,8 +21,6 @@ class SettingsIncrementViewController : UIViewController, UIAlertViewDelegate, U
     
     func setPickerValues (values: NSArray, defaultValue: String) {
         pickerValues = values.mutableCopy() as! NSMutableArray
-        
-        
     }
     
     func setDefaultsKey (defaultsKey: String) {
@@ -57,7 +55,7 @@ class SettingsIncrementViewController : UIViewController, UIAlertViewDelegate, U
     
     func loadPickerFromDefaults() {
         
-        if let value = self.userDefaults!.stringForKey(self.settingsKey! as String) {
+        if let value = self.userDefaults.stringForKey(self.settingsKey! as String) {
             let index = self.pickerValues.indexOfObject(value)
             self.picker.selectRow(index, inComponent: 0, animated: true)
         }
@@ -73,16 +71,25 @@ class SettingsIncrementViewController : UIViewController, UIAlertViewDelegate, U
         
         if self.settingsKey == FBConstants.kEXPORTDBKEY {
             self.handleExportToggle(value)
+            self.exit()
         }
         
-        if self.settingsKey == FBConstants.kUSEICLOUDKEY {
-            self.handleiCloudToggle(value)
+        let defValue = self.userDefaults.stringForKey(self.settingsKey as! String)
+        
+        if  defValue != value {
+            
+            self.userDefaults.setObject(value, forKey: self.settingsKey! as String)
+            
+            if self.settingsKey == FBConstants.kUSEICLOUDKEY {
+                self.handleiCloudToggle(value)
+            }
+            else {
+                self.exit()
+            }
         }
         else {
             self.exit()
         }
-        
-        self.userDefaults!.setObject(value, forKey: self.settingsKey! as String)
     }
     
     func handleExportToggle(exportType : String) {
@@ -90,11 +97,12 @@ class SettingsIncrementViewController : UIViewController, UIAlertViewDelegate, U
     }
     
     func handleiCloudToggle (value: String) {
-        
+        FitBuddyUtils.setCloudOn(value == "Yes" ? true : false)
+        self.exit()
     }
 
     func exit () {
-        defaults!.synchronize()
+        self.userDefaults.synchronize()
         AppDelegate.sharedAppDelegate().syncSharedDefaults()
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
