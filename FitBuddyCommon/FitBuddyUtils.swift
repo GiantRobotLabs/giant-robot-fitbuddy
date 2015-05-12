@@ -52,7 +52,7 @@ public class FitBuddyUtils {
     
     lazy public var sharedUserDefaults: NSUserDefaults? = {
         let defaults = NSUserDefaults(suiteName: FBConstants.kGROUPPATH)
-        return defaults
+        return defaults!
         }()
     
     public static func twoDecimalFormat(number: NSNumber?) -> String? {
@@ -97,25 +97,31 @@ public class FitBuddyUtils {
         }
         
         return 0
-
     }
     
     public static func isCloudOn() -> Bool {
-        if let defaults = FitBuddyUtils.defaultUtils().sharedUserDefaults {
-            return defaults.valueForKey(FBConstants.kUSEICLOUDKEY)?.string == "Yes"
-        }
-        return false
+        return FitBuddyUtils.getDefault(FBConstants.kUSEICLOUDKEY) == FBConstants.kYES
     }
     
     public static func setCloudOn(value: Bool) {
-        
-        NSUserDefaults.standardUserDefaults().setValue(value ? "Yes" : "No", forKey: FBConstants.kUSEICLOUDKEY)
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
-        if let sharedDefaults = FitBuddyUtils.defaultUtils().sharedUserDefaults {
-            sharedDefaults.setValue(value ? "Yes" : "No", forKey: FBConstants.kUSEICLOUDKEY)
-            sharedDefaults.synchronize()
-        }
+        FitBuddyUtils.setDefault(FBConstants.kUSEICLOUDKEY, value: value ? FBConstants.kYES : FBConstants.kNO)
+        FitBuddyUtils.saveDefaults()
     }
     
+    public static func setDefault(key: String, value: String) {
+        NSUserDefaults.standardUserDefaults().setValue(value, forKey: key)
+        FitBuddyUtils.defaultUtils().sharedUserDefaults!.setValue(value, forKey: key)
+    }
+    
+    public static func getDefault(key: String) -> String? {
+        if let value = NSUserDefaults.standardUserDefaults().stringForKey(key) {
+            return value
+        }
+        return FitBuddyUtils.defaultUtils().sharedUserDefaults!.stringForKey(key)
+    }
+    
+    public static func saveDefaults () {
+        NSUserDefaults.standardUserDefaults().synchronize()
+        FitBuddyUtils.defaultUtils().sharedUserDefaults!.synchronize()
+    }
 }

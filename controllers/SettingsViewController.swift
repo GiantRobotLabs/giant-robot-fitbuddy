@@ -74,7 +74,7 @@ class SettingsViewController: UITableViewController {
             if segue.destinationViewController is SettingsIncrementViewController {
                 
                 let label = (sender as! UITableViewCell).viewWithTag(100) as! UILabel
-                (segue.destinationViewController as! SettingsIncrementViewController).settingsKey = label.text
+                (segue.destinationViewController as! SettingsIncrementViewController).settingsKey = label.text!
                 
                 let pickerValues = NSMutableArray()
                 let detail = (sender as! UITableViewCell).viewWithTag(200) as! UILabel

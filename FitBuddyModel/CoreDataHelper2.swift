@@ -19,7 +19,7 @@ public class CoreDataHelper2: NSObject {
     //Return the current data state based on the icloud flag and present data
     public static func coreDataState (coredataconnection : CoreDataConnection) -> CoreDataType {
         
-        if NSUserDefaults.standardUserDefaults().boolForKey(FBConstants.kUSEICLOUDKEY) {
+        if FitBuddyUtils.isCloudOn() {
             return CoreDataType.ICLOUD
         }
         else {
@@ -106,8 +106,7 @@ public class CoreDataHelper2: NSObject {
                 }
                 
                 FitBuddyUtils.setCloudOn(destStoreType == CoreDataType.ICLOUD)
-                NSUserDefaults.standardUserDefaults().synchronize()
-                
+                FitBuddyUtils.saveDefaults()
             })
         })
         
