@@ -102,18 +102,18 @@ public class FitBuddyUtils {
     
     public static func isCloudOn() -> Bool {
         if let defaults = FitBuddyUtils.defaultUtils().sharedUserDefaults {
-            return defaults.boolForKey(FBConstants.kUSEICLOUDKEY)
+            return defaults.valueForKey(FBConstants.kUSEICLOUDKEY)?.string == "Yes"
         }
         return false
     }
     
     public static func setCloudOn(value: Bool) {
         
-        NSUserDefaults.standardUserDefaults().setBool(value, forKey: FBConstants.kUSEICLOUDKEY)
+        NSUserDefaults.standardUserDefaults().setValue(value ? "Yes" : "No", forKey: FBConstants.kUSEICLOUDKEY)
         NSUserDefaults.standardUserDefaults().synchronize()
         
         if let sharedDefaults = FitBuddyUtils.defaultUtils().sharedUserDefaults {
-            sharedDefaults.setBool(value, forKey: FBConstants.kUSEICLOUDKEY)
+            sharedDefaults.setValue(value ? "Yes" : "No", forKey: FBConstants.kUSEICLOUDKEY)
             sharedDefaults.synchronize()
         }
     }

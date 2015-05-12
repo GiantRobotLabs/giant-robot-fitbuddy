@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pPP-C5-5AB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pPP-C5-5AB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Workout View Controller-->
@@ -694,10 +694,10 @@
             </objects>
             <point key="canvasLocation" x="293" y="453"/>
         </scene>
-        <!--Settings View Controller1-->
+        <!--Settings View Controller-->
         <scene sceneID="fh6-dl-kOp">
             <objects>
-                <tableViewController id="8p9-Kg-E9b" customClass="SettingsViewController1" sceneMemberID="viewController">
+                <tableViewController id="8p9-Kg-E9b" customClass="SettingsViewController" customModule="FitBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="pjl-q5-nsq">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -713,7 +713,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardio Increment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTs-Mn-C7o">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cardo Increment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTs-Mn-C7o">
                                                     <rect key="frame" x="20" y="11" width="133" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -866,8 +866,8 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="8p9-Kg-E9b" id="8ZL-Ay-L3g"/>
-                            <outlet property="delegate" destination="8p9-Kg-E9b" id="Mgt-WB-P8f"/>
+                            <outlet property="dataSource" destination="8p9-Kg-E9b" id="0xw-kq-b0O"/>
+                            <outlet property="delegate" destination="8p9-Kg-E9b" id="60Y-Bp-5W5"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="abC-g5-m8O"/>
@@ -1595,7 +1595,7 @@
         <!--Settings Increment View Controller-->
         <scene sceneID="oP5-nP-6La">
             <objects>
-                <viewController id="K26-YP-rIc" customClass="SettingsIncrementViewController" sceneMemberID="viewController">
+                <viewController id="K26-YP-rIc" customClass="SettingsIncrementViewController" customModule="FitBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v3J-AA-yqO"/>
                         <viewControllerLayoutGuide type="bottom" id="C3q-lu-nCN"/>
@@ -1624,7 +1624,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="confirmChange:" destination="K26-YP-rIc" eventType="touchUpInside" id="O7c-Ws-nVv"/>
+                                    <action selector="confirmChange:" destination="K26-YP-rIc" eventType="touchUpInside" id="bEi-bO-lBx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyN-w8-RWf">
@@ -1647,8 +1647,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="KVf-od-cKo"/>
                     <connections>
-                        <outlet property="picker" destination="H2o-La-0gd" id="PJT-VI-9Y6"/>
-                        <outlet property="spinnerTitle" destination="HyN-w8-RWf" id="r7z-VY-bpO"/>
+                        <outlet property="picker" destination="H2o-La-0gd" id="8Bn-NH-AvK"/>
+                        <outlet property="spinnerTitle" destination="HyN-w8-RWf" id="lJP-8e-bYs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6N-Ou-ayy" userLabel="First Responder" sceneMemberID="firstResponder"/>

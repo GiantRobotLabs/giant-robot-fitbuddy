@@ -11,10 +11,9 @@ import UIKit
 import FitBuddyCommon
 
 var data: NSArray = []
-var tableView : UITableView = UITableView()
 let defaults = FitBuddyUtils.defaultUtils().sharedUserDefaults
 
-class SettingsViewController: UITableViewController, UIAlertViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class SettingsViewController: UITableViewController {
 
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -28,24 +27,23 @@ class SettingsViewController: UITableViewController, UIAlertViewDelegate, UIPick
         
         for cell : UITableViewCell in tableView.visibleCells() as! [UITableViewCell] {
             let label = cell.viewWithTag(100) as! UILabel
-            let detail = cell.viewWithTag(200) as! UILabel
+            let detail = cell.viewWithTag(200) as? UILabel
             
             if let value = defaults!.stringForKey(label.text!) {
-                detail.text = value
+                detail!.text = value
             }
             else {
-                
                 if label.text == FBConstants.kRESISTANCEINCKEY {
-                    detail.text = "2.5"
+                    detail!.text = "2.5"
                 }
                 else if label.text == FBConstants.kCARDIOINCKEY {
-                    detail.text = "0.5"
+                    detail!.text = "0.5"
                 }
                 else if label.text == FBConstants.kEXPORTDBKEY {
-                    detail.text = "iTunes"
+                    detail!.text = "iTunes"
                 }
                 else if label.text == FBConstants.kUSEICLOUDKEY {
-                    detail.text = "No"
+                    detail!.text = "No"
                 }
             }
         }
@@ -73,10 +71,10 @@ class SettingsViewController: UITableViewController, UIAlertViewDelegate, UIPick
         
             let setDefaultsKey = Selector("setDefaultsKey")
             
-            if segue.destinationViewController is SettingsIncrementViewController2 {
+            if segue.destinationViewController is SettingsIncrementViewController {
                 
                 let label = (sender as! UITableViewCell).viewWithTag(100) as! UILabel
-                (segue.destinationViewController as! SettingsIncrementViewController2).settingsKey = label.text
+                (segue.destinationViewController as! SettingsIncrementViewController).settingsKey = label.text
                 
                 let pickerValues = NSMutableArray()
                 let detail = (sender as! UITableViewCell).viewWithTag(200) as! UILabel
@@ -94,7 +92,7 @@ class SettingsViewController: UITableViewController, UIAlertViewDelegate, UIPick
                     pickerValues.addObjectsFromArray(FBConstants.kDEFAULT_BOOLEAN_OPTIONS)
                 }
                 
-                (segue.destinationViewController as! SettingsIncrementViewController2).setPickerValues(pickerValues, defaultValue: detail.text!)
+                (segue.destinationViewController as! SettingsIncrementViewController).setPickerValues(pickerValues, defaultValue: detail.text!)
             }
         }
     }

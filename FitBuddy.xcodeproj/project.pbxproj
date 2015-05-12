@@ -78,8 +78,6 @@
 		D6C2CA5F170E6C4000BA02DA /* LogbookEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA50170E6C4000BA02DA /* LogbookEntryViewController.m */; };
 		D6C2CA60170E6C4000BA02DA /* LogbookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA52170E6C4000BA02DA /* LogbookViewController.m */; };
 		D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA54170E6C4000BA02DA /* NotesEditorViewController.m */; };
-		D6C2CA62170E6C4000BA02DA /* SettingsIncrementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA56170E6C4000BA02DA /* SettingsIncrementViewController.m */; };
-		D6C2CA63170E6C4000BA02DA /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA58170E6C4000BA02DA /* SettingsViewController.m */; };
 		D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA5A170E6C4000BA02DA /* WorkoutAddViewController.m */; };
 		D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA6E170E6C8800BA02DA /* WorkoutSummaryViewController.m */; };
 		D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2CA70170E6C8800BA02DA /* WorkoutViewController.m */; };
@@ -285,10 +283,6 @@
 		D6C2CA52170E6C4000BA02DA /* LogbookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogbookViewController.m; path = FitBuddy/MainViewControllers/LogbookViewController.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA53170E6C4000BA02DA /* NotesEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotesEditorViewController.h; path = FitBuddy/MainViewControllers/NotesEditorViewController.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA54170E6C4000BA02DA /* NotesEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotesEditorViewController.m; path = FitBuddy/MainViewControllers/NotesEditorViewController.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA55170E6C4000BA02DA /* SettingsIncrementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsIncrementViewController.h; path = FitBuddy/MainViewControllers/SettingsIncrementViewController.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA56170E6C4000BA02DA /* SettingsIncrementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsIncrementViewController.m; path = FitBuddy/MainViewControllers/SettingsIncrementViewController.m; sourceTree = SOURCE_ROOT; };
-		D6C2CA57170E6C4000BA02DA /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = FitBuddy/MainViewControllers/SettingsViewController.h; sourceTree = SOURCE_ROOT; };
-		D6C2CA58170E6C4000BA02DA /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = FitBuddy/MainViewControllers/SettingsViewController.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA59170E6C4000BA02DA /* WorkoutAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorkoutAddViewController.h; path = FitBuddy/MainViewControllers/WorkoutAddViewController.h; sourceTree = SOURCE_ROOT; };
 		D6C2CA5A170E6C4000BA02DA /* WorkoutAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutAddViewController.m; path = FitBuddy/MainViewControllers/WorkoutAddViewController.m; sourceTree = SOURCE_ROOT; };
 		D6C2CA6D170E6C8800BA02DA /* WorkoutSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSummaryViewController.h; sourceTree = "<group>"; };
@@ -449,7 +443,6 @@
 				D6C2CA65170E6C4C00BA02DA /* MainViewControllers */,
 				D625E85818B00D5600FFE96D /* New Workout Mode */,
 				D6C2CA68170E6C8800BA02DA /* WorkoutModeControllers */,
-				D696191118A6A066002FE7C2 /* Settings Controllers */,
 				D696191A18A6A9C4002FE7C2 /* Utilities */,
 				D67825D614E583B600C00BD4 /* Components */,
 				D67825D714E583E600C00BD4 /* Storyboards */,
@@ -586,17 +579,6 @@
 				D68790821AF927B000D8E6DE /* test */,
 			);
 			name = FitBuddyCommon;
-			sourceTree = "<group>";
-		};
-		D696191118A6A066002FE7C2 /* Settings Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D6C2CA55170E6C4000BA02DA /* SettingsIncrementViewController.h */,
-				D6C2CA56170E6C4000BA02DA /* SettingsIncrementViewController.m */,
-				D6C2CA57170E6C4000BA02DA /* SettingsViewController.h */,
-				D6C2CA58170E6C4000BA02DA /* SettingsViewController.m */,
-			);
-			name = "Settings Controllers";
 			sourceTree = "<group>";
 		};
 		D696191A18A6A9C4002FE7C2 /* Utilities */ = {
@@ -1135,8 +1117,6 @@
 				D609105D1B015A35001D86C9 /* SettingsIncrementViewController.swift in Sources */,
 				D6D32F7E1AED6C580057F00B /* WorkoutViewController.swift in Sources */,
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
-				D6C2CA62170E6C4000BA02DA /* SettingsIncrementViewController.m in Sources */,
-				D6C2CA63170E6C4000BA02DA /* SettingsViewController.m in Sources */,
 				D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */,
 				D601920F18AFDF0C00255256 /* DemoViewController.m in Sources */,
 				D632C3571AEC6E7400D1A69A /* JBChartView.m in Sources */,
