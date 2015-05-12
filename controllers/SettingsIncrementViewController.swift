@@ -163,8 +163,10 @@ class SettingsIncrementViewController : UIViewController, UIAlertViewDelegate, U
             
             AppDelegate.sharedAppDelegate().persistentStoreCoordinator!.removePersistentStore(oldstore, error: &error)
             
+            FitBuddyUtils.setDefault(FBConstants.kUBIQUITYURLKEY, value: CoreDataHelper2.coreDataUbiquityURL()!.path!)
+            
             if error != nil {
-                NSLog("Failed to replace Cloud store with Local store: %@", error!);
+                NSLog("Failed to replace iCloud store with Local store: %@", error!);
                 return false
             }
             

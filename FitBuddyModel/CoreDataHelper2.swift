@@ -56,12 +56,19 @@ public class CoreDataHelper2: NSObject {
         return localDocsURL().URLByAppendingPathComponent("Database").URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
     }
     
+    public static func ubiquityDocsURL () -> NSURL? {
+        if let url = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(FBConstants.kUBIQUITYCONTAINER) {
+            return url
+        }
+        return nil
+    }
+    
     public static func coreDataUbiquityURL () -> NSURL? {
         let token = NSFileManager.defaultManager().ubiquityIdentityToken
         let url = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)
         
         if token != nil || url != nil {
-            return localDocsURL().URLByAppendingPathComponent("Database").URLByAppendingPathComponent(FBConstants.kDATABASE2_0)
+            return groupDocsURL().URLByAppendingPathComponent("Database").URLByAppendingPathComponent(FBConstants.kDATABASE2_0REMOTE)
         }
         return nil
     }

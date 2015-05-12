@@ -146,7 +146,7 @@ public class CoreDataConnection : NSObject {
         
         return true
     }
-    
+
     public func setUbiquityContext () -> Bool {
         
         if FitBuddyUtils.isCloudOn() == (CoreDataHelper2.coreDataUbiquityURL() != nil) {
@@ -154,30 +154,29 @@ public class CoreDataConnection : NSObject {
             
             if FitBuddyUtils.isCloudOn() {
                 //Need to set doc locations to device for sync
-                self.applicationDocumentsDirectory = CoreDataHelper2.localDocsURL()
+                self.applicationDocumentsDirectory = CoreDataHelper2.groupDocsURL()
                 self.theLocalStore = CoreDataHelper2.coreDataUbiquityURL()!
+                
+                FitBuddyUtils.setDefault(FBConstants.kUBIQUITYURLKEY, value: CoreDataHelper2.coreDataUbiquityURL()!.path!)
+                FitBuddyUtils.saveDefaults()
             }
         }
         else if FitBuddyUtils.isCloudOn() && (CoreDataHelper2.coreDataUbiquityURL() == nil) {
-            //This means someone turned off iCloud. Need to rebuild the database and remove ubiquity keys
-            NSLog("%@ %@", FitBuddyUtils.isCloudOn(), (CoreDataHelper2.coreDataUbiquityURL() == nil))
             
-            CoreDataHelper2.migrateDataStore(CoreDataHelper2.coreDataLocalURL(), sourceStoreType: CoreDataType.ICLOUD, destSqliteStore: CoreDataHelper2.coreDataGroupURL(), destStoreType: CoreDataType.GROUP)
+            //This means iCloud was turned off. Need to rebuild the database and remove ubiquity keys
+            NSLog("iCloud turned off. Trying to migrate database to group container.")
+            
+            let uurl = FitBuddyUtils.getDefault(FBConstants.kUBIQUITYURLKEY)
+            
+            CoreDataHelper2.migrateDataStore(NSURL(string: uurl!)!, sourceStoreType: CoreDataType.ICLOUD, destSqliteStore: CoreDataHelper2.coreDataGroupURL(), destStoreType: CoreDataType.GROUP, delete:false)
             
             FitBuddyUtils.setCloudOn(false)
         }
         else if CoreDataHelper2.coreDataUbiquityURL() != nil && !FitBuddyUtils.isCloudOn() {
-            //This means iCloud was just turned on. Time to migrate to ubiquity store.
-            NSLog("%@ %@", (CoreDataHelper2.coreDataUbiquityURL() != nil), (!FitBuddyUtils.isCloudOn()))
-            NSLog("Not setting up cloud sync for now. Leaving data in the group.")
             
-            /*
-            //First make sure we're in group
-            setGroupContext()
+            //This means iCloud was turned on.
+            NSLog("iCloud was turned on but we're leaving data in the group.")
             
-            //Now migrate the copy
-            CoreDataHelper2.migrateDataStore(CoreDataHelper2.coreDataGroupURL(), sourceStoreType: CoreDataType.GROUP, destSqliteStore: CoreDataHelper2.coreDataUbiquityURL()!, destStoreType: CoreDataType.ICLOUD)
-            */
         }
 
         return true

@@ -35,6 +35,8 @@ public class FBConstants {
     
     // DATABASE
     public static let kDATABASE2_0 = "FitBuddy.sqlite"
+    public static let kDATABASE2_0REMOTE = "RemoteFitBuddy.sqlite"
+
     public static let kDATABASE1_0 = "GymBuddy"
     public static let kEXPORTNAME = "FitBuddy"
     public static let kEXPORTEXT = ".gbz"
@@ -43,6 +45,7 @@ public class FBConstants {
     public static let kGROUPPATH = "group.com.giantrobotapps.FitBuddy"
     public static let kREALMDB = "db.realm"
     public static let kUSEICLOUDKEY = "Use iCloud"
+    public static let kUBIQUITYURLKEY = "iCloud Doc URL"
     
     public static let EXERCISE_TABLE = "Exercise"
     public static let WORKOUT_TABLE = "Workout"
