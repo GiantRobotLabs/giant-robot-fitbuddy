@@ -4,7 +4,7 @@
       "size" : "24x24",
       "idiom" : "watch",
       "scale" : "2x",
-      "filename" : "AppIcon57x57.png",
+      "filename" : "fitbuddy_48x48.png",
       "role" : "notificationCenter",
       "subtype" : "38mm"
     },
@@ -12,21 +12,21 @@
       "size" : "27.5x27.5",
       "idiom" : "watch",
       "scale" : "2x",
-      "filename" : "AppIcon57x57@2x.png",
+      "filename" : "fitbuddy_55x55.png",
       "role" : "notificationCenter",
       "subtype" : "42mm"
     },
     {
       "size" : "29x29",
       "idiom" : "watch",
-      "filename" : "AppIcon29x29@2x-1.png",
+      "filename" : "fitbuddy_58x58.png",
       "role" : "companionSettings",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "watch",
-      "filename" : "AppIcon29x29@2x.png",
+      "filename" : "fitbuddy_87x87.png",
       "role" : "companionSettings",
       "scale" : "3x"
     },
@@ -34,7 +34,7 @@
       "size" : "40x40",
       "idiom" : "watch",
       "scale" : "2x",
-      "filename" : "AppIcon40x40.png",
+      "filename" : "fitbuddy_80x80.png",
       "role" : "appLauncher",
       "subtype" : "38mm"
     },
@@ -42,7 +42,7 @@
       "size" : "44x44",
       "idiom" : "watch",
       "scale" : "2x",
-      "filename" : "AppIcon40x40@2x.png",
+      "filename" : "fitbuddy_88x88.png",
       "role" : "longLook",
       "subtype" : "42mm"
     },
@@ -50,7 +50,7 @@
       "size" : "86x86",
       "idiom" : "watch",
       "scale" : "2x",
-      "filename" : "AppIcon76x76.png",
+      "filename" : "fitbuddy_172x172-2.png",
       "role" : "quickLook",
       "subtype" : "38mm"
     },
@@ -58,7 +58,7 @@
       "size" : "98x98",
       "idiom" : "watch",
       "scale" : "2x",
-      "filename" : "AppIcon76x76@2x.png",
+      "filename" : "fitbuddy_196x196-1.png",
       "role" : "quickLook",
       "subtype" : "42mm"
     }
