@@ -27,7 +27,6 @@
 		D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E446B18ACF49700A13883 /* BarChartDataSource.m */; };
 		D642DD971AFF8D2800119D97 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D642DD961AFF8D2800119D97 /* ModelManager.swift */; };
 		D642DD991AFF8DDA00119D97 /* CoreDataModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D642DD981AFF8DDA00119D97 /* CoreDataModelManager.swift */; };
-		D655261218CC5BC900AF55A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655261118CC5BC900AF55A6 /* CoreLocation.framework */; };
 		D655261418CC5BFB00AF55A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655261318CC5BFB00AF55A6 /* Security.framework */; };
 		D666BE0D1AF929CF00256911 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CEC98A14DA6A6C002DC3B0 /* CoreData.framework */; };
 		D666BE0E1AF929E100256911 /* GymBuddyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D67D7CF3170E75DC00E12E96 /* GymBuddyModel.xcdatamodeld */; };
@@ -47,12 +46,17 @@
 		D67E167018B31C97001E9257 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166E18B31C97001E9257 /* icon-small.png */; };
 		D67E167118B31C97001E9257 /* icon-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166F18B31C97001E9257 /* icon-big.png */; };
 		D68258C21AFB9AD100FA94B5 /* FitBuddyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68258C11AFB9AD100FA94B5 /* FitBuddyUtils.swift */; };
+		D68737221B02E2FE0043E986 /* PNChartSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68737211B02E2FE0043E986 /* PNChartSwift.framework */; };
+		D68737241B02E30C0043E986 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68737231B02E30C0043E986 /* Charts.framework */; };
+		D68737251B02E3580043E986 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68737231B02E30C0043E986 /* Charts.framework */; };
+		D68737261B02E3580043E986 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D68737231B02E30C0043E986 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D68737271B02E3600043E986 /* PNChartSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68737211B02E2FE0043E986 /* PNChartSwift.framework */; };
+		D68737281B02E3600043E986 /* PNChartSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D68737211B02E2FE0043E986 /* PNChartSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D68790771AF927AF00D8E6DE /* FitBuddyCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = D68790761AF927AF00D8E6DE /* FitBuddyCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D687907D1AF927B000D8E6DE /* FitBuddyCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68790721AF927AF00D8E6DE /* FitBuddyCommon.framework */; };
 		D68790861AF927B000D8E6DE /* FitBuddyCommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68790851AF927B000D8E6DE /* FitBuddyCommonTests.swift */; };
 		D687908A1AF927B000D8E6DE /* FitBuddyCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D68790721AF927AF00D8E6DE /* FitBuddyCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D6A404851AFA64B000EC5267 /* FitBuddyModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DC0D3E1AF8FC6D00988D65 /* FitBuddyModel.framework */; };
-		D6A5124818CC5157002FDF5F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A5124718CC5157002FDF5F /* MapKit.framework */; };
 		D6B088A81AF1280800962EDB /* NSData+GZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B088A71AF1280800962EDB /* NSData+GZIP.swift */; };
 		D6B0B9791AFFFA81001184D6 /* CoreDataArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B0B9771AFFF559001184D6 /* CoreDataArchive.swift */; };
 		D6B174D11AFA5043009E40D3 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B174D01AFA5043009E40D3 /* InterfaceController.swift */; };
@@ -175,8 +179,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D68737261B02E3580043E986 /* Charts.framework in Embed Frameworks */,
 				D687908A1AF927B000D8E6DE /* FitBuddyCommon.framework in Embed Frameworks */,
 				D6DC0D561AF8FC6E00988D65 /* FitBuddyModel.framework in Embed Frameworks */,
+				D68737281B02E3600043E986 /* PNChartSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +235,8 @@
 		D68258C11AFB9AD100FA94B5 /* FitBuddyUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitBuddyUtils.swift; sourceTree = "<group>"; };
 		D687065C18B165740078187D /* GymBuddyModel1.4.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.3.xcdatamodel; sourceTree = "<group>"; };
 		D687067018B291740078187D /* GymBuddyModel1.4.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.4.xcdatamodel; sourceTree = "<group>"; };
+		D68737211B02E2FE0043E986 /* PNChartSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PNChartSwift.framework; sourceTree = "<group>"; };
+		D68737231B02E30C0043E986 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Charts.framework; sourceTree = "<group>"; };
 		D68790721AF927AF00D8E6DE /* FitBuddyCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FitBuddyCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68790751AF927AF00D8E6DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D68790761AF927AF00D8E6DE /* FitBuddyCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FitBuddyCommon.h; sourceTree = "<group>"; };
@@ -328,13 +336,15 @@
 				D6C26B2B14F15A710068DEA5 /* libz.dylib in Frameworks */,
 				D63E445818AB2DA500A13883 /* QuartzCore.framework in Frameworks */,
 				D60B4CC214D7A888001ECCE3 /* CoreGraphics.framework in Frameworks */,
+				D68737271B02E3600043E986 /* PNChartSwift.framework in Frameworks */,
+				D68737221B02E2FE0043E986 /* PNChartSwift.framework in Frameworks */,
 				D6C49F8A1901FF68001A8E41 /* CoreImage.framework in Frameworks */,
 				D6C49F881901FECC001A8E41 /* AVFoundation.framework in Frameworks */,
-				D6A5124818CC5157002FDF5F /* MapKit.framework in Frameworks */,
-				D655261218CC5BC900AF55A6 /* CoreLocation.framework in Frameworks */,
 				D6CEC98B14DA6A6C002DC3B0 /* CoreData.framework in Frameworks */,
 				D60B4CBE14D7A888001ECCE3 /* UIKit.framework in Frameworks */,
+				D68737251B02E3580043E986 /* Charts.framework in Frameworks */,
 				D632C3231AEC59C600D1A69A /* HealthKit.framework in Frameworks */,
+				D68737241B02E30C0043E986 /* Charts.framework in Frameworks */,
 				D60B4CC014D7A888001ECCE3 /* Foundation.framework in Frameworks */,
 				D655261418CC5BFB00AF55A6 /* Security.framework in Frameworks */,
 			);
@@ -418,6 +428,8 @@
 		D60B4CBC14D7A888001ECCE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D68737231B02E30C0043E986 /* Charts.framework */,
+				D68737211B02E2FE0043E986 /* PNChartSwift.framework */,
 				D6DA9A0E1AF6FA740009E2B6 /* libc++.dylib */,
 				D6D32FB21AF04C900057F00B /* WatchKit.framework */,
 				D632C3221AEC59C600D1A69A /* HealthKit.framework */,
@@ -1674,6 +1686,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/Users/jneyer/Desktop,
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1706,6 +1723,11 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/Users/jneyer/Desktop,
+				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "FitBuddy WatchKit Extension/Info.plist";
@@ -1733,6 +1755,11 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/Users/jneyer/Desktop,
+				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "FitBuddy WatchKit Extension/Info.plist";
