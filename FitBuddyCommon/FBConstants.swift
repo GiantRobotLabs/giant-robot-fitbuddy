@@ -92,6 +92,7 @@ public class FBConstants {
     public static let NOTES_SEGUE = "Segue To Notes"
     public static let SETTINGS_SEGUE = "Segue to Settings"
     public static let DEMO_SEGUE = "Segue to Demo"
+    public static let LOGBOOK_SHOWMOREDATA_SEGUE = "Show More Data"
     
     public static let kDEFAULT_RESISTANCE_SETTINGS = ["0.5", "1.0", "2.0", "2.5", "5.0"]
     public static let kDEFAULT_CARDIO_SETTINGS = ["0.1", "0.2", "0.3", "0.4", "0.5", "1.0", "2.0", "2.5", "5.0"]
