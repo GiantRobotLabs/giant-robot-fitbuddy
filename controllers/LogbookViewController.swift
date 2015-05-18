@@ -46,7 +46,22 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func viewWillAppear(animated: Bool) {
+        var chart = LineChart()
+        chart.y.labels.visible = false
+        chart.y.axis.visible = false
+        chart.frame = self.chartView.frame
+        chart.frame.origin.x = 0
+        chart.area = false
+        chart.x.grid.visible = false
+        chart.y.grid.visible = false
+        self.chartView.addSubview(chart)
+
+        self.chartView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[insertedView]|", options:NSLayoutFormatOptions.DirectionLeftToRight ,metrics: nil, views: ["insertedView": chart]))
+        self.chartView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[insertedView]|", options:NSLayoutFormatOptions.DirectionLeftToRight ,metrics: nil, views: ["insertedView": chart]))
         
+        self.chartView.layoutIfNeeded()
+        
+        chart.addLine([3, 4, 9, 11, 13, 15])
     }
     
     override func viewDidAppear(animated: Bool) {

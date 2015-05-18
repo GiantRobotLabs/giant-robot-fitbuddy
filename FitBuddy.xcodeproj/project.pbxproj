@@ -53,6 +53,7 @@
 		D68F6DC91B0844D000F99E3F /* LogbookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68F6DC81B0844D000F99E3F /* LogbookViewController.swift */; };
 		D68F6DCB1B08E9AB00F99E3F /* ExerciseLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68F6DCA1B08E9AB00F99E3F /* ExerciseLogCell.swift */; };
 		D68F6DCD1B08EA2000F99E3F /* WorkoutLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68F6DCC1B08EA2000F99E3F /* WorkoutLogCell.swift */; };
+		D68F6DD31B09900600F99E3F /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68F6DD21B09900600F99E3F /* LineChart.swift */; };
 		D6A404851AFA64B000EC5267 /* FitBuddyModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DC0D3E1AF8FC6D00988D65 /* FitBuddyModel.framework */; };
 		D6B088A81AF1280800962EDB /* NSData+GZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B088A71AF1280800962EDB /* NSData+GZIP.swift */; };
 		D6B0B9791AFFFA81001184D6 /* CoreDataArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B0B9771AFFF559001184D6 /* CoreDataArchive.swift */; };
@@ -241,6 +242,7 @@
 		D68F6DC81B0844D000F99E3F /* LogbookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogbookViewController.swift; path = controllers/LogbookViewController.swift; sourceTree = SOURCE_ROOT; };
 		D68F6DCA1B08E9AB00F99E3F /* ExerciseLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseLogCell.swift; path = controllers/ExerciseLogCell.swift; sourceTree = SOURCE_ROOT; };
 		D68F6DCC1B08EA2000F99E3F /* WorkoutLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutLogCell.swift; path = controllers/WorkoutLogCell.swift; sourceTree = SOURCE_ROOT; };
+		D68F6DD21B09900600F99E3F /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LineChart.swift; path = controllers/LineChart.swift; sourceTree = SOURCE_ROOT; };
 		D6B088A71AF1280800962EDB /* NSData+GZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+GZIP.swift"; sourceTree = SOURCE_ROOT; };
 		D6B0B9771AFFF559001184D6 /* CoreDataArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataArchive.swift; sourceTree = "<group>"; };
 		D6B174CC1AFA5043009E40D3 /* FitBuddy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FitBuddy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -684,6 +686,7 @@
 		D6D32F7C1AED6BD60057F00B /* FitBuddy (Swift) */ = {
 			isa = PBXGroup;
 			children = (
+				D68F6DD21B09900600F99E3F /* LineChart.swift */,
 				D6D32F7A1AED6B020057F00B /* AppDelegate.swift */,
 				D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */,
 				D60910581B014DA2001D86C9 /* SettingsViewController.swift */,
@@ -1110,6 +1113,7 @@
 				D68F6DCD1B08EA2000F99E3F /* WorkoutLogCell.swift in Sources */,
 				D6C2CA21170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m in Sources */,
 				D6C2CA5B170E6C4000BA02DA /* ExerciseAddViewController.m in Sources */,
+				D68F6DD31B09900600F99E3F /* LineChart.swift in Sources */,
 				D6C2CA5C170E6C4000BA02DA /* ExerciseControlController.m in Sources */,
 				D6C2CA5D170E6C4000BA02DA /* ExerciseEditViewController.m in Sources */,
 				D6C2CA5E170E6C4000BA02DA /* ExerciseListTableViewController.m in Sources */,
