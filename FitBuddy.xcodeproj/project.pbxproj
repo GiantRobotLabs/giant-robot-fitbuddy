@@ -55,6 +55,9 @@
 		D68F6DCD1B08EA2000F99E3F /* WorkoutLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68F6DCC1B08EA2000F99E3F /* WorkoutLogCell.swift */; };
 		D68F6DD31B09900600F99E3F /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68F6DD21B09900600F99E3F /* LineChart.swift */; };
 		D6A404851AFA64B000EC5267 /* FitBuddyModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DC0D3E1AF8FC6D00988D65 /* FitBuddyModel.framework */; };
+		D6ABF84A1B0A260D004FB4A3 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ABF8471B0A260D004FB4A3 /* Chart.swift */; };
+		D6ABF84B1B0A260D004FB4A3 /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ABF8481B0A260D004FB4A3 /* ChartColors.swift */; };
+		D6ABF84C1B0A260D004FB4A3 /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ABF8491B0A260D004FB4A3 /* ChartSeries.swift */; };
 		D6B088A81AF1280800962EDB /* NSData+GZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B088A71AF1280800962EDB /* NSData+GZIP.swift */; };
 		D6B0B9791AFFFA81001184D6 /* CoreDataArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B0B9771AFFF559001184D6 /* CoreDataArchive.swift */; };
 		D6B174D11AFA5043009E40D3 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B174D01AFA5043009E40D3 /* InterfaceController.swift */; };
@@ -243,6 +246,9 @@
 		D68F6DCA1B08E9AB00F99E3F /* ExerciseLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseLogCell.swift; path = controllers/ExerciseLogCell.swift; sourceTree = SOURCE_ROOT; };
 		D68F6DCC1B08EA2000F99E3F /* WorkoutLogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutLogCell.swift; path = controllers/WorkoutLogCell.swift; sourceTree = SOURCE_ROOT; };
 		D68F6DD21B09900600F99E3F /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LineChart.swift; path = controllers/LineChart.swift; sourceTree = SOURCE_ROOT; };
+		D6ABF8471B0A260D004FB4A3 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		D6ABF8481B0A260D004FB4A3 /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColors.swift; sourceTree = "<group>"; };
+		D6ABF8491B0A260D004FB4A3 /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSeries.swift; sourceTree = "<group>"; };
 		D6B088A71AF1280800962EDB /* NSData+GZIP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+GZIP.swift"; sourceTree = SOURCE_ROOT; };
 		D6B0B9771AFFF559001184D6 /* CoreDataArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataArchive.swift; sourceTree = "<group>"; };
 		D6B174CC1AFA5043009E40D3 /* FitBuddy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FitBuddy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -595,6 +601,17 @@
 			name = AppDelegate;
 			sourceTree = "<group>";
 		};
+		D6ABF8461B0A260D004FB4A3 /* chart */ = {
+			isa = PBXGroup;
+			children = (
+				D6ABF8471B0A260D004FB4A3 /* Chart.swift */,
+				D6ABF8481B0A260D004FB4A3 /* ChartColors.swift */,
+				D6ABF8491B0A260D004FB4A3 /* ChartSeries.swift */,
+			);
+			name = chart;
+			path = controllers/chart;
+			sourceTree = SOURCE_ROOT;
+		};
 		D6B088A61AF127DD00962EDB /* utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -686,6 +703,7 @@
 		D6D32F7C1AED6BD60057F00B /* FitBuddy (Swift) */ = {
 			isa = PBXGroup;
 			children = (
+				D6ABF8461B0A260D004FB4A3 /* chart */,
 				D68F6DD21B09900600F99E3F /* LineChart.swift */,
 				D6D32F7A1AED6B020057F00B /* AppDelegate.swift */,
 				D6D32F7D1AED6C580057F00B /* WorkoutViewController.swift */,
@@ -1115,6 +1133,7 @@
 				D6C2CA5B170E6C4000BA02DA /* ExerciseAddViewController.m in Sources */,
 				D68F6DD31B09900600F99E3F /* LineChart.swift in Sources */,
 				D6C2CA5C170E6C4000BA02DA /* ExerciseControlController.m in Sources */,
+				D6ABF84C1B0A260D004FB4A3 /* ChartSeries.swift in Sources */,
 				D6C2CA5D170E6C4000BA02DA /* ExerciseEditViewController.m in Sources */,
 				D6C2CA5E170E6C4000BA02DA /* ExerciseListTableViewController.m in Sources */,
 				D6C0AF0318A34990004F599E /* SwitchCell.m in Sources */,
@@ -1122,10 +1141,12 @@
 				D6D32F7E1AED6C580057F00B /* WorkoutViewController.swift in Sources */,
 				D68F6DCB1B08E9AB00F99E3F /* ExerciseLogCell.swift in Sources */,
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
+				D6ABF84B1B0A260D004FB4A3 /* ChartColors.swift in Sources */,
 				D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */,
 				D601920F18AFDF0C00255256 /* DemoViewController.m in Sources */,
 				D632C3571AEC6E7400D1A69A /* JBChartView.m in Sources */,
 				D68F6DC31B0580DA00F99E3F /* LogbookViewController2.swift in Sources */,
+				D6ABF84A1B0A260D004FB4A3 /* Chart.swift in Sources */,
 				D60910591B014DA2001D86C9 /* SettingsViewController.swift in Sources */,
 				D68F6DC91B0844D000F99E3F /* LogbookViewController.swift in Sources */,
 				D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */,

@@ -33,6 +33,9 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
     var tableStyle = LogbookStyle.WORKOUT
     var workoutKey = ""
     
+    var chartLabels = NSMutableArray()
+    var chartValues = NSMutableArray()
+    
     func loadData() {
         tableData = AppDelegate.sharedAppDelegate().modelManager.getAllLogbookEntries()
         workoutData = sortWorkoutsByDate(tableData!)
@@ -46,22 +49,65 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        // Build the chart
         var chart = LineChart()
         chart.y.labels.visible = false
         chart.y.axis.visible = false
+        chart.x.labels.visible = true
         chart.frame = self.chartView.frame
         chart.frame.origin.x = 0
-        chart.area = false
+        chart.area = true
         chart.x.grid.visible = false
         chart.y.grid.visible = false
+        chart.showZeros = false
         self.chartView.addSubview(chart)
 
         self.chartView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[insertedView]|", options:NSLayoutFormatOptions.DirectionLeftToRight ,metrics: nil, views: ["insertedView": chart]))
         self.chartView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[insertedView]|", options:NSLayoutFormatOptions.DirectionLeftToRight ,metrics: nil, views: ["insertedView": chart]))
         
         self.chartView.layoutIfNeeded()
+
+        //Set chart values
+        let lastThirty = NSMutableArray(array: self.lastThirty())
         
-        chart.addLine([3, 4, 9, 11, 13, 15])
+        //self.chartValues.addObjectsFromArray([1, 0, 0.79, 0, 0, 0.88, 0, 0.8, 0, 1, 0, 0.76, 0.79, 0.9, 0, 0.88, 0.66, 0.8, 0.7, 1, 1, 0.76, 0.79, 0, 0, 0.88, 0.66, 0.8, 0.7, 1, 1, 0.76, 0.79, 0.9, 0, 0.88, 0.66, 0.8, 0.7, 1])
+         self.chartValues.addObjectsFromArray([1, 0, 0.79, 0, 0, 0.88, 0, 0.8, 0, 1, 0, 0.76, 0.79, 0.9, 10])
+        
+        if  self.chartValues.count > lastThirty.count {
+            let values = self.chartValues.mutableCopy() as! NSMutableArray
+            self.chartValues = NSMutableArray(array: values.subarrayWithRange(NSMakeRange(values.count - lastThirty.count, lastThirty.count)))
+        }
+        
+        self.chartLabels = NSMutableArray(array: lastThirty.subarrayWithRange(NSMakeRange(lastThirty.count - self.chartValues.count, self.chartValues.count)))
+        
+        var first = self.chartLabels.firstObject as! String
+        var last = self.chartLabels.lastObject as! String
+        
+        //remove every fifth element from the end
+        if self.chartValues.count > 15 {
+            for index in 2...self.chartValues.count {
+                if index % 5 != 0 {
+                    self.chartLabels[self.chartLabels.count - index] =  ""
+                }
+            }
+            self.chartLabels[self.chartLabels.count - 1] = last
+            self.chartLabels[0] = first
+        }
+        
+        //Turn off line if only one value
+        let newChart = self.chartValues.mutableCopy() as! NSMutableArray
+        newChart.removeObject(0)
+        if newChart.count > 1 {
+            chart.lineWidth = 1
+        }
+        else {
+            chart.lineWidth = 0
+        }
+        
+        chart.x.labels.values = self.chartLabels as [AnyObject] as! [String]
+        chart.addLine(self.chartValues as [AnyObject] as! [CGFloat])
+    
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -198,8 +244,6 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
                 exerciseDict.setObject(NSMutableSet(), forKey: workoutString)
             }
             
-            //!(workoutDict.objectForKey(dString) as! NSArray).containsObject(entry.workout_name)
-
             if !sectionArray.containsObject(dateString) || !workoutPairs.containsObject(workoutString) {
                 
                 let wdata = WorkoutArrayData()
@@ -257,6 +301,40 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
         else {
             self.title = "Workouts"
         }
+    }
+    
+    func addPointTochart (value : CGFloat, label : String) {
+        
+        if self.chartValues.count == 30 {
+            let value = self.chartValues.firstObject as! CGFloat
+            let label = self.chartLabels.firstObject as! String
+            
+            self.chartValues.removeObject(value)
+            self.chartLabels.removeObject(label)
+        }
+        
+        self.chartValues.addObject(value)
+        self.chartLabels.addObject(label)
+    }
+    
+    func lastThirty() -> NSArray {
+        
+        let cal = NSCalendar.currentCalendar()
+        // start with today
+        var date = cal.startOfDayForDate(NSDate())
+        
+        var days = [String]()
+        
+        for i in 1 ... 30 {
+            // get day component:
+            let day = cal.component(.DayCalendarUnit, fromDate: date)
+            days.append(String(day))
+           
+            // move back in time by one day:
+            date = cal.dateByAddingUnit(.DayCalendarUnit, value: -1, toDate: date, options: nil)!
+        }
+        
+        return days.reverse()
     }
 }
 

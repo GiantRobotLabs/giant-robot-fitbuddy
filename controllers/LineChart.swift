@@ -99,6 +99,7 @@ public class LineChart: UIView {
     public var animation: Animation = Animation()
     public var dots: Dots = Dots()
     public var lineWidth: CGFloat = 2
+    public var showZeros: Bool = true
     
     public var x: Coordinate = Coordinate()
     public var y: Coordinate = Coordinate()
@@ -304,26 +305,29 @@ public class LineChart: UIView {
         var data = self.dataStore[lineIndex]
         
         for index in 0..<data.count {
-            var xValue = self.x.scale(CGFloat(index)) + x.axis.inset - dots.outerRadius/2
-            var yValue = self.bounds.height - self.y.scale(data[index]) - y.axis.inset - dots.outerRadius/2
             
-            // draw custom layer with another layer in the center
-            var dotLayer = DotCALayer()
-            dotLayer.dotInnerColor = colors[lineIndex]
-            dotLayer.innerRadius = dots.innerRadius
-            dotLayer.backgroundColor = dots.color.CGColor
-            dotLayer.cornerRadius = dots.outerRadius / 2
-            dotLayer.frame = CGRect(x: xValue, y: yValue, width: dots.outerRadius, height: dots.outerRadius)
-            self.layer.addSublayer(dotLayer)
-            dotLayers.append(dotLayer)
-            
-            // animate opacity
-            if animation.enabled {
-                var anim = CABasicAnimation(keyPath: "opacity")
-                anim.duration = animation.duration
-                anim.fromValue = 0
-                anim.toValue = 1
-                dotLayer.addAnimation(anim, forKey: "opacity")
+            if data[index] != 0 || self.showZeros {
+                var xValue = self.x.scale(CGFloat(index)) + x.axis.inset - dots.outerRadius/2
+                var yValue = self.bounds.height - self.y.scale(data[index]) - y.axis.inset - dots.outerRadius/2
+                
+                // draw custom layer with another layer in the center
+                var dotLayer = DotCALayer()
+                dotLayer.dotInnerColor = colors[lineIndex]
+                dotLayer.innerRadius = dots.innerRadius
+                dotLayer.backgroundColor = dots.color.CGColor
+                dotLayer.cornerRadius = dots.outerRadius / 2
+                dotLayer.frame = CGRect(x: xValue, y: yValue, width: dots.outerRadius, height: dots.outerRadius)
+                self.layer.addSublayer(dotLayer)
+                dotLayers.append(dotLayer)
+                
+                // animate opacity
+                if animation.enabled {
+                    var anim = CABasicAnimation(keyPath: "opacity")
+                    anim.duration = animation.duration
+                    anim.fromValue = 0
+                    anim.toValue = 1
+                    dotLayer.addAnimation(anim, forKey: "opacity")
+                }
             }
             
         }
@@ -400,7 +404,10 @@ public class LineChart: UIView {
         for index in 1..<data.count {
             xValue = self.x.scale(CGFloat(index)) + x.axis.inset
             yValue = self.bounds.height - self.y.scale(data[index]) - y.axis.inset
-            path.addLineToPoint(CGPoint(x: xValue, y: yValue))
+            
+            if data[index] != 0 || self.showZeros {
+                path.addLineToPoint(CGPoint(x: xValue, y: yValue))
+            }
         }
         
         var layer = CAShapeLayer()
@@ -443,7 +450,10 @@ public class LineChart: UIView {
         for index in 1..<data.count {
             var x1 = self.x.scale(CGFloat(index)) + x.axis.inset
             var y1 = self.bounds.height - self.y.scale(data[index]) - y.axis.inset
-            path.addLineToPoint(CGPoint(x: x1, y: y1))
+            
+            if data[index] != 0 || self.showZeros {
+                path.addLineToPoint(CGPoint(x: x1, y: y1))
+            }
         }
         // move down to x axis
         path.addLineToPoint(CGPoint(x: self.x.scale(CGFloat(data.count - 1)) + x.axis.inset, y: self.bounds.height - self.y.scale(0) - y.axis.inset))
@@ -512,11 +522,12 @@ public class LineChart: UIView {
         var y = self.bounds.height - x.axis.inset
         var (start, stop, step) = x.linear.ticks(xAxisData.count)
         var width = x.scale(step)
-        
+        width = 20.0
         var text: String
         for (index, value) in enumerate(xAxisData) {
             var xValue = self.x.scale(CGFloat(index)) + x.axis.inset - (width / 2)
             var label = UILabel(frame: CGRect(x: xValue, y: y, width: width, height: x.axis.inset))
+            label.backgroundColor = UIColor.clearColor()
             label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption2)
             label.textAlignment = .Center
             if (x.labels.values.count != 0) {
@@ -525,7 +536,11 @@ public class LineChart: UIView {
                 text = String(index)
             }
             label.text = text
-            self.addSubview(label)
+            
+            if text != "" {
+                self.addSubview(label)
+
+            }
         }
     }
     
