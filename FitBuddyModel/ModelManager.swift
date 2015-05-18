@@ -16,6 +16,7 @@ public protocol ModelManager {
     func newLogbookEntryFromWorkoutSequence (workoutSequence: WorkoutSequence) -> LogbookEntry 
     func getLastWorkoutDate (workout: Workout, withFormat : String?) -> String
     func deleteDataObject (nsManagedObject: NSManagedObject)
+    func getAllLogbookEntries () ->  [LogbookEntry]
     func save ()
     
     func exportData (destination: String) -> NSURL?

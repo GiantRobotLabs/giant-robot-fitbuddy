@@ -109,6 +109,60 @@ public class CoreDataModelManager: NSObject, ModelManager {
         return FitBuddyUtils.shortDateFromNSDate(workout.last_workout)
     }
     
+    public func getLogbookWorkoutsByDate () -> NSDictionary {
+        
+        var results = NSMutableDictionary()
+        var queryResults = getAllLogbookEntries()
+        
+        if queryResults.count > 0 {
+            
+            for entry in queryResults {
+                
+                var entryDate = FitBuddyUtils.shortDateFromNSDate(entry.date_t)
+                
+                if var array = results.objectForKey(entryDate) as? NSMutableArray {
+                    
+                    if !array.containsObject(entry.workout) {
+                        array.addObject(entry.workout)
+                    }
+                }
+                else {
+                    results.setObject(NSMutableArray(array:[entry.workout]), forKey: entryDate)
+                }
+                
+            }
+        }
+        
+        return results
+        
+    }
+    
+    public func getAllLogbookEntries () ->  [LogbookEntry] {
+        
+        let fetchRequest = NSFetchRequest(entityName: FBConstants.LOGBOOK_TABLE)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        //let predicate = NSPredicate(format: "completed = %@", argumentArray: [1])
+        //fetchRequest.predicate = predicate
+        
+        var error : NSError? = nil
+        
+        // Execute the fetch request, and cast the results to an array of LogItem objects
+        if let fetchResults = CoreDataConnection.defaultConnection.managedObjectContext.executeFetchRequest(fetchRequest, error: nil) as? [LogbookEntry] {
+            return fetchResults
+        }
+        
+        return []
+    }
+    
+    public func getLogBookEntriesByWorkoutAndDate (workout: Workout, date: NSDate) -> [LogbookEntry] {
+        
+        
+        
+        return []
+    }
+    
     public func deleteDataObject (nsManagedObject: NSManagedObject) {
         
         coreData!.managedObjectContext.deleteObject(nsManagedObject)

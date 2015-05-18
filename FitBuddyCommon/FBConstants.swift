@@ -99,4 +99,7 @@ public class FBConstants {
     public static let kDEFAULT_BOOLEAN_OPTIONS = ["Yes", "No"]
     public static let kDEFAULT_EXPORT_TYPES = ["iTunes"]
     
+    public static let kRESISTANCELOGICON = "tabbar-exercises"
+    public static let kCARDIOLOGICON = "run-white"
+    
 }
