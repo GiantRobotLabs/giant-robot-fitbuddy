@@ -26,14 +26,16 @@ public class LogbookEntry: NSManagedObject {
     @NSManaged public var workout_name: String
     @NSManaged public var workout: Workout
     
-    lazy public var date_t : NSDate = {
+    lazy public var date_t : NSDate? = {
         
         let format: NSDateFormatter = NSDateFormatter.new()
         format.dateFormat = "dd MMM yyyy"
+        if self.valueForKey("date") != nil {
+            let dateOnly = format.stringFromDate(self.valueForKey("date") as! NSDate)
+            return format.dateFromString(dateOnly)!
+        }
         
-        let dateOnly = format.stringFromDate(self.valueForKey("date") as! NSDate)
-        return format.dateFromString(dateOnly)!
-        
-        }()
+        return nil
+    }()
 
 }

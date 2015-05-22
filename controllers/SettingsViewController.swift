@@ -29,6 +29,11 @@ class SettingsViewController: UITableViewController {
             let label = cell.viewWithTag(100) as! UILabel
             let detail = cell.viewWithTag(200) as? UILabel
             
+            //Disable iCloud settings
+            if label.text == FBConstants.kUSEICLOUDKEY {
+                cell.hidden = true
+            }
+            
             if let value = defaults!.stringForKey(label.text!) {
                 detail!.text = value
             }

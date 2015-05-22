@@ -123,6 +123,7 @@
             cell.editing = YES;
             Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
             [[[AppDelegate sharedAppDelegate] managedObjectContext] deleteObject:exercise];
+            [[[AppDelegate sharedAppDelegate] modelManager] save];
         }
     }    
 }

@@ -18,6 +18,8 @@ public protocol ModelManager {
     func deleteDataObject (nsManagedObject: NSManagedObject)
     func getAllLogbookEntries () ->  [LogbookEntry]
     func save ()
+    func saveModel(modelObject: AnyObject?)
+    func refreshModel(modelObject: AnyObject?)
     
     func exportData (destination: String) -> NSURL?
     func importData (reference: AnyObject?)
