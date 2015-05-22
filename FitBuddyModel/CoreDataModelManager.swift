@@ -147,4 +147,16 @@ public class CoreDataModelManager: NSObject, ModelManager {
         NSLog("importData for CoreDataModelManager is not implemented")
     }
     
+    public func saveModel(modelObject: AnyObject?) {
+        if modelObject is NSManagedObject {
+            modelObject!.save()
+        }
+    }
+    
+    public func refreshModel(modelObject: AnyObject?) {
+        if modelObject is NSManagedObject {
+            CoreDataConnection.defaultConnection.managedObjectContext.refreshObject(modelObject as! NSManagedObject, mergeChanges: true)
+        }
+    }
+    
 }

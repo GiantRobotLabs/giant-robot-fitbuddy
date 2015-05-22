@@ -22,12 +22,8 @@ class WorkoutStartController: WKInterfaceController {
       static let coreDataConnection: CoreDataConnection = {
         let conn = CoreDataConnection()
         
-        if FitBuddyUtils.isCloudOn() || CoreDataHelper2.coreDataUbiquityURL() != nil {
-            conn.setUbiquityContext()
-        }
-        else {
-            conn.setGroupContext()
-        }
+        //Only supporting group context for now. No iCloud sync
+        conn.setGroupContext()
         
         return conn
         }()

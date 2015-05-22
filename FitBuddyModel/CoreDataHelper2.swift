@@ -123,4 +123,23 @@ public class CoreDataHelper2: NSObject {
         
     }
     
+    public static func migrateiCloudStoreToGroupStore () {
+        
+        //The iCloud store
+        let cloudStore: NSPersistentStore = CoreDataConnection.defaultConnection.persistentStoreCoordinator.persistentStores.first as! NSPersistentStore
+        var groupStoreOptions = CoreDataConnection.defaultConnection.defaultStoreOptions(false)!
+        groupStoreOptions[NSPersistentStoreRemoveUbiquitousMetadataOption] = true
+        let groupStore = CoreDataHelper2.coreDataGroupURL()
+        
+        var error : NSError? = nil
+        let newStore = CoreDataConnection.defaultConnection.persistentStoreCoordinator.migratePersistentStore(cloudStore, toURL: groupStore, options: groupStoreOptions, withType: NSSQLiteStoreType, error: &error)
+        
+        if error != nil {
+            NSLog("An error occured while migrating iCloud data %@", error!)
+        }
+        else {
+            FitBuddyUtils.setCloudOn(false)
+            FitBuddyUtils.saveDefaults()
+        }
+    }
 }

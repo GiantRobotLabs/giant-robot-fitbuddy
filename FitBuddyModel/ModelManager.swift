@@ -17,6 +17,8 @@ public protocol ModelManager {
     func getLastWorkoutDate (workout: Workout, withFormat : String?) -> String
     func deleteDataObject (nsManagedObject: NSManagedObject)
     func save ()
+    func saveModel(modelObject: AnyObject?)
+    func refreshModel(modelObject: AnyObject?)
     
     func exportData (destination: String) -> NSURL?
     func importData (reference: AnyObject?)
