@@ -143,8 +143,8 @@ public class CoreDataModelManager: NSObject, ModelManager {
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        //let predicate = NSPredicate(format: "completed = %@", argumentArray: [1])
-        //fetchRequest.predicate = predicate
+        let predicate = NSPredicate(format: "completed = %@", argumentArray: [1])
+        fetchRequest.predicate = predicate
         
         var error : NSError? = nil
         

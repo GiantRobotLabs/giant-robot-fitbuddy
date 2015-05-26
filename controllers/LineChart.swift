@@ -259,7 +259,7 @@ public class LineChart: UIView {
      * Listen on touch end event.
      */
     override public func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        handleTouchEvents(touches, event: event)
+        //handleTouchEvents(touches, event: event)
     }
     
     
@@ -268,7 +268,7 @@ public class LineChart: UIView {
      * Listen on touch move event
      */
     override public func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        handleTouchEvents(touches, event: event)
+        //handleTouchEvents(touches, event: event)
     }
     
     
@@ -522,7 +522,7 @@ public class LineChart: UIView {
         var y = self.bounds.height - x.axis.inset
         var (start, stop, step) = x.linear.ticks(xAxisData.count)
         var width = x.scale(step)
-        width = 20.0
+        width = 40.0
         var text: String
         for (index, value) in enumerate(xAxisData) {
             var xValue = self.x.scale(CGFloat(index)) + x.axis.inset - (width / 2)

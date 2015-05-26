@@ -298,6 +298,7 @@
     [self setExerciseLogToggleValue:YES];
     [self setProgressBarProgress];
     [currentViewController saveLogbookEntry];
+    [[[AppDelegate sharedAppDelegate] modelManager] save];
     
 }
 

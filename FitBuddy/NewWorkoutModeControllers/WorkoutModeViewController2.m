@@ -98,19 +98,10 @@
     self.logbookEntry.workout = self.workout;
     
     NSMutableOrderedSet *tempSet = [self.workout.logbookEntries mutableCopy];
-    
     [tempSet addObject:self.logbookEntry];
+    [self.workout setLogbookEntries:tempSet];
     
-    NSError *error;
-    [[self.logbookEntry managedObjectContext] save:&error];
-    
-    if (DEBUG) NSLog(@"Saving logbook entry");
-    
-    if (error)
-    {
-        NSLog(@"Error during saveLogbookEntry: %@", error);
-    }
-    
+    [[[AppDelegate sharedAppDelegate] modelManager] save];    
 }
 
 -(LogbookEntry *)initializeLogbookEntry
