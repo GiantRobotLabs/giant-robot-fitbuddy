@@ -24,7 +24,7 @@ public class LogbookEntry: NSManagedObject {
     @NSManaged public var sets: String?
     @NSManaged public var weight: String?
     @NSManaged public var workout_name: String
-    @NSManaged public var workout: Workout
+    @NSManaged public var workout: Workout?
     
     lazy public var date_t : NSDate? = {
         

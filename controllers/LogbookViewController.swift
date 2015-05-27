@@ -26,15 +26,16 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var chartLabels = NSMutableArray()
     
-    let chartData = LogbookChartData()
-    let logbookTableData = LogbookTableData()
-    
+    var chartData = LogbookChartData()
+    var logbookTableData = LogbookTableData()
+
     var workoutSection = 0
     var workoutIndex = 0
     
     lazy var chart : LineChart = {
         var chart = LineChart()
         chart.y.labels.visible = false
+        chart.x.axis.inset = 20.0
         chart.y.axis.visible = false
         chart.x.labels.visible = true
         chart.frame = self.chartView.frame
@@ -237,14 +238,28 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
                 let numberOfRows = logbookTableData.numberOfExercisesInWorkout(workoutSection, index: workoutIndex)
                 cell.editing = true
                 let entry = logbookTableData.exerciseForWorktoutAtIndex(workoutSection, workoutIndex: workoutIndex, exerciseIndex: indexPath.row)
-                AppDelegate.sharedAppDelegate().modelManager.deleteDataObject(entry)
+                
+                //set last workout date to nil to force recalculation
+                if let workout = entry.workout {
+                    AppDelegate.sharedAppDelegate().modelManager.deleteDataObject(entry)
+                    workout.last_workout = nil
+                    
+                    var error : NSError?
+                    workout.managedObjectContext?.save(&error)
+                    
+                    if error != nil {
+                        NSLog("Error updating last workout date: %@", error!)
+                    }
+                }
+                else {
+                    AppDelegate.sharedAppDelegate().modelManager.deleteDataObject(entry)
+                }
                 
                 //if this was the last row pop to root
+                loadData()
                 if numberOfRows == 1 {
                     self.navigationController?.popToRootViewControllerAnimated(true)
                 }
-                
-                loadData()
             }
             tableView.reloadData()
         }

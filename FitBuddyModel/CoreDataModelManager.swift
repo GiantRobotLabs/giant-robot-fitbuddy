@@ -95,9 +95,13 @@ public class CoreDataModelManager: NSObject, ModelManager {
             }
         }
         
-        let sortDescriptior = NSSortDescriptor(key: "date", ascending: false)
-        let sorted = workout.logbookEntries.sortedArrayUsingDescriptors([sortDescriptior])
-        let lastDate = (sorted[0] as! LogbookEntry).date
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        let sorted = workout.logbookEntries.sortedArrayUsingDescriptors([sortDescriptor])
+        
+        var completed = NSPredicate(format: "completed = 1");
+        let filtered = sorted.filter { completed.evaluateWithObject($0) }
+        
+        let lastDate = (filtered[0] as! LogbookEntry).date
         
         workout.last_workout = lastDate
         workout.managedObjectContext?.save(nil)
@@ -122,12 +126,15 @@ public class CoreDataModelManager: NSObject, ModelManager {
                 
                 if var array = results.objectForKey(entryDate) as? NSMutableArray {
                     
-                    if !array.containsObject(entry.workout) {
-                        array.addObject(entry.workout)
+                    if entry.workout != nil && !array.containsObject(entry.workout!) {
+                        array.addObject(entry.workout!)
                     }
                 }
                 else {
-                    results.setObject(NSMutableArray(array:[entry.workout]), forKey: entryDate)
+                    
+                    if entry.workout != nil {
+                        results.setObject(NSMutableArray(array:[entry.workout!]), forKey: entryDate)
+                    }
                 }
                 
             }

@@ -34,9 +34,10 @@ class LogbookTableData {
 
     func numberOfRowsInSection(section: Int) -> Int {
         
-        if workoutData.count > section && workoutData[section].isEmpty {
+        if section >= workoutData.count || workoutData[section].isEmpty {
             return 0
         }
+
         return workoutData[section].count
     }
 
@@ -56,6 +57,7 @@ class LogbookTableData {
     // Private loaders
     private func loadSections(entries: [LogbookEntry]) {
         
+        sectionData = Array<String>()
         for entry in entries {
             let dateString = FitBuddyUtils.dateFromNSDate(entry.date_t, format: "dd MMM yyyy")
             
