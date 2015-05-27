@@ -42,6 +42,7 @@
 		D666BE1A1AF92A0700256911 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DC0D611AF8FD8300988D65 /* Workout.swift */; };
 		D666BE1B1AF92A7100256911 /* FBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68790941AF927F200D8E6DE /* FBConstants.swift */; };
 		D66F5D1D1B14B3C500049FDD /* LogbookChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F5D1C1B14B3C500049FDD /* LogbookChartData.swift */; };
+		D66F5D1F1B15122400049FDD /* LogbookTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F5D1E1B15122400049FDD /* LogbookTableData.swift */; };
 		D67E167018B31C97001E9257 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166E18B31C97001E9257 /* icon-small.png */; };
 		D67E167118B31C97001E9257 /* icon-big.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E166F18B31C97001E9257 /* icon-big.png */; };
 		D68258C21AFB9AD100FA94B5 /* FitBuddyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68258C11AFB9AD100FA94B5 /* FitBuddyUtils.swift */; };
@@ -219,6 +220,7 @@
 		D655261318CC5BFB00AF55A6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D6570A7A1B041E0D00DD945A /* FitBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = FitBuddy.entitlements; path = FitBuddy/FitBuddy.entitlements; sourceTree = "<group>"; };
 		D66F5D1C1B14B3C500049FDD /* LogbookChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogbookChartData.swift; path = controllers/LogbookChartData.swift; sourceTree = SOURCE_ROOT; };
+		D66F5D1E1B15122400049FDD /* LogbookTableData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogbookTableData.swift; path = controllers/LogbookTableData.swift; sourceTree = SOURCE_ROOT; };
 		D67D7CF4170E75DC00E12E96 /* GymBuddyModel0.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel0.0.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF5170E75DC00E12E96 /* GymBuddyModel1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.0.xcdatamodel; sourceTree = "<group>"; };
 		D67D7CF6170E75DC00E12E96 /* GymBuddyModel1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.1.xcdatamodel; sourceTree = "<group>"; };
@@ -703,6 +705,7 @@
 				D68F6DCA1B08E9AB00F99E3F /* ExerciseLogCell.swift */,
 				D68F6DCC1B08EA2000F99E3F /* WorkoutLogCell.swift */,
 				D66F5D1C1B14B3C500049FDD /* LogbookChartData.swift */,
+				D66F5D1E1B15122400049FDD /* LogbookTableData.swift */,
 				D68F6DC81B0844D000F99E3F /* LogbookViewController.swift */,
 				D68F6DC61B07C3EC00F99E3F /* LogbookEntryViewController.swift */,
 				D6B088A61AF127DD00962EDB /* utilities */,
@@ -1111,6 +1114,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D66F5D1F1B15122400049FDD /* LogbookTableData.swift in Sources */,
 				D6D32F7B1AED6B020057F00B /* AppDelegate.swift in Sources */,
 				D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */,
 				D632C3561AEC6E7400D1A69A /* JBBarChartView.m in Sources */,
