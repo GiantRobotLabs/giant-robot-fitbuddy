@@ -18,11 +18,7 @@
 		D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D625E86618B00ED900FFE96D /* WorkoutModeParentController2.m */; };
 		D625E86E18B00EF900FFE96D /* WorkoutModeViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = D625E86818B00ED900FFE96D /* WorkoutModeViewController2.m */; };
 		D62DB82D1AFBD12B00EA5A55 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62DB82C1AFBD12B00EA5A55 /* AlertViewController.swift */; };
-		D632C3561AEC6E7400D1A69A /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D632C3511AEC6E7400D1A69A /* JBBarChartView.m */; };
-		D632C3571AEC6E7400D1A69A /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D632C3531AEC6E7400D1A69A /* JBChartView.m */; };
-		D632C3581AEC6E7400D1A69A /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D632C3551AEC6E7400D1A69A /* JBLineChartView.m */; };
 		D63E445818AB2DA500A13883 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63E445718AB2DA500A13883 /* QuartzCore.framework */; };
-		D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D63E446B18ACF49700A13883 /* BarChartDataSource.m */; };
 		D642DD971AFF8D2800119D97 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D642DD961AFF8D2800119D97 /* ModelManager.swift */; };
 		D642DD991AFF8DDA00119D97 /* CoreDataModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D642DD981AFF8DDA00119D97 /* CoreDataModelManager.swift */; };
 		D655261418CC5BFB00AF55A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655261318CC5BFB00AF55A6 /* Security.framework */; };
@@ -203,17 +199,9 @@
 		D625E86818B00ED900FFE96D /* WorkoutModeViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkoutModeViewController2.m; path = FitBuddy/NewWorkoutModeControllers/WorkoutModeViewController2.m; sourceTree = SOURCE_ROOT; };
 		D62D027D1B0418CC00A6641B /* FitBuddy WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "FitBuddy WatchKit Extension.entitlements"; path = "FitBuddy WatchKit Extension/FitBuddy WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D62DB82C1AFBD12B00EA5A55 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		D632C3501AEC6E7400D1A69A /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
-		D632C3511AEC6E7400D1A69A /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = "<group>"; };
-		D632C3521AEC6E7400D1A69A /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = "<group>"; };
-		D632C3531AEC6E7400D1A69A /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = "<group>"; };
-		D632C3541AEC6E7400D1A69A /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = "<group>"; };
-		D632C3551AEC6E7400D1A69A /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
 		D63E445718AB2DA500A13883 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D63E445918AC662000A13883 /* GymBuddyModel1. 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "GymBuddyModel1. 4.xcdatamodel"; sourceTree = "<group>"; };
 		D63E446918AC994600A13883 /* GymBuddyModel1.4.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBuddyModel1.4.1.xcdatamodel; sourceTree = "<group>"; };
-		D63E446A18ACF49700A13883 /* BarChartDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarChartDataSource.h; path = FitBuddy/CoreData/BarChartDataSource.h; sourceTree = SOURCE_ROOT; };
-		D63E446B18ACF49700A13883 /* BarChartDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarChartDataSource.m; path = FitBuddy/CoreData/BarChartDataSource.m; sourceTree = SOURCE_ROOT; };
 		D642DD961AFF8D2800119D97 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		D642DD981AFF8DDA00119D97 /* CoreDataModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModelManager.swift; sourceTree = "<group>"; };
 		D655261118CC5BC900AF55A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -474,19 +462,6 @@
 			path = ../FitBuddy/WorkoutModeControllers;
 			sourceTree = "<group>";
 		};
-		D632C34F1AEC6E7400D1A69A /* JBChartView */ = {
-			isa = PBXGroup;
-			children = (
-				D632C3501AEC6E7400D1A69A /* JBBarChartView.h */,
-				D632C3511AEC6E7400D1A69A /* JBBarChartView.m */,
-				D632C3521AEC6E7400D1A69A /* JBChartView.h */,
-				D632C3531AEC6E7400D1A69A /* JBChartView.m */,
-				D632C3541AEC6E7400D1A69A /* JBLineChartView.h */,
-				D632C3551AEC6E7400D1A69A /* JBLineChartView.m */,
-			);
-			path = JBChartView;
-			sourceTree = SOURCE_ROOT;
-		};
 		D6454FBB1AF7BFF2008291A8 /* Shared Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,7 +483,6 @@
 		D67825D614E583B600C00BD4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D632C34F1AEC6E7400D1A69A /* JBChartView */,
 				D6C0AF0118A34990004F599E /* SwitchCell.h */,
 				D6C0AF0218A34990004F599E /* SwitchCell.m */,
 				D6C2CA10170E6BB400BA02DA /* CoreDataTableController.h */,
@@ -581,8 +555,6 @@
 			isa = PBXGroup;
 			children = (
 				D6C2CA16170E6BB400BA02DA /* FitBuddyMacros.h */,
-				D63E446A18ACF49700A13883 /* BarChartDataSource.h */,
-				D63E446B18ACF49700A13883 /* BarChartDataSource.m */,
 				D6C2CA17170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.h */,
 				D6C2CA18170E6BB400BA02DA /* NSData+CocoaDevUsersAdditions.m */,
 			);
@@ -1117,7 +1089,6 @@
 				D66F5D1F1B15122400049FDD /* LogbookTableData.swift in Sources */,
 				D6D32F7B1AED6B020057F00B /* AppDelegate.swift in Sources */,
 				D625E86C18B00EF900FFE96D /* WorkoutModeParentController2.m in Sources */,
-				D632C3561AEC6E7400D1A69A /* JBBarChartView.m in Sources */,
 				D625E86E18B00EF900FFE96D /* WorkoutModeViewController2.m in Sources */,
 				D6B088A81AF1280800962EDB /* NSData+GZIP.swift in Sources */,
 				D6C2CA1E170E6BB400BA02DA /* CoreDataTableController.m in Sources */,
@@ -1138,14 +1109,11 @@
 				D6C2CA61170E6C4000BA02DA /* NotesEditorViewController.m in Sources */,
 				D6C2CA64170E6C4000BA02DA /* WorkoutAddViewController.m in Sources */,
 				D601920F18AFDF0C00255256 /* DemoViewController.m in Sources */,
-				D632C3571AEC6E7400D1A69A /* JBChartView.m in Sources */,
 				D60910591B014DA2001D86C9 /* SettingsViewController.swift in Sources */,
 				D68F6DC91B0844D000F99E3F /* LogbookViewController.swift in Sources */,
 				D6C2CA73170E6C8800BA02DA /* WorkoutSummaryViewController.m in Sources */,
-				D63E446C18ACF49700A13883 /* BarChartDataSource.m in Sources */,
 				D6C2CA74170E6C8800BA02DA /* WorkoutViewController.m in Sources */,
 				D68F6DC71B07C3EC00F99E3F /* LogbookEntryViewController.swift in Sources */,
-				D632C3581AEC6E7400D1A69A /* JBLineChartView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

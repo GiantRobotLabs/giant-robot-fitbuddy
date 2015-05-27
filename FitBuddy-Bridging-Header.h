@@ -4,8 +4,5 @@
 
 
 #include <zlib.h>
-#include "CoreDataTableController.h"
-#include "JBChartView.h"
-#import "JBChartView.h"
-#import "JBBarChartView.h"
-#import "BarChartDataSource.h"
+
+
