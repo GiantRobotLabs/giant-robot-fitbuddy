@@ -25,16 +25,22 @@ class LogbookTableData {
     
     // Sections
     func numberOfSections () -> Int {
+        if self.workoutData.count == 0 {
+            return 1
+        }
         return sectionData.count
     }
     
     func sectionAtIndex (index : Int) -> String {
+        if sectionData.count == 0 {
+            return "No workouts logged"
+        }
         return sectionData[index] as String
     }
 
     func numberOfRowsInSection(section: Int) -> Int {
         
-        if section >= workoutData.count || workoutData[section].isEmpty {
+        if section >= self.workoutData.count || self.workoutData[section].isEmpty {
             return 0
         }
 
@@ -47,6 +53,9 @@ class LogbookTableData {
     }
     
     func numberOfExercisesInWorkout(section: Int, index: Int) -> Int {
+        if self.workoutData.count == 0 {
+            return 0
+        }
         return workoutAtIndex(section, index: index).exercises.count
     }
     

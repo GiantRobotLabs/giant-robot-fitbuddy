@@ -16,6 +16,8 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var logbookTableView: UITableView!
     
+    var parentController : LogbookViewController?
+    
     //Logbook array data
     var tableData : [LogbookEntry]?
     
@@ -31,6 +33,8 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
 
     var workoutSection = 0
     var workoutIndex = 0
+    
+    var needsRedraw = true
     
     lazy var chart : LineChart = {
         var chart = LineChart()
@@ -48,6 +52,46 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
         
         return chart
     }()
+   
+    override func viewDidLoad() {
+        self.navigationItem.titleView = UIImageView(image: UIImage(named:FBConstants.kFITBUDDY))
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setupFetchedResultsController", name: FBConstants.kUBIQUITYCHANGED, object: nil)
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        self.loadData()
+    }
+    
+    func redrawChart () {
+        
+        self.layoutChartView()
+        
+        if self.needsRedraw {
+            // Initialize the chart
+            chart.clearAll()
+            
+            //Set chart values
+            self.chartLabels = NSMutableArray(array: chartData.lastThirty())
+            
+            let first = self.chartLabels.firstObject as! String
+            
+            //remove every fifth element day string
+            for index in 1...self.chartLabels.count {
+                if index % 5 != 0 {
+                    self.chartLabels[self.chartLabels.count - 1 - index] =  ""
+                }
+            }
+            
+            self.chartLabels[0] = first
+            
+            chart.x.labels.values = self.chartLabels as [AnyObject] as! [String]
+            
+            chart.addLine(chartData.normalizedCardioArray() as [AnyObject] as! [CGFloat])
+            chart.addLine(chartData.normalizedResistanceArray() as [AnyObject] as! [CGFloat])
+        }
+
+        self.needsRedraw = false
+    }
     
     func layoutChartView () {
         
@@ -61,51 +105,20 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
         var verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[insertedView]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
         self.chartView.addConstraints(horizontalConstraints)
         self.chartView.addConstraints(verticalConstraints)
+        
     }
     
-    override func viewDidLoad() {
-        self.navigationItem.titleView = UIImageView(image: UIImage(named:FBConstants.kFITBUDDY))
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setupFetchedResultsController", name: FBConstants.kUBIQUITYCHANGED, object: nil)
-        loadData()
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        
-        layoutChartView()
-        
-        // Initialize the chart
-        chart.clearAll()
-
-        //Set chart values
-        self.chartLabels = NSMutableArray(array: chartData.lastThirty())
-    
-        let first = self.chartLabels.firstObject as! String
-        
-        //remove every fifth element day string
-        for index in 1...self.chartLabels.count {
-            if index % 5 != 0 {
-                self.chartLabels[self.chartLabels.count - 1 - index] =  ""
-            }
-        }
-        
-        self.chartLabels[0] = first
-        
-        chart.x.labels.values = self.chartLabels as [AnyObject] as! [String]
-        chart.addLine(chartData.normalizedResistanceArray() as [AnyObject] as! [CGFloat])
-        chart.addLine(chartData.normalizedCardioArray() as [AnyObject] as! [CGFloat])
-        
-        loadData()
-    }
     
     override func viewDidAppear(animated: Bool) {
-        loadData()
-        logbookTableView.reloadData()
+        self.loadData()
     }
     
     func loadData() {
-        tableData = AppDelegate.sharedAppDelegate().modelManager.getAllLogbookEntries()
-        chartData.setLogbookData(tableData!)
-        logbookTableData.setData(tableData!)
+        self.tableData = AppDelegate.sharedAppDelegate().modelManager.getAllLogbookEntries()
+        self.chartData.setLogbookData(tableData!)
+        self.logbookTableData.setData(tableData!)
+        self.redrawChart()
+        self.logbookTableView.reloadData()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -228,15 +241,17 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let controller = segue.destinationViewController as! LogbookViewController
         if segue.identifier == "WorkoutDetailsSeque" {
-            let controller = segue.destinationViewController as! LogbookViewController
             controller.title = "Exercises"
             controller.tableStyle = LogbookStyle.EXERCISE
             controller.workoutSection = self.workoutSection
             controller.workoutIndex = self.workoutIndex
+            controller.parentController = self
         }
         else {
-            self.title = "Workouts"
+            controller.title = "Workouts"
         }
     }
     
@@ -266,12 +281,14 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
                 
                 //if this was the last row pop to root
-                loadData()
                 if numberOfRows == 1 {
                     self.navigationController?.popToRootViewControllerAnimated(true)
                 }
             }
-            tableView.reloadData()
+            
+            self.needsRedraw = true
+            self.parentController!.needsRedraw = true
+            self.loadData()
         }
     }
 }

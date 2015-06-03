@@ -136,8 +136,8 @@ public class LineChart: UIView {
     
     // category10 colors from d3 - https://github.com/mbostock/d3/wiki/Ordinal-Scales
     public var colors: [UIColor] = [
-        UIColor(red: 0.121569, green: 0.466667, blue: 0.705882, alpha: 1),
         UIColor(red: 1, green: 0.498039, blue: 0.054902, alpha: 1),
+        UIColor(red: 0.121569, green: 0.466667, blue: 0.705882, alpha: 1),
         UIColor(red: 0.172549, green: 0.627451, blue: 0.172549, alpha: 1),
         UIColor(red: 0.839216, green: 0.152941, blue: 0.156863, alpha: 1),
         UIColor(red: 0.580392, green: 0.403922, blue: 0.741176, alpha: 1),
