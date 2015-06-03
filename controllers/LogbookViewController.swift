@@ -45,15 +45,23 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
         chart.y.grid.visible = false
         chart.showZeros = false
         chart.lineWidth = 0.0
-        self.chartView.addSubview(chart)
-        
-        self.chartView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[insertedView]|", options:NSLayoutFormatOptions.DirectionLeftToRight ,metrics: nil, views: ["insertedView": chart]))
-        self.chartView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[insertedView]|", options:NSLayoutFormatOptions.DirectionLeftToRight ,metrics: nil, views: ["insertedView": chart]))
-        
-        self.chartView.layoutIfNeeded()
         
         return chart
     }()
+    
+    func layoutChartView () {
+        
+        self.chart.removeFromSuperview()
+        self.chart.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.chartView.addSubview(self.chart)
+        
+        var viewsDict = ["insertedView" : self.chart]
+        
+        var horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[insertedView]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
+        var verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[insertedView]|", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDict)
+        self.chartView.addConstraints(horizontalConstraints)
+        self.chartView.addConstraints(verticalConstraints)
+    }
     
     override func viewDidLoad() {
         self.navigationItem.titleView = UIImageView(image: UIImage(named:FBConstants.kFITBUDDY))
@@ -62,6 +70,8 @@ class LogbookViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     override func viewWillAppear(animated: Bool) {
+        
+        layoutChartView()
         
         // Initialize the chart
         chart.clearAll()

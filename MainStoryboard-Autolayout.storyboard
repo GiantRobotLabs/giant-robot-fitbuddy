@@ -1468,14 +1468,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHU-az-KTb">
                                 <rect key="frame" x="16" y="0.0" width="288" height="228"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30 DAY PROGRESS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC3-SH-SJj">
-                                        <rect key="frame" x="8" y="8" width="272" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 DAY PROGRESS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC3-SH-SJj">
+                                        <rect key="frame" x="8" y="8" width="272" height="17"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view opaque="NO" tag="500" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R78-yY-RxY">
-                                        <rect key="frame" x="8" y="130" width="97" height="55"/>
+                                    <view opaque="NO" tag="500" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R78-yY-RxY">
+                                        <rect key="frame" x="20" y="143" width="97" height="55"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uyC-DY-9SV">
                                                 <rect key="frame" x="8" y="12" width="10" height="10"/>
@@ -1497,8 +1497,19 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="97" id="2TC-wZ-Foz"/>
+                                            <constraint firstAttribute="height" constant="55" id="p2M-9c-XId"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="R78-yY-RxY" secondAttribute="bottom" constant="30" id="ADR-HW-QEW"/>
+                                    <constraint firstAttribute="trailing" secondItem="nC3-SH-SJj" secondAttribute="trailing" constant="8" id="GFa-VH-UWh"/>
+                                    <constraint firstItem="nC3-SH-SJj" firstAttribute="leading" secondItem="mHU-az-KTb" secondAttribute="leading" constant="8" id="XLd-7C-ZIq"/>
+                                    <constraint firstItem="nC3-SH-SJj" firstAttribute="top" secondItem="mHU-az-KTb" secondAttribute="top" constant="8" id="kSb-27-UKl"/>
+                                    <constraint firstItem="R78-yY-RxY" firstAttribute="leading" secondItem="mHU-az-KTb" secondAttribute="leading" constant="20" id="q7h-QW-Hq7"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Te-fm-OMG">
                                 <rect key="frame" x="16" y="228" width="288" height="227"/>
@@ -1516,7 +1527,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fm-iV-r5g">
                                                             <rect key="frame" x="8" y="20" width="205" height="19"/>
                                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -1540,13 +1551,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="exercise name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEI-DG-vke">
                                                             <rect key="frame" x="13" y="12" width="105" height="15"/>
                                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="workout name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDV-6f-Ev4">
                                                             <rect key="frame" x="13" y="33" width="105" height="14"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbL-M6-GJb">
@@ -1555,13 +1566,13 @@
                                                                 <constraint firstAttribute="width" constant="60" id="HbX-eo-WEj"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stat label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRw-tx-b5U">
                                                             <rect key="frame" x="220" y="33" width="60" height="14"/>
                                                             <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="12"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jUM-A9-z27">
